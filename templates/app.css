@@ -1,0 +1,156 @@
+body {
+    width: 80%!important;
+    margin: 0px auto!important;
+    background-color: #1B3F52;
+    display: grid;
+    grid-auto-rows: minmax(125px, auto);
+    grid-gap: .5rem;
+  }
+
+  @media screen and (max-width: 1200px) and (min-width:200px) {
+    p {
+      font-size: 2em;
+    }
+
+    a {
+      top:10%;
+    }
+  }
+
+  @media screen and (min-width: 40em) {
+    .body {
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 2px;
+    }
+  }
+  
+  .secondTopText {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .fullWidth {
+    display: block;
+  }
+  
+  .center {
+    text-align: center;
+    margin: 0px auto;
+  }
+  
+  .projects {
+    position: relative;
+    display: block;
+    text-align: center;
+  }
+  
+  .projects .project {
+    background-color: #A5A6AC;
+    display: inline-block;
+    height: 150px;
+    margin: 5px;
+  }
+  
+  .projects .project p {
+    text-align: center;
+    margin-top: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  
+  .projects .project p a {
+    text-decoration: none;
+    color: #212121;
+  }
+  
+  p, ul {
+   font-size: 1.5em;
+   line-height: 1.4em;
+   color: #E0A18C;
+  }
+  
+  h1, h2, h3, h4 {
+   font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+   color: #E0A18C;
+  
+  }
+  
+  .typewriter, span.blink {
+   display: inline-block;
+  }
+  
+  .main-info span.blink h1 {
+   margin-left: 10px;
+   animation: blink;
+   animation-name: blink;
+   animation-timing-function: steps(1, end);
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+  }
+  
+  
+  
+  @keyframes blink {
+   100%, 50% {
+     opacity: 1;
+   }
+   0% {
+     opacity: 0;
+   }
+  }
+  
+  h1 {
+   font-size: 3em;
+  }
+  
+  h2 {
+   font-size: 2.7em;
+  }
+  
+  h3 {
+   font-size: 2.3em;
+  }
+  
+  h4 {
+   font-size: 1.9em;
+  }
+  
+  .post_list_title, .title_head {
+    color: #E0A18C;
+  }
+  
+  .new_post_link {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .post_list_title, .edit_link, .show_link {
+   display: inline-block;
+   list-style-type: none;
+   color: #E0A18C;
+  }
+  
+  a {
+    color: #E0A18C;
+    font-size: 1em;
+    text-decoration: none;
+  }
+  
+  footer {
+    position: relative;
+    height: 1em;
+    display: block;
+  
+   border-top: 1px solid #E0A18C;
+   font-size: .8em;
+  }
+  
+  footer a {
+    top:0px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #E0A18C;
+    display: block;
+  }
