@@ -5,15 +5,13 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
 use std::env;
+use std::fs;
 extern crate serde;
 #[macro_use]
 extern crate serde_derive;
 
 use serde_json::value::Value;
 
-extern crate simple_server;
-
-use simple_server::Server;
 
 #[macro_use]
 extern crate askama; // for the Template trait and custom derive macro
@@ -30,14 +28,20 @@ use askama::Template; // bring trait in scope
 // in your template                                 
 struct DataTemplate<'a> { 
     content: &'a str,
-    title: &'a str 
+    title: &'a str,
+    intro_text: &'a str,
+    project_one:&'a str,
+    project_two:&'a str,   
                    
 }
 
 #[derive(Serialize, Deserialize)]
 struct SiteData<'a> {
     content: &'a str,
-    title: &'a str
+    title: &'a str,
+    intro_text: &'a str,
+    project_one:&'a str, 
+    project_two:&'a str  
 }
    
 fn main() {
@@ -47,9 +51,13 @@ fn main() {
 
     let json: SiteData = serde_json::from_str(&data).unwrap();
 
-    let test_val = json.content;
+    let about_me = json.content;
     let my_title = json.title;
-    let data = DataTemplate { content: test_val, title: my_title }; // instantiate your struct
+    let intro = json.intro_text;
+    let project_one = json.project_one;
+    let project_two = json.project_two;
+    let data = DataTemplate { content: about_me, intro_text:intro, 
+    project_one:project_one, project_two:project_two, title: my_title }; // instantiate your struct
 
     let path = Path::new("./templates/index.html");
     let display = path.display();
@@ -70,18 +78,12 @@ fn main() {
         Ok(_) => println!("successfully wrote to {}", display),
     }
 
-    //let root = Path::new("./templates");
-    //assert!(env::set_current_dir(&root).is_ok());
-    //println!("Successfully changed working directory to {}!", root.display());
+    
+    fs::copy("./templates/index.html", "index.html");
+    println!("copied template to an index file in the root");
 
+    fs::remove_file("./templates/index.html");
+    println!("deleted un needed index file in the template folder");
 
-    /*let host = "127.0.0.1";
-    let port = "7878";
-
-    let server = Server::new(|request, mut response| {
-        Ok(response.body("Hello Rust!".as_bytes())?)
-    });
-
-    server.listen(host, port);*/
 
 }
