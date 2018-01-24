@@ -1,7 +1,15 @@
 {
-  "title":"Alex Strand",
-  "intro_text":"Hey, I'm Alex",
-  "project_one":"Daily Programmer app",
-  "project_two":"Static Site Generator",
-  "content":"My name is Alex Strand and I am currently working as a web developer. I play trombone, guitar and also practice Taekwondo. My interests include back end and front end development, as well as mobile(mostly android)."
+  "title": "Alex Strand",
+  "intro_text": "Hey, I'm Alex",
+  "project_one": "Daily Programmer app",
+  "link_one":
+    "A reactjs/express app that gives you a random submission from r/dailyprogrammer",
+  "project_two": "Static Site Generator",
+  "link_two":
+    "Pulls data from a json file that then constructs a static site, using Rust",
+  "project_three": "Taekwondo Patterns Android App",
+  "link_three":
+    "An android app that pulls data from json files, for all patterns in ITF Taekwondo",
+  "content":
+    "My name is Alex Strand and I am currently working as a web developer. I play trombone, guitar and also practice Taekwondo. Currently I'm into React Js, Styled Components,and Redux(on the front end) and Java(for android) and Rust on the backend."
 }

@@ -1,125 +1,140 @@
 body {
-    width: 80%!important;
-    margin: 0px auto!important;
-    background-color: #1A2433;
-    display:flex;
-    flex-wrap: wrap;
-  }
-  
-  .projects {
-    position: relative;
-    display: block;
-    text-align: center;
-    
-  }
-  
-  .projects .project {
-    width: 100%;
-    background-color: #A5A6AC;
-    height: 300px;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .projects .project p {
-    text-align: center;
-    margin-top: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  
-  .projects .project p a {
-    text-decoration: none;
-    color: #212121;
-  }
+  width: 80% !important;
+  margin: 0px auto !important;
+  background-color: #1a2433;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  /*@media only screen and (min-width: 401px) and (max-width: 960px) {
+.projects {
+  position: relative;
+  text-align: center;
+}
+
+.projects .project,
+.desc {
+  width: 100%;
+  height: 300px;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects .project {
+  display: flex;
+  background-color: #a5a6ac;
+}
+
+.desc {
+  display: none;
+  background-color: #355b6d;
+}
+
+.projects .project .desc p {
+  font-size: 1.5em;
+  margin-top: 4em;
+}
+
+.projects .project p {
+  text-align: center;
+  margin-top: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.projects .project p a {
+  text-decoration: none;
+  color: #212121;
+}
+
+/*@media only screen and (min-width: 401px) and (max-width: 960px) {
     .projects .project {
       width: 50%;
     }
   }*/
 
-  @media only screen and (min-width: 961px) {
-    .body {
-      width: 960px;
-      margin: 0 auto;
-    }
-    .projects {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .projects .project {
-      width: 33.3%;
-    }
+@media only screen and (min-width: 961px) {
+  .body {
+    width: 960px;
+    margin: 0 auto;
   }
-  
-  p, ul {
-   font-size: 2em;
-   line-height: 1.2em;
-   color: #E0A18C;
+  .projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  
-  h1 {
-   font-family: 'Helvetica', 'Arial', 'Sans-Serif';
-   color: #E0A18C;
-  
+  .projects .project {
+    width: 33.3%;
   }
+}
 
-  h1, .headWrapper {
-    text-align: center;
-   }
+p,
+ul {
+  font-size: 2em;
+  line-height: 1.2em;
+  color: #e0a18c;
+}
 
-  h1 {
-    font-size: 3em;
-   }
-  
-  .typewriter, span.blink {
-   display: inline-block;
+h1 {
+  font-family: "Helvetica", "Arial", "Sans-Serif";
+  color: #e0a18c;
+}
+
+h1,
+.headWrapper {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.typewriter,
+span.blink {
+  display: inline-block;
+}
+
+.main-info span.blink h1 {
+  margin-left: 10px;
+  animation: blink;
+  animation-name: blink;
+  animation-timing-function: steps(1, end);
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+  100%,
+  50% {
+    opacity: 1;
   }
-  
-  .main-info span.blink h1 {
-   margin-left: 10px;
-   animation: blink;
-   animation-name: blink;
-   animation-timing-function: steps(1, end);
-   animation-duration: 1s;
-   animation-iteration-count: infinite;
+  0% {
+    opacity: 0;
   }
-  
-  @keyframes blink {
-   100%, 50% {
-     opacity: 1;
-   }
-   0% {
-     opacity: 0;
-   }
-  }
-  
-  a {
-    color: #E0A18C;
-    font-size: 1em;
-    text-decoration: none;
-  }
-  
-  footer {
-    width:100%;
-    position: relative;
-    height: 1em;
-    display: block;
-  
-   border-top: 1px solid #E0A18C;
-   font-size: .8em;
-  }
-  
-  footer a {
-    top:0px;
-    margin: 0px;
-    padding: 0px;
-    font-size: 2em;
-    text-decoration: none;
-    color: #E0A18C;
-    display: block;
-  }
+}
+
+a {
+  color: #e0a18c;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+footer {
+  width: 100%;
+  position: relative;
+  height: 1em;
+  display: block;
+
+  border-top: 1px solid #e0a18c;
+  font-size: 0.8em;
+}
+
+footer a {
+  top: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-size: 2em;
+  text-decoration: none;
+  color: #e0a18c;
+  display: block;
+}
