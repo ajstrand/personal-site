@@ -32,12 +32,21 @@ body {
   margin: 0px;
 }
 
+.project .desc p {
+  margin-top: 2.5em;
+  margin: 0.5em;
+}
+
+.projects .project,
 .projects .project .desc p {
   font-size: 1.5em;
+}
+
+.projects .project {
   margin-top: 4em;
 }
 
-.projects .project p {
+.projects .project > p {
   text-align: center;
   margin-top: 2em;
   padding-left: 1em;
@@ -96,6 +105,9 @@ h3 {
   .projects .project {
     width: 50%;
   }
+  .project .desc p {
+    margin-top: 1em;
+  }
 }
 
 @media only screen and (min-width: 80em) {
@@ -116,6 +128,9 @@ h3 {
   }
   .projects .project {
     width: 33.3%;
+  }
+  .projects .project .desc p {
+    margin-top: 4em;
   }
 }
 
