@@ -1,31 +1,31 @@
 .header-cont {
-    width: 100%;
-    height: 4em;
-    top: 0;
-    left: 0;
-    position: relative;
-    background: #A5A6AC;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .header-cont a {
-    font-size: 2em;
-    margin-left: 5%;
-    margin-right: 5%;
-    color: #000000;
-    top: 0.5em;
-    position: relative;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  .header-cont a:hover {
-    text-decoration: none;
-  }
+  width: 100%;
+  height: 4em;
+  top: 0;
+  left: 0;
+  position: relative;
+  background: #a5a6ac;
+  margin: 0 auto;
+  text-align: center;
+}
 
-  @media only screen and (min-width: 961px) {
-    .header-cont {
-      height: 70px;
-    }
+.header-cont a {
+  font-size: 2em;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #000000;
+  top: 0.5em;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.header-cont a:hover {
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 80em) {
+  .header-cont {
+    height: 4.3em;
   }
+}

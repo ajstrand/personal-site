@@ -1,6 +1,6 @@
 body {
-  width: 80% !important;
-  margin: 0px auto !important;
+  width: 90%;
+  margin: 0px auto;
   background-color: #1a2433;
   display: flex;
   flex-wrap: wrap;
@@ -28,6 +28,8 @@ body {
 .desc {
   display: none;
   background-color: #355b6d;
+  width: 100%;
+  margin: 0px;
 }
 
 .projects .project .desc p {
@@ -47,15 +49,64 @@ body {
   color: #212121;
 }
 
-/*@media only screen and (min-width: 401px) and (max-width: 960px) {
-    .projects .project {
-      width: 50%;
-    }
-  }*/
+p,
+ul {
+  font-size: 2em;
+  line-height: 1.2em;
+  color: #e0a18c;
+}
 
-@media only screen and (min-width: 961px) {
+h1,
+h2,
+h3 {
+  font-family: "Helvetica", "Arial", "Sans-Serif";
+  color: #e0a18c;
+}
+
+h1,
+h2,
+.headWrapper {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 2.2em;
+}
+
+@media only screen and (min-width: 65.5em) and (max-width: 80em) {
+  h2 {
+    font-size: 3em;
+  }
+  h3 {
+    font-size: 2.8em;
+  }
+  .projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .projects .project {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 80em) {
+  h2 {
+    font-size: 3em;
+  }
+  h3 {
+    font-size: 2.8em;
+  }
   .body {
-    width: 960px;
+    width: 80%;
     margin: 0 auto;
   }
   .projects {
@@ -68,33 +119,12 @@ body {
   }
 }
 
-p,
-ul {
-  font-size: 2em;
-  line-height: 1.2em;
-  color: #e0a18c;
-}
-
-h1 {
-  font-family: "Helvetica", "Arial", "Sans-Serif";
-  color: #e0a18c;
-}
-
-h1,
-.headWrapper {
-  text-align: center;
-}
-
-h1 {
-  font-size: 3em;
-}
-
 .typewriter,
 span.blink {
   display: inline-block;
 }
 
-.main-info span.blink h1 {
+.main-info span.blink h3 {
   margin-left: 10px;
   animation: blink;
   animation-name: blink;
