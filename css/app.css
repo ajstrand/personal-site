@@ -39,7 +39,7 @@ body {
 
 .projects .project,
 .projects .project .desc p {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .projects .project {
@@ -130,7 +130,8 @@ h3 {
     width: 33.3%;
   }
   .projects .project .desc p {
-    margin-top: 4em;
+    margin-top: 1.5em;
+    font-size: 1.2em;
   }
 }
 
