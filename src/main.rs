@@ -4,7 +4,8 @@ use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
-use std::env;
+extern crate comrak;
+
 use std::fs;
 extern crate serde;
 #[macro_use]
@@ -51,6 +52,7 @@ struct SiteData<'a> {
 }
 
 fn main() {
+    create_posts();
     let mut file = File::open("./data.json").unwrap();
     let mut data = String::new();
     file.read_to_string(&mut data).unwrap();
@@ -97,4 +99,45 @@ fn main() {
 
     fs::remove_file("./templates/index.html");
     println!("deleted un needed index file in the template folder");
+}
+
+fn create_posts() {
+    let postPaths = fs::read_dir("./postTemplates").unwrap();
+
+    for path in postPaths {
+        let newPath = Path::new(path);
+        create_post(newPath)
+    }
+    println!("you created a a post. great job!");
+}
+
+fn create_post(newPath: std::path::Path) {
+    use comrak::{markdown_to_html, ComrakOptions};
+
+    let mut file = File::open(curPath).unwrap();
+
+    let mut data = String::new();
+    file.read_to_string(&mut data).unwrap();
+
+    let test = markdown_to_html(&data, &ComrakOptions::default());
+    println!("{}", test);
+
+    let path = Path::new("./templates/post.html");
+    let display = path.display();
+
+    let mut file = match File::create(&path) {
+        Err(why) => panic!("couldn't create {}: {}", display, why.description()),
+        Ok(file) => file,
+    };
+
+    match file.write_all(test.as_bytes()) {
+        Err(why) => panic!("couldn't write to {}: {}", display, why.description()),
+        Ok(_) => println!("successfully wrote to {}", display),
+    }
+
+    fs::copy("./templates/post.html", "post.html");
+    println!("copied template to a markdown file in the root");
+
+    fs::remove_file("./templates/post.html");
+    println!("deleted un needed markdown file in the template folder");
 }
