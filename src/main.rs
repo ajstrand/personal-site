@@ -53,6 +53,10 @@ struct SiteData<'a> {
 
 fn main() {
     create_posts();
+    create_site_with_template_data();
+}
+
+fn create_site_with_template_data() {
     let mut file = File::open("./data.json").unwrap();
     let mut data = String::new();
     file.read_to_string(&mut data).unwrap();
@@ -102,27 +106,27 @@ fn main() {
 }
 
 fn create_posts() {
-    let postPaths = fs::read_dir("./postTemplates").unwrap();
+    let post_paths = fs::read_dir("./postTemplates").unwrap();
 
-    for path in postPaths {
-        let newPath = Path::new(path);
-        create_post(newPath)
+    for path in post_paths {
+        let my_path = &path.unwrap().path();
+        let new_path = Path::new(my_path);
+        create_post(new_path)
     }
-    println!("you created a a post. great job!");
+    println!("added all posts");
 }
 
-fn create_post(newPath: std::path::Path) {
+fn create_post(new_path: &std::path::Path) {
     use comrak::{markdown_to_html, ComrakOptions};
 
-    let mut file = File::open(curPath).unwrap();
+    let mut file = File::open(new_path).unwrap();
 
     let mut data = String::new();
     file.read_to_string(&mut data).unwrap();
 
-    let test = markdown_to_html(&data, &ComrakOptions::default());
-    println!("{}", test);
+    let new_post = markdown_to_html(&data, &ComrakOptions::default());
 
-    let path = Path::new("./templates/post.html");
+    let path = Path::new("./templates/my_first_post.html");
     let display = path.display();
 
     let mut file = match File::create(&path) {
@@ -130,14 +134,14 @@ fn create_post(newPath: std::path::Path) {
         Ok(file) => file,
     };
 
-    match file.write_all(test.as_bytes()) {
+    match file.write_all(new_post.as_bytes()) {
         Err(why) => panic!("couldn't write to {}: {}", display, why.description()),
         Ok(_) => println!("successfully wrote to {}", display),
     }
 
-    fs::copy("./templates/post.html", "post.html");
+    fs::copy("./templates/my_first_post.html", "my_first_post.html");
     println!("copied template to a markdown file in the root");
 
-    fs::remove_file("./templates/post.html");
+    fs::remove_file("./templates/my_first_post.html");
     println!("deleted un needed markdown file in the template folder");
 }

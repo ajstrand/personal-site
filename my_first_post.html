@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>{{title}}</title>
+  <link href="css/app.css" rel="stylesheet" />
+  <link href="css/header.css" rel="stylesheet" />
+  <link href="css/post.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="header-cont">
+    <a href="index.html">Home</a>
+    <a href="cv.html">Resume</a>
+    <a href="posts.html">Posts</a>
+  </nav>
 <h1>Learning Rust</h1>
 <p>I wanted to learn rust, a systems programming language developed by MOzilla.
 The only problem was that I was struggling for ideas for projects.</p>
@@ -11,7 +26,7 @@ capabilities.</p>
 <p>Learning Rust has been one of the more interesting things I have done in a while. It's interesting approaches to how it deals with memory management and mutable variables make it quite the challenging language to someone coming from doing a lot of JavaScript/es6/React. Having not touched much Java since college, a typed language is rather refreshing.</p>
 <p>I wanted to point out some tricky concepts for those also learning Rust that also confused me(and still do sometimes).</p>
 <p>The <code>&lt;'a&gt;</code> is what's known as a lifetime specifier. In Rust, the language is very careful about what it will let you do in regards to reusing variables all over the place. The lifetime specifier tells Rust how long you want the variable to last.</p>
-<p>Lifetimes are also part of Rust's borrowing checking. IN Rust, you have to borrow variables you want to use in a function or in some other activity. Using <code>&amp;</code> means you're borrowing a variable. In the case below, I'm borrowing the strings used for the data in my static site.</p>
+<p>Lifetimes are also part of Rust's borrowing checking. In Rust, you have to borrow variables you want to use in a function or in some other activity. Using <code>&amp;</code> means you're borrowing a variable. In the case below, I'm borrowing the strings used for the data in my static site.</p>
 <pre><code class="language-rust">struct SiteData&lt;'a&gt; {
     content: &amp;'a str,
     title: &amp;'a str,
@@ -21,5 +36,5 @@ capabilities.</p>
     project_three: &amp;'a str,
     link_one: &amp;'a str,
     link_two: &amp;'a str,
-    link_three: &amp;'a str, }```
+    link_three: &amp;'a str }
 </code></pre>
