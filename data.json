@@ -6,7 +6,7 @@
     "A reactjs/express app that gives you a random submission from r/dailyprogrammer",
   "project_two": "Static Site Generator",
   "link_two":
-    "Pulls data from a json file that then constructs a static site, using Rust",
+    "Pulls data from a json file that then constructs this static site, using Rust",
   "project_three": "Taekwondo Patterns Android App",
   "link_three":
     "An android app that pulls data from json files, for all patterns in ITF Taekwondo",
