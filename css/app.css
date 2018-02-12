@@ -33,8 +33,9 @@ body {
 }
 
 .project .desc p {
-  margin-top: 2.5em;
-  margin: 0.5em;
+  margin-top: 0.7em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .projects .project,
@@ -106,7 +107,7 @@ h3 {
     width: 50%;
   }
   .project .desc p {
-    margin-top: 1em;
+    margin-top: 4em;
   }
 }
 
