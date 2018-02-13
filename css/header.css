@@ -22,16 +22,7 @@
   text-decoration: none;
 }
 
-@media only screen and (min-width: 80em) {
-  .header-cont {
-    height: 4em;
-  }
-  .header-cont a {
-    display: inline-block;
-  }
-}
-
-@media only screen and (min-width: 40.5em) and (max-width: 80em) {
+@media only screen and (min-width: 40.5em) {
   .header-cont {
     height: 4em;
   }
