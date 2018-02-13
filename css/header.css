@@ -1,11 +1,9 @@
 .header-cont {
   width: 100%;
-  height: 4em;
+  height: 9em;
   top: 0;
   left: 0;
   position: relative;
-  background: #a5a6ac;
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -13,11 +11,11 @@
   font-size: 2em;
   margin-left: 5%;
   margin-right: 5%;
-  color: #000000;
+  color: #e0a18c;
   top: 0.5em;
   position: relative;
   text-decoration: none;
-  display: inline-block;
+  display: block;
 }
 
 .header-cont a:hover {
@@ -26,6 +24,18 @@
 
 @media only screen and (min-width: 80em) {
   .header-cont {
-    height: 4.3em;
+    height: 4em;
+  }
+  .header-cont a {
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 40.5em) and (max-width: 80em) {
+  .header-cont {
+    height: 4em;
+  }
+  .header-cont a {
+    display: inline-block;
   }
 }
