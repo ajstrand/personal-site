@@ -16,25 +16,6 @@ function type() {
   });
 }
 
-function toggleDescriptions() {
-  var $project = $(".projects .project");
-  var $desc = $(".desc");
-  $project.on("click", function() {
-    for (let i = 0; i < $desc.length; i++) {
-      const element = $desc[i];
-      $(element).css("display", "none");
-    }
-    var currentDesc = parseInt($(this).attr("data"));
-
-    if ($($desc[currentDesc]).css("display") === "block") {
-      $($desc[currentDesc]).css("display", "none");
-    } else {
-      $($desc[currentDesc]).css("display", "block");
-    }
-  });
-}
-
 $(document).on("ready", function() {
   type();
-  toggleDescriptions();
 });
