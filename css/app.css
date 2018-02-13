@@ -11,6 +11,13 @@ body {
   text-align: center;
 }
 
+.projects .columnCont {
+  width: 100%;
+  height: 630px;
+  display: flex;
+  flex-direction: column;
+}
+
 .projects .project,
 .desc {
   width: 100%;
@@ -18,27 +25,26 @@ body {
   margin: 5px;
   justify-content: center;
   align-items: center;
+  display: block;
 }
 
 .projects .project {
   display: flex;
-  background-color: #a5a6ac;
 }
 
 .desc {
-  display: none;
-  background-color: #355b6d;
   width: 100%;
   margin: 0px;
 }
 
-.project .desc p {
-  margin-top: 2.5em;
-  margin: 0.5em;
+.desc p {
+  margin-top: 0.7em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .projects .project,
-.projects .project .desc p {
+.desc p {
   font-size: 1.3em;
 }
 
@@ -55,7 +61,7 @@ body {
 
 .projects .project p a {
   text-decoration: none;
-  color: #212121;
+  color: #e0a18c;
 }
 
 p,
@@ -102,11 +108,12 @@ h3 {
     justify-content: center;
     align-items: center;
   }
-  .projects .project {
+  .projects .project,
+  .projects .desc {
     width: 50%;
   }
-  .project .desc p {
-    margin-top: 1em;
+  .projects .desc p {
+    margin-top: 4em;
   }
 }
 
@@ -126,10 +133,13 @@ h3 {
     justify-content: center;
     align-items: center;
   }
-  .projects .project {
-    width: 33.3%;
+  .projects .project,
+  .projects .desc {
+    width: 90%;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
   }
-  .projects .project .desc p {
+  .projects .desc p {
     margin-top: 1.5em;
     font-size: 1.2em;
   }
