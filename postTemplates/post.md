@@ -20,7 +20,7 @@
 
 # Learning Rust
 
-I wanted to learn rust, a systems programming language developed by MOzilla.
+I wanted to learn rust, a systems programming language developed by Mozilla.
 The only problem was that I was struggling for ideas for projects.
 
 I came across a post on Reddit about a guy recommending that people should
@@ -39,7 +39,7 @@ Learning Rust has been one of the more interesting things I have done in a while
 
 I wanted to point out some tricky concepts for those also learning Rust that also confused me(and still do sometimes).
 
-The `<'a>` is what's known as a lifetime specifier. In Rust, the language is very careful about what it will let you do in regards to reusing variables all over the place. The lifetime specifier tells Rust how long you want the variable to last.
+The `<'a>` is what's known as a lifetime construct. In Rust, the language is very careful about what it will let you do in regards to reusing variables all over the place. The lifetime construct tells Rust how long you want the variable to last.
 
 Lifetimes are also part of Rust's borrowing checking. In Rust, you have to borrow variables you want to use in a function or in some other activity. Using `&` means you're borrowing a variable. In the case below, I'm borrowing the strings used for the data in my static site.
 
