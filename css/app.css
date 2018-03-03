@@ -56,7 +56,7 @@ body {
 }
 
 .projects .project p a {
-  text-decoration: none;
+  text-decoration: underline;
   color: #e0a18c;
 }
 
