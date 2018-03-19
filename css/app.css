@@ -2,7 +2,10 @@ body {
   width: 90%;
   margin: 0px auto;
   background-color: #1a2433;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
@@ -14,7 +17,12 @@ body {
 .projects .columnCont {
   width: 100%;
   height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -23,11 +31,17 @@ body {
   width: 100%;
   height: 150px;
   margin-bottom: 1em;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .projects .project {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -100,8 +114,14 @@ h3 {
     font-size: 2.8em;
   }
   .projects {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
   .projects .project,
@@ -125,8 +145,14 @@ h3 {
     margin: 0 auto;
   }
   .projects {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
   .projects .project,
@@ -147,11 +173,26 @@ span.blink {
 
 .main-info span.blink h3 {
   margin-left: 10px;
+  -webkit-animation: blink;
   animation: blink;
+  -webkit-animation-name: blink;
   animation-name: blink;
+  -webkit-animation-timing-function: steps(1, end);
   animation-timing-function: steps(1, end);
+  -webkit-animation-duration: 1s;
   animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes blink {
+  100%,
+  50% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
 }
 
 @keyframes blink {
