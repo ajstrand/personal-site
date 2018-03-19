@@ -10,7 +10,5 @@
   "project_three": "Taekwondo Patterns Android App",
   "link_three":
     "An android app that pulls data from json files, for all patterns in ITF Taekwondo",
-  "content": "My name is Alex Strand and I am currently working as a Web Developer. I play trombone, guitar and also practice Taekwondo. 
-
-  On the front end, I love working with  React, Styled Components,and Redux. On the backend side of things,  I'm using Java/Kotlin(for Android App development) and Rust."
+  "content": "My name is Alex Strand and I am currently working as a Web Developer. I play trombone, guitar and also practice Taekwondo. On the front end, I love working with  React, Styled Components,and Redux. On the backend side of things,  I'm using Java/Kotlin(for Android App development) and Rust."
 }
