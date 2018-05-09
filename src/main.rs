@@ -33,9 +33,11 @@ struct DataTemplate<'a> {
     project_one: &'a str,
     project_two: &'a str,
     project_three: &'a str,
+    project_four: &'a str,
     link_one: &'a str,
     link_two: &'a str,
     link_three: &'a str,
+    link_four: &'a str,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -46,9 +48,12 @@ struct SiteData<'a> {
     project_one: &'a str,
     project_two: &'a str,
     project_three: &'a str,
+    project_four: &'a str,
     link_one: &'a str,
     link_two: &'a str,
     link_three: &'a str,
+    link_four: &'a str,
+
 }
 
 fn main() {
@@ -69,9 +74,12 @@ fn create_site_with_template_data() {
     let project_one = json.project_one;
     let project_two = json.project_two;
     let project_three = json.project_three;
+    let project_four = json.project_four;
+
     let link_one = json.link_one;
     let link_two = json.link_two;
     let link_three = json.link_three;
+    let link_four = json.link_four;
 
     let data = DataTemplate {
         content: about_me,
@@ -79,9 +87,11 @@ fn create_site_with_template_data() {
         project_one: project_one,
         project_two: project_two,
         project_three: project_three,
+        project_four: project_four,
         link_one: link_one,
         link_two: link_two,
         link_three: link_three,
+        link_four: link_four,
         title: my_title,
     }; // instantiate your struct
 
