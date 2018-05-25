@@ -1,0 +1,183 @@
+%-------------------------
+% Resume in Latex
+% Author : Alex Strand
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    \textbf{#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{site}{\Large My name}} & Email : \href{email}{my gmail}\\
+  \href{my site}{my site} & Cell : 555-555-5555 \\
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University}{some state}
+      {BA in Computer Science }{September 2011 - May 2015}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {first company}{place}
+      {Software Developer}{Sept. 2015 - Present}
+      \resumeItemListStart
+\resumeItem 
+{Working with co-workers to rebuild our jQuery SPA framework in React/Webpack/Redux instead of jQuery/Grunt.
+ React will allow us to manage state better and avoid side effects in our application.}
+        \resumeItem
+          {Work with a team to develop SPA apps for clients.}
+        \resumeItem
+          {Worked with  a team of developers to updates and add features to internal Node JS applications for our development team}
+      \resumeItemListEnd
+
+
+   \resumeSubheading
+   {second company}{place}
+   {IT Support Technician Intern}{May 2013 -- August 2013}
+   \resumeItemListStart
+   \resumeItem
+    { Used backup software for images. Configured new installations of Windows 7.}
+  
+     \resumeItem
+     { Worked as part of a team of 3, troubleshoot issues with users. }
+
+\resumeItem 
+{Worked with individuals at different levels within the company}
+\resumeItemListEnd
+
+
+   \resumeSubheading{uviversity}{some state}
+{Computer Operator}{August 2014 -- May 2015}
+
+   \resumeItemListStart
+   \resumeItem {Operated computer system and gave shows for groups of up to 50 people.}
+
+\resumeItem{ Wrote scripts and user documentation for the Digistar 3 projection software (in their properietary scripting language)}
+\resumeItem { The user documentation would allow future students to further expand on my initial efforts to script the lookup and display of constellations for planatrium shows}
+
+\resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+
+  \resumeSubHeadingListStart
+\resumeSubItem {ITF Taekwondo App}
+{A reference app for android that lists all of the patterns in ITF Taekwondo for easy lookup. }
+
+\resumeSubItem{Daily Programmer Challange App}
+{A React/Express web app that pulls a random challenge from r/dailyprogrammer on Reddit}
+{Utilizes a javascript wrapper for Reddit's API(snoowrap)}
+
+\resumeSubItem{Wallpaper viewer App}
+{A React/Express web app lets you view wallpapers from r/wallpapers)}
+
+
+\resumeSubItem {Personal Site/blog}
+ {A personal site and blog with a static generator that I developed written in Rust}
+
+
+\resumeSubItem {Client server game}
+ {Game written for univiersity geology department.
+The purpose of this project(and the class) was to learn how to effectively work within a team of developers
+Worked with a legacy a Java client/server game built by a previous class.
+Managed and estimated time requirements for new features.
+ Contributed to documentation and finding tools to use.
+ Tested new features}
+
+
+  \resumeSubHeadingListEnd
+
+
+%--------PROGRAMMING SKILLS------------
+\section{Languages and Technologies}
+ \resumeSubHeadingListStart
+ \item{
+ \textbf{Languages}{: Javascript, HTML, CSS, Java}
+ \hfill
+\textbf{Technologies}{: React, Webpack, Jquery, Postgres SQL}
+\textbf{Operating systems}{: Windows, MacOS, Linux}
+}
+ \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
