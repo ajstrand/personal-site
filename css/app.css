@@ -1,12 +1,18 @@
+:root {
+  --text-color: #334162;
+  --background: #ffffff;
+}
+
 body {
   width: 90%;
   margin: 0px auto;
-  background-color: #1a2433;
+  background-color: var(--background, #ffffff);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  font-family: 'Roboto', sans-serif;
 }
 
 .projects {
@@ -70,22 +76,24 @@ body {
 }
 
 .projects .project p a {
+  color: var(--text-color, #334162);
+}
+
+.projects .project p a:hover {
   text-decoration: underline;
-  color: #e0a18c;
 }
 
 p,
 ul {
   font-size: 2em;
   line-height: 1.2em;
-  color: #e0a18c;
+  color: var(--text-color, #334162);
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Helvetica", "Arial", "Sans-Serif";
-  color: #e0a18c;
+  color: var(--text-color, #334162);
 }
 
 h1,
@@ -206,7 +214,7 @@ span.blink {
 }
 
 a {
-  color: #e0a18c;
+  color: var(--text-color, #334162);
   font-size: 1em;
   text-decoration: none;
 }
@@ -216,8 +224,7 @@ footer {
   position: relative;
   height: 3em;
   display: block;
-
-  border-top: 1px solid #e0a18c;
+  border-top: 1px solid var(--text-color, #334162);
 }
 
 footer a {
@@ -226,6 +233,6 @@ footer a {
   padding: 0px;
   font-size: 2em;
   text-decoration: none;
-  color: #e0a18c;
+  color: var(--text-color, #334162);
   display: inline-block;
 }
