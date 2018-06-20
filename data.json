@@ -1,16 +1,17 @@
 {
   "title": "Alex Strand",
   "intro_text": "Hey, I'm Alex",
-  "project_one": "Daily Programmer app",
+  "project_link_one":"https://github.com/ajstrand/dailyProgrammerReactApp",
+  "project_link_two":"https://github.com/ajstrand/personal-site",
+  "project_link_three":"https://github.com/ajstrand/ITF_Patterns",
+  "project_link_four":"https://github.com/ajstrand/wallpaper-viewer",
+
   "link_one":
     "A reactjs/express app that gives you a random submission from r/dailyprogrammer",
-  "project_two": "Static Site Generator",
   "link_two":
     "Pulls data from a json file that then constructs this static site, using Rust",
-  "project_three": "Taekwondo Patterns Android App",
   "link_three":
     "An android app that pulls data from json files, for all patterns in ITF Taekwondo",
-    "project_four": "Wallpaper Viewer",
     "link_four":
       "Grabs data from the reddit api, allows user to view wallpapers from r/wallpapers",
   "content": "My name is Alex Strand and I am currently working as a Web Developer. I play trombone, guitar and also practice Taekwondo. On the front end, I love working with  React, Styled Components, and Redux. On the backend side of things,  I'm using Java/Kotlin(for Android App development) and Rust."

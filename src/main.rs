@@ -1,12 +1,14 @@
-extern crate serde_json;
 use std::string::String;
 use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
+use std::fs;
+
+extern crate serde_json;
+
 extern crate comrak;
 
-use std::fs;
 extern crate serde;
 #[macro_use]
 extern crate serde_derive;
@@ -30,10 +32,10 @@ struct DataTemplate<'a> {
     content: &'a str,
     title: &'a str,
     intro_text: &'a str,
-    project_one: &'a str,
-    project_two: &'a str,
-    project_three: &'a str,
-    project_four: &'a str,
+    project_link_one:&'a str,
+    project_link_two:&'a str,
+    project_link_three:&'a str,
+    project_link_four:&'a str,
     link_one: &'a str,
     link_two: &'a str,
     link_three: &'a str,
@@ -44,11 +46,11 @@ struct DataTemplate<'a> {
 struct SiteData<'a> {
     content: &'a str,
     title: &'a str,
+    project_link_one:&'a str,
+    project_link_two:&'a str,
+    project_link_three:&'a str,
+    project_link_four:&'a str,
     intro_text: &'a str,
-    project_one: &'a str,
-    project_two: &'a str,
-    project_three: &'a str,
-    project_four: &'a str,
     link_one: &'a str,
     link_two: &'a str,
     link_three: &'a str,
@@ -71,10 +73,12 @@ fn create_site_with_template_data() {
     let about_me = json.content;
     let my_title = json.title;
     let intro = json.intro_text;
-    let project_one = json.project_one;
-    let project_two = json.project_two;
-    let project_three = json.project_three;
-    let project_four = json.project_four;
+
+    let project_link_one = json.project_link_one;
+    let project_link_two = json.project_link_two;
+    let project_link_three = json.project_link_three;
+    let project_link_four = json.project_link_four;
+
 
     let link_one = json.link_one;
     let link_two = json.link_two;
@@ -84,10 +88,10 @@ fn create_site_with_template_data() {
     let data = DataTemplate {
         content: about_me,
         intro_text: intro,
-        project_one: project_one,
-        project_two: project_two,
-        project_three: project_three,
-        project_four: project_four,
+        project_link_one,
+        project_link_two,
+        project_link_three,
+        project_link_four,
         link_one: link_one,
         link_two: link_two,
         link_three: link_three,
