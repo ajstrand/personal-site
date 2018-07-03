@@ -75,11 +75,11 @@ body {
   margin-top: 0.5em;
 }
 
-.projects .project p a {
+.projects .project a {
   color: var(--text-color, #334162);
 }
 
-.projects .project p a:hover {
+.projects .project a:hover {
   text-decoration: underline;
 }
 
