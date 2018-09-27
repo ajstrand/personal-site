@@ -9,10 +9,10 @@
   "link_one":
     "A reactjs/express app that gives you a random submission from r/dailyprogrammer",
   "link_two":
-    "Pulls data from a json file that then constructs this static site, using Rust",
+    "Static site generator that pulls data from a json file that then constructs this static site, using Rust",
   "link_three":
     "An android app that pulls data from json files, for all patterns in ITF Taekwondo",
     "link_four":
-      "Grabs data from the reddit api, allows user to view wallpapers from r/wallpapers",
-  "content": "My name is Alex Strand and I am currently working as a Web Developer. I play trombone, guitar and also practice Taekwondo. On the front end, I love working with  React, Styled Components, and Redux. On the backend side of things,  I'm using Java/Kotlin(for Android App development) and Rust."
-}
+      "A reactjs/express app that grabs data from the reddit api, allows user to view wallpapers from r/wallpapers",
+      "content": "My name is Alex Strand and I am currently working as a Backend/Infrastructure Engineer @OCLC. Previously I worked at Root Inc as a web developer. I play trombone, guitar and also practice Taekwondo. On the front end, I love working with  React, Styled Components, and Redux. On the backend side of things,  I'm using Java/Kotlin(for Android App development) and Rust."
+    }
