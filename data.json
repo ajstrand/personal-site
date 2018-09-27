@@ -14,5 +14,9 @@
     "An android app that pulls data from json files, for all patterns in ITF Taekwondo",
     "link_four":
       "A reactjs/express app that grabs data from the reddit api, allows user to view wallpapers from r/wallpapers",
-      "content": "My name is Alex Strand and I am currently working as a Backend/Infrastructure Engineer @OCLC. Previously I worked at Root Inc as a web developer. I play trombone, guitar and also practice Taekwondo. On the front end, I love working with  React, Styled Components, and Redux. On the backend side of things,  I'm using Java/Kotlin(for Android App development) and Rust."
+      "company_desc":"currently working as a Backend/Infrastructure Engineer @OCLC",
+      "company_name":"https://oclc.org",
+      "company_two_desc":" Previously I worked @Root Inc as a Software Developer.",
+      "company_two_name":"https://rootinc.com",
+      "content": "I play trombone, guitar and also practice Taekwondo. On the front end, I love working with  React, Styled Components, and Redux. On the backend side of things,  I'm using Java/Kotlin(for Android App development) and Rust."
     }

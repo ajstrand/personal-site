@@ -40,6 +40,10 @@ struct DataTemplate<'a> {
     link_two: &'a str,
     link_three: &'a str,
     link_four: &'a str,
+    company_desc:&'a str,
+    company_name:&'a str,
+    company_two_desc:&'a str,
+    company_two_name:&'a str
 }
 
 #[derive(Serialize, Deserialize)]
@@ -55,6 +59,10 @@ struct SiteData<'a> {
     link_two: &'a str,
     link_three: &'a str,
     link_four: &'a str,
+    company_desc:&'a str,
+    company_name:&'a str,
+    company_two_desc:&'a str,
+    company_two_name:&'a str
 
 }
 
@@ -70,33 +78,22 @@ fn create_site() {
 
     let json: SiteData = serde_json::from_str(&data).unwrap();
 
-    let about_me = json.content;
-    let my_title = json.title;
-    let intro = json.intro_text;
-
-    let project_link_one = json.project_link_one;
-    let project_link_two = json.project_link_two;
-    let project_link_three = json.project_link_three;
-    let project_link_four = json.project_link_four;
-
-
-    let link_one = json.link_one;
-    let link_two = json.link_two;
-    let link_three = json.link_three;
-    let link_four = json.link_four;
-
     let data = DataTemplate {
-        content: about_me,
-        intro_text: intro,
-        project_link_one,
-        project_link_two,
-        project_link_three,
-        project_link_four,
-        link_one: link_one,
-        link_two: link_two,
-        link_three: link_three,
-        link_four: link_four,
-        title: my_title,
+        content: json.content,
+        intro_text: json.intro_text,
+        project_link_one:json.project_link_one,
+        project_link_two:json.project_link_two,
+        project_link_three:json.project_link_three,
+        project_link_four:json.project_link_four,
+        link_one: json.link_one,
+        link_two: json.link_two,
+        link_three: json.link_three,
+        link_four: json.link_four,
+        title: json.title,
+        company_desc:json.company_desc,
+        company_name:json.company_name,
+        company_two_desc:json.company_two_desc,
+        company_two_name: json.company_two_name
     }; // instantiate your struct
 
     let path = Path::new("./templates/index.html");
