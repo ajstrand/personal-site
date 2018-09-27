@@ -71,9 +71,14 @@ body {
 
 .projects .project a {
   color: var(--text-color, #334162);
+  text-decoration: none;
 }
 
 .projects .project a:hover {
+  text-decoration: underline;
+}
+
+a.link {
   text-decoration: underline;
 }
 
@@ -200,7 +205,6 @@ span.blink {
 a {
   color: var(--text-color, #334162);
   font-size: 1em;
-  text-decoration: none;
 }
 
 footer {
