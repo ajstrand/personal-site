@@ -1,10 +1,22 @@
 :root {
   --text-color: #334162;
   --background: #ffffff;
+
+  /*dark mode colors*/
+  --dark-background: #252120;
+  --dark-mode-text: #e5dfc5;
+}
+
+.darkModeText {
+  color: var(--dark-mode-text, #e5dfc5) !important;
+}
+
+.darkBackground {
+  background-color: var(--dark-background, #252120) !important;
 }
 
 body {
-  width: 90%;
+  width: 100%;
   margin: 0px auto;
   background-color: var(--background, #ffffff);
   display: -webkit-box;
@@ -12,7 +24,14 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-family: "Roboto", sans-serif;
+}
+
+.contentWrapper {
+  width: 90%;
 }
 
 .projects {
@@ -117,9 +136,11 @@ h3 {
   h2 {
     font-size: 3em;
   }
+
   h3 {
     font-size: 2.8em;
   }
+
   .projects {
     height: 16em;
     padding-bottom: 2em;
@@ -128,6 +149,7 @@ h3 {
     -ms-flex-direction: row;
     flex-direction: row;
   }
+
   .projects .desc p {
     margin-top: 4em;
   }
@@ -137,13 +159,16 @@ h3 {
   h2 {
     font-size: 3em;
   }
+
   h3 {
     font-size: 2.8em;
   }
+
   .body {
     width: 80%;
     margin: 0 auto;
   }
+
   .projects {
     height: 16em;
     padding-bottom: 2em;
@@ -152,12 +177,14 @@ h3 {
     -ms-flex-direction: row;
     flex-direction: row;
   }
+
   .projects .project,
   .projects .desc {
     width: 90%;
     margin-left: 0.2em;
     margin-right: 0.2em;
   }
+
   .projects .desc p {
     margin-top: 1.5em;
   }
@@ -183,20 +210,24 @@ span.blink {
 }
 
 @-webkit-keyframes blink {
+
   100%,
   50% {
     opacity: 1;
   }
+
   0% {
     opacity: 0;
   }
 }
 
 @keyframes blink {
+
   100%,
   50% {
     opacity: 1;
   }
+
   0% {
     opacity: 0;
   }
