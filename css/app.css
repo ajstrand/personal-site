@@ -2,17 +2,33 @@
   --text-color: #334162;
   --background: #ffffff;
 
+  --dark-mode-button: #ffc3bb;
+
+  --button-text-color: #f3ecda;
+
+
+
   /*dark mode colors*/
-  --dark-background: #252120;
-  --dark-mode-text: #e5dfc5;
+  --dark-background: #272727;
+  --dark-mode-text: #ffffff;
+}
+
+#darkModeButton {
+  border: none;
+  outline: none;
+  font-size: 1em;
+  border-radius: 5%;
+  background-color: var(--text-color, #334162);
+  color: var(--button-text-color, #f3ecda);
+  cursor: pointer;
 }
 
 .darkModeText {
-  color: var(--dark-mode-text, #e5dfc5) !important;
+  color: var(--dark-mode-text, #ffffff) !important;
 }
 
 .darkBackground {
-  background-color: var(--dark-background, #252120) !important;
+  background-color: var(--dark-background, #272727) !important;
 }
 
 body {

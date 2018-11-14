@@ -1,6 +1,5 @@
-var myStorage = window.localStorage;
-
 function toggleDark() {
+  var button = $("#darkModeButton");
   if (myStorage.getItem('dark')) {
     $("p").removeClass("darkModeText");
     $("h1").removeClass("darkModeText");
@@ -10,8 +9,16 @@ function toggleDark() {
     $("body").removeClass("darkBackground");
     $("nav").removeClass("darkBackground");
     myStorage.removeItem('dark');
+    button.text("Enable Dark Mode");
+    button.removeClass("darkBackground darkModeText")
   } else {
-    $("p").addClass("darkModeText");
+    enableDark();
+  }
+}
+
+function enableDark() {
+  var button = $("#darkModeButton");
+  $("p").addClass("darkModeText");
     $("h1").addClass("darkModeText");
     $("h2").addClass("darkModeText");
     $("h3").addClass("darkModeText");
@@ -19,8 +26,8 @@ function toggleDark() {
     $("body").addClass("darkBackground");
     $("nav").addClass("darkBackground");
     myStorage.setItem('dark', true);
-  }
-
+    button.text("Disable Dark Mode");
+    button.addClass("darkBackground darkModeText");
 }
 
 function setup() {
@@ -28,10 +35,7 @@ function setup() {
   myStorage.setItem('clicked', false);
   button.on("click", function () {
     toggleDark();
-    myStorage.setItem('clicked', true);
   });
-  var darkModeActive = myStorage.getItem('dark') && myStorage.getItem('clicked');
-  if (darkModeActive) {
-    toggleDark();
-  }
+  var darkModeActive = myStorage.getItem('dark');
+  darkModeActive === "true" && darkModeActive !== null ? enableDark() : button.text("Enable Dark Mode");
 }
