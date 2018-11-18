@@ -14,6 +14,7 @@
 }
 
 #darkModeButton {
+  margin-top: .5em;
   border: none;
   outline: none;
   font-size: 1em;
@@ -23,6 +24,11 @@
   cursor: pointer;
 }
 
+#darkModeButton:hover {
+  text-decoration: none;
+  color: var(--text-color-hover, #ffc3bb);
+}
+
 .darkModeText {
   color: var(--dark-mode-text, #ffffff) !important;
 }
@@ -30,6 +36,7 @@
 .darkBackground {
   background-color: var(--dark-background, #272727) !important;
 }
+
 
 body {
   width: 100%;
@@ -43,11 +50,28 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: "Roboto", sans-serif;
 }
 
 .contentWrapper {
   width: 90%;
+}
+
+.contentWrapper .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .projects {
@@ -122,6 +146,10 @@ ul {
   font-size: 2em;
   line-height: 1.2em;
   color: var(--text-color, #334162);
+}
+
+.darkBackground ul {
+  color: var(--dark-mode-text, #ffffff);
 }
 
 h1,
@@ -260,6 +288,10 @@ footer {
   height: 3em;
   display: block;
   border-top: 1px solid var(--text-color, #334162);
+}
+
+.darkBackground footer {
+  border-top: 1px solid var(--dark-text-color, #ffffff);
 }
 
 footer a {
