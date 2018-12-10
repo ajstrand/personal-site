@@ -15,6 +15,10 @@
         {
           "link":"https://github.com/ajstrand/wallpaper-viewer",
           "desc":"A reactjs/express app that grabs data from the reddit api, allows user to view wallpapers from r/wallpapers"
+        },
+        {
+          "link":"https://github.com/ajstrand/wikipedia-summaries",
+          "desc":"Get a summary on a particular topic from wikipedia. Written in Go and React"
         }
       ]
 }
