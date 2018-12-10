@@ -3,9 +3,9 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
   <title>{{title}}</title>
-  <link href="css/app.css" rel="stylesheet" />
-  <link href="css/header.css" rel="stylesheet" />
-  <link href="css/post.css" rel="stylesheet" />
+  <link href="app.css" rel="stylesheet" />
+  <link href="header.css" rel="stylesheet" />
+  <link href="post.css" rel="stylesheet" />
 </head>
 <body>
   <nav class="header-cont">
@@ -22,7 +22,7 @@ make a static site generator as a project when they learn a new language.</p>
 capabilities.</p>
 <p>But once I chunked up the project into a lot of small pieces, it became much less overwhelming.</p>
 <h2>Development</h2>
-<p>I found some libraries that really helped speed up development, so that wouldn't have to implement some of the more hairier portions of static site generating(like generating html from markdown and converting json data into html templates). These libraries were comrak and askama.</p>
+<p>I found some libraries that really helped speed up development, so that wouldn't have to implement some of the more hairier portions of static site generating(like generating html from markdown and converting json data into html templates). These libraries were <a href="https://github.com/kivikakk/comrak">comrak</a> and <a href="https://github.com/djc/askama">askama</a>.</p>
 <p>Learning Rust has been one of the more interesting things I have done in a while. It's interesting approaches to how it deals with memory management and mutable variables make it quite the challenging language to someone coming from doing a lot of JavaScript/es6/React. Having not touched much Java since college, a typed language is rather refreshing.</p>
 <p>I wanted to point out some tricky concepts for those also learning Rust that also confused me(and still do sometimes).</p>
 <p>The <code>&lt;'a&gt;</code> is what's known as a lifetime construct. In Rust, the language is very careful about what it will let you do in regards to reusing variables all over the place. The lifetime construct tells Rust how long you want the variable to last.</p>

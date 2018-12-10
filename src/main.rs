@@ -22,13 +22,16 @@ extern crate typed_html_macros;
 
 use typed_html::types::LinkType;
 
-use serde_json::{Value};
-
 use typed_html::{dom::DOMTree, html, text};
 
 
-#[derive(Serialize, Deserialize)]
-struct FooArray {
+#[derive(Deserialize, Debug)]
+struct Obj {
+    projArr: Vec<Foo>
+}
+
+#[derive(Deserialize, Debug)]
+struct Foo {
     link:String,
     desc:String
 }
@@ -44,40 +47,39 @@ struct SiteData<'a> {
 }
 
 fn main() {
-    //posts::posts::create_posts();
+    posts::posts::create_posts();
     create_site();
     }
 
 
 fn create_site () {
-    let mut file = File::open("./data.json").unwrap();
+    let mut file = File::open("./json/data.json").unwrap();
     let mut data = String::new();
     file.read_to_string(&mut data).unwrap();
 
     let json: SiteData = serde_json::from_str(&data).unwrap();
 
-    let mut f = File::open("./projectsArray.json").unwrap();
+    let mut f = File::open("./json/projectsArray.json").unwrap();
     let mut sec = String::new();
     f.read_to_string(&mut sec).unwrap();
 
-    let tt: Vec<FooArray> = serde_json::from_str(&sec).unwrap();
+    let projDataObj = serde_json::from_str::<Obj>(&sec).unwrap();
+    let arr = projDataObj.projArr;
 
-    for v in tt.iter() {
-        println!("hello {}", v.link)
-    }
-    /*let mut doc: DOMTree<String> = html!(
+    let doc: DOMTree<String> = html!(
 <html>
 <head>
 <title>{text!(json.title)}</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
-  <link href="css/app.css" rel="stylesheet" />
-  <link href="css/header.css" rel="stylesheet" />
+  <link rel=LinkType::StyleSheet href="https://fonts.googleapis.com/css?family=Roboto"/>
+  <link rel=LinkType::StyleSheet href="app.css"/>
+  <link rel=LinkType::StyleSheet href="header.css"/>
   <script src="https://cdn.jsdelivr.net/npm/cash-dom@1.3.5/dist/cash.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  <script src="js/define.js"></script>
-  <script src="js/toggleDark.js"></script>
-  <script src="js/type.js"></script>
-  <script src="js/app.js"></script>
+    <script src="define.js"></script>
+  <script src="toggleDark.js"></script>
+  <script src="type.js"></script>
+  <script src="app.js"></script>
+  
 </head>
 <body>
   <nav class="header-cont">
@@ -104,10 +106,10 @@ fn create_site () {
        <p>{text!(json.content)}</p> 
           <h1>"Projects"</h1>
             <div class="projects">
-        { projArr.map(|p| html!(
+        { arr.into_iter().map(|p| html!(
       <div class="columnCont">
         <div class="project">
-            <a href={text!(p.link)}>
+            <a href="foo-link">
                 <p class="desc">{text!(p.desc)}</p>
             </a>
         </div>
@@ -129,7 +131,7 @@ fn create_site () {
 );
 let doc_str = doc.to_string();
 
-let path = Path::new("./templates/foo-test.html");
+let path = Path::new("./index.html");
     let display = path.display();
 
     let mut file = match File::create(&path) {
@@ -141,7 +143,4 @@ let path = Path::new("./templates/foo-test.html");
         Err(why) => panic!("couldn't write to {}: {}", display, why.description()),
         Ok(_) => println!("successfully wrote to {}", display),
     }
-
-      fs::copy("./templates/index.html", "index.html");
-    println!("copied template to an index file in the root");*/
 }

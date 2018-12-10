@@ -28,7 +28,7 @@ fn create_post(new_path: &std::path::Path) {
 
     let new_post = markdown_to_html(&data, &ComrakOptions::default());
 
-    let path = Path::new("./templates/my_first_post.html");
+    let path = Path::new("./my_first_post.html");
     let display = path.display();
 
     let mut file = match File::create(&path) {
@@ -41,10 +41,6 @@ fn create_post(new_path: &std::path::Path) {
         Ok(_) => println!("successfully wrote to {}", display),
     }
 
-    fs::copy("./templates/my_first_post.html", "my_first_post.html");
-    println!("copied template to a markdown file in the root");
 
-    fs::remove_file("./templates/my_first_post.html");
-    println!("deleted un needed markdown file in the template folder");
 }
 }
