@@ -239,7 +239,8 @@ span.blink {
   display: inline-block;
 }
 
-.main-info span.blink h3 {
+.main-info span.blink {
+  font-size: 3em;
   margin-left: 10px;
   -webkit-animation: blink;
   animation: blink;
