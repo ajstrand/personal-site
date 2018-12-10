@@ -70,6 +70,7 @@ fn create_site () {
 <html>
 <head>
 <title>{text!(json.title)}</title>
+  <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel=LinkType::StyleSheet href="https://fonts.googleapis.com/css?family=Roboto"/>
   <link rel=LinkType::StyleSheet href="app.css"/>
   <link rel=LinkType::StyleSheet href="header.css"/>
