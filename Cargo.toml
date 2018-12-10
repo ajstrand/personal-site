@@ -10,6 +10,8 @@ serde = "1.0"
 serde_derive = "1.0"
 askama = "0.5"
 comrak = "0.2.7"
+typed-html = "0.1.1"
+typed-html-macros = "0.1.1"
 
 [build-dependencies]
 askama = "0.5"

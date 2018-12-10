@@ -1,22 +1,7 @@
 {
   "title": "Alex Strand",
-  "intro_text": "Hey, I'm Alex",
-  "project_link_one":"https://github.com/ajstrand/dailyProgrammerReactApp",
-  "project_link_two":"https://github.com/ajstrand/personal-site",
-  "project_link_three":"https://github.com/ajstrand/ITF_Patterns",
-  "project_link_four":"https://github.com/ajstrand/wallpaper-viewer",
-
-  "link_one":
-    "A reactjs/express app that gives you a random submission from r/dailyprogrammer",
-  "link_two":
-    "Static site generator that pulls data from a json file that then constructs this static site, using Rust",
-  "link_three":
-    "An android app that pulls data from json files, for all patterns in ITF Taekwondo",
-    "link_four":
-      "A reactjs/express app that grabs data from the reddit api, allows user to view wallpapers from r/wallpapers",
+  "intro_text": "Hey, I'm Alex",     
       "company_desc":"currently working as a Software Engineer on the Enterprise Identity Management team @OCLC.",
-      "company_name":"https://oclc.org",
       "company_two_desc":" previously I worked @Root Inc. as a Software Developer.",
-      "company_two_name":"https://rootinc.com",
       "content": "In my day job, I'm mostly working as a backend Java developer. For side projects, I love working with React. On the backend side of things,  I'm using Java/Kotlin(for Android App development) and Rust. I play trombone, guitar and also practice Taekwondo. "
     }
