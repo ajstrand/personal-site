@@ -5,9 +5,9 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
   <title>{{title}}</title>
-  <link href="css/app.css" rel="stylesheet" />
-  <link href="css/header.css" rel="stylesheet" />
-  <link href="css/post.css" rel="stylesheet" />
+  <link href="app.css" rel="stylesheet" />
+  <link href="header.css" rel="stylesheet" />
+  <link href="post.css" rel="stylesheet" />
 
 </head>
 
@@ -33,7 +33,7 @@ But once I chunked up the project into a lot of small pieces, it became much les
 
 ## Development
 
-I found some libraries that really helped speed up development, so that wouldn't have to implement some of the more hairier portions of static site generating(like generating html from markdown and converting json data into html templates). These libraries were comrak and askama.
+I found some libraries that really helped speed up development, so that wouldn't have to implement some of the more hairier portions of static site generating(like generating html from markdown and converting json data into html templates). These libraries were [comrak](https://github.com/kivikakk/comrak) and [askama](https://github.com/djc/askama).
 
 Learning Rust has been one of the more interesting things I have done in a while. It's interesting approaches to how it deals with memory management and mutable variables make it quite the challenging language to someone coming from doing a lot of JavaScript/es6/React. Having not touched much Java since college, a typed language is rather refreshing.
 

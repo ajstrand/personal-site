@@ -74,6 +74,12 @@ body {
   justify-content: center;
 }
 
+p,
+ul {
+  font-size: 1.5em;
+  color: var(--text-color, #334162);
+}
+
 .projects {
   position: relative;
   text-align: center;
@@ -141,12 +147,6 @@ a.link {
   text-decoration: underline;
 }
 
-p,
-ul {
-  font-size: 2em;
-  line-height: 1.2em;
-  color: var(--text-color, #334162);
-}
 
 .darkBackground ul {
   color: var(--dark-mode-text, #ffffff);
