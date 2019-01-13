@@ -118,6 +118,9 @@ fn create_site () {
        )) }
    </div>
      <footer>
+     <a href="https://twitter.com/_alex_strand">
+        <i class="fab fa-twitter"></i>
+      </a>
       <a href="https://github.com/ajstrand">
         <i class="fab fa-github"></i>
       </a>
