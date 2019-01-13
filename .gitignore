@@ -3,3 +3,13 @@
 **/*.rs.bk
 
 /.DS_Store
+
+node_modules/
+
+*.aux
+
+*.log
+
+*.out
+
+*.synctex.gz
