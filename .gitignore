@@ -1,10 +1,12 @@
-
+# node, rust, mac osx files
 /target/
 **/*.rs.bk
 
 /.DS_Store
 
 node_modules/
+
+#ignoring latex build files
 
 *.aux
 
@@ -13,3 +15,7 @@ node_modules/
 *.out
 
 *.synctex.gz
+
+*.fdb_latexmk
+
+*.fls
