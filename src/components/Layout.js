@@ -1,9 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import "./layout.css"
+
 import { rhythm, scale } from '../utils/typography'
+import {darkCheck} from '../utils/darkCheck';
 
 class Layout extends React.Component {
+  componentDidMount(){
+    darkCheck();
+  }
   render() {
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`

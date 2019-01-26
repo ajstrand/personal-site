@@ -5,6 +5,7 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
+import { SwitchExample } from '../components/SwitchExample';
 
 class BlogIndex extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
+        <SwitchExample/>
         <SEO
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
@@ -37,6 +39,8 @@ class BlogIndex extends React.Component {
             </div>
           )
         })}
+        <div className="square-one sq"></div>
+        <div className="square-two sq"></div>
       </Layout>
     )
   }

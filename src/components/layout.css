@@ -1,0 +1,15 @@
+body {
+    background-color:#ffdbda
+}
+
+p, h1 {
+    color:#604d53
+}
+
+.dark-bg-theme {
+    background-color: #373f51
+}
+
+.dark-text-theme {
+    color: #a9bcd0
+}

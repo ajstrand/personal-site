@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>{{title}}</title>
-  <link href="app.css" rel="stylesheet" />
-  <link href="header.css" rel="stylesheet" />
-  <link href="post.css" rel="stylesheet" />
-
-</head>
-
-<body>
-  <nav class="header-cont">
-    <a href="index.html">Home</a>
-    <a href="cv.html">Resume</a>
-    <a href="posts.html">Posts</a>
-  </nav>
-
-# Learning Rust
+---
+path: "/learning-rust"
+date: "2018-03-01"
+title: "Learning Rust"
+---
 
 I wanted to learn rust, a systems programming language developed by Mozilla.
 The only problem was that I was struggling for ideas for projects.
