@@ -20,21 +20,17 @@ function getBoolean(value){
 
 function addText(v, i) {
     v.classList.add("dark-text-theme");
-    v.classList.add("dark-text-theme");
 }
 
 function addBg(v, i) {
-    v.classList.add("dark-bg-theme");
     v.classList.add("dark-bg-theme");
 }
 
 function removeText(v, i) {
     v.classList.remove("dark-text-theme");
-    v.classList.remove("dark-text-theme");
 }
 
 function removeBg(v, i) {
-    v.classList.remove("dark-bg-theme");
     v.classList.remove("dark-bg-theme");
 }
 
