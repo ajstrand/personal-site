@@ -1,0 +1,22 @@
+[
+  {
+    "link": "https://github.com/ajstrand/dailyProgrammerReactApp",
+    "desc": "A reactjs/express app that gives you a random submission from r/dailyprogrammer"
+  },
+  {
+    "link": "https://github.com/ajstrand/personal-site",
+    "desc": "Static site generator built in Rust that pulls data from a json file that then constructs this static site."
+  },
+  {
+    "link": "https://github.com/ajstrand/ITF_Patterns",
+    "desc": "An android app that lists all patterns in ITF Taekwondo. You can review specific moves in a pattern and save notes locally to your phone. "
+  },
+  {
+    "link": "https://github.com/ajstrand/wallpaper-viewer",
+    "desc": "A reactjs/express app that grabs data from the reddit api, allows user to view wallpapers from r/wallpapers"
+  },
+  {
+    "link": "https://github.com/ajstrand/wikipedia-summaries",
+    "desc": "Get a summary on a particular topic from wikipedia. Written in Go and React"
+  }
+]
