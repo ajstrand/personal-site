@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
+import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
+import { SwitchExample } from '../components/SwitchExample';
 
 class Projects extends React.Component {
   render() {
@@ -22,18 +24,21 @@ class Projects extends React.Component {
           keywords={[`javascript`, `react`, `rails`]}
         />
         <Bio />
+        <h1>Projects</h1>
         {projects.map(({ node }) => {
           const desc = node.desc
+          const title = node.title
+          const link = node.link
           return (
-            <div key={node.fields.slug}>
+            <div key={node.title}>
               <h3
                 style={{
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                {/* <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link> */}
+                <a href={link}  style={{ boxShadow: `none` }}>
+                {title }
+                </a>
               </h3>
               <p dangerouslySetInnerHTML={{ __html: desc }} />
             </div>
@@ -48,9 +53,15 @@ export default Projects
 
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allProjectsJson {
       edges {
         node {
+          title
           link
           desc
         }
