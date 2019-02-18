@@ -27,7 +27,7 @@ const Top = styled(Box)`
 `
 
 const Bottom = styled(Box)`
-  background-color:#808080;
+  background-color:#B85B55;
   @media screen and (min-width:30em) {
     transform:translate(120px, 12%);
   }
@@ -62,7 +62,7 @@ class BlogIndex extends React.Component {
                 {postTitle}
               </Link>
             </h3>
-            <small>{post.frontmatter.date}</small>
+            <small style={{color:"#ffffff"}}>{post.frontmatter.date}</small>
             <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
           </Item>
         </Bottom>

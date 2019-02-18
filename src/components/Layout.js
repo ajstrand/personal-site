@@ -47,11 +47,12 @@ const LinksBox = styled(Box)`
 `
 
 const BottomLink = styled(Link)`
-color:#542344;
+color:#542344!important;
 margin:0.5em;
 `;
 
 const StyledAnchorTag = styled.a`
+color:#542344!important;
 margin:0.5em;
 `;
 

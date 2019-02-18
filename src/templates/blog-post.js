@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const PostWrapper = styled.div `
   padding:1rem;
-  background-color:#808080;
+  background-color:#B85B55;
   color:#ffffff;
 `
 

@@ -6,7 +6,7 @@ import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
 const StyleLink = styled.a `
-color:#bfd1e5;
+color:#bfd1e5!important;
 `;
 
 const Content = styled.div `
