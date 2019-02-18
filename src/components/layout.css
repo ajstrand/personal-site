@@ -1,0 +1,32 @@
+html {
+    height:100%;
+}
+body {
+    background-color: #ffffff;
+    height:100%;
+}
+
+p, h1 {
+    color:#ffffff
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0.5em;
+}
+
+.dark-bg-theme {
+    background-color: #373f51
+}
+
+.dark-text-theme {
+    color: #ffffff
+}
+
+a {
+    color:#373f51
+}
+
+#___gatsby,
+#___gatsby > div[role="group"] {
+    height:100%;
+}
