@@ -5,9 +5,9 @@
     "desc": "A reactjs/express app that gives you a random submission from r/dailyprogrammer"
   },
   {
-    "title":"foo",
+    "title":"Rust Static Site Generator",
     "link": "https://github.com/ajstrand/personal-site",
-    "desc": "Static site generator built in Rust that pulls data from a json file that then constructs this static site."
+    "desc": "Static site generator built in Rust that pulls data from a json file that then constructs a static site that you can deploy to a web server."
   },
   {
     "title":"Taekwondo Patterns Review",
