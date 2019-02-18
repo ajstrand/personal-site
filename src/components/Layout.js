@@ -112,6 +112,9 @@ class Layout extends React.Component {
         {/* {header} */}
         {children}
         <LinksBox>
+        <BottomLink style={{ boxShadow: `none` }} to="/resume">
+            Resume
+                </BottomLink>
           <BottomLink style={{ boxShadow: `none` }} to="/projects">
             Projects
                 </BottomLink>
