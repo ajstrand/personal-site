@@ -15,7 +15,7 @@ const PostWrapper = styled.div `
 
 const BottomWrapper = styled.div `
   padding:1rem;
-  color:#542344;
+  background-color:#542344;
 `
 
 class BlogPostTemplate extends React.Component {
