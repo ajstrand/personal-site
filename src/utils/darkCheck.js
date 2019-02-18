@@ -40,12 +40,14 @@ export function toggle(checked){
     let y = document.querySelectorAll("body")
     let v = document.querySelectorAll("small")
     let p = document.querySelectorAll("footer")
+    let a = document.querySelectorAll("a")
 
     if (checked) {
         t.forEach(addText)
         f.forEach(addText)
         v.forEach(addText)
         p.forEach(addText)
+        a.forEach(addText)
         y.forEach(addBg)
         localStorage.setItem("dark", true);
     }
@@ -54,6 +56,7 @@ export function toggle(checked){
         f.forEach(removeText)
         v.forEach(removeText)
         p.forEach(removeText)
+        a.forEach(removeText)
         y.forEach(removeBg)
         localStorage.removeItem("dark"); 
     }

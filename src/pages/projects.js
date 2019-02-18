@@ -1,11 +1,23 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
-import { SwitchExample } from '../components/SwitchExample';
+import styled from "styled-components";
+
+const Item = styled.div `
+  padding:0.5em;
+  display:flex;
+  flex-direction:column;
+`;
+const Box = styled(Item) `
+  width:100%;
+`;
+
+const ProjectsContainer = styled(Box) `
+  background-color:#808080;
+`;
 
 class Projects extends React.Component {
   render() {
@@ -15,15 +27,11 @@ class Projects extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SwitchExample/>
-        <Link style={{ boxShadow: `none` }} to="/projects">
-                 Projects
-                </Link>
         <SEO
           title="projects list"
           keywords={[`javascript`, `react`, `rails`]}
         />
-        <Bio />
+        <ProjectsContainer>
         <h1>Projects</h1>
         {projects.map(({ node }) => {
           const desc = node.desc
@@ -44,6 +52,7 @@ class Projects extends React.Component {
             </div>
           )
         })}
+          </ProjectsContainer>
       </Layout>
     )
   }

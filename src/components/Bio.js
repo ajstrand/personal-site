@@ -3,6 +3,15 @@ import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
 import { rhythm } from '../utils/typography'
+import styled from "styled-components";
+
+const StyleLink = styled.a `
+color:#bfd1e5;
+`;
+
+const Content = styled.div `
+  margin-bottom:2rem!important;
+`;
 
 function Bio() {
   return (
@@ -12,20 +21,20 @@ function Bio() {
         const { author, social, typescriptURL, javaURL, springURL } = data.site.siteMetadata
         const blurb = <p>
         Hi, I'm <strong>{author}</strong> and I live and work in Dublin, OH building software for libraries.
-        I mainly work with <a href={typescriptURL}>
+        I mainly work with <StyleLink href={typescriptURL}>
         TypeScript
-        </a>, <a href={javaURL}>
+        </StyleLink>, <StyleLink href={javaURL}>
           Java
-        </a> and <a href={springURL}>
+        </StyleLink> and <StyleLink href={springURL}>
           Spring. 
-        </a>
+        </StyleLink>
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
+        <StyleLink href={`https://twitter.com/${social.twitter}`}>
           Follow me on Twitter.
-        </a>
+        </StyleLink>
       </p>
         return (
-          <div
+          <Content
             style={{
               display: `flex`,
               marginBottom: rhythm(2.5),
@@ -45,7 +54,7 @@ function Bio() {
               }}
             />
             {blurb}
-          </div>
+          </Content>
         )
       }}
     />

@@ -5,6 +5,18 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
+import styled from "styled-components";
+
+const PostWrapper = styled.div `
+  padding:1rem;
+  background-color:#808080;
+  color:#ffffff;
+`
+
+const BottomWrapper = styled.div `
+  padding:1rem;
+  color:#542344;
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -15,9 +27,10 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <Link style={{ boxShadow: `none` }} to="/">
+        <Link style={{ boxShadow: `none`, color:'#542344' }} to="/">
                  Blog index home
                 </Link>
+                <PostWrapper>
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
@@ -35,9 +48,10 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <Bio />
-
-        <ul
+        </PostWrapper>
+          <BottomWrapper>
+          <Bio />
+          <ul
           style={{
             display: `flex`,
             flexWrap: `wrap`,
@@ -61,6 +75,8 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+          </BottomWrapper>
+        
       </Layout>
     )
   }

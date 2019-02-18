@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `My Programming Blog`,
+    title:'my blog',
     author: `Alex Strand`,
-    description: `blog about my projects and my life`,
+    description: `personal blog`,
     siteUrl: `https://github.com/ajstrand/personal-site`,
     typescriptURL:'https://www.typescriptlang.org/',
     javaURL:'https://www.java.com/en/',
@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
