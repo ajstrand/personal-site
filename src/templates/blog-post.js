@@ -31,7 +31,7 @@ class BlogPostTemplate extends React.Component {
                  Blog index home
                 </Link>
                 <PostWrapper>
-        <h1>{post.frontmatter.title}</h1>
+        <h1 style={{marginBottom:"2rem"}}>{post.frontmatter.title}</h1>
         <p
           style={{
             ...scale(-1 / 5),

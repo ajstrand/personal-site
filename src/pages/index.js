@@ -50,11 +50,12 @@ class BlogIndex extends React.Component {
           <Bio />
         </Top>
         <Bottom>
-          <h1>Latest Post</h1>
+          <h1 style={{marginTop: "0.5rem"}}>Latest Post</h1>
           <Item key={post.fields.slug}>
             <h3
               style={{
                 marginBottom: rhythm(1 / 4),
+                marginTop: "0.5rem"
               }}
             >
               <Link style={{ boxShadow: `none` }} to={post.fields.slug}>

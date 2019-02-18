@@ -10,10 +10,6 @@ p, h1 {
     color:#ffffff
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0.5rem!important;
-}
-
 .dark-bg-theme {
     background-color: #373f51
 }
