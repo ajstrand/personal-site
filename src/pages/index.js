@@ -17,7 +17,7 @@ const Item = styled.div`
 const Box = styled(Item)`
   width:100%;
   @media screen and (min-width:30em) {
-    width:70%;
+    width:83%;
   height:40%;
   }
 `
@@ -54,7 +54,7 @@ class BlogIndex extends React.Component {
           <Item key={post.fields.slug}>
             <h3
               style={{
-                color:"#ffffff",
+                color:"#ffffff!important",
                 marginBottom: rhythm(1 / 4),
                 marginTop: "0.5rem"
               }}

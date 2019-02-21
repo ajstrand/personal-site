@@ -32,7 +32,8 @@ class Projects extends React.Component {
           keywords={[`javascript`, `react`, `rails`]}
         />
         <ProjectsContainer>
-        <h1>Projects</h1>
+        <h1 style={{ marginTop:"1rem",
+}}>Projects</h1>
         {projects.map(({ node }) => {
           const desc = node.desc
           const title = node.title
@@ -41,10 +42,11 @@ class Projects extends React.Component {
             <div key={node.title}>
               <h3
                 style={{
+                  marginTop:"1rem",
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <a href={link}  style={{ boxShadow: `none` }}>
+                <a href={link}  style={{ boxShadow: `none`, color:'#ffffff' }}>
                 {title }
                 </a>
               </h3>

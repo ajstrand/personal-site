@@ -11,6 +11,7 @@ export function darkCheck() {
          localStorage.removeItem("dark"); 
     }
     toggle(checked);
+    return checked;
 
 }
 

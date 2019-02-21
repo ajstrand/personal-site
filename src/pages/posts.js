@@ -34,17 +34,18 @@ class Posts extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
       <PostsContainer>
-        <h1>Posts</h1>
+        <h1 style={{marginTop:"1rem"}}>Posts</h1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <Item key={node.fields.slug}>
               <h3
                 style={{
+                  marginTop:"1rem",
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <Link style={{ boxShadow: `none`, color:"#ffffff" }} to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>

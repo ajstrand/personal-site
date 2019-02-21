@@ -17,32 +17,22 @@ const StyledContainer = styled.div `
   margin-right: auto;
   maxWidth: ${rhythm(24)};
   @media screen and (min-width:30em) {
-    padding: ${rhythm(1.5)} ${rhythm(3 / 4)}
+    padding: ${rhythm(1.5)} ${rhythm(3 / 4)} 0.5rem ${rhythm(3 / 4)}
   }
 `;
 
-const Item = styled.div`
-  padding:0.5em;
-  display:flex;
-  flex-direction:column;
-`
-const Box = styled(Item)`
-  width:100%;
-  @media screen and (min-width:30em) {
-    width:70%;
-  height:40%;
-  }
-`
-
-const LinksBox = styled(Box)`
+const LinksBox = styled.div`
+width:100%;
   display:flex;
   flex-direction:column;
   justify-content:center;
   background-color:#BFD1E5;
   @media screen and (min-width:30em) {
-    height:4em;
-    transform:translate(-20px, 58%);
+    transform:translate(-20px, 3em);
     flex-direction:row;
+  }
+  @media screen and (min-width:40em) {
+    width:75%;
   }
 `
 
@@ -56,61 +46,40 @@ color:#542344!important;
 margin:0.5em;
 `;
 
+const StyledFooter = styled.footer `
+@media screen and (min-width:30em) {
+  transform:translate(9em, 4em);
+  width:16em;
+}
+`;
+const theme = {
+  regular:"#542344!important",
+  dark:"#ffffff"
+}
+
+let isDark;
+
+const StyledGatsbyLink = styled.a`
+color:${props => {
+  if(isDark){
+    return props.theme.dark
+  }
+  else {
+    return props.theme.regular
+  }
+  }}
+`;
+
 class Layout extends React.Component {
   componentDidMount(){
-    darkCheck();
+    isDark = darkCheck();
   }
   render() {
-    const { location, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const { children } = this.props
 
-    /*if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }*/
     return (
       <StyledContainer
       >
-        {/* {header} */}
         {children}
         <LinksBox>
         <BottomLink style={{ boxShadow: `none` }} to="/resume">
@@ -136,11 +105,11 @@ class Layout extends React.Component {
           </StyledAnchorTag>
 
         </LinksBox>
-        <footer>
+        <StyledFooter>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+          <StyledGatsbyLink href="https://www.gatsbyjs.org">Gatsby</StyledGatsbyLink>
+        </StyledFooter>
       </StyledContainer>
     )
   }

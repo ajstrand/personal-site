@@ -24,15 +24,13 @@ function Bio() {
       render={data => {
         const { author, social, typescriptURL, javaURL, springURL } = data.site.siteMetadata
         const blurb = <p>
-        Hi, I'm <NameComponent>{author}</NameComponent> and I live and work in Dublin, OH. I build software for libraries using
-        <StyleLink href={typescriptURL}>
+        Hi, I'm <NameComponent>{author}</NameComponent> and I live and work in Dublin, OH. I build software for libraries using <StyleLink href={typescriptURL}>
          TypeScript
         </StyleLink>, <StyleLink href={javaURL}>
           Java
         </StyleLink> and <StyleLink href={springURL}>
           Spring. 
-        </StyleLink>.
-        I love working with React and React Native and exploring what's new in web technologies and modern JavaScript.
+        </StyleLink> I love working with React and React Native and exploring what's new in web technologies and modern JavaScript.
         {` `}
         <StyleLink href={`https://twitter.com/${social.twitter}`}>
           Follow me on Twitter.
