@@ -54,11 +54,12 @@ class BlogIndex extends React.Component {
           <Item key={post.fields.slug}>
             <h3
               style={{
+                color:"#ffffff",
                 marginBottom: rhythm(1 / 4),
                 marginTop: "0.5rem"
               }}
             >
-              <Link style={{ boxShadow: `none` }} to={post.fields.slug}>
+              <Link style={{ boxShadow: `none`, color:"#ffffff" }} to={post.fields.slug}>
                 {postTitle}
               </Link>
             </h3>

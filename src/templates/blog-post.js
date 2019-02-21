@@ -7,13 +7,13 @@ import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 import styled from "styled-components";
 
-const PostWrapper = styled.div `
+const PostWrapper = styled.div`
   padding:1rem;
   background-color:#B85B55;
   color:#ffffff;
 `
 
-const BottomWrapper = styled.div `
+const BottomWrapper = styled.div`
   padding:1rem;
   background-color:#542344;
 `
@@ -27,56 +27,53 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <Link style={{ boxShadow: `none`, color:'#542344' }} to="/">
-                 Blog index home
-                </Link>
-                <PostWrapper>
-        <h1 style={{marginBottom:"2rem"}}>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+        <PostWrapper>
+          <h1 style={{ marginBottom: "2rem" }}>{post.frontmatter.title}</h1>
+          <p
+            style={{
+              ...scale(-1 / 5),
+              display: `block`,
+              marginBottom: rhythm(1),
+              marginTop: rhythm(-1),
+            }}
+          >
+            {post.frontmatter.date}
+          </p>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <hr
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />
         </PostWrapper>
-          <BottomWrapper>
+        <BottomWrapper>
           <Bio />
           <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0,
+            }}
+          >
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} →
               </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-          </BottomWrapper>
-        
+              )}
+            </li>
+          </ul>
+        </BottomWrapper>
+
       </Layout>
     )
   }

@@ -17,6 +17,10 @@ const Text = styled.p `
 color:#542344;
 `;
 
+const ResumeLink = styled.a `
+  color:#542344;
+`;
+
 class Resume extends React.Component {
   render() {
     const { data } = this.props
@@ -30,7 +34,7 @@ class Resume extends React.Component {
         />
         <ResumeContainer>
         <Text> You can download a copy of my resume
-    <a target="_blank" href={resume}> here</a>
+    <ResumeLink target="_blank" href={resume}> here</ResumeLink>
     </Text>
         </ResumeContainer>  
       </Layout>
