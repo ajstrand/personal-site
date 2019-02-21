@@ -7,7 +7,6 @@ import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
 const Item = styled.div `
-  height:11em;
   padding:0.5em;
   display:flex;
   flex-direction:column;
@@ -19,6 +18,7 @@ const Box = styled(Item) `
 
 const PostsContainer = styled(Box) `
   background-color:#808080;
+  overflow-y:scroll;
 `;
 
 class Posts extends React.Component {

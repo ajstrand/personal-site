@@ -4,14 +4,14 @@ import { Link } from 'gatsby'
 import "./layout.css"
 
 import { rhythm, scale } from '../utils/typography'
-import {darkCheck} from '../utils/darkCheck';
+import { darkCheck } from '../utils/darkCheck';
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
-const StyledContainer = styled.div `
+const StyledContainer = styled.div`
   height:100%;
   margin-left: auto;
   margin-right: auto;
@@ -28,12 +28,24 @@ width:100%;
   justify-content:center;
   background-color:#BFD1E5;
   @media screen and (min-width:30em) {
-    transform:translate(-20px, 3em);
+    transform:translate(-20px, 2em);
     flex-direction:row;
   }
   @media screen and (min-width:40em) {
     width:75%;
   }
+`;
+
+const BottomContent = styled.div `
+@media screen and (min-width:30em) {
+  height:15%;
+}
+`
+
+const Content = styled.div `
+@media screen and (min-width:30em) {
+  height:85%;
+}
 `
 
 const BottomLink = styled(Link)`
@@ -46,32 +58,32 @@ color:#542344!important;
 margin:0.5em;
 `;
 
-const StyledFooter = styled.footer `
+const StyledFooter = styled.footer`
 @media screen and (min-width:30em) {
-  transform:translate(9em, 4em);
+  transform:translate(9em, 3em);
   width:16em;
 }
 `;
 const theme = {
-  regular:"#542344!important",
-  dark:"#ffffff"
+  regular: "#542344!important",
+  dark: "#ffffff"
 }
 
 let isDark;
 
 const StyledGatsbyLink = styled.a`
 color:${props => {
-  if(isDark){
-    return props.theme.dark
-  }
-  else {
-    return props.theme.regular
-  }
+    if (isDark) {
+      return props.theme.dark
+    }
+    else {
+      return props.theme.regular
+    }
   }}
 `;
 
 class Layout extends React.Component {
-  componentDidMount(){
+  componentDidMount() {
     isDark = darkCheck();
   }
   render() {
@@ -80,36 +92,40 @@ class Layout extends React.Component {
     return (
       <StyledContainer
       >
-        {children}
-        <LinksBox>
-        <BottomLink style={{ boxShadow: `none` }} to="/resume">
-            Resume
+        <Content>
+          {children}
+        </Content>
+        <BottomContent>
+          <LinksBox>
+            <BottomLink style={{ boxShadow: `none` }} to="/resume">
+              Resume
                 </BottomLink>
-          <BottomLink style={{ boxShadow: `none` }} to="/projects">
-            Projects
+            <BottomLink style={{ boxShadow: `none` }} to="/projects">
+              Projects
                 </BottomLink>
-          <BottomLink style={{ boxShadow: `none` }} to="/">
-            Home
+            <BottomLink style={{ boxShadow: `none` }} to="/">
+              Home
                 </BottomLink>
-                <BottomLink style={{ boxShadow: `none` }} to="/posts">
-            Blog Posts
+            <BottomLink style={{ boxShadow: `none` }} to="/posts">
+              Blog Posts
                 </BottomLink>
-          <StyledAnchorTag href="https://twitter.com/_alex_strand">
-            <FontAwesomeIcon icon={faTwitter} />
-          </StyledAnchorTag>
-          <StyledAnchorTag href="https://github.com/ajstrand">
-            <FontAwesomeIcon icon={faGithub} />
-          </StyledAnchorTag>
-          <StyledAnchorTag href="https://www.linkedin.com/in/ajstrand">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </StyledAnchorTag>
+            <StyledAnchorTag href="https://twitter.com/_alex_strand">
+              <FontAwesomeIcon icon={faTwitter} />
+            </StyledAnchorTag>
+            <StyledAnchorTag href="https://github.com/ajstrand">
+              <FontAwesomeIcon icon={faGithub} />
+            </StyledAnchorTag>
+            <StyledAnchorTag href="https://www.linkedin.com/in/ajstrand">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </StyledAnchorTag>
 
-        </LinksBox>
-        <StyledFooter>
-          © {new Date().getFullYear()}, Built with
+          </LinksBox>
+          <StyledFooter>
+            © {new Date().getFullYear()}, Built with
           {` `}
-          <StyledGatsbyLink href="https://www.gatsbyjs.org">Gatsby</StyledGatsbyLink>
-        </StyledFooter>
+            <StyledGatsbyLink href="https://www.gatsbyjs.org">Gatsby</StyledGatsbyLink>
+          </StyledFooter>
+        </BottomContent>
       </StyledContainer>
     )
   }

@@ -9,8 +9,11 @@ const ResumeContainer = styled.div `
 padding:0.5em;
 display:flex;
 flex-direction:column;
- height:100%;
+ height:40%;
  align-items:center;
+ @media screen and (min-width:30em) {
+  height:80%;
+}
 `;
 
 const Text = styled.p `
