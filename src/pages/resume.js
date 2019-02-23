@@ -9,19 +9,20 @@ const ResumeContainer = styled.div `
 padding:0.5em;
 display:flex;
 flex-direction:column;
- height:40%;
+ height:100%;
  align-items:center;
- @media screen and (min-width:30em) {
-  height:80%;
+ justify-content:center;
+@media screen and (max-width:30em) {
+  background-color:#3A1C71
 }
 `;
 
 const Text = styled.p `
-color:#542344;
+color:#ffffff;
 `;
 
 const ResumeLink = styled.a `
-  color:#542344;
+  color:#ffffff;
 `;
 
 class Resume extends React.Component {

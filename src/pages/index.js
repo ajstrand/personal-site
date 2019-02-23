@@ -5,7 +5,6 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
-import { SwitchExample } from '../components/SwitchExample';
 import styled from "styled-components";
 
 
@@ -17,17 +16,25 @@ const Item = styled.div`
 const Box = styled(Item)`
   width:100%;
   @media screen and (min-width:30em) {
-    width:83%;
-  height:40%;
+    width:85%;
+  height:30%;
   }
 `
 
 const Top = styled(Box)`
-  background-color:#542344;
+@media screen and (max-width:30em) {
+  background-color:#3a1c71
+
+}
+@media screen and (min-width:30em) {
+  transform:translate(120px, 12%);
+}
 `
 
 const Bottom = styled(Box)`
-  background-color:#B85B55;
+@media screen and (max-width:30em) {
+  background-color:#d76d77
+}
   @media screen and (min-width:30em) {
     transform:translate(120px, 12%);
   }
@@ -42,7 +49,6 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <Top>
-          <SwitchExample />
           <SEO
             title="All posts"
             keywords={[`blog`, `gatsby`, `javascript`, `react`]}

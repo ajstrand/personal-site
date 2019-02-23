@@ -6,7 +6,10 @@ import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
 const StyleLink = styled.a `
-color:#bfd1e5!important;
+@media screen and (min-width:30em) {
+  color: #ffffff;
+  ;
+}
 `;
 
 const Content = styled.div `
@@ -14,7 +17,10 @@ const Content = styled.div `
 `;
 
 const NameComponent = styled.strong `
-color:#bfd1e5!important;
+@media screen and (min-width:30em) {
+  color: #ffffff;
+  ;
+}
 `;
 
 function Bio() {
@@ -24,15 +30,17 @@ function Bio() {
       render={data => {
         const { author, social, typescriptURL, javaURL, springURL } = data.site.siteMetadata
         const blurb = <p>
-        Hi, I'm <NameComponent>{author}</NameComponent> and I live and work in Dublin, OH. I build software for libraries using <StyleLink href={typescriptURL}>
+        Hi, I'm <NameComponent>{author}</NameComponent> and I live and work in Dublin, OH. 
+        I build software for libraries <StyleLink href="https://oclc.org" target="_blank">@OCLC
+        </StyleLink> using <StyleLink href={typescriptURL} target={"_blank"}>
          TypeScript
-        </StyleLink>, <StyleLink href={javaURL}>
+        </StyleLink>, <StyleLink href={javaURL} target={"_blank"}>
           Java
-        </StyleLink> and <StyleLink href={springURL}>
+        </StyleLink> and <StyleLink href={springURL} target={"_blank"}>
           Spring. 
         </StyleLink> I love working with React and React Native and exploring what's new in web technologies and modern JavaScript.
         {` `}
-        <StyleLink href={`https://twitter.com/${social.twitter}`}>
+        <StyleLink href={`https://twitter.com/${social.twitter}`} target="_blank">
           Follow me on Twitter.
         </StyleLink>
       </p>

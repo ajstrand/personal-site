@@ -16,9 +16,10 @@ const Box = styled(Item) `
 `;
 
 const ProjectsContainer = styled(Box) `
-  background-color:#808080;
   height:100%;
-  overflow-y:scroll;
+  @media screen and (max-width:30em) {
+    background-color:#D76D77;
+  }
 `;
 
 class Projects extends React.Component {

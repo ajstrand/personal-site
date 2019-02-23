@@ -17,8 +17,9 @@ const Box = styled(Item) `
 `;
 
 const PostsContainer = styled(Box) `
-  background-color:#808080;
-  overflow-y:scroll;
+@media screen and (max-width:30em) {
+  background-color:#3A1C71
+}
 `;
 
 class Posts extends React.Component {
@@ -49,7 +50,9 @@ class Posts extends React.Component {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small style={{
+                  color:"#fffff",
+              }}>{node.frontmatter.date}</small>
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
             </Item>
           )
