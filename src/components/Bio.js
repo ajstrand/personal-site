@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import { rhythm } from '../utils/typography'
+import typography, { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
 const StyleLink = styled.a `
@@ -18,7 +18,11 @@ const Content = styled.div `
 
 const NameComponent = styled.strong `
 @media screen and (min-width:30em) {
-  color: #ffffff;
+  color:  #3A1C71;
+  ;
+}
+@media screen and (max-width:30em) {
+  color: #FFAF7B;
   ;
 }
 `;
@@ -31,16 +35,11 @@ function Bio() {
         const { author, social, typescriptURL, javaURL, springURL } = data.site.siteMetadata
         const blurb = <p>
         Hi, I'm <NameComponent>{author}</NameComponent> and I live and work in Dublin, OH. 
-        I build software for libraries <StyleLink href="https://oclc.org" target="_blank">@OCLC
-        </StyleLink> using <StyleLink href={typescriptURL} target={"_blank"}>
-         TypeScript
-        </StyleLink>, <StyleLink href={javaURL} target={"_blank"}>
-          Java
-        </StyleLink> and <StyleLink href={springURL} target={"_blank"}>
-          Spring. 
-        </StyleLink> I love working with React and React Native and exploring what's new in web technologies and modern JavaScript.
+        I build software for libraries <StyleLink href="https://oclc.org" target="_blank">@OCLC </StyleLink>
+         using TypeScript, Java, and  Spring. I love working with React and React Native and 
+         exploring what's new in web technologies and modern JavaScript.
         {` `}
-        <StyleLink href={`https://twitter.com/${social.twitter}`} target="_blank">
+        <StyleLink target="_blank"  href={`https://twitter.com/${social.twitter}`} target="_blank">
           Follow me on Twitter.
         </StyleLink>
       </p>

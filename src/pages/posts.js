@@ -51,7 +51,7 @@ class Posts extends React.Component {
                 </Link>
               </h3>
               <small style={{
-                  color:"#fffff",
+                  color:"#ffffff",
               }}>{node.frontmatter.date}</small>
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
             </Item>
