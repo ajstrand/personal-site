@@ -4,9 +4,6 @@ module.exports = {
     author: `Alex Strand`,
     description: `personal blog`,
     siteUrl: `https://github.com/ajstrand/personal-site`,
-    typescriptURL:'https://www.typescriptlang.org/',
-    javaURL:'https://www.java.com/en/',
-    springURL:'https://spring.io/',
     social: {
       twitter: `_alex_strand`,
     },
@@ -76,10 +73,8 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Alex Strand's blog`,
-        short_name: `my-blog`,
+        short_name: `Alex Strand`,
         start_url: `/`,
-        background_color: `#d5c5c8`,
-        theme_color: `#604d53`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },

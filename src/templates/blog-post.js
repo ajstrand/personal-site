@@ -7,14 +7,7 @@ import { rhythm, scale } from '../utils/typography'
 import styled from "styled-components";
 
 const PostWrapper = styled.div`
-@media screen and (max-width:30em) {
-  background-color:#D76D77;
-}
-@media screen and (min-width:30em) {
-  background: #3A1C71;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom right, #FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom right, #FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
+  background: #d76d77;
 height:100%;
   padding:1rem;
   color:#ffffff;

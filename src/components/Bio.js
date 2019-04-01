@@ -32,16 +32,12 @@ function Bio() {
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const { author, social, typescriptURL, javaURL, springURL } = data.site.siteMetadata
+        const { author, social} = data.site.siteMetadata
         const blurb = <p>
         Hi, I'm <NameComponent>{author}</NameComponent> and I live and work in Dublin, OH. 
         I build software for libraries <StyleLink href="https://oclc.org" target="_blank">@OCLC </StyleLink>
-         using TypeScript, Java, and  Spring. I love working with React and React Native and 
-         exploring what's new in web technologies and modern JavaScript.
-        {` `}
-        <StyleLink target="_blank"  href={`https://twitter.com/${social.twitter}`} target="_blank">
-          Follow me on Twitter.
-        </StyleLink>
+         using JavaScript/React, Java, and  Spring. I love working with modern web technologies
+         helpful products that serve the needs of users.
       </p>
         return (
           <Content
