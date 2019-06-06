@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -7,13 +7,15 @@ import styled from "styled-components";
 
 const ResumeContainer = styled.div `
 padding:0.5em;
-display:flex;
-flex-direction:column;
- height:100%;
- align-items:center;
- justify-content:center;
+grid-row-start: 1;
+  grid-row-end: 3;
+grid-column-start:1;
+  grid-column-end:end;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 @media screen and (max-width:30em) {
-  background-color:#3A1C71
+  background-color:#3A1C71;
 }
 `;
 

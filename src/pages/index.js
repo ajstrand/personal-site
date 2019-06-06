@@ -15,29 +15,24 @@ const Item = styled.div`
 `
 const Box = styled(Item)`
   width:100%;
-  @media screen and (min-width:30em) {
-    width:85%;
-  height:30%;
-  }
 `
 
 const Top = styled(Box)`
+display:flex;
+justify-content:center;
+align-items:center;
 @media screen and (max-width:30em) {
-  background-color:#3a1c71
-
+  background-color:#3a1c71;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start:1;
+  grid-column-end:end;
 }
 @media screen and (min-width:30em) {
-  transform:translate(120px, 12%);
+  grid-row-start:2;
+  grid-column-start:2;
+grid-column-end:4;
 }
-`
-
-const Bottom = styled(Box)`
-@media screen and (max-width:30em) {
-  background-color:#d76d77
-}
-  @media screen and (min-width:30em) {
-    transform:translate(120px, 12%);
-  }
 `
 
 class BlogIndex extends React.Component {
@@ -55,24 +50,6 @@ class BlogIndex extends React.Component {
           />
           <Bio />
         </Top>
-        <Bottom>
-          <h1 style={{marginTop: "0.5rem"}}>Latest Post</h1>
-          <Item key={post.fields.slug}>
-            <h3
-              style={{
-                color:"#ffffff!important",
-                marginBottom: rhythm(1 / 4),
-                marginTop: "0.5rem"
-              }}
-            >
-              <Link style={{ boxShadow: `none`, color:"#ffffff" }} to={post.fields.slug}>
-                {postTitle}
-              </Link>
-            </h3>
-            <small style={{color:"#ffffff"}}>{post.frontmatter.date}</small>
-            <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-          </Item>
-        </Bottom>
       </Layout>
     )
   }

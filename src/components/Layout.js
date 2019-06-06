@@ -13,8 +13,11 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 const StyledContainer = styled.div`
 height:100%;
 width:100%;
-display:flex;
-flex-direction:column;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
   maxWidth: ${rhythm(24)};
   @media screen and (min-width:30em) {
     height: 100%;
@@ -38,12 +41,16 @@ width:100%;
 const BottomContent = styled.div `
 @media screen and (max-width:30em) {
   background-color: #ffaf7b;
+  grid-column-start:1;
+  grid-column-end:end;
+}
+@media screen and (min-width:30em) {
+  grid-row-start:4;
+  grid-column-start:2;
+}
+
 }`
 
-
-const Content = styled.div `
-  flex: 1 0 auto;
-`
 
 const BottomLink = styled(Link)`
 @media screen and (max-width:30em) {
@@ -89,9 +96,8 @@ class Layout extends React.Component {
       <Fragment>
 <StyledContainer
       >
-        <Content>
+
           {children}
-        </Content>
         <BottomContent>
        <LinksBox>
          <BottomLink style={{ boxShadow: `none` }} to="/resume">

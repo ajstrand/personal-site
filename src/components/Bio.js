@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import typography, { rhythm } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
 const StyleLink = styled.a `
@@ -34,15 +34,18 @@ function Bio() {
       render={data => {
         const { author, social} = data.site.siteMetadata
         const blurb = <p>
-        Hi, I'm <NameComponent>{author}</NameComponent> and I live and work in Dublin, OH. 
+        Hi, I'm <NameComponent>{author}</NameComponent>.
         I build software for libraries <StyleLink href="https://oclc.org" target="_blank">@OCLC </StyleLink>
          using JavaScript/React, Java, and  Spring. I love working with modern web technologies
-         helpful products that serve the needs of users.
+         helpful products that serve the needs of users. Previousky <StyleLink href="https://rootinc.com" target="_blank">@RootInc</StyleLink>.
       </p>
         return (
           <Content
             style={{
               display: `flex`,
+              alignItems:'center',
+                justifyContent:'center',
+                flexDirection:'column',
               marginBottom: rhythm(2.5),
             }}
           >
@@ -52,7 +55,8 @@ function Bio() {
               style={{
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
-                minWidth: 50,
+                width:'200px',
+                height:'200px',
                 borderRadius: `100%`,
               }}
               imgStyle={{
@@ -69,9 +73,9 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/me.jpg/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
