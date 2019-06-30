@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
 
@@ -22,6 +21,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 @media screen and (max-width:30em) {
+  padding:15px;
   background-color:#3a1c71;
   grid-row-start: 1;
   grid-row-end: 3;
@@ -31,7 +31,6 @@ align-items:center;
 @media screen and (min-width:30em) {
   grid-row-start:2;
   grid-column-start:2;
-grid-column-end:4;
 }
 `
 
