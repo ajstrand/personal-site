@@ -79,7 +79,7 @@ flex-shrink: 0;
 }
 `;
 
-const StyledGatsbyLink = styled.a`
+const StyledLink = styled.a`
 @media screen and (max-width:30em) {
   color: #3A1C71;
   ;
@@ -125,8 +125,11 @@ class Layout extends React.Component {
        </LinksBox>
        <StyledFooter>
          © {new Date().getFullYear()} Alex Strand, Built with
-       {` `}
-         <StyledGatsbyLink href="https://www.gatsbyjs.org">Gatsby</StyledGatsbyLink>
+       {' '}
+         <StyledLink target="_blank" href="https://www.gatsbyjs.org">Gatsby</StyledLink>
+         {' '}and hosted on{' '} 
+          <StyledLink target="_blank" href="https://www.netlify.com">Netlify</StyledLink>
+
        </StyledFooter>
      </BottomContent>
       </StyledContainer>
