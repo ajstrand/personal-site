@@ -49,7 +49,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "deploy": "gatsby build && gh-pages -d public",
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
