@@ -7,17 +7,11 @@ import SEO from '../components/seo'
 import styled from "styled-components";
 
 
-const Item = styled.div`
+const Item = styled.section`
   padding:0.5em;
   display:flex;
   flex-direction:column;
-`
-const Box = styled(Item)`
   width:100%;
-`
-
-const Top = styled(Box)`
-display:flex;
 justify-content:center;
 align-items:center;
 @media screen and (max-width:30em) {
@@ -33,6 +27,9 @@ align-items:center;
   grid-column-start:2;
 }
 `
+const Box = styled(Item)`
+
+`
 
 class BlogIndex extends React.Component {
   render() {
@@ -42,13 +39,13 @@ class BlogIndex extends React.Component {
     const postTitle = post.frontmatter.title || post.fields.slug
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <Top>
+        <Item>
           <SEO
-            title="All posts"
+            title="Alex Strand"
             keywords={[`blog`, `gatsby`, `javascript`, `react`]}
           />
           <Bio />
-        </Top>
+        </Item>
       </Layout>
     )
   }

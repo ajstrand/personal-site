@@ -6,17 +6,17 @@ import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
-const Item = styled.div `
+const Item = styled.section `
   padding:0.5em;
   display:flex;
   flex-direction:column;
-`;
-const Box = styled(Item) `
   width:100%;
   height:100%;
 `;
 
-const PostsContainer = styled(Box) `
+const PostsContainer = styled(Item) `
+grid-column-start:1;
+  grid-column-end:end;
 @media screen and (max-width:30em) {
   background-color:#3A1C71
 }

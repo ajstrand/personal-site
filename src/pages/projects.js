@@ -6,24 +6,20 @@ import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
-const Item = styled.div `
-  padding:0.5em;
-  display:flex;
-  flex-direction:column;
-`;
-const Box = styled(Item) `
-  width:100%;
-`;
+const ProjectsContainer = styled.section `
+width:100%;
 
-const ProjectsContainer = styled(Box) `
-  height:100%;
- grid-column-start:1;
- grid-column-end:end;
-  @media screen and (max-width:30em) {
-    background-color:#D76D77;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  }
+padding:0.5em;
+display:flex;
+flex-direction:column;
+ height:100%;
+grid-column-start:1;
+grid-column-end:end;
+@media screen and (max-width:30em) {
+  background-color:#D76D77;
+grid-row-start: 1;
+grid-row-end: 3;
+}
 `;
 
 class Projects extends React.Component {
@@ -36,29 +32,29 @@ class Projects extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="projects list"
-          keywords={[`javascript`, `react`, `rails`]}
+          keywords={[`javascript`, `react`, `css`, `css-grid`, "node.js"]}
         />
         <ProjectsContainer>
-        <h1 style={{ marginTop:"1rem",
+        <h1 tabIndex={0} style={{ marginTop:"1rem",
 }}>Projects</h1>
         {projects.map(({ node }) => {
           const desc = node.desc
           const title = node.title
           const link = node.link
           return (
-            <div key={node.title}>
-              <h3
+            <section key={node.title}>
+              <h3 tabIndex={0}
                 style={{
                   marginTop:"1rem",
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <a href={link}  style={{ boxShadow: `none`, color:'#ffffff' }}>
+                <a aria-label="project URL" href={link}  style={{ boxShadow: `none`, color:'#ffffff' }}>
                 {title }
                 </a>
               </h3>
-              <p dangerouslySetInnerHTML={{ __html: desc }} />
-            </div>
+              <p tabIndex={0} dangerouslySetInnerHTML={{ __html: desc }} />
+            </section>
           )
         })}
           </ProjectsContainer>

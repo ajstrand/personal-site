@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import styled from "styled-components";
 
-const ResumeContainer = styled.div `
+const ResumeContainer = styled.section `
 padding:0.5em;
 grid-row-start: 1;
   grid-row-end: 3;
@@ -34,13 +34,11 @@ class Resume extends React.Component {
     const resume = data.allFile.edges[0].node.publicURL
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title="projects list"
-          keywords={[`javascript`, `react`, `rails`]}
-        />
+         <SEO
+          title="Resume"/>
         <ResumeContainer>
-        <Text> You can download a copy of my resume
-    <ResumeLink target="_blank" href={resume}> here</ResumeLink>
+        <Text tabIndex={0}> You can download a copy of my resume
+    <ResumeLink aria-label="resume" target="_blank" href={resume}> here</ResumeLink>
     </Text>
         </ResumeContainer>  
       </Layout>

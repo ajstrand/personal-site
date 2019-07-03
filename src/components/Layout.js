@@ -10,7 +10,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.main`
 height:100%;
 width:100%;
 display: grid;
@@ -35,7 +35,7 @@ width:100%;
   }
 `;
 
-const BottomContent = styled.div `
+const BottomContent = styled.section `
 @media screen and (max-width:30em) {
   background-color: #ffaf7b;
   grid-column-start:1;
@@ -90,7 +90,7 @@ color:#ffffff;
 
 class Layout extends React.Component {
   render() {
-    const { children, location } = this.props
+    const { children} = this.props
 
     return (
       <Fragment>
@@ -112,23 +112,23 @@ class Layout extends React.Component {
          <BottomLink style={{ boxShadow: `none` }} to="/posts">
            Blog
              </BottomLink>
-         <StyledAnchorTag href="https://twitter.com/_alex_strand">
+         <StyledAnchorTag aria-label="Twiiter" href="https://twitter.com/_alex_strand">
            <FontAwesomeIcon icon={faTwitter} />
          </StyledAnchorTag>
-         <StyledAnchorTag href="https://github.com/ajstrand">
+         <StyledAnchorTag aria-label="Github" href="https://github.com/ajstrand">
            <FontAwesomeIcon icon={faGithub} />
          </StyledAnchorTag>
-         <StyledAnchorTag href="https://www.linkedin.com/in/ajstrand">
+         <StyledAnchorTag aria-label="Linkedin" href="https://www.linkedin.com/in/ajstrand">
            <FontAwesomeIcon icon={faLinkedin} />
          </StyledAnchorTag>
 
        </LinksBox>
-       <StyledFooter>
+       <StyledFooter tabIndex={0}>
          © {new Date().getFullYear()} Alex Strand, Built with
        {' '}
-         <StyledLink target="_blank" href="https://www.gatsbyjs.org">Gatsby</StyledLink>
+         <StyledLink  aria-label="Gatsby website URL" target="_blank" href="https://www.gatsbyjs.org">Gatsby</StyledLink>
          {' '}and hosted on{' '} 
-          <StyledLink target="_blank" href="https://www.netlify.com">Netlify</StyledLink>
+          <StyledLink aria-label="Netlify website URL" target="_blank" href="https://www.netlify.com">Netlify</StyledLink>
 
        </StyledFooter>
      </BottomContent>
