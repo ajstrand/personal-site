@@ -9,6 +9,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-mdx`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-json`,
     {

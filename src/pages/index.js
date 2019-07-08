@@ -31,12 +31,10 @@ const Box = styled(Item)`
 
 `
 
-class BlogIndex extends React.Component {
+class SiteIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const post = data.allMarkdownRemark.edges[0].node
-    const postTitle = post.frontmatter.title || post.fields.slug
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <Item>
@@ -51,27 +49,13 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default SiteIndex
 
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-          }
-        }
       }
     }
   }

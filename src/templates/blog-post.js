@@ -26,7 +26,7 @@ const BottomWrapper = styled.div`
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
+    const post = this.props.data.Mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
@@ -90,19 +90,21 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
+    allMdx(fields: { slug: { eq: $slug } }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 160)
+          html
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            author
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
       }
     }
   }

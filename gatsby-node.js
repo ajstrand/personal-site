@@ -1,29 +1,28 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   return graphql(
-    `
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
+    `query {
+      allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+        edges {
+          node {
+            id
+            excerpt(pruneLength: 250)
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              author
             }
           }
         }
       }
+    }
     `
   ).then(result => {
     if (result.errors) {
@@ -31,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMdx.edges
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -50,15 +49,19 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
+// Here we're adding extra stuff to the "node" (like the slug)
+// so we can query later for all blogs and get their slug
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode })
     createNodeField({
-      name: `slug`,
+      // Individual MDX node
       node,
-      value,
+      // Name of the field you are adding
+      name: 'slug',
+      // Generated value based on filepath with "blog" prefix
+      value: `/blog${value}`
     })
   }
 }
