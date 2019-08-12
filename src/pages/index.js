@@ -14,22 +14,15 @@ const Item = styled.section`
   width:100%;
 justify-content:center;
 align-items:center;
-@media screen and (max-width:30em) {
-  padding:15px;
-  background-color:#3a1c71;
-  grid-row-start: 1;
+grid-row-start: 1;
   grid-row-end: 3;
   grid-column-start:1;
   grid-column-end:end;
+@media screen and (max-width:30em) {
+  padding:15px;
+  background-color:#3a1c71;
 }
-@media screen and (min-width:30em) {
-  grid-row-start:2;
-  grid-column-start:2;
-}
-`
-const Box = styled(Item)`
-
-`
+`;
 
 class SiteIndex extends React.Component {
   render() {

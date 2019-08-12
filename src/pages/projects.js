@@ -15,10 +15,11 @@ flex-direction:column;
  height:100%;
 grid-column-start:1;
 grid-column-end:end;
-@media screen and (max-width:30em) {
-  background-color:#D76D77;
 grid-row-start: 1;
 grid-row-end: 3;
+overflow-y:scroll;
+@media screen and (max-width:30em) {
+  background-color:#D76D77;
 }
 `;
 

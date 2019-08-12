@@ -9,20 +9,27 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-mdx`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        // Apply gatsby-mdx to both .mdx and .md files
+        extensions: ['.mdx', '.md'],
+        defaultLayout: require.resolve('./src/templates/blog-post.js')
+      }
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `./src/data/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
       },
     },
     {

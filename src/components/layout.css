@@ -7,10 +7,6 @@ body {
     width:100%;
 }
 
-p, h1, a {
-    color:#ffffff
-}
-
 #___gatsby,
 #___gatsby > div[role="group"] {
     height:100%;

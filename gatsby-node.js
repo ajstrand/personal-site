@@ -3,10 +3,9 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   return graphql(
-    `query {
+    `{
       allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {
@@ -31,6 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Create blog posts pages.
     const posts = result.data.allMdx.edges
+
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -60,8 +60,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       // Name of the field you are adding
       name: 'slug',
-      // Generated value based on filepath with "blog" prefix
-      value: `/blog${value}`
+      // Generated value based on filepath with "posts" prefix
+      value: `/posts${value}`
     })
   }
 }

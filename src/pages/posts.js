@@ -17,19 +17,20 @@ const Item = styled.section `
 const PostsContainer = styled(Item) `
 grid-column-start:1;
   grid-column-end:end;
+  grid-row-start: 1;
+grid-row-end: 3;
+  overflow-y:scroll;
 @media screen and (max-width:30em) {
   background-color:#3A1C71
 }
 `;
 
-class Posts extends React.Component {
-  render() {
-    const { data } = this.props
+function Posts({data}) {
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMdx.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={data.location} title={siteTitle}>
         <SEO
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
@@ -39,7 +40,7 @@ class Posts extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <Item key={node.fields.slug}>
+            <Item key={node.id}>
               <h3
                 style={{
                   marginTop:"1rem",
@@ -61,7 +62,6 @@ class Posts extends React.Component {
       </Layout>
     )
   }
-}
 
 export default Posts
 
@@ -75,13 +75,13 @@ export const pageQuery = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           node {
+            id
             excerpt
             fields {
               slug
             }
             frontmatter {
               title
-              path
               date(formatString: "MMMM DD, YYYY")
             }
           }

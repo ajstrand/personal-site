@@ -6,14 +6,7 @@ import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
 const StyleLink = styled.a `
-@media screen and (min-width:30em) {
   color: #ffffff;
-  ;
-}
-`;
-
-const Content = styled.div `
-  margin-bottom:2rem!important;
 `;
 
 const NameComponent = styled.strong `
@@ -40,8 +33,10 @@ function Bio() {
          helpful/accessible  products that serve the needs of users. Previously <StyleLink href="https://rootinc.com" target="_blank">@RootInc</StyleLink>.
       </p>
         return (
-          <Content
+          <main
             style={{
+              padding:'1rem',
+              maxWidth:'1000px',
               display: `flex`,
               alignItems:'center',
                 justifyContent:'center',
@@ -64,7 +59,7 @@ function Bio() {
               }}
             />
             {blurb}
-          </Content>
+          </main>
         )
       }}
     />
