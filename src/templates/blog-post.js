@@ -11,7 +11,7 @@ import styled from "styled-components";
 try {
   var  GifPlayer = require('react-gif-player');
 } catch (e) {
-  console.error("there was an error ", e)
+  console.log("there was an error ", e)
 }
 import { MDXProvider } from "@mdx-js/react"
 
