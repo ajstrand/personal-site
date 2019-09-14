@@ -36,11 +36,12 @@ width:100%;
 `;
 
 const BottomContent = styled.section `
-grid-row-start:3;
+grid-row-start:2;
+grid-row-end:end;
 grid-column-start:1;
 grid-column-end:end;
 background-color: #ffaf7b;
-
+height:100%;
 @media screen and (max-width:30em) {
   padding:10px;
 }`

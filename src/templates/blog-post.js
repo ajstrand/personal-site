@@ -22,8 +22,6 @@ const PostWrapper = styled.main`
 height:100%;
 width:100%;
   padding:1rem;
-  color:#ffffff;
-
   display:flex;
   justify-content:center;
   align-items:center;

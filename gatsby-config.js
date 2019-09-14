@@ -21,7 +21,23 @@ module.exports = {
       options: {
         // Apply gatsby-mdx to both .mdx and .md files
         extensions: ['.mdx', '.md'],
-        defaultLayout: require.resolve('./src/templates/blog-post.js')
+        defaultLayout: require.resolve('./src/templates/blog-post.js'),
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              // Class prefix for <pre> tags containing syntax highlighting;
+            // defaults to 'language-' (eg <pre class="language-js">).
+            // If your site loads Prism into the browser at runtime,
+            // (eg for use with libraries like react-live),
+            // you may use this to prevent Prism from re-processing syntax.
+            // This is an uncommon use-case though;
+            // If you're unsure, it's best to use the default value.
+              classPrefix: 'language-',
+              inlineCodeMarker: null
+            }
+          }
+        ]
       }
     },
     `gatsby-plugin-styled-components`,
@@ -62,7 +78,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],

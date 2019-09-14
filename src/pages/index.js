@@ -1,9 +1,11 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import 'prismjs/themes/prism-tomorrow.css';
+
+import Bio from '../components/Bio';
+import Layout from '../components/Layout';
+import SEO from '../components/seo';
 import styled from "styled-components";
 
 

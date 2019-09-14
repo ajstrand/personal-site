@@ -27,6 +27,7 @@ The `<'a>` is what's known as a lifetime construct. In Rust, the language is ver
 
 Lifetimes are also part of Rust's borrowing checking. In Rust, you have to borrow variables you want to use in a function or in some other activity. Using `&` means you're borrowing a variable. In the case below, I'm borrowing the strings used for the data in my static site.
 
+
 ```rust
 struct SiteData<'a> {
     content: &'a str,

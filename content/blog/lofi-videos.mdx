@@ -14,7 +14,9 @@ You can view it [here](https://lofi-hiphop-videos.herokuapp.com/).
 GraphQL can be challenging, if you've only ever worked with REST APIs before, but don't try to understand it all at once. 
 Read the docs and take it slow. I struggled with understanding simple queries and how to express exactly what I was trying to, but eventually I got the hang of it. 
 
-I read a lot of blog posts and articles, but one article that helped with basic understanding was [this one](https://www.robinwieruch.de/react-with-graphql-tutorial/). [The graphql javascript docs were also extremely helpful](https://graphql.org/graphql-js/). 
+I read a lot of blog posts and articles, but one article that helped with 
+basic understanding was [this one](https://www.robinwieruch.de/react-with-graphql-tutorial/). 
+[The graphql javascript docs were also extremely helpful](https://graphql.org/graphql-js/). 
 
 For a more academic, in depth guide to graphQL I'd suggest checking out Eve Porcello's *Learning GraphQL*.
 
@@ -29,17 +31,19 @@ Thankfully Google provided a Node client library for [accessing the YouTube API]
 I was able to find what I needed and adapt their examples to fit my use case. Google's Node client made the process of writing the server for app less intimidating than I thought it would be. 
 
 ## CSS Grid is great for making layout accessible
-I wanted to use CSS Grid because CSS has never been a strong suit of mine and it's something I need to improve on. CSS grid made it very easy to describe how I wanted to layout my page and in combination with flexbox I maybe wrote 10 lines of CSS to dictate the layout of the page. The Mozilla Developer Network's docs on [CSS Grid]() are fantastic, and a resource that I recommend. 
+I wanted to use CSS Grid because CSS has never been a strong suit of mine and it's something I need to improve on. CSS grid made it very easy to describe 
+how I wanted to layout my page and in combination with flexbox I maybe wrote 10 lines of CSS to dictate the layout of the page. The Mozilla Developer Network's docs on [CSS Grid]() are fantastic, and a resource that I recommend. 
 
 ## Challenges
 # Responsive video player
 One of the bigger I faced was getting the video player to be responsive. This snippet of code from a [css tricks article](https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php) really helped me out. 
+The bottom padding is set to 16:9. 
 
 
 ```css
 .videoWrapper {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 56.25%; 
 	padding-top: 25px;
 	height: 0;
 }
@@ -51,16 +55,19 @@ One of the bigger I faced was getting the video player to be responsive. This sn
 	height: 100%;
 }
 ```
-Basically what's happening here is that the iframe is set to have 100% width and height, meaning it'll stretch to fill the entire container. The wrapper element forces the video into a 16:9 aspect ratio, so the video doesn't look squished or stretched. 
+
+Basically what's happening here is that the iframe is set to have 100% width and height, meaning it'll stretch to fill the entire container. 
+The wrapper element forces the video into a 16:9 aspect ratio, so the video doesn't look squished or stretched. 
 
 The other challenge I ran into is once I implemented the code above, the video would fill the entire width of screen, which looked really bad on large desktops(like mine for instance). 
 
-The solution is deceptively simple. YOu just need to give the video a maximum and minimum width so that the video never grows beyond that. 
-IN my case since i was using flexbox I also set the flex-basis to auto, so that the width of the video wrapper would fall back to the full width of the container only stopping if it hit the minimum or maximum width. 
+Here's the solution: you just need to give the video a maximum and minimum width so that the video never grows beyond that. 
+In my case since i was using flexbox I also set the flex-basis to auto, so that the width of the video wrapper would fall 
+back to the full width of the container only stopping if it hit the minimum or maximum width. 
 
 ```css
 .videoWrapper {
- position: relative;
+    position: relative;
     height: 0px;
     min-width: 320px;
     max-width: 1200px;
@@ -69,8 +76,10 @@ IN my case since i was using flexbox I also set the flex-basis to auto, so that 
     margin: 0 auto;
 }
 ```
+
 The thing to notice here is that I had to set the position to relative, otherwise the video would position itself correctly in the page(in relation to the parent container's css). 
-The other thing you'll notice is that I set the margin to `0 auto`. This means that the margin top and bottom were zero pixels while the left and right margins have an equal margin. This allows the video wrapper to continue to stay centered when we hit the maximum width we defined for it. 
+The other thing you'll notice is that I set the margin to `0 auto`. This means that the margin top and bottom were zero pixels while the left and right margins have an equal margin. 
+This allows the video wrapper to continue to stay centered when we hit the maximum width we defined for it. 
 
 # Read Heroku docs to avoid errors
 I deployed my application on Heroku, as I had a number of smaller projects already there. The first mistake I made was not setting up my npm script for my server the way Heroku expects. I could never reach my API and couldn't understand why my requests were returning `404`. I finally figured it out a couple days later reading the Heroku docs. 
