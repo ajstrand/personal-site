@@ -16,10 +16,6 @@ const Item = styled.section`
   width:100%;
 justify-content:center;
 align-items:center;
-grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start:1;
-  grid-column-end:end;
 @media screen and (max-width:30em) {
   padding:15px;
   background-color:#3a1c71;

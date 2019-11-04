@@ -16,12 +16,11 @@ height:100%;
 width:100%;
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 1fr 1fr;
+grid-template-rows: 1fr auto;
 grid-column-gap: 0px;
 grid-row-gap: 0px;
   maxWidth: ${rhythm(24)};
   @media screen and (min-width:30em) {
-    grid-template-rows: 1fr 50px;
     background: #d76d77;
       }
 `;
@@ -36,10 +35,6 @@ width:100%;
 `;
 
 const BottomContent = styled.section `
-grid-row-start:2;
-grid-row-end:end;
-grid-column-start:1;
-grid-column-end:end;
 background-color: #ffaf7b;
 height:100%;
 @media screen and (max-width:30em) {

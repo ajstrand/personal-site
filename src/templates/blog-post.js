@@ -26,24 +26,16 @@ width:100%;
   justify-content:center;
   align-items:center;
   flex-direction:column;
-  grid-column-start:1;
-  grid-column-end:end;`
+  & a {
+    color:#ffffff;
+  }
+  `;
 
 const BottomWrapper = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
   flex-direction:row;
-
-  grid-column-start:1;
-  grid-column-end:end;
-@media screen and (max-width:30em) {
-  background-color:#FFAF7B;
-  color:#3A1C71;
-}
-@media screen and (min-width:30em) {
-  background-color:#D76D77;
-}
 `;
 
 const shortcodes = {

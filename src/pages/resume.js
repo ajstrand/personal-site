@@ -7,10 +7,6 @@ import styled from "styled-components";
 
 const ResumeContainer = styled.section `
 padding:0.5em;
-grid-row-start: 1;
-  grid-row-end: 3;
-grid-column-start:1;
-  grid-column-end:end;
   display:flex;
   justify-content:center;
   align-items:center;

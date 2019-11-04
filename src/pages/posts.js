@@ -15,10 +15,6 @@ const Item = styled.section `
 `;
 
 const PostsContainer = styled(Item) `
-grid-column-start:1;
-  grid-column-end:end;
-  grid-row-start: 1;
-grid-row-end: 3;
   overflow-y:scroll;
 @media screen and (max-width:30em) {
   background-color:#3A1C71
