@@ -28,6 +28,7 @@ const Resume = (props) => {
       <ResumeContainer>
           <ResumeContent list={projects} />
         <BaseText> You can download a copy of my resume {resumeLink}</BaseText>
+        <BaseText>Resume design forked from <StyledLink href="https://twitter.com/isabelacmor">@isabelacmor</StyledLink></BaseText>
       </ResumeContainer>
     </Layout>
   )
