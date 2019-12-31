@@ -1,25 +1,28 @@
 import React from "react";
 
-import CopyrightWrapper from "./Copyright";
+import Copyright from "./Copyright";
 
 import styled from "styled-components";
 import SiteNav from "./SiteNav";
 
 
-const BottomContent = styled.footer`
-background-color: #ffaf7b;
+const Footer = styled.footer`
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 height: 100%;
 @media screen and (max-width: 30em) {
   padding: 10px;
 }
 `;
 
- const FooterContainer = () => {
+const FooterContainer = () => {
   return (
-    <BottomContent>
-    <SiteNav/>
-    <CopyrightWrapper/>
-  </BottomContent>
+    <Footer>
+      <SiteNav />
+      <Copyright />
+    </Footer>
   )
 }
 

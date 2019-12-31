@@ -5,60 +5,68 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
 import styled from "styled-components";
-
-const ProjectsContainer = styled.section `
-width:100%;
-
+import { Header1, Header3 } from '../components/componentsList'
+import {externalLinkText} from "../utils/helpers"
+const ProjectsContainer = styled.div`
+flex-basis:100%;
 padding:0.5em;
 display:flex;
 flex-direction:column;
  height:100%;
 overflow-y:scroll;
-@media screen and (max-width:30em) {
-  background-color:#D76D77;
+`;
+
+const ProjectsContentList = styled.main`
+flex-basis:95%;
+padding: 1rem;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+flex-direction: column;
+@media screen and (min-width: 30em) {
+  flex-basis: 70%;
 }
 `;
 
-class Projects extends React.Component {
-  render() {
-    const { data } = this.props
+const Projects = (props) => {
+    const { data, location } = props
     const siteTitle = data.site.siteMetadata.title
     const projects = data.allProjectsJson.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={location} title={siteTitle}>
         <SEO
           title="projects list"
           keywords={[`javascript`, `react`, `css`, `css-grid`, "node.js"]}
         />
         <ProjectsContainer>
-        <h1 tabIndex={0} style={{ marginTop:"1rem",
-}}>Projects</h1>
+          <ProjectsContentList>
+        <Header1 style={{ marginTop:"1rem",
+}}>Projects</Header1>
         {projects.map(({ node }) => {
           const desc = node.desc
           const title = node.title
           const link = node.link
+          const anchorTag = externalLinkText(link, title, `${title} project URL`)
           return (
             <section key={node.title}>
-              <h3 tabIndex={0}
+              <Header3
                 style={{
                   marginTop:"1rem",
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <a aria-label="project URL" href={link}  style={{ boxShadow: `none`, color:'#ffffff' }}>
-                {title }
-                </a>
-              </h3>
-              <p tabIndex={0} dangerouslySetInnerHTML={{ __html: desc }} />
+                {anchorTag}
+              </Header3>
+              <p dangerouslySetInnerHTML={{ __html: desc }} />
             </section>
           )
         })}
+        </ProjectsContentList>
           </ProjectsContainer>
       </Layout>
     )
   }
-}
 
 export default Projects
 

@@ -10,6 +10,7 @@ import styled from "styled-components";
 
 
 const Item = styled.section`
+  background-color:#F0EEE3;
   padding:0.5em;
   display:flex;
   flex-direction:column;
@@ -18,16 +19,14 @@ justify-content:center;
 align-items:center;
 @media screen and (max-width:30em) {
   padding:15px;
-  background-color:#3a1c71;
 }
 `;
 
-class SiteIndex extends React.Component {
-  render() {
-    const { data } = this.props
+const SiteIndex = (props) => {
+    const { data, location } = props
     const siteTitle = data.site.siteMetadata.title
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={location} title={siteTitle}>
         <Item>
           <SEO
             title="Alex Strand"
@@ -37,7 +36,6 @@ class SiteIndex extends React.Component {
         </Item>
       </Layout>
     )
-  }
 }
 
 export default SiteIndex

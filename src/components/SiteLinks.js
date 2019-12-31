@@ -1,33 +1,21 @@
 import React from "react";
-import { Link } from "gatsby";
+import { InternalSiteLink} from "./componentsList"
 
-import "./layout.css";
-
-import styled from "styled-components";
-
-const SiteLink = styled(Link)`
-margin: 0 0.5em 0 0.5em;
-color: #3a1c71;
-boxShadow:none;
-@media screen and (min-width: 30em) {
-  font-size: 15px;
-}
-`;
 const SiteLinks = () => {
   return (
     <>
-    <SiteLink to="/resume">
+    <InternalSiteLink to="/resume">
         Resume
-      </SiteLink>
-      <SiteLink to="/projects">
+      </InternalSiteLink>
+      <InternalSiteLink to="/projects">
         Projects
-      </SiteLink>
-      <SiteLink to="/">
+      </InternalSiteLink>
+      <InternalSiteLink to="/">
         Home
-      </SiteLink>
-      <SiteLink to="/posts">
+      </InternalSiteLink>
+      <InternalSiteLink to="/posts">
         Blog
-      </SiteLink>
+      </InternalSiteLink>
       </>
   )
 }

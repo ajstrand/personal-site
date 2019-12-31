@@ -4,42 +4,33 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import styled from "styled-components";
+import ResumeContent from '../components/ResumeContent';
+import {BaseText, StyledLink} from "../components/componentsList"
 
-const ResumeContainer = styled.section `
+const ResumeContainer = styled.div`
 padding:0.5em;
   display:flex;
   justify-content:center;
   align-items:center;
-@media screen and (max-width:30em) {
-  background-color:#3A1C71;
-}
+  flex-direction:column;
 `;
 
-const Text = styled.p `
-color:#ffffff;
-`;
-
-const ResumeLink = styled.a `
-  color:#ffffff;
-`;
-
-class Resume extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const resume = data.allFile.edges[0].node.publicURL
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-         <SEO
-          title="Resume"/>
-        <ResumeContainer>
-        <Text tabIndex={0}> You can download a copy of my resume
-    <ResumeLink aria-label="resume" target="_blank" href={resume}> here</ResumeLink>
-    </Text>
-        </ResumeContainer>  
-      </Layout>
-    )
-  }
+const Resume = (props) => {
+  const { data, location } = props
+  const siteTitle = data.site.siteMetadata.title
+  const resume = data.allFile.edges[0].node.publicURL
+  const projects = data.allProjectsJson.edges
+  const resumeLink =  <StyledLink aria-label="resume" target="_blank" href={resume}>here</StyledLink>
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO
+        title="Resume" />
+      <ResumeContainer>
+          <ResumeContent list={projects} />
+        <BaseText> You can download a copy of my resume {resumeLink}</BaseText>
+      </ResumeContainer>
+    </Layout>
+  )
 }
 
 export default Resume
@@ -55,6 +46,15 @@ export const resumeQuery = graphql`
         edges {
           node {
             publicURL
+          }
+        }
+      }
+      allProjectsJson {
+        edges {
+          node {
+            title
+            desc,
+            date
           }
         }
       }

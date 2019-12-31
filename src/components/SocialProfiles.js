@@ -1,6 +1,5 @@
 import React from 'react'
 
-import "./layout.css";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -9,8 +8,9 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const StyledAnchorTag = styled.a`
 width: 25px;
-color: #3a1c71;
+color: #131316;
 margin: 0.5em;
+text-decoration:none;
 `;
 
 const SocialProfiles = () => {

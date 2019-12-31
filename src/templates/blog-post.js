@@ -20,7 +20,6 @@ import { MDXProvider } from "@mdx-js/react";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 
 const PostWrapper = styled.div`
-  background: #d76d77;
   height: 100%;
   width: 100%;
   padding: 1rem;
@@ -28,9 +27,6 @@ const PostWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  & a {
-    color: #ffffff;
-  }
 `;
 
 const PostContent = styled.main `
@@ -45,7 +41,7 @@ flex-direction: column;
   width: 70%;
 }
 & a {
-  color: #ffffff;
+  color: #000000;
 }
 `;
 
@@ -76,7 +72,7 @@ function BlogPostTemplate({ data: { mdx }, location, pageContext }) {
           <p
             style={{
               ...scale(-1 / 5),
-              color: "#fffff",
+              color: "#000000",
               display: `block`,
               marginBottom: rhythm(1),
               marginTop: rhythm(-1)

@@ -6,18 +6,17 @@ import { rhythm } from '../utils/typography'
 import styled from "styled-components";
 
 const StyleLink = styled.a `
-  color: #ffffff;
+padding:5px;
+border-radius:"10px";
+background-color:#454553;
+ color: #FFAF7B;
 `;
 
-const NameComponent = styled.strong `
-@media screen and (min-width:30em) {
-  color:  #3A1C71;
-  ;
-}
-@media screen and (max-width:30em) {
-  color: #FFAF7B;
-  ;
-}
+const NameComponent = styled.span `
+ color:"#131316";
+ text-decoration-color:#eb586f;
+ text-decoration:underline;
+ font-weight:bold;
 `;
 
 function Bio() {
@@ -26,7 +25,15 @@ function Bio() {
       query={bioQuery}
       render={data => {
         const { author} = data.site.siteMetadata
-        const blurb = <p tabIndex={0}>
+
+        const blurb = <p style={
+          {
+          "backgroundColor":"#f495a3",
+            "color":"#131316",
+            "padding":"10px",
+            "borderRadius":"15px",
+          marginTop:"20px",
+          }}>
         Hi, I'm <NameComponent>{author}</NameComponent>.
         I build software for libraries <StyleLink href="https://oclc.org" target="_blank">@OCLC </StyleLink>
          using JavaScript/React, Java, and  Spring. I love working with modern web technologies and building
@@ -35,6 +42,7 @@ function Bio() {
         return (
           <main
             style={{
+              borderRadius:"15px",
               padding:'1rem',
               maxWidth:'1000px',
               display: `flex`,
