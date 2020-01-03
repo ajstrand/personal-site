@@ -68,7 +68,7 @@ const resumeDataObj = {
   ],
   skills: {
     languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Java"],
-    technologies: ["React", "React Native", "Spock", "Material UI", "Webpack", "JQuery", "SQL", "SCSS", "NodeJS"]
+    technologies: ["React", "React Native", "Material UI", "Webpack", "JQuery",  "SCSS", "NodeJS", "Spock", "Spring",  "SQL"]
   }
 }
 const createSectionAndHeader = (sectionTitle, chilren) => {

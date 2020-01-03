@@ -4,19 +4,9 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
-import styled from "styled-components";
-import {Header1,  Header3, BaseText, InternalSiteLink } from '../components/componentsList'
+import {Header1,  Header3, BaseText, InternalSiteLink, OverflowYScrollContainer, ListItem } from '../components/componentsList'
 
-const Item = styled.div `
-  padding:0.5em;
-  display:flex;
-  flex-direction:column;
-  width:100%;
-`;
 
-const PostsContainer = styled.main `
-  overflow-y:scroll;
-`;
 
 function Posts({data}) {
     const siteTitle = data.site.siteMetadata.title
@@ -28,12 +18,12 @@ function Posts({data}) {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-      <PostsContainer>
+      <OverflowYScrollContainer>
         <Header1 style={{marginTop:"1rem"}}>Posts</Header1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <Item key={node.id}>
+            <ListItem key={node.id}>
               <Header3
                 style={{
                   marginTop:"1rem",
@@ -48,10 +38,10 @@ function Posts({data}) {
                   color:"#ffffff",
               }}>{node.frontmatter.date}</small>
               <BaseText dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </Item>
+            </ListItem>
           )
         })}
-      </PostsContainer>
+      </OverflowYScrollContainer>
       </Layout>
     )
   }

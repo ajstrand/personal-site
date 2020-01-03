@@ -5,12 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { StyledLink} from "./componentsList"
 
-const StyledAnchorTag = styled.a`
-width: 25px;
-color: #131316;
+const StyledAnchorTag = styled(StyledLink)`
 margin: 0.5em;
-text-decoration:none;
 `;
 
 const SocialProfiles = () => {

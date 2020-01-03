@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-import { Link } from "gatsby";
+import React from "react";
 
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
@@ -18,20 +17,13 @@ try {
 import { MDXProvider } from "@mdx-js/react";
 
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
-
+import OtherPostsNav from "./OtherPostsNav"
 const PostWrapper = styled.div`
-  height: 100%;
-  width: 100%;
-  padding: 1rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+justify-content: center;
 `;
 
 const PostContent = styled.main `
-height: 100%;
-width: 95%;
 padding: 1rem;
 display: flex;
 justify-content: center;
@@ -45,11 +37,12 @@ flex-direction: column;
 }
 `;
 
-const BottomWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+const DateComponent = styled.p`
+         font-size:${props => props.dateScale};
+              color: #000000;
+              display: block;
+              margin-bottom: ${props => props.marginBottom};
+              margin-top: ${props => props.marginTop};
 `;
 
 const shortcodes = {
@@ -61,25 +54,16 @@ const shortcodes = {
 function BlogPostTemplate({ data: { mdx }, location, pageContext }) {
   const { title, date } = mdx.frontmatter;
   const { previous, next } = pageContext;
-
+  const dateScale = scale(-1/5)
+  const marginTop = rhythm(-1)
+  const marginBottom = rhythm(1)
   return (
-    <Fragment>
       <Layout location={location} title={title}>
         <SEO title={title} description={"foobar"} />
         <PostWrapper>
           <PostContent>
           <h1 style={{ marginBottom: "2rem" }}>{title}</h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              color: "#000000",
-              display: `block`,
-              marginBottom: rhythm(1),
-              marginTop: rhythm(-1)
-            }}
-          >
-            {date}
-          </p>
+  <DateComponent props={dateScale, marginBottom, marginTop}>{date}</DateComponent>
           <MDXProvider components={shortcodes}>
             <MDXRenderer>{mdx.code.body}</MDXRenderer>
           </MDXProvider>
@@ -89,37 +73,11 @@ function BlogPostTemplate({ data: { mdx }, location, pageContext }) {
             }}
           />
           {(previous || next) && (
-            <BottomWrapper>
-              <ul
-                style={{
-                  padding: "1rem",
-                  display: `flex`,
-                  flexWrap: `wrap`,
-                  justifyContent: `space-between`,
-                  listStyle: `none`
-                }}
-              >
-                <li>
-                  {previous && (
-                    <Link aria-label="previous blog entry" to={previous.fields.slug} rel="prev">
-                      ← {previous.frontmatter.title}
-                    </Link>
-                  )}
-                </li>
-                <li>
-                  {next && (
-                    <Link aria-label="next blog entry" to={next.fields.slug} rel="next">
-                      {next.frontmatter.title} →
-                    </Link>
-                  )}
-                </li>
-              </ul>
-            </BottomWrapper>
+           <OtherPostsNav previous={previous} next={next}/>
           )}
           </PostContent>
         </PostWrapper>
       </Layout>
-    </Fragment>
   );
 }
 

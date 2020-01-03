@@ -5,7 +5,7 @@ import SiteLinks from "./SiteLinks";
 
 import styled from "styled-components";
 
-const LinksBox = styled.nav`
+const SiteNavContainer = styled.nav`
 width: 100%;
 display: flex;
 flex-direction: row;
@@ -15,10 +15,10 @@ align-items: center;
 `;
 const SiteNav = () => {
   return (
-    <LinksBox>
+    <SiteNavContainer>
     <SiteLinks/> 
     <SocialProfiles/>
-  </LinksBox>
+  </SiteNavContainer>
   )
 }
 

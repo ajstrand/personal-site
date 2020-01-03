@@ -1,21 +1,24 @@
 import React from "react";
 import { InternalSiteLink} from "./componentsList"
-
+import styled from "styled-components";
+const PageLink = styled(InternalSiteLink)`
+  margin: 0 1em 0 1em;
+`;
 const SiteLinks = () => {
   return (
     <>
-    <InternalSiteLink to="/resume">
+    <PageLink to="/resume">
         Resume
-      </InternalSiteLink>
-      <InternalSiteLink to="/projects">
+      </PageLink>
+      <PageLink to="/projects">
         Projects
-      </InternalSiteLink>
-      <InternalSiteLink to="/">
+      </PageLink>
+      <PageLink to="/">
         Home
-      </InternalSiteLink>
-      <InternalSiteLink to="/posts">
+      </PageLink>
+      <PageLink to="/posts">
         Blog
-      </InternalSiteLink>
+      </PageLink>
       </>
   )
 }

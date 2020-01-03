@@ -77,7 +77,27 @@ export const BaseText = createWithStyles("p", textColorStyles, "")
 export const StyledLink = createWithStyles("a", BaseLinkStyles, "")
 
 export const InternalSiteLink = createInternalWithStyles(Link, BaseLinkStyles, `
-margin: 0 0.5em 0 0.5em;
 box-shadow:none;
   `
 )
+
+export const OverflowYScrollContainer = styled.div `
+padding:0.5em;
+display:flex;
+flex-direction:column;
+ height:100%;
+overflow-y:scroll;
+flex-basis:95%;
+align-items: flex-start;
+@media screen and (min-width: 30em) {
+  flex-basis: 70%;
+}
+
+`;
+
+export const ListItem = styled.div `
+  padding:0.5em;
+  display:flex;
+  flex-direction:column;
+  width:100%;
+`;

@@ -5,28 +5,8 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
 import styled from "styled-components";
-import { Header1, Header3 } from '../components/componentsList'
+import { Header1, Header3, OverflowYScrollContainer } from '../components/componentsList'
 import {externalLinkText} from "../utils/helpers"
-const ProjectsContainer = styled.div`
-flex-basis:100%;
-padding:0.5em;
-display:flex;
-flex-direction:column;
- height:100%;
-overflow-y:scroll;
-`;
-
-const ProjectsContentList = styled.main`
-flex-basis:95%;
-padding: 1rem;
-display: flex;
-justify-content: center;
-align-items: flex-start;
-flex-direction: column;
-@media screen and (min-width: 30em) {
-  flex-basis: 70%;
-}
-`;
 
 const Projects = (props) => {
     const { data, location } = props
@@ -39,8 +19,7 @@ const Projects = (props) => {
           title="projects list"
           keywords={[`javascript`, `react`, `css`, `css-grid`, "node.js"]}
         />
-        <ProjectsContainer>
-          <ProjectsContentList>
+        <OverflowYScrollContainer>
         <Header1 style={{ marginTop:"1rem",
 }}>Projects</Header1>
         {projects.map(({ node }) => {
@@ -62,8 +41,7 @@ const Projects = (props) => {
             </section>
           )
         })}
-        </ProjectsContentList>
-          </ProjectsContainer>
+          </OverflowYScrollContainer>
       </Layout>
     )
   }
