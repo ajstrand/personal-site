@@ -8,11 +8,18 @@ import ResumeContent from '../components/ResumeContent';
 import {BaseText, StyledLink} from "../components/componentsList"
 
 const ResumeContainer = styled.div`
-padding:0.5em;
+@media screen {
+  padding:0.5em;
   display:flex;
   justify-content:center;
   align-items:center;
   flex-direction:column;
+}
+@media print {
+ & p {
+   display:none;
+ }
+}
 `;
 
 const Resume = (props) => {

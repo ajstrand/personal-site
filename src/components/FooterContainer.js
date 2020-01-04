@@ -7,13 +7,18 @@ import SiteNav from "./SiteNav";
 
 
 const Footer = styled.footer`
-display:flex;
+@media screen {
+  display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 height: 100%;
+}
 @media screen and (max-width: 30em) {
   padding: 10px;
+}
+@media print {
+      display: none;
 }
 `;
 

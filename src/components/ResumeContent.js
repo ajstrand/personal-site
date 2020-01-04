@@ -68,7 +68,7 @@ const resumeDataObj = {
   ],
   skills: {
     languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Java"],
-    technologies: ["React", "React Native", "Material UI", "Webpack", "JQuery",  "SCSS", "NodeJS", "Spock", "Spring",  "SQL"]
+    technologies: ["React", "React Native", "Material UI", "Jest", "Webpack", "JQuery",  "SCSS", "NodeJS", "Spock", "Spring",  "SQL"]
   }
 }
 const createSectionAndHeader = (sectionTitle, chilren) => {
@@ -105,8 +105,8 @@ const createExperienceSection = () => {
 }
 
 const createProjectSection = (projects) => {
-  const { list } = projects;
-  const projectList = list.map(projectObj => {
+  let { list } = projects;
+  const projectList = list.slice(0,3).map(projectObj => {
     const project = projectObj.node
     const jsx = (
       <div className="projectItem">
@@ -169,6 +169,9 @@ const ResumeGridContainer = styled.div`
   background-color:#ffffff;
   display:grid;
   width:60%;
+  @media print {
+    width:100%;
+  }
 `;
 const ResumeContent = (projects) => {
   return (
