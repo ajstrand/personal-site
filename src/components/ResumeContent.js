@@ -11,7 +11,7 @@ const resumeDataObj = {
     {
       schoolName: "Olivet Nazarene University",
       dateRange: "September 2011 - May 2015",
-      degreeTitle: "Bacheolors",
+      degreeTitle: "Bachelor's",
       degreeDescription: "Computer Science"
     }
   ],
