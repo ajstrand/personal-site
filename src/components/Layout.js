@@ -1,21 +1,20 @@
-import React from "react";
-import FooterContainer from "./FooterContainer"
-import Theme from "./theme"
-import {GlobalStyle, StyledContainer} from "./componentsList"
+import React from 'react'
+import FooterContainer from './FooterContainer'
+import Theme from './theme'
+import { GlobalStyle, StyledContainer } from './componentsList'
 
+const Layout = props => {
+  const { children } = props
 
-const Layout = (props) => {
-    const { children } = props;
+  return (
+    <Theme>
+      <GlobalStyle />
+      <StyledContainer>
+        {children}
+        <FooterContainer />
+      </StyledContainer>
+    </Theme>
+  )
+}
 
-    return (
-      <Theme>
-        <GlobalStyle/>
-          <StyledContainer>
-          {children}
-          <FooterContainer/>
-          </StyledContainer>
-      </Theme>
-    );
-  }
-
-export default Layout;
+export default Layout

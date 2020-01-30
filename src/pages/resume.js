@@ -3,39 +3,47 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import styled from "styled-components";
-import ResumeContent from '../components/ResumeContent';
-import {BaseText, StyledLink} from "../components/componentsList"
+import styled from 'styled-components'
+import ResumeContent from '../components/ResumeContent'
+import { BaseText, StyledLink } from '../components/componentsList'
 
 const ResumeContainer = styled.div`
-@media screen {
-  padding:0.5em;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
-@media print {
- & p {
-   display:none;
- }
-}
-`;
+  @media screen {
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  @media print {
+    & p {
+      display: none;
+    }
+  }
+`
 
-const Resume = (props) => {
+const Resume = props => {
   const { data, location } = props
   const siteTitle = data.site.siteMetadata.title
   const resume = data.allFile.edges[0].node.publicURL
   const projects = data.allProjectsJson.edges
-  const resumeLink =  <StyledLink aria-label="resume" target="_blank" href={resume}>here</StyledLink>
+  const resumeLink = (
+    <StyledLink aria-label="resume" target="_blank" href={resume}>
+      here
+    </StyledLink>
+  )
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
-        title="Resume" />
+      <SEO title="Resume" />
       <ResumeContainer>
-          <ResumeContent list={projects} />
+        <ResumeContent list={projects} />
         <BaseText> You can download a copy of my resume {resumeLink}</BaseText>
-        <BaseText>Resume design forked from <StyledLink href="https://twitter.com/isabelacmor">@isabelacmor</StyledLink></BaseText>
+        <BaseText>
+          Resume design forked from{' '}
+          <StyledLink href="https://twitter.com/isabelacmor">
+            @isabelacmor
+          </StyledLink>
+        </BaseText>
       </ResumeContainer>
     </Layout>
   )
@@ -44,28 +52,28 @@ const Resume = (props) => {
 export default Resume
 
 export const resumeQuery = graphql`
-  query  ResumeQuery {
+  query ResumeQuery {
     site {
       siteMetadata {
         title
       }
     }
-      allFile(filter: { extension: { eq: "pdf" } }) {
-        edges {
-          node {
-            publicURL
-          }
+    allFile(filter: { extension: { eq: "pdf" } }) {
+      edges {
+        node {
+          publicURL
         }
       }
-      allProjectsJson {
-        edges {
-          node {
-            title
-            desc,
-            date
-          }
+    }
+    allProjectsJson {
+      edges {
+        node {
+          title
+          desc
+          date
         }
       }
+    }
   }
 `
 
