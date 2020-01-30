@@ -56,8 +56,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.0",
     "gatsby-plugin-sass": "^2.1.27",
+    "husky": "^4.2.1",
     "node-sass": "^4.13.1",
     "prettier": "1.19.1",
+    "pretty-quick": "^2.0.1",
     "react-axe": "^3.3.0"
   },
   "license": "MIT",
@@ -70,5 +72,10 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
