@@ -1,21 +1,21 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from "react";
+import { graphql } from "gatsby";
 
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import { rhythm } from '../utils/typography'
+import Layout from "../components/Layout";
+import SEO from "../components/seo";
+import { rhythm } from "../utils/typography";
 import {
   Header1,
   Header3,
   BaseText,
   InternalSiteLink,
   OverflowYScrollContainer,
-  ListItem,
-} from '../components/componentsList'
+  ListItem
+} from "../components/componentsList";
 
 function Posts({ data }) {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMdx.edges
+  const siteTitle = data.site.siteMetadata.title;
+  const posts = data.allMdx.edges;
 
   return (
     <Layout location={data.location} title={siteTitle}>
@@ -24,15 +24,15 @@ function Posts({ data }) {
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
       <OverflowYScrollContainer>
-        <Header1 style={{ marginTop: '1rem' }}>Posts</Header1>
+        <Header1 style={{ marginTop: "1rem" }}>Posts</Header1>
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
+          const title = node.frontmatter.title || node.fields.slug;
           return (
             <ListItem key={node.id}>
               <Header3
                 style={{
-                  marginTop: '1rem',
-                  marginBottom: rhythm(1 / 4),
+                  marginTop: "1rem",
+                  marginBottom: rhythm(1 / 4)
                 }}
               >
                 <InternalSiteLink to={node.fields.slug}>
@@ -41,21 +41,21 @@ function Posts({ data }) {
               </Header3>
               <small
                 style={{
-                  color: '#ffffff',
+                  color: "#000000"
                 }}
               >
                 {node.frontmatter.date}
               </small>
               <BaseText dangerouslySetInnerHTML={{ __html: node.excerpt }} />
             </ListItem>
-          )
+          );
         })}
       </OverflowYScrollContainer>
     </Layout>
-  )
+  );
 }
 
-export default Posts
+export default Posts;
 
 export const pageQuery = graphql`
   query {
@@ -80,4 +80,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
