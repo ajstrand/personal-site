@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css?family=Khula|Telex|Yantramanav');
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* 
+  Color and size definitions
+*/
+$accentColor: #4aa0d5;
+$textPrimaryColor: rgb(90, 87, 87);
+$textSecondaryColor: #737373;
+$headerPrimaryColor: $accentColor;
+
+$headerPrimarySize: 1em;
+$primarySpacing: 1em;
+$smallSpacing: 0.5em;
+
+/*
+  Common component styles
+*/
+%headerPrimary {
+  font-weight: 600;
+  font-family: 'Yantramanav', sans-serif;
+  font-size: $headerPrimarySize;
+  color: $textPrimaryColor;
+  text-transform: capitalize;
+}
+
+%bodyPrimary {
+  font-weight: 500;
+  font-family: 'Khula', sans-serif;
+  font-size: 0.95em;
+  color: $textSecondaryColor;
+}
+
+.sectionHeader {
+  @extend %headerPrimary;
+  border-bottom: 1px solid;
+  font-size: $headerPrimarySize;
+  text-transform: uppercase;
+  color: $headerPrimaryColor;
+  margin-bottom: -5px;
+}
+
+.description {
+  @extend %bodyPrimary;
+}
+
+.accent {
+  font-weight: 600;
+  font-style: italic;
+  color: $textPrimaryColor;
+}
+
+/*
+  Body styles
+*/
+.header {
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: $accentColor;
+
+  .contactName {
+    @extend %headerPrimary;
+    font-size: 3em;
+    color: white;
+  }
+
+  .contactDetails {
+    list-style-type: none;
+    text-align: right;
+
+    a {
+      @extend %bodyPrimary;
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.resumeBody {
+  padding: 20px;
+  display: grid;
+  grid-column: 1;
+  grid-auto-rows: auto;
+  grid-gap: $primarySpacing;
+}
+
+.twoColumnSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+
+  & > .leftColumn {
+    -ms-flex-preferred-size: 200px;
+        flex-basis: 200px;
+    -webkit-box-flex: 9999;
+        -ms-flex-positive: 9999;
+            flex-grow: 9999;
+    margin: 0 1em 1em 0;
+
+    /*.outreachSection {
+      display: grid;
+      grid-auto-rows: -webkit-min-content;
+      grid-auto-rows: min-content;
+      grid-gap: $smallSpacing;
+  
+      .outreachItem {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        grid-template-areas: "title description";
+        grid-gap: $primarySpacing;
+      }
+    }  */
+  }
+
+  & > .rightColumn {
+    -ms-flex-preferred-size:100px;
+        flex-basis:100px;
+    -webkit-box-flex:1;
+        -ms-flex-positive:1;
+            flex-grow:1;
+    min-width: 300px;
+
+    .educationSection {
+      display: grid;
+      grid-auto-rows: -webkit-min-content;
+      grid-auto-rows: min-content;
+      grid-gap: $smallSpacing;
+      margin-bottom: $primarySpacing;
+  
+      .educationItem {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        grid-template-areas: "title description";
+        grid-gap: $primarySpacing;
+      }
+    }
+
+    .skillsSection {
+      grid-auto-rows: -webkit-min-content;
+      grid-auto-rows: min-content;
+      display: grid;
+      grid-gap: $smallSpacing;
+    }
+  }
+}
+
+.experienceSection, .projectsSection {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-gap: $smallSpacing;
+}
+
+.experienceItem, .projectItem {
+  display: grid;
+  grid-template-columns: minmax(auto, 135px) 1fr;
+  grid-template-areas: "title description";
+  grid-gap: $primarySpacing;
+}
+
+.leftColumn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+
+  .companyName, .schoolName, .projectName, .outreachName {
+    @extend %headerPrimary;
+  }
+
+  .dateRange {
+    @extend %bodyPrimary;
+    text-transform: uppercase;
+    font-size: 0.85em;
+  }
+}
+
+.rightColumn {
+  grid-area: description;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+
+  & > ul {
+    margin: 0;
+    padding-left: 1.2em;
+    list-style-type: square;
+  }
+
+  .jobTitle, .degreeTitle, .outreachTitle {
+    @extend %headerPrimary;
+  }
+
+  & > .jobTitle ~ .jobTitle {
+    margin-top: 10px;
+  }
+
+  .jobDescription, .projectDescription, .degreeDescription, .outreachDescription  {
+    @extend %bodyPrimary;
+  }
+}
+
+@media print {
+  body {
+    background-color:#ffffff;
+    margin:0;
+  }
+  .description {
+    font-size: 12px;
+  }
+
+  .header {
+    .contactDetails {
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .resumeBody {
+    grid-gap: 5px;
+  }
+
+  .twoColumnSection {
+    grid-template-columns: 1fr minmax(auto, 350px);
+
+    .educationSection {
+      .educationItem {
+        grid-template-columns: minmax(auto, 180px) 1fr;
+      }
+    }
+  }
+
+  .experienceItem {
+    grid-gap: 0;
+  }
+
+  .leftColumn {
+    .companyName, .schoolName, .projectName, .outreachName {
+      font-size: 14px;
+    }
+
+    .dateRange {
+      font-size: 12px;
+    }
+  }
+
+  .rightColumn {
+    .jobTitle, .degreeTitle, .outreachTitle {
+      font-size: 14px;
+    }
+
+    .jobDescription, .projectDescription, .degreeDescription, .outreachDescription {
+      font-size: 12px;
+    }
+    .jobDescription li {
+      margin-bottom: 3px;
+    }
+  }
+}

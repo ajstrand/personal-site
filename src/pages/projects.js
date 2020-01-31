@@ -4,60 +4,53 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
-import styled from "styled-components";
+import styled from 'styled-components'
+import {
+  Header1,
+  Header3,
+  OverflowYScrollContainer,
+} from '../components/componentsList'
+import { externalLinkText } from '../utils/helpers'
 
-const ProjectsContainer = styled.section `
-width:100%;
+const Projects = props => {
+  const { data, location } = props
+  const siteTitle = data.site.siteMetadata.title
+  const projects = data.allProjectsJson.edges
 
-padding:0.5em;
-display:flex;
-flex-direction:column;
- height:100%;
-overflow-y:scroll;
-@media screen and (max-width:30em) {
-  background-color:#D76D77;
-}
-`;
-
-class Projects extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const projects = data.allProjectsJson.edges
-
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title="projects list"
-          keywords={[`javascript`, `react`, `css`, `css-grid`, "node.js"]}
-        />
-        <ProjectsContainer>
-        <h1 tabIndex={0} style={{ marginTop:"1rem",
-}}>Projects</h1>
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO
+        title="projects list"
+        keywords={[`javascript`, `react`, `css`, `css-grid`, 'node.js']}
+      />
+      <OverflowYScrollContainer>
+        <Header1 style={{ marginTop: '1rem' }}>Projects</Header1>
         {projects.map(({ node }) => {
           const desc = node.desc
           const title = node.title
           const link = node.link
+          const anchorTag = externalLinkText(
+            link,
+            title,
+            `${title} project URL`
+          )
           return (
             <section key={node.title}>
-              <h3 tabIndex={0}
+              <Header3
                 style={{
-                  marginTop:"1rem",
+                  marginTop: '1rem',
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <a aria-label="project URL" href={link}  style={{ boxShadow: `none`, color:'#ffffff' }}>
-                {title }
-                </a>
-              </h3>
-              <p tabIndex={0} dangerouslySetInnerHTML={{ __html: desc }} />
+                {anchorTag}
+              </Header3>
+              <p dangerouslySetInnerHTML={{ __html: desc }} />
             </section>
           )
         })}
-          </ProjectsContainer>
-      </Layout>
-    )
-  }
+      </OverflowYScrollContainer>
+    </Layout>
+  )
 }
 
 export default Projects

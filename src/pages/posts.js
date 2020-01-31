@@ -1,63 +1,59 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
-import styled from "styled-components";
+import {
+  Header1,
+  Header3,
+  BaseText,
+  InternalSiteLink,
+  OverflowYScrollContainer,
+  ListItem,
+} from '../components/componentsList'
 
-const Item = styled.section `
-  padding:0.5em;
-  display:flex;
-  flex-direction:column;
-  width:100%;
-  height:100%;
-`;
+function Posts({ data }) {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMdx.edges
 
-const PostsContainer = styled(Item) `
-  overflow-y:scroll;
-@media screen and (max-width:30em) {
-  background-color:#3A1C71
-}
-`;
-
-function Posts({data}) {
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMdx.edges
-
-    return (
-      <Layout location={data.location} title={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
-      <PostsContainer>
-        <h1 style={{marginTop:"1rem"}}>Posts</h1>
+  return (
+    <Layout location={data.location} title={siteTitle}>
+      <SEO
+        title="All posts"
+        keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+      />
+      <OverflowYScrollContainer>
+        <Header1 style={{ marginTop: '1rem' }}>Posts</Header1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <Item key={node.id}>
-              <h3
+            <ListItem key={node.id}>
+              <Header3
                 style={{
-                  marginTop:"1rem",
+                  marginTop: '1rem',
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <Link style={{ boxShadow: `none`, color:"#ffffff" }} to={node.fields.slug}>
+                <InternalSiteLink to={node.fields.slug}>
                   {title}
-                </Link>
-              </h3>
-              <small style={{
-                  color:"#ffffff",
-              }}>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </Item>
+                </InternalSiteLink>
+              </Header3>
+              <small
+                style={{
+                  color: '#ffffff',
+                }}
+              >
+                {node.frontmatter.date}
+              </small>
+              <BaseText dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            </ListItem>
           )
         })}
-      </PostsContainer>
-      </Layout>
-    )
-  }
+      </OverflowYScrollContainer>
+    </Layout>
+  )
+}
 
 export default Posts
 
@@ -69,19 +65,19 @@ export const pageQuery = graphql`
       }
     }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-        edges {
-          node {
-            id
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              date(formatString: "MMMM DD, YYYY")
-            }
+      edges {
+        node {
+          id
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }
+    }
   }
 `

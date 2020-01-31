@@ -1,27 +1,39 @@
 [
   {
-    "title":"Daily Programmer Practice",
-    "link": "https://github.com/ajstrand/dailyProgrammerReactApp",
-    "desc": "A reactjs/express app that gives you a random submission from r/dailyprogrammer"
+    "date":"July 2019",
+    "title": "Lofi hip-hop video viewer",
+    "link": "https://github.com/ajstrand/lofi-videos-playlist-app",
+    "desc": "An React/Express app that pulls videos from Youtube using their API. Data is stored in redis and served to React via GraphQL."
   },
   {
-    "title":"Rust Static Site Generator",
-    "link": "https://github.com/ajstrand/personal-site",
+    "date":"January 2019",
+    "title": "Rust Static Site Generator",
+    "link": "https://github.com/ajstrand/rust-static-site",
     "desc": "Static site generator built in Rust that pulls data from a json file that then constructs a static site that you can deploy to a web server."
   },
   {
-    "title":"Taekwondo Patterns Review",
+    "date":"October 2018",
+    "title": "Taekwondo Patterns Review",
     "link": "https://github.com/ajstrand/ITF_Patterns",
-    "desc": "An android app that lists all patterns in ITF Taekwondo. You can review specific moves in a pattern and save notes locally to your phone. "
+    "desc": "An Android App that lists all patterns in ITF Taekwondo. You can review specific moves in a pattern and save notes locally to your phone. "
   },
   {
-    "title":"Wallpaper Viewer",
-    "link": "https://github.com/ajstrand/wallpaper-viewer",
-    "desc": "A reactjs/express app that grabs data from the reddit api, allows user to view wallpapers from r/wallpapers"
-  },
-  {
-    "title":"Wikipedia Summaries",
+    "date":"December 2018",
+    "title": "Wikipedia Summaries",
     "link": "https://github.com/ajstrand/wikipedia-summaries",
     "desc": "Get a summary on a particular topic from wikipedia. Written in Go and React"
+  },
+  {
+    "date":"September 2017",
+    "title": "Daily Programmer Practice",
+    "link": "https://github.com/ajstrand/dailyProgrammerReactApp",
+    "desc": "A React/Express app that gives you a random submission from r/dailyprogrammer"
+  },
+
+  {
+    "date":"October 2017",
+    "title": "Wallpaper Viewer",
+    "link": "https://github.com/ajstrand/wallpaper-viewer",
+    "desc": "A React/Express app that grabs data from the reddit api, allows user to view wallpapers from r/wallpapers"
   }
 ]

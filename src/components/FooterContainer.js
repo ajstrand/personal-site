@@ -1,26 +1,33 @@
-import React from "react";
+import React from 'react'
 
-import CopyrightWrapper from "./Copyright";
+import Copyright from './Copyright'
 
-import styled from "styled-components";
-import SiteNav from "./SiteNav";
+import styled from 'styled-components'
+import SiteNav from './SiteNav'
 
+const Footer = styled.footer`
+  @media screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  @media screen and (max-width: 30em) {
+    padding: 10px;
+  }
+  @media print {
+    display: none;
+  }
+`
 
-const BottomContent = styled.footer`
-background-color: #ffaf7b;
-height: 100%;
-@media screen and (max-width: 30em) {
-  padding: 10px;
-}
-`;
-
- const FooterContainer = () => {
+const FooterContainer = () => {
   return (
-    <BottomContent>
-    <SiteNav/>
-    <CopyrightWrapper/>
-  </BottomContent>
+    <Footer>
+      <SiteNav />
+      <Copyright />
+    </Footer>
   )
 }
 
-export default FooterContainer;
+export default FooterContainer

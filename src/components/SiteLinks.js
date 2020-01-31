@@ -1,35 +1,18 @@
-import React from "react";
-import { Link } from "gatsby";
-
-import "./layout.css";
-
-import styled from "styled-components";
-
-const SiteLink = styled(Link)`
-margin: 0 0.5em 0 0.5em;
-color: #3a1c71;
-boxShadow:none;
-@media screen and (min-width: 30em) {
-  font-size: 15px;
-}
-`;
+import React from 'react'
+import { InternalSiteLink } from './componentsList'
+import styled from 'styled-components'
+const PageLink = styled(InternalSiteLink)`
+  margin: 0 1em 0 1em;
+`
 const SiteLinks = () => {
   return (
     <>
-    <SiteLink to="/resume">
-        Resume
-      </SiteLink>
-      <SiteLink to="/projects">
-        Projects
-      </SiteLink>
-      <SiteLink to="/">
-        Home
-      </SiteLink>
-      <SiteLink to="/posts">
-        Blog
-      </SiteLink>
-      </>
+      <PageLink to="/resume">Resume</PageLink>
+      <PageLink to="/projects">Projects</PageLink>
+      <PageLink to="/">Home</PageLink>
+      <PageLink to="/posts">Blog</PageLink>
+    </>
   )
 }
 
-export default SiteLinks;
+export default SiteLinks
