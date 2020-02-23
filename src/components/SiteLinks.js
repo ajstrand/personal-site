@@ -1,9 +1,9 @@
-import React from 'react'
-import { InternalSiteLink } from './componentsList'
-import styled from 'styled-components'
+import React from "react";
+import { InternalSiteLink } from "./componentsList";
+import styled from "styled-components";
 const PageLink = styled(InternalSiteLink)`
   margin: 0 1em 0 1em;
-`
+`;
 const SiteLinks = () => {
   return (
     <>
@@ -12,7 +12,7 @@ const SiteLinks = () => {
       <PageLink to="/">Home</PageLink>
       <PageLink to="/posts">Blog</PageLink>
     </>
-  )
-}
+  );
+};
 
-export default SiteLinks
+export default SiteLinks;

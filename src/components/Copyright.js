@@ -1,26 +1,36 @@
-import React from 'react'
-import { BaseText } from './componentsList'
-import { externalLinkText } from '../utils/helpers'
+import React from "react";
+import { BaseText } from "./componentsList";
+import { externalLinkText } from "../utils/helpers";
 
 const Copyright = () => {
-  const gatsbyLink = externalLinkText(
-    'https://gatsbyjs.org',
-    'Gatsby',
-    'Gatsby framework website url'
-  )
-  const netlifyLink = externalLinkText(
-    'https://www.netlify.com',
-    'Netlify',
-    'Netlify website URL'
-  )
-  const currentYear = new Date().getFullYear()
-  const text = (
+  const GatsbyLink = externalLinkText(
+    "https://gatsbyjs.org",
+    "Gatsby",
+    "Gatsby framework website url",
+    "general"
+  );
+  const NetlifyLink = externalLinkText(
+    "https://www.netlify.com",
+    "Netlify",
+    "Netlify website URL",
+    "general"
+  );
+  const currentYear = new Date().getFullYear();
+  const textStrings = [
+    <span>Alex Strand. Built with</span>,
+    <span>and hosted on</span>
+  ];
+  const Content = () => (
     <>
-      © {currentYear} Alex Strand. Built with {gatsbyLink}{' '}
-      <span>and hosted on</span> {netlifyLink}
+      © {currentYear} {textStrings[0]} <GatsbyLink /> {textStrings[1]}{" "}
+      <NetlifyLink />
     </>
-  )
-  return <BaseText>{text}</BaseText>
-}
+  );
+  return (
+    <BaseText>
+      <Content />
+    </BaseText>
+  );
+};
 
-export default Copyright
+export default Copyright;

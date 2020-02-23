@@ -1,9 +1,7 @@
-import React from 'react'
-
-import Copyright from './Copyright'
-
-import styled from 'styled-components'
-import SiteNav from './SiteNav'
+import React from "react";
+import Copyright from "./Copyright";
+import styled from "styled-components";
+import SiteNav from "./SiteNav";
 
 const Footer = styled.footer`
   @media screen {
@@ -19,7 +17,7 @@ const Footer = styled.footer`
   @media print {
     display: none;
   }
-`
+`;
 
 const FooterContainer = () => {
   return (
@@ -27,7 +25,7 @@ const FooterContainer = () => {
       <SiteNav />
       <Copyright />
     </Footer>
-  )
-}
+  );
+};
 
-export default FooterContainer
+export default FooterContainer;

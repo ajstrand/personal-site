@@ -1,11 +1,19 @@
-import React from 'react'
+import React from "react";
 
-import { StyledLink } from '../components/componentsList'
-
-export const externalLinkText = (link, text, ariaLabel) => {
-  return (
-    <StyledLink aria-label={ariaLabel} target="_blank" href={link}>
+import {
+  GeneralExternalLinkTag,
+  BioExternalLinkTag
+} from "../components/componentsList";
+const components = {
+  general: GeneralExternalLinkTag,
+  bio: BioExternalLinkTag
+};
+export const externalLinkText = (link, text, ariaLabel, componentType) => {
+  const Tag = components[componentType || "general"];
+  const returnLink = () => (
+    <Tag aria-label={ariaLabel} target="_blank" href={link}>
       {text}
-    </StyledLink>
-  )
-}
+    </Tag>
+  );
+  return returnLink;
+};

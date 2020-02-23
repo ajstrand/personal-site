@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { StyledLink } from './componentsList'
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { GeneralExternalLinkTag } from "./componentsList";
 
-const StyledAnchorTag = styled(StyledLink)`
+const StyledAnchorTag = styled(GeneralExternalLinkTag)`
   margin: 0.5em;
-`
+`;
 
 const SocialProfiles = () => {
   return (
@@ -30,7 +30,7 @@ const SocialProfiles = () => {
         <FontAwesomeIcon icon={faLinkedin} />
       </StyledAnchorTag>
     </>
-  )
-}
+  );
+};
 
-export default SocialProfiles
+export default SocialProfiles;
