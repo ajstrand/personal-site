@@ -3,15 +3,18 @@ import './resumeStyles.scss'
 import styled from 'styled-components'
 
 const resumeDataObj = {
-  name: 'Alex Strand',
-  site: 'https://alexstrand.dev',
-  email: 'mailto:ajstrand8@gmail.com',
-  phone: '419-908-6212',
+  header:{
+    name: 'Alex Strand',
+    site: 'https://alexstrand.dev',
+    emailLabel:'ajstrand8@gmail.com',
+    emailValue: 'mailto:ajstrand8@gmail.com',
+    phone: '419-908-6212',
+  },
   education: [
     {
       schoolName: 'Olivet Nazarene University',
       dateRange: 'September 2011 - May 2015',
-      degreeTitle: "Bachelor's",
+      degreeTitle: "Bachelor of Arts",
       degreeDescription: 'Computer Science',
     },
   ],
@@ -39,7 +42,7 @@ const resumeDataObj = {
         },
         {
           text: `Writing new API endpoints in Java for a React/Material UI component within in a legacy YUI app. 
-  Specifically working within an administrative management application for librarians/staff in an library. `,
+  Specifically working within an administrative management application for librarians/staff in an library. Built new React Alert component for the frontend. `,
         },
       ],
     },
@@ -167,18 +170,18 @@ const createSkillsSection = () => {
 const createHeader = () => {
   const jsx = (
     <div className="header">
-      <span className="contactName">{resumeDataObj.name}</span>
+      <span className="contactName">{resumeDataObj.header.name}</span>
       <ul className="contactDetails">
         <li>
-          <a href={resumeDataObj.site} target="_blank">
-            {resumeDataObj.site}
+          <a href={resumeDataObj.header.site} target="_blank">
+            {resumeDataObj.header.site}
           </a>
         </li>
         <li>
-          <a href={resumeDataObj.email}>{resumeDataObj.email}</a>
+          <a href={resumeDataObj.header.emailValue}>{resumeDataObj.header.emailLabel}</a>
         </li>
         <li>
-          <a href={resumeDataObj.phone}>{resumeDataObj.phone}</a>
+          <a href={resumeDataObj.header.phone}>{resumeDataObj.header.phone}</a>
         </li>
       </ul>
     </div>
