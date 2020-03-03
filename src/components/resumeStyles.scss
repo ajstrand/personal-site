@@ -247,6 +247,7 @@ $smallSpacing: 0.5em;
 
   .resumeBody {
     grid-gap: 5px;
+    padding: 5px 20px 0 20px;
   }
 
   .twoColumnSection {
@@ -259,6 +260,10 @@ $smallSpacing: 0.5em;
     }
   }
 
+  .projectItem {
+    height: 1em;
+  }
+
   .experienceItem {
     grid-gap: 0;
   }
@@ -266,6 +271,9 @@ $smallSpacing: 0.5em;
   .leftColumn {
     .companyName, .schoolName, .projectName, .outreachName {
       font-size: 14px;
+    }
+    .projectName {
+      line-height: 17px;
     }
 
     .dateRange {
@@ -280,6 +288,7 @@ $smallSpacing: 0.5em;
 
     .jobDescription, .projectDescription, .degreeDescription, .outreachDescription {
       font-size: 12px;
+      line-height: 17px;
     }
     .jobDescription li {
       margin-bottom: 3px;
