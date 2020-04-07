@@ -2,7 +2,7 @@
   {
     "date": "January 2020/Present",
     "title": "Resume generator",
-    "link": "https://github.com/ajstrand/lofi-videos-playlist-app",
+    "link": "https://github.com/ajstrand/styled-components-resume-generator",
     "desc": "A React library(WIP) that can generate a resume to be output in HTML/CSS. Uses styled components for themeing and customization. CSS Grid is used for layout."
   },
   {
@@ -14,6 +14,7 @@
   {
     "date": "October 2018/Present",
     "title": "Taekwondo Patterns Review",
+    "link": "https://github.com/ajstrand/itf-patterns-react-native",
     "desc": "React Native app(WIP) that lists all patterns in ITF Taekwondo. You can review specific moves in a pattern and save notes locally to your phone. Converted from an android app to be available on iOS and android."
   },
   {
