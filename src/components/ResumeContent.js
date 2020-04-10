@@ -8,15 +8,15 @@ const resumeDataObj = {
     site: "https://alexstrand.dev",
     emailLabel: "ajstrand8@gmail.com",
     emailValue: "mailto:ajstrand8@gmail.com",
-    phone: "419-908-6212"
+    phone: "419-908-6212",
   },
   education: [
     {
       schoolName: "Olivet Nazarene University",
       dateRange: "September 2011 - May 2015",
       degreeTitle: "Bachelor of Arts",
-      degreeDescription: "Computer Science"
-    }
+      degreeDescription: "Computer Science",
+    },
   ],
   experience: [
     {
@@ -26,25 +26,27 @@ const resumeDataObj = {
       jobDescription: [
         {
           text: `Involved in a weekly  support rotation between members of my team. 
-        We help resolve questions from our customer support teams/other teams within OCLC. 
-        We also make sure project dependencies are updated and help out with other  tasks. `
+        Help resolve questions from our customer support teams/other teams within OCLC. 
+       Wrote documentation for support tasks and procedures that need done on a monthly/weekly basis. 
+        This helps get other developers up to speed and share knowledge more efficiently.  `,
         },
         {
           text: `Converted the front end of our user login application(which serves over 20,000 different libraries) 
       from YUI to ES6/TypeScript using Google's Material Design in order to provide a login experience 
       that uses current design trends and performs well on mobile devices.  
-      Also makes use of semantic HTML and ARIA for accessibility.  `
+      Also makes use of semantic HTML and ARIA for accessibility.  `,
         },
         {
           text: `Rewrote part of our user login/authentication application with React/Material UI components. 
     React allowed us to have a quicker and faster development experience by giving us pre built components 
-    from npm as well as build a more consistent style guide, using Material UI Themeing support as a base`
+    from npm as well as build a more consistent style guide, using Material UI Themeing support as a base`,
         },
         {
-          text: `Writing new API endpoints in Java for a React/Material UI component within in a legacy YUI app. 
-  Specifically working within an administrative management application for librarians/staff in an library. Assisted in building new React components for the frontend. `
-        }
-      ]
+          text: `Wrote new API endpoints in Java for a React/Material UI component within in a legacy YUI app. 
+          APIs and new UI allow librarians staff to assign access/permissions across a group of libraries/institutions.
+ Assisted in building new React components for the frontend. `,
+        },
+      ],
     },
     {
       companyName: "Root Inc.",
@@ -54,20 +56,20 @@ const resumeDataObj = {
         {
           text: `Lead the rewriting of custom grunt plugins to work with a new webpack build system for our SPA framework. 
          Utilizing webpack allowed us be consistent with the 
-        rest of our team's tech stacks for various projects and be more adaptable for the future. `
+        rest of our team's tech stacks for various projects and be more adaptable for the future. `,
         },
         {
-          text: `Lead the development to rebuild our JQuery SPA framework in ES6/Webpack instead of JQuery/Grunt.  `
+          text: `Lead the development to rebuild our JQuery SPA framework in ES6/Webpack instead of JQuery/Grunt.  `,
         },
         {
           text: `Worked with a team(also solo) to develop SPA apps in JQuery for clients. 
-    Collaborated with artists and content designers to build applications that met the client's needs. `
+    Collaborated with artists and content designers to build applications that met the client's needs. `,
         },
         {
-          text: `Worked with  a team of developers to make updates and add features to internal Node JS applications for our development team. `
-        }
-      ]
-    }
+          text: `Worked with  a team of developers to make updates and add features to internal Node JS applications for our development team. `,
+        },
+      ],
+    },
   ],
   skills: {
     languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Java"],
@@ -82,9 +84,9 @@ const resumeDataObj = {
       "NodeJS",
       "Spock",
       "Spring",
-      "SQL"
-    ]
-  }
+      "SQL",
+    ],
+  },
 };
 const createSectionAndHeader = (sectionTitle, chilren) => {
   const jsx = (
@@ -96,7 +98,7 @@ const createSectionAndHeader = (sectionTitle, chilren) => {
   return jsx;
 };
 const createExperienceSection = () => {
-  const list = resumeDataObj.experience.map(block => {
+  const list = resumeDataObj.experience.map((block) => {
     const jsx = (
       <div className="experienceItem">
         <div className="leftColumn">
@@ -119,9 +121,9 @@ const createExperienceSection = () => {
   return list;
 };
 
-const createProjectSection = projects => {
+const createProjectSection = (projects) => {
   let { list } = projects;
-  const projectList = list.slice(0, 3).map(projectObj => {
+  const projectList = list.slice(0, 3).map((projectObj) => {
     const project = projectObj.node;
     const jsx = (
       <div className="projectItem">
@@ -141,7 +143,7 @@ const createProjectSection = projects => {
   return projectList;
 };
 const createEducationSection = () => {
-  const list = resumeDataObj.education.map(section => {
+  const list = resumeDataObj.education.map((section) => {
     const jsx = (
       <div className="educationItem">
         <div className="leftColumn">
@@ -198,7 +200,7 @@ const ResumeGridContainer = styled.div`
     width: 100%;
   }
 `;
-const ResumeContent = projects => {
+const ResumeContent = (projects) => {
   return (
     <ResumeGridContainer>
       {createHeader()}
