@@ -17,7 +17,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         // Apply gatsby-mdx to both .mdx and .md files
         extensions: [".mdx", ".md"],

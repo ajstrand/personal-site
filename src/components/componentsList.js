@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 
 import theme from 'styled-theming'
 import { createGlobalStyle } from 'styled-components'
-import { rhythm } from '../utils/typography'
 
 const darkBlue = '#131316'
 const siteBg = '#F0EEE3'
