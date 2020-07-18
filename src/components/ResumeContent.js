@@ -20,13 +20,23 @@ const resumeDataObj = {
   ],
   experience: [
     {
+      companyName: "Chase",
+      dateRange: "June 2020 - Present",
+      jobTitle: "Frontend Software Engineer",
+      jobDescription: [
+        {
+          text: `Building accessible UI components and features for Chase.com. `,
+        },
+      ],
+    },
+    {
       companyName: "OCLC",
-      dateRange: "September 2018 - Present",
+      dateRange: "September 2018 - June 2020",
       jobTitle: "Software Developer",
       jobDescription: [
         {
           text: `Involved in a weekly  support rotation between members of my team. 
-        Help resolve questions from our customer support teams/other teams within OCLC. 
+        Helped resolve questions from our customer support teams/other teams within OCLC. 
        Wrote documentation for support tasks and procedures that need done on a monthly/weekly basis. 
         This helps get other developers up to speed and share knowledge more efficiently.  `,
         },
