@@ -1,26 +1,19 @@
-import React from 'react'
-import { BaseText } from './componentsList'
-import { externalLinkText } from '../utils/helpers'
+import React from "react";
+import { BaseText } from "./componentsList";
+import styled from "styled-components";
+
+const SmallText = styled(BaseText)`
+  margin-bottom: 5px;
+  font-size: 9px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Copyright = () => {
-  const gatsbyLink = externalLinkText(
-    'https://gatsbyjs.org',
-    'Gatsby',
-    'Gatsby framework website url'
-  )
-  const netlifyLink = externalLinkText(
-    'https://www.netlify.com',
-    'Netlify',
-    'Netlify website URL'
-  )
-  const currentYear = new Date().getFullYear()
-  const text = (
-    <>
-      © {currentYear} Alex Strand. Built with {gatsbyLink}{' '}
-      <span>and hosted on</span> {netlifyLink}
-    </>
-  )
-  return <BaseText>{text}</BaseText>
-}
+  const currentYear = new Date().getFullYear();
+  return <SmallText>© {currentYear} Alex Strand.</SmallText>;
+};
 
-export default Copyright
+export default Copyright;
