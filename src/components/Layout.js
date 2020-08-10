@@ -3,10 +3,30 @@ import FooterContainer from "./FooterContainer";
 import Theme from "./theme";
 import { GlobalStyle, StyledContainer } from "./componentsList";
 import { Helmet } from "react-helmet";
+import styled from "styled-components";
+
+const StyledSummary = styled.summary`
+  color: #ffffff;
+  background-color: #000000;
+`;
+
+const StyledDetails = styled.details`
+  & black-lives {
+    /*reduce size of banner on desktop*/
+    padding: 15px;
+    width: fit-content;
+  }
+`;
+
+const Details = () => (
+  <StyledDetails>
+    <StyledSummary>Black Lives Matter</StyledSummary>
+    <black-lives></black-lives>
+  </StyledDetails>
+);
 
 const Layout = (props) => {
   const { children } = props;
-
   return (
     <Theme>
       <Helmet>
@@ -17,7 +37,7 @@ const Layout = (props) => {
       </Helmet>
       <GlobalStyle />
       <StyledContainer>
-        <black-lives></black-lives>
+        <Details />
         {children}
         <FooterContainer />
       </StyledContainer>
