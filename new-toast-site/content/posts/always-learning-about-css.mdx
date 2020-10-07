@@ -1,0 +1,142 @@
+export const meta = {
+  title:
+    "Always Learning about CSS: the whitespace property and how less code is sometimes a smarter approach",
+  slug: "css-learning",
+  tags: ["CSS"],
+  updatedAt: "2019-25-12",
+};
+
+## No matter how long you've been coding there's always more to learn.
+
+I recently ran into an issue where I had some content in my website footer that looked like this
+
+```jsx
+<p>
+  built with
+  <a href="https://gatsbyjs.org">Gatsby</a>
+  and hosted on
+  <a href="https://netlify.com">Netlify</a>
+</p>
+```
+
+Example:
+
+Between the two attribution tags in my footer, there was no space for the phrase 'and honsted on' between the anchor tags.
+
+It's been that way on my site for a while now and i was confused as to why the html wasn't lying out like i expected.
+
+I finally googled and found an answer on [stackoverflow](https://stackoverflow.com/questions/33384318/how-to-use-nbsp-in-html5).
+
+Since i wasn't putting my text in the same line as my anchor tags,
+i would have to use a non breaking space `&nbsp` to create space for the text.
+
+Example:
+
+But the Stackoverflow thread pointed towards a better solution.
+To use the [whitespace property from Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space).
+
+Using the `pre` property of the whitespace css rule:
+
+```css
+a {
+  white-space: "pre";
+}
+```
+
+Example:
+
+I would now get the whitespace I wanted. The full explanation from the docs is
+
+`Sequences of white space are preserved. Lines are only broken at newline characters in the source and at <br> elements`
+
+The final code of my solution looked something like this:
+
+```jsx
+const determineResult = (type) => {
+  const { prop } = type;
+  let result;
+  let temp;
+  switch (prop) {
+    case "noCSS":
+      temp = null;
+      break;
+    case "nbsp":
+      temp = "non-breaking-space";
+      break;
+    case "pre":
+      temp = "pre";
+      break;
+    default:
+      console.log(`${prop} not a valid option`);
+      break;
+  }
+  result = temp;
+  return result;
+};
+
+const CSSWhitespace = (cssType) => {
+  let useCSS = determineResult(cssType);
+  const whiteSpaceStyle = {
+    whiteSpace: "pre",
+  };
+  const useWhiteSpace = useCSS === "pre" ? whiteSpaceStyle : null;
+  const useNBSP = useCSS === "non-breaking-space" ? <span>&nbsp;</span> : null;
+  return (
+    <p>
+      built with
+      {useNBSP} <a style={useWhiteSpace} href="https://gatsbyjs.org">
+        Gatsby
+      </a> {useNBSP}
+      <span>and</span>
+      {useNBSP} <a style={useWhiteSpace} href="https://netlify.com">
+        Netlify
+      </a>.
+    </p>
+  );
+};
+```
+
+Its about 40 some lines of code and not exactly the simplist solution.
+
+After spending more time than neccesary
+on the React example code of the various approaches
+I tried on how to handle the spacing/whitspace issue, I had a realization.
+
+My problem could be solved with much less code than i thought.
+
+The approach I took is shown below.
+
+```jsx
+const UpdatedIdea = () => {
+  const linkVar = (link, text) => <a href={link}>{text}</a>;
+  return (
+    <p>
+      built with {linkVar("https://gatsbyjs.org", "Gatsby")}{" "}
+      <span>and hosted on</span> {linkVar("https://netlify.com", "Netlify")}
+    </p>
+  );
+};
+```
+
+Example:
+
+The shown idea is that you can use a function to return an anchor tag with the data i need. This means I can put my copyright text on one line
+without needing css to manage the whitespace/spacing(HTML will do that for me).
+
+This results in far less code written.
+I further shortened the space used by my function calls by assigning those calls to variables like so:
+
+```jsx
+const gatsbyLink = externalLinkText(
+  "https://gatsbyjs.org",
+  "Gatsby",
+  "Gatsby framework website url"
+);
+const netlifyLink = externalLinkText(
+  "https://www.netlify.com",
+  "Netlify",
+  "Netlify website URL"
+);
+```
+
+This reduces the amount of space taken up in my text and therefore makes the code easier to read in my editor.
