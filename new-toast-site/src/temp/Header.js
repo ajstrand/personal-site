@@ -4,7 +4,7 @@ import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 import SiteNav from "./SiteNav.js";
 
-const Header = styled.header`
+const Header = styled.default.header`
   @media screen {
     display: flex;
     flex-direction: column;

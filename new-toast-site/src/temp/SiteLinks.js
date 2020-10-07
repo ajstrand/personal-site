@@ -2,9 +2,9 @@
 /** @jsxFrag Fragment */
 import { Fragment, h } from "preact";
 import styled from "@emotion/styled";
-import { SiteLink } from "./componentsList";
+import { SiteLink } from "./componentsList.js";
 
-const PageLink = styled(SiteLink)`
+const PageLink = styled.default(SiteLink)`
   margin: 0 1em 0 1em;
 `;
 const nav = [

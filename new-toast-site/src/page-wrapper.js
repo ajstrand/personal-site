@@ -11,12 +11,12 @@ import { Flex } from "theme-ui";
 import Header from "./temp/Header.js";
 import Copyright from "./temp/Copyright.js";
 
-const StyledSummary = styled.summary`
+const StyledSummary = styled.default.summary`
   color: ${(props) => props.theme.colors.white};
   background-color: ${(props) => props.theme.colors.black};
 `;
 
-const StyledDetails = styled.details`
+const StyledDetails = styled.default.details`
   & black-lives {
     padding: 15px;
     width: fit-content;
@@ -49,7 +49,7 @@ const MetaDetails = ({ title, description }) => (
     ></script>
   </Helmet>
 );
-const GlobalStyles = styled(Global)`
+const GlobalStyles = styled.default(Global)`
   /* lora-regular - latin-ext_latin */
   @font-face {
     font-family: "Lora";

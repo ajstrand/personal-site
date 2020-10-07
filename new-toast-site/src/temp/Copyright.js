@@ -2,7 +2,7 @@
 import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 
-const SmallText = styled.p`
+const SmallText = styled.default.p`
   margin-bottom: 5px;
   font-size: 9px;
   display: inline-flex;

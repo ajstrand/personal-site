@@ -1,60 +1,58 @@
-const { promises: fs } = require("fs-extra");
-const fse = require("fs-extra");
-const path = require("path");
-const MDXPostsSource = require("./fetch-mdx-post-files");
+import { promises as fs } from "fs-extra";
+import fse from "fs-extra";
+import path from "path";
+import * as MDXPostsSource from "./fetch-mdx-post-files.js";
 
-exports.sourceData = async ({ withCache, createPage }) => {
-  return Promise.all([
-    withCache("mdx-posts", MDXPostsSource.sourceData({ createPage })),
-  ]);
+export const sourceData = async ({ createPage }) => {
+  return Promise.all([MDXPostsSource.sourceData({ createPage })]);
 };
 
-exports.prepData = async ({ cacheDir, publicDir }) => {
-  // have to make sure the directory we want to write in exists
-  // We can probably avoid this by offering some kind of "non-filesystem"-based
-  // API for adding data to paths
-  await fse.mkdir(path.resolve(publicDir, "src/pages"), { recursive: true });
+// export const prepData = async ({ cacheDir, publicDir }) => {
+//   // have to make sure the directory we want to write in exists
+//   // We can probably avoid this by offering some kind of "non-filesystem"-based
+//   // API for adding data to paths
+//   await fse.mkdir(path.resolve(publicDir, "src/pages"), { recursive: true });
 
-  // prep page data for index and post pages
-  const mdxPostsData = require(path.resolve(cacheDir, "mdx-posts.json"));
+//   // prep page data for index and post pages
+//   const mdxPostsData = require(path.resolve(cacheDir, "mdx-posts.json"));
 
-  const allPostsData = mdxPostsData.map(({ title, date, slug, tags }) => ({
-    title,
-    updatedAt: date,
-    slug,
-    tags,
-    contentType: "blog-post",
-  }));
+//   const allPostsData = mdxPostsData.map(({ title, date, slug, tags }) => ({
+//     title,
+//     updatedAt: date,
+//     slug,
+//     tags,
+//     contentType: "blog-post",
+//   }));
 
-  await fse.copy(
-    path.resolve("content/resume/alex_strand_resume_latest.pdf"),
-    `${publicDir}/alex_strand_resume.pdf`
-  );
+//   await fse.copy(
+//     path.resolve("content/resume/alex_strand_resume_latest.pdf"),
+//     `${publicDir}/alex_strand_resume.pdf`
+//   );
 
-  await fse.copy(path.resolve("content/assets/me.jpg"), `${publicDir}/me.jpg`);
+//   await fse.copy(path.resolve("content/assets/me.jpg"), `${publicDir}/me.jpg`);
 
-  await fse.copy(path.resolve("src/fonts"), `${publicDir}/src/fonts`);
+//   await fse.copy(path.resolve("src/fonts"), `${publicDir}/src/fonts`);
 
-  await fse.writeFile(
-    path.resolve(publicDir, "src/pages/garden.json"),
-    JSON.stringify({ posts: allPostsData })
-  );
+//   await fse.writeFile(
+//     path.resolve(publicDir, "src/pages/garden.json"),
+//     JSON.stringify({ posts: allPostsData })
+//   );
 
-  // index.html
+//   // index.html
 
-  const curatedPostsData = allPostsData
-    .sort((b, a) => {
-      const da = new Date(a.updatedAt).getTime();
-      const db = new Date(b.updatedAt).getTime();
-      if (da < db) return -1;
-      if (da === db) return 0;
-      if (da > db) return 1;
-    })
-    .filter(({ contentType }) => contentType === "blog-post")
-    .slice(0, 5);
+//   const curatedPostsData = allPostsData
+//     .sort((b, a) => {
+//       const da = new Date(a.updatedAt).getTime();
+//       const db = new Date(b.updatedAt).getTime();
+//       if (da < db) return -1;
+//       if (da === db) return 0;
+//       if (da > db) return 1;
+//     })
+//     .filter(({ contentType }) => contentType === "blog-post")
+//     .slice(0, 5);
 
-  await fse.writeFile(
-    path.resolve(publicDir, "src/pages/index.json"),
-    JSON.stringify({ posts: curatedPostsData })
-  );
-};
+//   await fse.writeFile(
+//     path.resolve(publicDir, "src/pages/index.json"),
+//     JSON.stringify({ posts: curatedPostsData })
+//   );
+// };
