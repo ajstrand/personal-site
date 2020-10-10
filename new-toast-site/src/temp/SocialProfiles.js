@@ -5,7 +5,7 @@ import { h, Fragment } from "preact";
 import styled from "@emotion/styled";
 import { GitHub, Twitter, Linkedin } from "react-feather";
 
-const StyledAnchorTag = styled.a`
+const StyledAnchorTag = styled.default.a`
   margin: 0.5em;
   color: ${(props) => props.theme.colors.text};
 `;

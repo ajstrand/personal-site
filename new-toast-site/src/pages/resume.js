@@ -4,7 +4,7 @@ import { jsx } from "@emotion/core";
 const maxWidth = "800px";
 import styled from "@emotion/styled";
 //import ResumeContent from "../customComponents/ResumeContent";
-import { StyledResume } from "styled-resume";
+// import { StyledResume } from "styled-resume";
 
 const ResumeContainer = styled.div`
   @media screen {
@@ -21,7 +21,7 @@ const ResumeContainer = styled.div`
   }
 `;
 
-console.log(StyledResume);
+// console.log(StyledResume);
 
 const Resume = (props) => {
   //const { data, location } = props;
@@ -37,7 +37,7 @@ const Resume = (props) => {
   );
   return (
     <Fragment>
-      <StyledResume />
+      {/* <StyledResume /> */}
       <p> You can download a copy of my resume {resumeLink}</p>
       <p>Resume design forked from {DesignAttribution}</p>
       {/* <ResumeContainer>

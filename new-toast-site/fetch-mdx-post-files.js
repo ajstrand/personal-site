@@ -1,41 +1,43 @@
-const fs = require("fs").promises;
-const fsReg = require("fs");
-const slugify = require("@sindresorhus/slugify");
-const mdx = require("@mdx-js/mdx");
-const util = require("util");
-const vm = require("vm");
-const rehypePrism = require("./rehype-prism-mdx");
-const rehypeSlug = require("rehype-slug");
-const rehypeLink = require("rehype-autolink-headings");
-const parse = require("rehype-parse");
-const unified = require("unified");
-const globby = require("globby");
-const chalk = require("chalk");
+import { promises as fs } from "fs";
+import slugify from "@sindresorhus/slugify";
+import mdx from "@mdx-js/mdx";
+// import rehypePrism from "./rehype-prism-mdx.js";
+import rehypeSlug from "rehype-slug";
+import rehypeLink from "rehype-autolink-headings";
+import json5 from "json5";
+import parse from "rehype-parse";
+import unified from "unified";
+import visit from "unist-util-visit";
+import globby from "globby";
+import chalk from "chalk";
 
-const {
-  transformComponentForBrowser,
-  transformComponentForNode,
-} = require("toast/src/transforms");
-
-const parseSvg = unified().use(parse, {
-  emitParseErrors: true,
-  duplicateAttribute: false,
-});
-
-exports.sourceData = async ({ createPage, ...options }) => {
+export const sourceData = async ({ createPage, ...options }) => {
   const files = await globby("./content/posts", {
     expandDirectories: { extensions: ["mdx"] },
   });
 
   return Promise.all(
     files.map(async (filename) => {
+      let meta = {};
+      const remarkPluckMeta = (_options) => (tree) => {
+        visit(tree, "export", (ast) => {
+          if (ast.value.startsWith("export const meta = ")) {
+            const obj = ast.value
+              .replace(/^export const meta = /, "")
+              .replace(/;$/, "");
+            meta = json5.parse(obj);
+          }
+        });
+        return tree;
+      };
+
       const file = await fs.readFile(filename, "utf-8");
       let compiledMDX;
       try {
         compiledMDX = await mdx(file, {
-          // remarkPlugins: [codeblocks],
+          remarkPlugins: [remarkPluckMeta],
           rehypePlugins: [
-            rehypePrism,
+            // rehypePrism,
             rehypeSlug,
             [
               rehypeLink,
@@ -54,12 +56,7 @@ exports.sourceData = async ({ createPage, ...options }) => {
         console.log(e);
         throw e;
       }
-      const component = await transformComponentForNode(compiledMDX);
-      const context = { exports: {} };
-      vm.createContext(context);
-      const script = new vm.Script(component.code);
-      script.runInNewContext(context);
-      const { meta } = context.exports || {};
+
       if (!meta.slug && meta.title) {
         meta.slug = slugify(meta.title);
       }

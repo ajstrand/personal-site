@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import styled from "@emotion/styled";
 import { Flex } from "theme-ui";
-export const OverflowYScrollContainer = styled(Flex)`
+export const OverflowYScrollContainer = styled.default(Flex)`
   padding: 0.5em;
   flex-direction: column;
   height: 100%;
@@ -13,11 +13,11 @@ export const OverflowYScrollContainer = styled(Flex)`
   }
 `;
 
-export const SiteLink = styled.a`
+export const SiteLink = styled.default.a`
   color: ${(props) => props.theme.colors.text};
 `;
 
-export const ListItem = styled(Flex)`
+export const ListItem = styled.default(Flex)`
   padding: 0.5em;
   flex-direction: column;
   width: 100%;
