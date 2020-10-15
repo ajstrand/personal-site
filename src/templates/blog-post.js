@@ -91,21 +91,3 @@ function BlogPostTemplate({ data: { mdx }, location, pageContext }) {
 }
 
 export default BlogPostTemplate;
-
-export const pageQuery = graphql`
-  query BlogPostQuery($slug: String) {
-    site {
-      siteMetadata {
-        author
-      }
-    }
-    mdx(fields: { slug: { eq: $slug } }) {
-      id
-      body
-      frontmatter {
-        title
-        date
-      }
-    }
-  }
-`;

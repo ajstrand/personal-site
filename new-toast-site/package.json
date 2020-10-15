@@ -28,26 +28,25 @@
     "parse-numeric-range": "^1.2.0",
     "preact": "^10.5.4",
     "prism-react-renderer": "^1.1.1",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.22.0",
     "react-feather": "^2.0.8",
     "react-gif-player": "^0.4.2",
-    "react-intl": "^5.8.4",
+    "react-intl": "^5.8.6",
     "rehype-autolink-headings": "^4.0.0",
     "rehype-parse": "^7.0.1",
     "rehype-slug": "^3.0.0",
-    "styled-resume": "file:../styled-resume",
     "theme-ui": "^0.3.1",
-    "toast": "^0.3.9",
+    "toast": "^0.3.19",
     "unified": "^9.2.0"
   },
   "devDependencies": {
-    "eslint": "^7.10.0",
+    "eslint": "^7.11.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "husky": "^4.3.0",
     "node-sass": "^4.14.1",
     "prettier": "2.1.1",
-    "pretty-quick": "^3.0.2",
-    "react-axe": "^3.5.3"
+    "pretty-quick": "^3.1.0",
+    "react-axe": "^3.5.4"
   },
   "husky": {
     "hooks": {
