@@ -20,12 +20,16 @@ const resumeDataObj = {
   ],
   experience: [
     {
-      companyName: "Chase",
+      companyName: "Chase Bank",
       dateRange: "June 2020 - Present",
       jobTitle: "Frontend Software Engineer",
       jobDescription: [
         {
-          text: `Building accessible UI components and features for Chase.com. `,
+          text: `Building new features for customer  dashboards. Work involves making sure UI components 
+          are accessible for a wide audience. `,
+        },
+        {
+          text: `Review code for other engineers. Mentor less experienced engineers and give advice as needed.  `,
         },
       ],
     },
@@ -82,19 +86,16 @@ const resumeDataObj = {
     },
   ],
   skills: {
-    languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Java"],
+    languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Java", "SQL"],
     technologies: [
       "React",
-      "React Native",
       "Material UI",
       "Jest",
       "Webpack",
-      "JQuery",
       "SCSS",
       "NodeJS",
       "Spock",
       "Spring",
-      "SQL",
     ],
   },
 };
@@ -157,13 +158,15 @@ const createEducationSection = () => {
     const jsx = (
       <div className="educationItem">
         <div className="leftColumn">
-          <span className="schoolName">{section.schoolName}</span>
-          <span className="dateRange">{section.dateRange}</span>
+          <span className="schoolName item">{section.schoolName}</span>
+          <span className="dateRange item">{section.dateRange}</span>
         </div>
-        <span className="rightColumn">
-          <span className="degreeTitle">{section.degreeTitle}</span>
-          <span className="degreeDescription">{section.degreeDescription}</span>
-        </span>
+        <div className="rightColumn">
+          <span className="degreeTitle item">{section.degreeTitle}</span>
+          <span className="degreeDescription item">
+            {section.degreeDescription}
+          </span>
+        </div>
       </div>
     );
     return jsx;
@@ -184,17 +187,17 @@ const createHeader = () => {
     <div className="header">
       <span className="contactName">{resumeDataObj.header.name}</span>
       <ul className="contactDetails">
-        <li>
+        <li className="contactDetail">
           <a href={resumeDataObj.header.site} target="_blank">
             {resumeDataObj.header.site}
           </a>
         </li>
-        <li>
+        <li className="contactDetail">
           <a href={resumeDataObj.header.emailValue}>
             {resumeDataObj.header.emailLabel}
           </a>
         </li>
-        <li>
+        <li className="contactDetail">
           <a href={resumeDataObj.header.phone}>{resumeDataObj.header.phone}</a>
         </li>
       </ul>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Khula|Telex|Yantramanav');
+@import url("https://fonts.googleapis.com/css?family=Khula|Telex|Yantramanav");
 
 body {
   padding: 0;
@@ -22,7 +22,7 @@ $smallSpacing: 0.5em;
 */
 %headerPrimary {
   font-weight: 600;
-  font-family: 'Yantramanav', sans-serif;
+  font-family: "Yantramanav", sans-serif;
   font-size: $headerPrimarySize;
   color: $textPrimaryColor;
   text-transform: capitalize;
@@ -30,7 +30,7 @@ $smallSpacing: 0.5em;
 
 %bodyPrimary {
   font-weight: 500;
-  font-family: 'Khula', sans-serif;
+  font-family: "Khula", sans-serif;
   font-size: 0.95em;
   color: $textSecondaryColor;
 }
@@ -64,14 +64,14 @@ $smallSpacing: 0.5em;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: $accentColor;
 
   .contactName {
@@ -106,17 +106,17 @@ $smallSpacing: 0.5em;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 
   & > .leftColumn {
     -ms-flex-preferred-size: 200px;
-        flex-basis: 200px;
+    flex-basis: 200px;
     -webkit-box-flex: 9999;
-        -ms-flex-positive: 9999;
-            flex-grow: 9999;
+    -ms-flex-positive: 9999;
+    flex-grow: 9999;
     margin: 0 1em 1em 0;
 
     /*.outreachSection {
@@ -135,11 +135,11 @@ $smallSpacing: 0.5em;
   }
 
   & > .rightColumn {
-    -ms-flex-preferred-size:100px;
-        flex-basis:100px;
-    -webkit-box-flex:1;
-        -ms-flex-positive:1;
-            flex-grow:1;
+    -ms-flex-preferred-size: 100px;
+    flex-basis: 100px;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
     min-width: 300px;
 
     .educationSection {
@@ -148,7 +148,7 @@ $smallSpacing: 0.5em;
       grid-auto-rows: min-content;
       grid-gap: $smallSpacing;
       margin-bottom: $primarySpacing;
-  
+
       .educationItem {
         display: grid;
         grid-template-columns: 170px 1fr;
@@ -166,13 +166,15 @@ $smallSpacing: 0.5em;
   }
 }
 
-.experienceSection, .projectsSection {
+.experienceSection,
+.projectsSection {
   display: grid;
   grid-auto-rows: auto;
   grid-gap: $smallSpacing;
 }
 
-.experienceItem, .projectItem {
+.experienceItem,
+.projectItem {
   display: grid;
   grid-template-columns: minmax(auto, 135px) 1fr;
   grid-template-areas: "title description";
@@ -185,10 +187,13 @@ $smallSpacing: 0.5em;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 
-  .companyName, .schoolName, .projectName, .outreachName {
+  .companyName,
+  .schoolName,
+  .projectName,
+  .outreachName {
     @extend %headerPrimary;
   }
 
@@ -206,8 +211,8 @@ $smallSpacing: 0.5em;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 
   & > ul {
     margin: 0;
@@ -215,7 +220,9 @@ $smallSpacing: 0.5em;
     list-style-type: square;
   }
 
-  .jobTitle, .degreeTitle, .outreachTitle {
+  .jobTitle,
+  .degreeTitle,
+  .outreachTitle {
     @extend %headerPrimary;
   }
 
@@ -223,24 +230,41 @@ $smallSpacing: 0.5em;
     margin-top: 10px;
   }
 
-  .jobDescription, .projectDescription, .degreeDescription, .outreachDescription  {
+  .jobDescription,
+  .projectDescription,
+  .degreeDescription,
+  .outreachDescription {
     @extend %bodyPrimary;
   }
 }
 
 @media print {
   body {
-    background-color:#ffffff;
-    margin:0;
+    background-color: #ffffff;
+    margin: 0;
   }
   .description {
     font-size: 12px;
   }
 
   .header {
+    height: 120px;
     .contactDetails {
-      a {
-        font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      margin: 0;
+      .contactDetail {
+        display: contents;
+        margin-bottom: unset;
+        margin: 10px;
+        height: 10px;
+        a {
+          box-shadow: none;
+          font-size: 14px;
+        }
       }
     }
   }
@@ -260,8 +284,8 @@ $smallSpacing: 0.5em;
     }
   }
 
-  .projectItem {
-    height: 1em;
+  .projectsSection {
+    display: none;
   }
 
   .experienceItem {
@@ -269,11 +293,10 @@ $smallSpacing: 0.5em;
   }
 
   .leftColumn {
-    .companyName, .schoolName, .projectName, .outreachName {
+    .companyName,
+    .schoolName,
+    .outreachName {
       font-size: 14px;
-    }
-    .projectName {
-      line-height: 17px;
     }
 
     .dateRange {
@@ -282,16 +305,31 @@ $smallSpacing: 0.5em;
   }
 
   .rightColumn {
-    .jobTitle, .degreeTitle, .outreachTitle {
+    .jobTitle {
       font-size: 14px;
     }
 
-    .jobDescription, .projectDescription, .degreeDescription, .outreachDescription {
+    .jobDescription {
       font-size: 12px;
       line-height: 17px;
     }
     .jobDescription li {
       margin-bottom: 3px;
     }
+  }
+
+  .educationItem {
+    display: flex;
+    flex-direction: row;
+    div {
+      margin-right: 20px;
+      span.item {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .description {
+    line-height: 24px;
   }
 }

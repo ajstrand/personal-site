@@ -16,11 +16,14 @@ const StyledDetails = styled.details`
     padding: 15px;
     width: fit-content;
   }
+  @media print {
+    display: none;
+  }
 `;
 
 const Details = () => (
   <StyledDetails>
-    <StyledSummary>Black Lives Matter</StyledSummary>
+    <StyledSummary>#BlackLivesMatter</StyledSummary>
     <black-lives></black-lives>
   </StyledDetails>
 );
