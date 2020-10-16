@@ -8,6 +8,7 @@ import styled from "styled-components";
 const StyledSummary = styled.summary`
   color: #ffffff;
   background-color: #000000;
+  font-size: 20px;
 `;
 
 const StyledDetails = styled.details`
@@ -23,7 +24,9 @@ const StyledDetails = styled.details`
 
 const Details = () => (
   <StyledDetails>
-    <StyledSummary>#BlackLivesMatter</StyledSummary>
+    <StyledSummary>
+      #BlackLivesMatter. Click or toggle this summary to learn how you can help.
+    </StyledSummary>
     <black-lives></black-lives>
   </StyledDetails>
 );
