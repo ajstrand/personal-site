@@ -27,10 +27,13 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${siteBg};
     height: 100%;
-  width: 100%;
+    width: 100%;
+    @media print {
+      background-color: #ffffff;
+    }
   }
   #___gatsby,
-#gatsby-focus-wrapper {
+  #gatsby-focus-wrapper {
     height: 100%;
 }
   `;

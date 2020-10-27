@@ -45,15 +45,15 @@ const resumeDataObj = {
         This helps get other developers up to speed and share knowledge more efficiently.  `,
         },
         {
-          text: `Converted the front end of our user login application(which serves over 20,000 different libraries) 
-      from YUI to ES6/TypeScript using Google's Material Design in order to provide a login experience 
+          text: `Converted the front end of our user login application( which serves over 20,000 different libraries ) 
+      from YUI to ES6/TypeScript using Google's Material Design to provide a login experience 
       that uses current design trends and performs well on mobile devices.  
-      Also makes use of semantic HTML and ARIA for accessibility.  `,
+      Used of semantic HTML and ARIA for accessibility. `,
         },
         {
           text: `Rewrote part of our user login/authentication application with React/Material UI components. 
     React allowed us to have a quicker and faster development experience by giving us pre built components 
-    from npm as well as build a more consistent style guide, using Material UI Themeing support as a base`,
+    from npm as well as build a more consistent style guide, using Material UI Theming support as a base`,
         },
         {
           text: `Wrote new API endpoints in Java for a React/Material UI component within in a legacy YUI app. 
@@ -76,7 +76,7 @@ const resumeDataObj = {
           text: `Lead the development to rebuild our JQuery SPA framework in ES6/Webpack instead of JQuery/Grunt.  `,
         },
         {
-          text: `Worked with a team(also solo) to develop SPA apps in JQuery for clients. 
+          text: `Worked with a team( also solo ) to develop SPA apps in JQuery for clients. 
     Collaborated with artists and content designers to build applications that met the client's needs. `,
         },
         {
