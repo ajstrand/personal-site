@@ -1,3 +1,3 @@
-## my personal site
+# my personal site/digital garden
 
-built with [toast](https://github.com/ChristopherBiscardi/toast) from Chris Biscardi
+built with [toast](https://github.com/toastdotdev/toast).
