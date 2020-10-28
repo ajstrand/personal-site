@@ -1,10 +1,7 @@
-import { promises as fs } from "fs-extra";
-import fse from "fs-extra";
-import path from "path";
 import * as MDXPostsSource from "./fetch-mdx-post-files.js";
 
-export const sourceData = async ({ createPage }) => {
-  return Promise.all([MDXPostsSource.sourceData({ createPage })]);
+export const sourceData = async ({ setDataForSlug }) => {
+  return Promise.all([MDXPostsSource.sourceData({ setDataForSlug })]);
 };
 
 // export const prepData = async ({ cacheDir, publicDir }) => {

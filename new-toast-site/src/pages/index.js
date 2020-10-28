@@ -3,7 +3,8 @@ import { jsx } from "@emotion/core";
 
 import Bio from "../temp/Bio.js";
 import styled from "@emotion/styled";
-import { Flex } from "theme-ui";
+import pkg from "theme-ui";
+const { Flex } = pkg;
 
 const Item = styled(Flex)`
   padding: 0.5em;

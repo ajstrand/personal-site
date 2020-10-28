@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import styled from "@emotion/styled";
-import { Flex } from "theme-ui";
+import pkg from "theme-ui";
+const { Flex } = pkg;
 export const OverflowYScrollContainer = styled.default(Flex)`
   padding: 0.5em;
   flex-direction: column;

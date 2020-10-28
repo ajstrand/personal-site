@@ -7,7 +7,8 @@ import { Fragment } from "preact";
 import styled from "@emotion/styled";
 import Theme from "./temp/theme.js";
 
-import { Flex } from "theme-ui";
+import pkg from "theme-ui";
+const { Flex } = pkg;
 import Header from "./temp/Header.js";
 import Copyright from "./temp/Copyright.js";
 

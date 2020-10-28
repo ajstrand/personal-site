@@ -3,7 +3,8 @@ import { jsx } from "@emotion/core";
 
 import styled from "@emotion/styled";
 import externalLinkText from "../utils/helpers.js";
-import { Flex } from "theme-ui";
+import pkg from "theme-ui";
+const { Flex } = pkg;
 import facepaint from "facepaint";
 
 const mq = facepaint([

@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
-import { Flex } from "theme-ui";
+import pkg from "theme-ui";
+const { Flex } = pkg;
 import data from "../temp/projectsData.js";
 import { SiteLink } from "../temp/componentsList.js";
 import facepaint from "facepaint";
