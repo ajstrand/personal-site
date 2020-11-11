@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
-import { Styled, Flex } from "theme-ui";
-import { TypeScale, TypeStyle, ColorPalette } from "@theme-ui/style-guide";
+import Flex from "./temp/componentsList";
+/*import { TypeScale, TypeStyle, ColorPalette } from "@theme-ui/style-guide";
 export default (props) => (
   <Flex
     sx={{
@@ -10,7 +10,7 @@ export default (props) => (
       alignItems: "center",
     }}
   >
-    <Styled.h1>Style Guide</Styled.h1>
+    <h1>Style Guide</h1>
     <ColorPalette
       sx={{
         flexDirection: "column",
@@ -46,4 +46,4 @@ export default (props) => (
       lineHeight="body"
     />
   </Flex>
-);
+);*/

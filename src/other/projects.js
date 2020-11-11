@@ -1,11 +1,16 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
-import styled from "@emotion/styled";
-import pkg from "theme-ui";
-const { Flex } = pkg;
+import { jsx, css } from "@emotion/core";
+import tags from "./tags.js";
+
 import data from "../temp/projectsData.js";
 import { SiteLink } from "../temp/componentsList.js";
+import { Flex } from "../temp/componentsList.js";
 import facepaint from "facepaint";
+
+const createEl = (tag, obj) => {
+  let X = tags[tag] || tag;
+  return <X css={obj}></X>;
+};
 
 const mq = facepaint([
   "@media(min-width: 570px)",
@@ -13,22 +18,25 @@ const mq = facepaint([
   "@media(min-width: 1120px)",
 ]);
 
-const Item = styled(Flex)`
-  padding: 0.5em;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  @media screen and (max-width: 30em) {
-    padding: 15px;
-  }
-  & ul {
-    ${mq({
-      width: ["fit-content", "85%", "85%"],
-    })}
-  }
-`;
+const Item = () => {
+  const style = css`
+    padding: 0.5em;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    @media screen and (max-width: 30em) {
+      padding: 15px;
+    }
+    & ul {
+      ${mq({
+        width: ["fit-content", "85%", "85%"],
+      })}
+    }
+  `;
+  return createEl(Flex, style);
+};
 
 export default () => {
   return (

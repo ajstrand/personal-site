@@ -1,12 +1,24 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Fragment, h } from "preact";
-import styled from "@emotion/styled";
+import { css } from "@emotion/core";
+
 import { SiteLink } from "./componentsList.js";
 
-const PageLink = styled.default(SiteLink)`
-  margin: 0 1em 0 1em;
-`;
+import tags from "../tags.js";
+
+const createEl = (tag, obj) => {
+  let X = tags[tag] || tag;
+  return <X css={obj}></X>;
+};
+
+export const PageLink = () => {
+  const style = css`
+    margin: 0 1em 0 1em;
+  `;
+  return createEl(SiteLink, style);
+};
+
 const nav = [
   { displayName: "Home", url: "/" },
   { displayName: "Garden", url: "/garden" },

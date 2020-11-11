@@ -3,18 +3,17 @@ import { jsx } from "@emotion/core";
 
 import SocialProfiles from "./SocialProfiles.js";
 import SiteLinks from "./SiteLinks.js";
-import pkg from "theme-ui";
-const { Flex } = pkg;
+
+import { Flex } from "../temp/componentsList.js";
+
 const SiteNav = () => {
   return (
     <nav>
       <Flex
-        sx={{
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          flexWrap: "wrap",
-        }}
+        flexDirection="row"
+        justifyContent="center"
+        alignItems="center"
+        flexWrap="wrap"
       >
         <SiteLinks />
         <SocialProfiles />

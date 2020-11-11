@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
-import { ThemeProvider } from "theme-ui";
+import { ThemeProvider } from "emotion-theming";
 
 const theme = {
   fonts: {

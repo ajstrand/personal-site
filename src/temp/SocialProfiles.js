@@ -1,14 +1,24 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { h, Fragment } from "preact";
+import { css } from "@emotion/core";
 
-import styled from "@emotion/styled";
 import { GitHub, Twitter, Linkedin } from "react-feather";
 
-const StyledAnchorTag = styled.default.a`
-  margin: 0.5em;
-  color: ${(props) => props.theme.colors.text};
-`;
+import tags from "./tags.js";
+
+const createEl = (tag, obj) => {
+  let X = tags[tag] || tag;
+  return <X css={obj}></X>;
+};
+
+const StyledAnchorTag = () => {
+  const style = css`
+    margin: 0.5em;
+    color: ${(props) => props.theme.colors.text};
+  `;
+  return createEl("a", style);
+};
 
 const SocialProfiles = () => {
   const data = [

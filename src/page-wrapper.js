@@ -1,28 +1,41 @@
 /** @jsx jsx */
-import { jsx, Global } from "@emotion/core";
+import { jsx, Global, css } from "@emotion/core";
 import { Helmet } from "react-helmet";
 import { MDXProvider } from "@mdx-js/preact";
 import { Fragment } from "preact";
 
-import styled from "@emotion/styled";
 import Theme from "./temp/theme.js";
 
-import pkg from "theme-ui";
-const { Flex } = pkg;
+import tags from "./tags.js";
+
+import { Flex } from "./temp/componentsList.js";
+
 import Header from "./temp/Header.js";
 import Copyright from "./temp/Copyright.js";
 
-const StyledSummary = styled.default.summary`
-  color: ${(props) => props.theme.colors.white};
-  background-color: ${(props) => props.theme.colors.black};
-`;
+const createEl = (tag, obj) => {
+  let X = tags[tag] || tag;
+  return <X css={obj}></X>;
+};
 
-const StyledDetails = styled.default.details`
-  & black-lives {
-    padding: 15px;
-    width: fit-content;
-  }
-`;
+const StyledSummary = () => {
+  //color: ${(props) => props.theme.colors.white};
+  //background-color: ${(props) => props.theme.colors.black};
+  const style = css`
+    color: hotpink;
+  `;
+  return createEl("summary", style);
+};
+
+const StyledDetails = () => {
+  const style = css`
+    & black-lives {
+      padding: 15px;
+      width: fit-content;
+    }
+  `;
+  return createEl("details", style);
+};
 
 const Details = () => (
   <StyledDetails>
@@ -48,75 +61,37 @@ const MetaDetails = ({ title, description }) => (
       src="https://unpkg.com/i-stand/black-lives.js"
       type="module"
     ></script>
+    {/* <script src="../test/emotion.esm.js" type="module"></script> */}
   </Helmet>
 );
-const GlobalStyles = styled.default(Global)`
-  /* lora-regular - latin-ext_latin */
-  @font-face {
-    font-family: "Lora";
-    font-style: normal;
-    font-weight: 400;
-    src: url("fonts/lora-v16-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(""),
-      url("fonts/lora-v16-latin-ext_latin-regular.eot?#iefix")
-        format("embedded-opentype"),
-      /* IE6-IE8 */ url("fonts/lora-v16-latin-ext_latin-regular.woff2")
-        format("woff2"),
-      /* Super Modern Browsers */
-        url("fonts/lora-v16-latin-ext_latin-regular.woff") format("woff"),
-      /* Modern Browsers */ url("fonts/lora-v16-latin-ext_latin-regular.ttf")
-        format("truetype"),
-      /* Safari, Android, iOS */
-        url("fonts/lora-v16-latin-ext_latin-regular.svg#Lora") format("svg"); /* Legacy iOS */
-  }
-  /* roboto-regular - latin-ext_latin */
-  @font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    src: url("fonts/roboto-v20-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
-    src: local("Roboto"), local("Roboto-Regular"),
-      url("fonts/roboto-v20-latin-ext_latin-regular.eot?#iefix")
-        format("embedded-opentype"),
-      /* IE6-IE8 */ url("fonts/roboto-v20-latin-ext_latin-regular.woff2")
-        format("woff2"),
-      /* Super Modern Browsers */
-        url("fonts/roboto-v20-latin-ext_latin-regular.woff") format("woff"),
-      /* Modern Browsers */ url("fonts/roboto-v20-latin-ext_latin-regular.ttf")
-        format("truetype"),
-      /* Safari, Android, iOS */
-        url("fonts/roboto-v20-latin-ext_latin-regular.svg#Roboto") format("svg"); /* Legacy iOS */
-  }
-  * {
-    box-sizing: "border-box";
-    margin: 0;
-    padding: 0;
-  }
-  html {
-    min-height: 100vh;
-    background-color: ${(props) => props.theme.colors.white};
-  }
-  body {
-    min-height: 100vh;
-    #toast-page-section {
-      min-height: 100vh;
+const GlobalStyles = () => {
+  const style = css`
+    * {
+      box-sizing: "border-box";
+      margin: 0;
+      padding: 0;
     }
-  }
-`;
-
-const Obj = {
-  // stuff you can style in MDX
+    html {
+      min-height: 100vh;
+      background-color: ${(props) => props.theme.colors.white};
+    }
+    body {
+      min-height: 100vh;
+      #toast-page-section {
+        min-height: 100vh;
+      }
+    }
+  `;
+  return createEl(Global, style);
 };
 
 const Footer = () => {
   return (
     <Flex
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      display="flex"
+      flexDirection="row"
+      justifyContent="center"
+      alignItems="center"
     >
       <footer>
         <Copyright />
@@ -124,6 +99,8 @@ const Footer = () => {
     </Flex>
   );
 };
+
+const Obj = {};
 
 export default ({ children, ...props }) => {
   let title = "Alex Strand's Digital Garden";
@@ -135,14 +112,14 @@ export default ({ children, ...props }) => {
   return (
     <Theme>
       <MetaDetails title={title} description={description} />
-      <Flex sx={{ flexDirection: "column", height: "100vh" }}>
+      <Flex flexDirection="column" height="100vh">
         <GlobalStyles />
         <Details />
         <Header />
         <MDXProvider components={Obj}>
           <Fragment>{children}</Fragment>
         </MDXProvider>
-        <Footer sx={{ flex: "0" }} />
+        <Footer flex="0" />
       </Flex>
     </Theme>
   );
