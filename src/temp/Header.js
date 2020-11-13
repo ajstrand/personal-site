@@ -3,14 +3,9 @@ import { jsx, css } from "@emotion/core";
 
 import SiteNav from "./SiteNav.js";
 
-import tags from "../tags.js";
+import CreateEl from "../CreateEl.js";
 
-const createEl = (tag, obj) => {
-  let X = tags[tag] || tag;
-  return <X css={obj}></X>;
-};
-
-export const Header = () => {
+export const Header = (props) => {
   const style = css`
     @media screen {
       display: flex;
@@ -25,7 +20,11 @@ export const Header = () => {
       display: none;
     }
   `;
-  return createEl("header", style);
+  return (
+    <CreateEl tag="header" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
 export default () => {

@@ -1,27 +1,25 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
+import { useContext } from "preact/hooks";
+import CreateEl from "../CreateEl.js";
+import { Theme } from "./theme.js";
 
-import tags from "../tags.js";
-
-const createEl = (tag, obj) => {
-  let X = tags[tag] || tag;
-  return <X css={obj}></X>;
-};
-
-export const Flex = () => {
+export const Flex = (props) => {
   const style = css`
     display: flex;
-    height: ${(props) => (props.height ? props.height : "auto")};
-    flex-direction: ${(props) =>
-      props.flexDirection ? props.flexDirection : "row"};
-    justify-content: ${(props) =>
-      props.justifyContent ? props.justifyContent : "unset"};
-    align-items: ${(props) => (props.alignItems ? props.alignItems : "unset")};
-    flex-wrap: ${(props) => (props.flexWrap ? props.flexWrap : "unset")};
-    flex: ${(props) => (props.flex ? props.flex : "unset")};
+    height: ${props.height ? props.height : "auto"};
+    flex-direction: ${props.flexDirection ? props.flexDirection : "row"};
+    justify-content: ${props.justifyContent ? props.justifyContent : "unset"};
+    align-items: ${props.alignItems ? props.alignItems : "unset"};
+    flex-wrap: ${props.flexWrap ? props.flexWrap : "unset"};
+    flex: ${props.flex ? props.flex : "unset"};
   `;
 
-  return createEl("div", style);
+  return (
+    <CreateEl tag="div" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
 export const OverflowYScrollContainer = () => {
@@ -36,21 +34,34 @@ export const OverflowYScrollContainer = () => {
       flex-basis: 70%;
     }
   `;
-  return createEl(Flex, style);
+  return (
+    <CreateEl tag={Flex} obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
-export const SiteLink = () => {
+export const SiteLink = (props) => {
+  const theme = useContext(Theme);
   const style = css`
-    color: ${(props) => props.theme.colors.text};
+    color: ${theme.colors.text};
   `;
-  return createEl("a", style);
+  return (
+    <CreateEl tag="a" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
-export const ListItem = () => {
+export const ListItem = (props) => {
   const style = css`
     padding: 0.5em;
     flex-direction: column;
     width: 100%;
   `;
-  return createEl(Flex, style);
+  return (
+    <CreateEl tag={Flex} obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };

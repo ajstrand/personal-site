@@ -1,23 +1,25 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { h, Fragment } from "preact";
+import { useContext } from "preact/hooks";
+import { Theme } from "./theme.js";
 import { css } from "@emotion/core";
 
 import { GitHub, Twitter, Linkedin } from "react-feather";
 
-import tags from "./tags.js";
+import CreateEl from "../CreateEl.js";
 
-const createEl = (tag, obj) => {
-  let X = tags[tag] || tag;
-  return <X css={obj}></X>;
-};
-
-const StyledAnchorTag = () => {
+const StyledAnchorTag = (props) => {
+  const theme = useContext(Theme);
   const style = css`
     margin: 0.5em;
-    color: ${(props) => props.theme.colors.text};
+    color: ${theme.colors.text};
   `;
-  return createEl("a", style);
+  return (
+    <CreateEl tag="a" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
 const SocialProfiles = () => {

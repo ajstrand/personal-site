@@ -5,18 +5,17 @@ import { css } from "@emotion/core";
 
 import { SiteLink } from "./componentsList.js";
 
-import tags from "../tags.js";
+import CreateEl from "../CreateEl.js";
 
-const createEl = (tag, obj) => {
-  let X = tags[tag] || tag;
-  return <X css={obj}></X>;
-};
-
-export const PageLink = () => {
+export const PageLink = (props) => {
   const style = css`
     margin: 0 1em 0 1em;
   `;
-  return createEl(SiteLink, style);
+  return (
+    <CreateEl tag={SiteLink} obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
 const nav = [

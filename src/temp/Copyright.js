@@ -1,13 +1,8 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-import tags from "../tags.js";
+import CreateEl from "../CreateEl.js";
 
-const createEl = (tag, obj) => {
-  let X = tags[tag] || tag;
-  return <X css={obj}></X>;
-};
-
-export const SmallText = () => {
+export const SmallText = (props) => {
   const style = css`
     margin-bottom: 5px;
     font-size: 9px;
@@ -16,7 +11,11 @@ export const SmallText = () => {
     align-items: center;
     justify-content: center;
   `;
-  return createEl(p, style);
+  return (
+    <CreateEl tag="p" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
 const Copyright = () => {

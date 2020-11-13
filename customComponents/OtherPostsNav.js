@@ -1,25 +1,21 @@
 /** @jsx jsx */
-import { jsx, Global } from "@emotion/core";
-import styled from "@emotion/styled";
+import { jsx, css } from "@emotion/core";
 
-const OtherPostsList = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-`;
+const OtherPostsList = () => {
+  const style = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+  `;
+  return <CreateEl tag="ul" obj={style} />;
+};
+
 const OtherPostsNav = (props) => {
   const { previous, next } = props;
   return (
-    <OtherPostsList
-      style={{
-        padding: "1rem",
-        display: `flex`,
-        flexWrap: `wrap`,
-        justifyContent: `space-between`,
-        listStyle: `none`,
-      }}
-    >
+    <OtherPostsList>
       <li>
         {previous && (
           <a

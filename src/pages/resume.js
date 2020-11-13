@@ -2,16 +2,14 @@
 import { Fragment } from "preact";
 import { jsx, css } from "@emotion/core";
 
-import tags from "./tags.js";
-//import ResumeContent from "../customComponents/ResumeContent";
 // import { StyledResume } from "styled-resume";
+import CreateEl from "../CreateEl.js";
 
-const createEl = (tag, obj) => {
-  let X = tags[tag] || tag;
-  return <X css={obj}></X>;
-};
+import ResumeContent from "../temp/ResumeContent.js";
 
-const ResumeContainer = () => {
+import projects from "../temp/projectsData.js";
+
+const ResumeContainer = (props) => {
   const style = css`
     @media screen {
       padding: 0.5em;
@@ -26,7 +24,11 @@ const ResumeContainer = () => {
       }
     }
   `;
-  return createEl(div, style);
+  return (
+    <CreateEl tag="div" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
 // console.log(StyledResume);
@@ -48,9 +50,9 @@ const Resume = (props) => {
       {/* <StyledResume /> */}
       <p> You can download a copy of my resume {resumeLink}</p>
       <p>Resume design forked from {DesignAttribution}</p>
-      {/* <ResumeContainer>
-        <ResumeContent list={projects} />
-      </ResumeContainer> */}
+      <ResumeContainer>
+        <ResumeContent projects={projects} />
+      </ResumeContainer>
     </Fragment>
   );
 };

@@ -1,4 +1,4 @@
-export default [
+const projects = [
   {
     date: "January 2020/Present",
     title: "Resume generator",
@@ -50,3 +50,5 @@ export default [
       "A React/Express app that grabs data from the reddit api, allows user to view wallpapers from r/wallpapers",
   },
 ];
+
+export default projects;

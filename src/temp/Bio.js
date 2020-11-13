@@ -1,18 +1,15 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+import { useContext } from "preact/hooks";
 
-import tags from "../tags.js";
+import { Theme } from "./theme.js";
+import { jsx, css } from "@emotion/core";
 
 import externalLinkText from "../utils/helpers.js";
 
 import { Flex } from "../temp/componentsList.js";
 
 import facepaint from "facepaint";
-
-const createEl = (tag, obj) => {
-  let X = tags[tag] || tag;
-  return <X css={obj}></X>;
-};
+import CreateEl from "../CreateEl.js";
 
 const mq = facepaint([
   "@media(min-width: 570px)",
@@ -20,22 +17,27 @@ const mq = facepaint([
   "@media(min-width: 1120px)",
 ]);
 
-const StyleLink = () => {
+const StyleLink = (props) => {
+  const theme = useContext(Theme);
   const style = css`
     font-size: 16px;
     padding: 2px;
     border-radius: 10px;
-    background-color: ${(props) => props.theme.colors.lightPalePinkText};
-    color: ${(props) => props.theme.colors.text};
+    background-color: ${theme.colors.lightPalePinkText};
+    color: ${theme.colors.text};
     &:hover {
       text-decoration: none;
     }
   `;
 
-  return createEl("a", style);
+  return (
+    <CreateEl tag="a" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
-const Intro = () => {
+const Intro = (props) => {
   const style = css`
     ${mq({
       fontSize: ["1.5rem", "2rem", "4rem"],
@@ -44,22 +46,31 @@ const Intro = () => {
     font-weight: bold;
   `;
 
-  return createEl("h1", style);
+  return (
+    <CreateEl tag="h1" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
-const BioText = () => {
+const BioText = (props) => {
+  const theme = useContext(Theme);
   const style = css`
-    background-color: ${(props) => props.theme.colors.text};
-    color: ${(props) => props.theme.colors.lightPalePinkText};
+    background-color: ${theme.colors.text};
+    color: ${theme.colors.lightPalePinkText};
     padding: 10px;
     border-radius: 15px;
     line-height: 34px;
     width: fit-content;
   `;
 
-  return createEl("p", style);
+  return (
+    <CreateEl tag="p" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
-const Main = () => {
+const Main = (props) => {
   const style = css`
     border-radius: 15px;
     padding: 1rem;
@@ -71,27 +82,39 @@ const Main = () => {
     margin-bottom: 1em;
   `;
 
-  return createEl("main", style);
+  return (
+    <CreateEl tag="main" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
-const AdaptFlex = () => {
+const AdaptFlex = (props) => {
   const style = css`
     ${mq({
       flexDirection: ["column", "row", "row"],
     })}
   `;
 
-  return createEl(Flex, style);
+  return (
+    <CreateEl tag={Flex} obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
-const LeftFlex = () => {
+const LeftFlex = (props) => {
   const style = css`
     ${mq({
       alignItems: ["center", "flex-start", "flex-start"],
     })}
   `;
 
-  return createEl(Flex, style);
+  return (
+    <CreateEl tag={Flex} obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
 const Chase = externalLinkText("https://chase.com", "@Chase", "", StyleLink);
@@ -107,7 +130,7 @@ const Bio = () => {
       <AdaptFlex alignItems="center" justifyContent="center">
         <img
           src="./me.jpg"
-          alt="the website author with glasses, smiling towards the camera"
+          alt="a person with blond hair and black glasses, smiling towards the camera."
           style={{
             marginRight: "1em",
             marginBottom: 0,

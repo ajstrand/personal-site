@@ -1,16 +1,10 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-import tags from "./tags.js";
-
 import data from "../temp/projectsData.js";
 import { SiteLink } from "../temp/componentsList.js";
 import { Flex } from "../temp/componentsList.js";
 import facepaint from "facepaint";
-
-const createEl = (tag, obj) => {
-  let X = tags[tag] || tag;
-  return <X css={obj}></X>;
-};
+import CreateEl from "../CreateEl.js";
 
 const mq = facepaint([
   "@media(min-width: 570px)",
@@ -18,7 +12,7 @@ const mq = facepaint([
   "@media(min-width: 1120px)",
 ]);
 
-const Item = () => {
+const Item = (props) => {
   const style = css`
     padding: 0.5em;
     flex-direction: column;
@@ -35,7 +29,11 @@ const Item = () => {
       })}
     }
   `;
-  return createEl(Flex, style);
+  return (
+    <CreateEl tag={Flex} obj={style}>
+      {props.children}
+    </CreateEl>
+  );
 };
 
 export default () => {

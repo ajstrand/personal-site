@@ -1,8 +1,25 @@
 /** @jsx jsx */
-import { jsx, Global } from "@emotion/core";
-import "./resumeStyles.scss";
-import styled from "@emotion/styled";
+import { jsx, css } from "@emotion/core";
+//import "./resumeStyles.scss";
 
+import CreateEl from "../CreateEl.js";
+
+const ResumeGridContainer = (props) => {
+  const style = css`
+    background-color: #ffffff;
+    display: grid;
+    width: 60%;
+    @media print {
+      width: 100%;
+    }
+  `;
+
+  return (
+    <CreateEl tag="div" obj={style}>
+      {props.children}
+    </CreateEl>
+  );
+};
 const resumeDataObj = {
   header: {
     name: "Alex Strand",
@@ -100,17 +117,16 @@ const resumeDataObj = {
   },
 };
 const createSectionAndHeader = (sectionTitle, chilren) => {
-  const jsx = (
+  return (
     <div className={`${sectionTitle}Section`}>
       <span className="sectionHeader">{sectionTitle}</span>
       {chilren}
     </div>
   );
-  return jsx;
 };
 const createExperienceSection = () => {
   const list = resumeDataObj.experience.map((block) => {
-    const jsx = (
+    return (
       <div className="experienceItem">
         <div className="leftColumn">
           <span className="companyName">{block.companyName}</span>
@@ -127,16 +143,14 @@ const createExperienceSection = () => {
         </span>
       </div>
     );
-    return jsx;
   });
   return list;
 };
 
-const createProjectSection = (projects) => {
-  let { list } = projects;
-  const projectList = list.slice(0, 3).map((projectObj) => {
-    const project = projectObj.node;
-    const jsx = (
+const createProjectSection = (projectsArray) => {
+  const projectList = projectsArray.slice(0, 3).map((projectObj) => {
+    const project = projectObj;
+    return (
       <div className="projectItem">
         <div className="leftColumn">
           <span className="projectName">{project.title}</span>
@@ -149,13 +163,12 @@ const createProjectSection = (projects) => {
         </span>
       </div>
     );
-    return jsx;
   });
   return projectList;
 };
 const createEducationSection = () => {
   const list = resumeDataObj.education.map((section) => {
-    const jsx = (
+    return (
       <div className="educationItem">
         <div className="leftColumn">
           <span className="schoolName">{section.schoolName}</span>
@@ -167,7 +180,6 @@ const createEducationSection = () => {
         </span>
       </div>
     );
-    return jsx;
   });
   return list;
 };
@@ -177,11 +189,10 @@ const createSkillsSection = () => {
   const skillsList = array.map((value, index) =>
     array[index + 1] !== undefined ? value.concat(", ") : value
   );
-  const jsx = <span className="description">{skillsList}</span>;
-  return jsx;
+  return <span className="description">{skillsList}</span>;
 };
 const createHeader = () => {
-  const jsx = (
+  return (
     <div className="header">
       <span className="contactName">{resumeDataObj.header.name}</span>
       <ul className="contactDetails">
@@ -201,17 +212,9 @@ const createHeader = () => {
       </ul>
     </div>
   );
-  return jsx;
 };
-const ResumeGridContainer = styled.div`
-  background-color: #ffffff;
-  display: grid;
-  width: 60%;
-  @media print {
-    width: 100%;
-  }
-`;
-const ResumeContent = (projects) => {
+
+const ResumeContent = ({ projects }) => {
   return (
     <ResumeGridContainer>
       {createHeader()}

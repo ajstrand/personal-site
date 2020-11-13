@@ -1,8 +1,8 @@
 /** @jsx jsx */
+import { createContext } from "preact";
 import { jsx } from "@emotion/core";
-import { ThemeProvider } from "emotion-theming";
 
-const theme = {
+const themeObj = {
   fonts: {
     body: "Roboto,sans-serif",
     heading: "Lora, serif",
@@ -65,9 +65,10 @@ const theme = {
     },
   },
 };
+export const Theme = createContext(themeObj);
 
-const Theme = ({ children }) => (
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+const ThemeWrap = ({ children }) => (
+  <Theme.Provider value={themeObj}>{children}</Theme.Provider>
 );
 
-export default Theme;
+export default ThemeWrap;
