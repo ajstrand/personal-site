@@ -15,25 +15,18 @@ const StyledSummary = (props) => {
     color: ${theme.colors.white};
     background-color: ${theme.colors.black};
   `;
-  return (
-    <CreateEl tag="summary" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="summary" obj={style} {...props}></CreateEl>;
 };
 
 const StyledDetails = (props) => {
   const style = css`
+    width: 100%;
     & black-lives {
       padding: 15px;
       width: fit-content;
     }
   `;
-  return (
-    <CreateEl tag="details" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="details" obj={style} {...props}></CreateEl>;
 };
 
 export const Details = () => (
@@ -47,7 +40,6 @@ export const MetaDetails = ({ title, description }) => (
   <Helmet>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Alex Strand's personal site and digital garden</title>
     <meta name="twitter:title" content={title} />
     <meta name="og:title" content={title} />
@@ -72,20 +64,61 @@ export const GlobalStyles = (props) => {
     }
     html {
       min-height: 100vh;
-      background-color: ${theme.colors.white};
-    }
-    body {
+       body {
+          /* lora-regular - latin-ext_latin */
+  @font-face {
+    font-family: "Lora";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/lora-v16-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
+    src: local(""),
+      url("fonts/lora-v16-latin-ext_latin-regular.eot?#iefix")
+        format("embedded-opentype"),
+      /* IE6-IE8 */ url("./fonts/lora-v16-latin-ext_latin-regular.woff2")
+        format("woff2"),
+      /* Super Modern Browsers */
+        url("./fonts/lora-v16-latin-ext_latin-regular.woff") format("woff"),
+      /* Modern Browsers */ url("./fonts/lora-v16-latin-ext_latin-regular.ttf")
+        format("truetype"),
+      /* Safari, Android, iOS */
+        url("./fonts/lora-v16-latin-ext_latin-regular.svg#Lora") format("svg"); /* Legacy iOS */
+  }
+  /* roboto-regular - latin-ext_latin */
+  @font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/roboto-v20-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
+    src: local("Roboto"), local("Roboto-Regular"),
+      url("fonts/roboto-v20-latin-ext_latin-regular.eot?#iefix")
+        format("embedded-opentype"),
+      /* IE6-IE8 */ url("fonts/roboto-v20-latin-ext_latin-regular.woff2")
+        format("woff2"),
+      /* Super Modern Browsers */
+        url("fonts/roboto-v20-latin-ext_latin-regular.woff") format("woff"),
+      /* Modern Browsers */ url("fonts/roboto-v20-latin-ext_latin-regular.ttf")
+        format("truetype"),
+      /* Safari, Android, iOS */
+        url("fonts/roboto-v20-latin-ext_latin-regular.svg#Roboto") format("svg"); /* Legacy iOS */
+  }
+        background-color:${theme.colors.white};
+        h1, h2, h3, h4, h5, h6 {
+          color:${theme.colors.text};
+          font-family:'Lora';
+        }
+        p, li, ul {
+          color:${theme.colors.text};
+          font-family:'Roboto';
+          }
+        }
       min-height: 100vh;
       #toast-page-section {
         min-height: 100vh;
       }
     }
+    }
   `;
-  return (
-    <CreateEl tag={Global} obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <Global {...props} styles={style}></Global>;
 };
 
 export const Footer = () => {

@@ -1,10 +1,12 @@
 import { sourceMdx } from "@toastdotdev/mdx";
 
 export const sourceData = async ({ setDataForSlug }) => {
-  await sourceMdx({
+  let allMdx = await sourceMdx({
     setDataForSlug,
     directory: "./content",
     slugPrefix: "/posts",
   });
-  return;
+  await setDataForSlug("/garden", {
+    data: { posts: allMdx },
+  });
 };

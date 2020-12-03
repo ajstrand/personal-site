@@ -20,11 +20,7 @@ export const Header = (props) => {
       display: none;
     }
   `;
-  return (
-    <CreateEl tag="header" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="header" obj={style} {...props}></CreateEl>;
 };
 
 export default () => {

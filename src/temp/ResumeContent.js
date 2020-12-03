@@ -14,11 +14,7 @@ const ResumeGridContainer = (props) => {
     }
   `;
 
-  return (
-    <CreateEl tag="div" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
 };
 const resumeDataObj = {
   header: {

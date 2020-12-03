@@ -9,17 +9,13 @@ export const Flex = (props) => {
     display: flex;
     height: ${props.height ? props.height : "auto"};
     flex-direction: ${props.flexDirection ? props.flexDirection : "row"};
-    justify-content: ${props.justifyContent ? props.justifyContent : "unset"};
-    align-items: ${props.alignItems ? props.alignItems : "unset"};
+    justify-content: ${props.justifyContent ? props.justifyContent : "center"};
+    align-items: ${props.alignItems ? props.alignItems : "center"};
     flex-wrap: ${props.flexWrap ? props.flexWrap : "unset"};
     flex: ${props.flex ? props.flex : "unset"};
   `;
 
-  return (
-    <CreateEl tag="div" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
 };
 
 export const OverflowYScrollContainer = () => {
@@ -34,11 +30,7 @@ export const OverflowYScrollContainer = () => {
       flex-basis: 70%;
     }
   `;
-  return (
-    <CreateEl tag={Flex} obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
 };
 
 export const SiteLink = (props) => {
@@ -46,11 +38,7 @@ export const SiteLink = (props) => {
   const style = css`
     color: ${theme.colors.text};
   `;
-  return (
-    <CreateEl tag="a" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="a" obj={style} {...props}></CreateEl>;
 };
 
 export const ListItem = (props) => {
@@ -59,9 +47,5 @@ export const ListItem = (props) => {
     flex-direction: column;
     width: 100%;
   `;
-  return (
-    <CreateEl tag={Flex} obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
 };

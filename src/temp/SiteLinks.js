@@ -11,11 +11,7 @@ export const PageLink = (props) => {
   const style = css`
     margin: 0 1em 0 1em;
   `;
-  return (
-    <CreateEl tag={SiteLink} obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag={SiteLink} obj={style} {...props}></CreateEl>;
 };
 
 const nav = [

@@ -11,11 +11,7 @@ export const SmallText = (props) => {
     align-items: center;
     justify-content: center;
   `;
-  return (
-    <CreateEl tag="p" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="p" obj={style} {...props}></CreateEl>;
 };
 
 const Copyright = () => {

@@ -16,30 +16,26 @@ const Item = (props) => {
   const style = css`
     padding: 0.5em;
     flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    width: 70%;
     flex: 1;
     @media screen and (max-width: 30em) {
       padding: 15px;
     }
     & ul {
       ${mq({
-        width: ["fit-content", "85%", "85%"],
+        width: ["fit-content", "80%", "80%"],
       })}
     }
   `;
-  return (
-    <CreateEl tag={Flex} obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
 };
 
 export default () => {
   return (
     <Item>
-      <h2>Here's a list of some projects I've done.</h2>
+      <h2 style={{ fontSize: "2em" }}>
+        Here's a list of some projects I've done.
+      </h2>
       <p>
         They're mostly for fun and learning. Although some may become more
         "official" open source projects I'll support and maintain.

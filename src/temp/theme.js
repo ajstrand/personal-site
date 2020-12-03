@@ -22,6 +22,7 @@ const themeObj = {
     text: "#B13A5D",
     brightBlue: "#2EB6BC",
     secondBlue: "#5EE7E9",
+    lightBg: "#abe1e4",
     palePink: "#C5A4AF",
     lightPalePinkText: "#F8D7E2",
     styles: {

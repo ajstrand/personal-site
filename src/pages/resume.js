@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { Fragment } from "preact";
 import { jsx, css } from "@emotion/core";
 
 // import { StyledResume } from "styled-resume";
@@ -8,6 +7,20 @@ import CreateEl from "../CreateEl.js";
 import ResumeContent from "../temp/ResumeContent.js";
 
 import projects from "../temp/projectsData.js";
+import { Flex } from "../temp/componentsList.js";
+
+const Wrap = (props) => {
+  const style = css`
+    padding: 0.5em;
+    flex-direction: column;
+    width: 70%;
+    flex: 1;
+    @media screen and (max-width: 30em) {
+      padding: 15px;
+    }
+  `;
+  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
+};
 
 const ResumeContainer = (props) => {
   const style = css`
@@ -24,19 +37,12 @@ const ResumeContainer = (props) => {
       }
     }
   `;
-  return (
-    <CreateEl tag="div" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
 };
 
 // console.log(StyledResume);
 
 const Resume = (props) => {
-  //const { data, location } = props;
-  //const resume = data.allFile.edges[0].node.publicURL;
-  //const projects = data.allProjectsJson.edges;
   const resumeLink = (
     <a aria-label="resume" target="_blank" href={"./alex_strand_resume.pdf"}>
       here
@@ -46,14 +52,14 @@ const Resume = (props) => {
     <a href="https://twitter.com/isabelacmor">@isabelacmor</a>
   );
   return (
-    <Fragment>
+    <Wrap>
       {/* <StyledResume /> */}
       <p> You can download a copy of my resume {resumeLink}</p>
       <p>Resume design forked from {DesignAttribution}</p>
-      <ResumeContainer>
+      {/* <ResumeContainer>
         <ResumeContent projects={projects} />
-      </ResumeContainer>
-    </Fragment>
+      </ResumeContainer> */}
+    </Wrap>
   );
 };
 

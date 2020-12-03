@@ -30,11 +30,7 @@ const StyleLink = (props) => {
     }
   `;
 
-  return (
-    <CreateEl tag="a" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="a" obj={style} {...props}></CreateEl>;
 };
 
 const Intro = (props) => {
@@ -46,11 +42,7 @@ const Intro = (props) => {
     font-weight: bold;
   `;
 
-  return (
-    <CreateEl tag="h1" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="h1" obj={style} {...props}></CreateEl>;
 };
 
 const BioText = (props) => {
@@ -64,11 +56,7 @@ const BioText = (props) => {
     width: fit-content;
   `;
 
-  return (
-    <CreateEl tag="p" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="p" obj={style} {...props}></CreateEl>;
 };
 const Main = (props) => {
   const style = css`
@@ -82,11 +70,7 @@ const Main = (props) => {
     margin-bottom: 1em;
   `;
 
-  return (
-    <CreateEl tag="main" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="main" obj={style} {...props}></CreateEl>;
 };
 
 const AdaptFlex = (props) => {
@@ -94,13 +78,10 @@ const AdaptFlex = (props) => {
     ${mq({
       flexDirection: ["column", "row", "row"],
     })}
+    margin-bottom:3em;
   `;
 
-  return (
-    <CreateEl tag={Flex} obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
 };
 
 const LeftFlex = (props) => {
@@ -110,11 +91,7 @@ const LeftFlex = (props) => {
     })}
   `;
 
-  return (
-    <CreateEl tag={Flex} obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
 };
 
 const Chase = externalLinkText("https://chase.com", "@Chase", "", StyleLink);
@@ -127,7 +104,7 @@ const emailString = "hi(at)alexstrand.dev";
 const Bio = () => {
   return (
     <Main>
-      <AdaptFlex alignItems="center" justifyContent="center">
+      <AdaptFlex marginBottom="3em" alignItems="center" justifyContent="center">
         <img
           src="./me.jpg"
           alt="a person with blond hair and black glasses, smiling towards the camera."
@@ -148,9 +125,9 @@ const Bio = () => {
           </BioText>
         </LeftFlex>
       </AdaptFlex>
-      <p>
-        {contactInfo} {emailString}.{" "}
-      </p>
+      <h4>
+        {contactInfo} {emailString}
+      </h4>
     </Main>
   );
 };

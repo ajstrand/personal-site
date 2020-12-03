@@ -15,11 +15,7 @@ const StyledAnchorTag = (props) => {
     margin: 0.5em;
     color: ${theme.colors.text};
   `;
-  return (
-    <CreateEl tag="a" obj={style}>
-      {props.children}
-    </CreateEl>
-  );
+  return <CreateEl tag="a" obj={style} {...props}></CreateEl>;
 };
 
 const SocialProfiles = () => {
