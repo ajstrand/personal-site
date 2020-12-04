@@ -1,75 +1,65 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
+import data from "../temp/projectsData.js";
+import { SiteLink } from "../temp/componentsList.js";
+import { Flex } from "../temp/componentsList.js";
+import facepaint from "facepaint";
+import CreateEl from "../CreateEl.js";
 
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import { rhythm } from '../utils/typography'
-import styled from 'styled-components'
-import {
-  Header1,
-  Header3,
-  OverflowYScrollContainer,
-} from '../components/componentsList'
-import { externalLinkText } from '../utils/helpers'
+const mq = facepaint([
+  "@media(min-width: 570px)",
+  "@media(min-width: 920px)",
+  "@media(min-width: 1120px)",
+]);
 
-const Projects = props => {
-  const { data, location } = props
-  const siteTitle = data.site.siteMetadata.title
-  const projects = data.allProjectsJson.edges
+const Item = (props) => {
+  const style = css`
+    padding: 0.5em;
+    height: 100%;
+    flex-direction: column;
+    @media screen and (max-width: 30em) {
+      padding: 15px;
+    }
+    & ul {
+      ${mq({
+        flexBasis: ["fit-content", "80%", "80%"],
+      })}
+    }
+  `;
+  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
+};
 
+const Scroll = (props) => {
+  const style = css`
+    padding: 0.5em;
+    flex-direction: column;
+    overflow-y: scroll;
+  `;
+  return <CreateEl tag="ul" obj={style} {...props}></CreateEl>;
+};
+
+export default () => {
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO
-        title="projects list"
-        keywords={[`javascript`, `react`, `css`, `css-grid`, 'node.js']}
-      />
-      <OverflowYScrollContainer>
-        <Header1 style={{ marginTop: '1rem' }}>Projects</Header1>
-        {projects.map(({ node }) => {
-          const desc = node.desc
-          const title = node.title
-          const link = node.link
-          const anchorTag = externalLinkText(
-            link,
-            title,
-            `${title} project URL`
-          )
+    <Item>
+      <h2 style={{ fontSize: "2em" }}>
+        Here's a list of some projects I've done.
+      </h2>
+      <p>
+        They're mostly for fun and learning. Although some may become more
+        "official" open source projects I'll support and maintain.
+      </p>
+      <Scroll>
+        {data.map(({ title, link, desc }) => {
           return (
-            <section key={node.title}>
-              <Header3
-                style={{
-                  marginTop: '1rem',
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                {anchorTag}
-              </Header3>
-              <p dangerouslySetInnerHTML={{ __html: desc }} />
-            </section>
-          )
+            <li>
+              <SiteLink href={link}>
+                <h3>{title}</h3>
+              </SiteLink>
+              <p>{desc}</p>
+            </li>
+          );
         })}
-      </OverflowYScrollContainer>
-    </Layout>
-  )
-}
-
-export default Projects
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allProjectsJson {
-      edges {
-        node {
-          title
-          link
-          desc
-        }
-      }
-    }
-  }
-`
+      </Scroll>
+    </Item>
+  );
+};

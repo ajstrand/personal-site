@@ -1,80 +1,63 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
 
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import styled from 'styled-components'
-import ResumeContent from '../components/ResumeContent'
-import { BaseText, StyledLink } from '../components/componentsList'
+// import { StyledResume } from "styled-resume";
+import CreateEl from "../CreateEl.js";
 
-const ResumeContainer = styled.div`
-  @media screen {
+import { Flex } from "../temp/componentsList.js";
+
+const Wrap = (props) => {
+  const style = css`
     padding: 0.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-  }
-  @media print {
-    & p {
-      display: none;
+    flex-basis: 70%;
+    flex: 1;
+    @media screen and (max-width: 30em) {
+      padding: 15px;
     }
-  }
-`
+  `;
+  return <CreateEl tag={Flex} obj={style} {...props} height="100%"></CreateEl>;
+};
 
-const Resume = props => {
-  const { data, location } = props
-  const siteTitle = data.site.siteMetadata.title
-  const resume = data.allFile.edges[0].node.publicURL
-  const projects = data.allProjectsJson.edges
+const ResumeContainer = (props) => {
+  const style = css`
+    @media screen {
+      padding: 0.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    @media print {
+      & p {
+        display: none;
+      }
+    }
+  `;
+  return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
+};
+
+// console.log(StyledResume);
+
+const Resume = (props) => {
   const resumeLink = (
-    <StyledLink aria-label="resume" target="_blank" href={resume}>
+    <a aria-label="resume" target="_blank" href={"./alex_strand_resume.pdf"}>
       here
-    </StyledLink>
-  )
+    </a>
+  );
+  const DesignAttribution = (
+    <a href="https://twitter.com/isabelacmor">@isabelacmor</a>
+  );
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="Resume" />
-      <ResumeContainer>
-        <ResumeContent list={projects} />
-        <BaseText> You can download a copy of my resume {resumeLink}</BaseText>
-        <BaseText>
-          Resume design forked from{' '}
-          <StyledLink href="https://twitter.com/isabelacmor">
-            @isabelacmor
-          </StyledLink>
-        </BaseText>
-      </ResumeContainer>
-    </Layout>
-  )
-}
+    <Wrap>
+      {/* <StyledResume /> */}
+      <p> You can download a copy of my resume {resumeLink}</p>
+      <p>Resume design forked from {DesignAttribution}</p>
+      {/* <ResumeContainer>
+        <ResumeContent projects={projects} />
+      </ResumeContainer> */}
+    </Wrap>
+  );
+};
 
-export default Resume
-
-export const resumeQuery = graphql`
-  query ResumeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allFile(filter: { extension: { eq: "pdf" } }) {
-      edges {
-        node {
-          publicURL
-        }
-      }
-    }
-    allProjectsJson {
-      edges {
-        node {
-          title
-          desc
-          date
-        }
-      }
-    }
-  }
-`
-
-//resume: file(absolutePath: { regex: "/alex_strand_resume.pdf/" })
+export default Resume;

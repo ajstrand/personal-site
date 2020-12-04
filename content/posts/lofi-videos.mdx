@@ -1,0 +1,109 @@
+export const meta = {
+  title: "Building a YouTube API app with graphQL",
+  slug: "youtube-graphql-player",
+  tags: ["GraphQL", "React"],
+  updatedAt: "2019-07-28",
+  contentType: "blog-post",
+};
+
+# Learning GraphQL and using the YouTube API
+
+I wanted to write up a list of things I learned and challenges I faced building my latest project.
+
+You can view it [here](https://lofi-hiphop-videos.herokuapp.com/).
+
+## GraphQL can take some getting used to, but it's really nice.
+
+GraphQL can be challenging, if you've only ever worked with REST APIs before, but don't try to understand it all at once.
+Read the docs and take it slow. I struggled with understanding simple queries and how to express exactly what I was trying to, but eventually I got the hang of it.
+
+I read a lot of blog posts and articles, but one article that helped with
+basic understanding was [this one](https://www.robinwieruch.de/react-with-graphql-tutorial/).
+[The graphql javascript docs were also extremely helpful](https://graphql.org/graphql-js/).
+
+For a more academic, in depth guide to graphQL I'd suggest checking out Eve Porcello's Learning GraphQL.
+
+## Read APIs docs thoroughly.
+
+I had never worked with YouTube's API before, so I wasn't sure what to expect.
+Thankfully their website is full of helpful examples and interactive ways you can test their APIS.
+I was able to find what I needed, but the next problem was how do I make this work in the context of writing Node app?
+Having a done number of other small projects with Node, it was platform I felt most familiar with for a quick server.
+
+Thankfully Google provided a Node client library for [accessing the YouTube API](https://github.com/googleapis/google-api-nodejs-client).
+I was able to find what I needed and adapt their examples to fit my use case. Google's Node client made the process of writing the server for app less intimidating than I thought it would be.
+
+## CSS Grid is great for making layout accessible
+
+I wanted to use CSS Grid because CSS has never been a strong suit of mine and it's something I need to improve on. CSS grid made it very easy to describe
+how I wanted to layout my page and in combination with flexbox I maybe wrote 10 lines of CSS to dictate the layout of the page. The Mozilla Developer Network's docs on [CSS Grid]() are fantastic, and a resource that I recommend.
+
+## Challenges
+
+# Responsive video player
+
+One of the bigger I faced was getting the video player to be responsive.
+This snippet of code from a [css tricks article](https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php) really helped me out.
+The bottom padding is set to 16:9.
+
+```css
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+```
+
+Basically what's happening here is that the iframe is set to have 100% width and height, meaning it'll stretch to fill the entire container.
+The wrapper element forces the video into a 16:9 aspect ratio, so the video doesn't look squished or stretched.
+
+The other challenge I ran into is once I implemented the code above, the video would fill the entire width of screen, which looked really bad on large desktops(like mine for instance).
+
+Here's the solution: you just need to give the video a maximum and minimum width so that the video never grows beyond that.
+In my case since i was using flexbox I also set the flex-basis to auto, so that the width of the video wrapper would fall
+back to the full width of the container only stopping if it hit the minimum or maximum width.
+
+```css
+.videoWrapper {
+  position: relative;
+  height: 0px;
+  min-width: 320px;
+  max-width: 1200px;
+  flex-basis: auto;
+  flex-grow: 1;
+  margin: 0 auto;
+}
+```
+
+The thing to notice here is that I had to set the position to relative, otherwise the video would position itself correctly in the page(in relation to the parent container's css).
+The other thing you'll notice is that I set the margin to `0 auto`. This means that the margin top and bottom were zero pixels while the left and right margins have an equal margin.
+This allows the video wrapper to continue to stay centered when we hit the maximum width we defined for it.
+
+# Read Heroku docs to avoid errors
+
+I deployed my application on Heroku, as I had a number of smaller projects already there. The first mistake I made was not setting up my npm script for my server the way Heroku expects. I could never reach my API and couldn't understand why my requests were returning `404`. I finally figured it out a couple days later reading the Heroku docs.
+
+The other big error that I made was that my YouTube API key had quotes in it when I pasted it into the heroku config. This meant that my app could never connect to the YouTube API. I had to dig to server logs to find out what happened. When I saw that I Was getting a `400 Bad Request`, I figured maybe I should check my Heroku configs to see what was wrong.
+
+## Conclusions
+
+Even when starting a fairly small project like the app that I built, it's worth it not to jump straight into coding the app. Read through the docs of the various technologies you want to use to make sure you have a basic understanding of them.
+I had to consult the graphQL docs a lot before I knew what was actually happening with the code that I was using.
+
+Building small side projects is great way to keep up your miotivation. Finishing the project is really important as well. It gives you a great piece to show off in an interview/job search and helps solidify your skills.  
+I've started all manner of side projects in the last few yesars, but they never went anywhere due to my inability to stick with them.
+
+When you've finished a project, step back and reflect on what you've learned.
+Each project you build or blog post you write can get you futrthur towards your goal, whether that be a new job or just leveling up your skills.
+
+gif alt text: characters from the show seinfield celebrating and jumping up and down, waving their arms.
+
+<GifPlayerWrapper props="https://media.giphy.com/media/12UlfHpF05ielO/source.gif" />

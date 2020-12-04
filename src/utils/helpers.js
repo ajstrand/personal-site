@@ -1,19 +1,20 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 
-import { StyledLink } from "../components/componentsList";
-
-export const externalLinkText = (link, text, ariaLabel, Component) => {
+const externalLinkText = (link, text, ariaLabel, Component) => {
   if (Component) {
     return (
-      <Component aria-label={ariaLabel} target="_blank" href={link}>
+      <Component aria-labelledby={ariaLabel} target="_blank" href={link}>
         {text}
       </Component>
     );
   } else {
     return (
-      <StyledLink aria-label={ariaLabel} target="_blank" href={link}>
+      <a aria-labelledby={ariaLabel} target="_blank" href={link}>
         {text}
-      </StyledLink>
+      </a>
     );
   }
 };
+
+export default externalLinkText;
