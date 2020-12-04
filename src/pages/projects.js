@@ -15,19 +15,27 @@ const mq = facepaint([
 const Item = (props) => {
   const style = css`
     padding: 0.5em;
+    height: 100%;
     flex-direction: column;
-    width: 70%;
-    flex: 1;
     @media screen and (max-width: 30em) {
       padding: 15px;
     }
     & ul {
       ${mq({
-        width: ["fit-content", "80%", "80%"],
+        flexBasis: ["fit-content", "80%", "80%"],
       })}
     }
   `;
   return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
+};
+
+const Scroll = (props) => {
+  const style = css`
+    padding: 0.5em;
+    flex-direction: column;
+    overflow-y: scroll;
+  `;
+  return <CreateEl tag="ul" obj={style} {...props}></CreateEl>;
 };
 
 export default () => {
@@ -40,7 +48,7 @@ export default () => {
         They're mostly for fun and learning. Although some may become more
         "official" open source projects I'll support and maintain.
       </p>
-      <ul>
+      <Scroll>
         {data.map(({ title, link, desc }) => {
           return (
             <li>
@@ -51,7 +59,7 @@ export default () => {
             </li>
           );
         })}
-      </ul>
+      </Scroll>
     </Item>
   );
 };

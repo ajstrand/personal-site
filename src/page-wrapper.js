@@ -1,12 +1,9 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import { MDXProvider } from "@mdx-js/preact";
-import { Flex } from "./temp/componentsList.js";
 
 import Header from "./temp/Header.js";
 import ThemeWrap from "./temp/theme.js";
-
-import CreateEl from "./CreateEl";
 
 import {
   MetaDetails,
@@ -17,22 +14,18 @@ import {
 
 const Obj = {};
 
-const PageWrapper = ({ children, ...props }) => {
+const PageWrapper = ({ children }) => {
   let title = "Alex Strand's Digital Garden";
-  let description = "MDX, Svelte, Kotlin, Rust";
-  const { posts } = props;
-  console.log(posts);
+  let description = "MDX, Svelte, Kotlin, Rust, Preact";
   return (
     <ThemeWrap>
       <MDXProvider>
-        <Flex flexDirection="column" height="100vh">
-          <GlobalStyles />
-          <MetaDetails title={title} description={description} />
-          <Details />
-          <Header />
-          {children}
-          <Footer flex="0" />
-        </Flex>
+        <GlobalStyles />
+        <MetaDetails title={title} description={description} />
+        <Details />
+        <Header />
+        <div style={{ flex: 1 }}>{children}</div>
+        <Footer flex="0" />
       </MDXProvider>
     </ThemeWrap>
   );

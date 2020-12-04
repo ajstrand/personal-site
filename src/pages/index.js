@@ -17,7 +17,7 @@ const Item = (props) => {
       padding: 15px;
     }
   `;
-  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
+  return <CreateEl tag={Flex} obj={style} {...props} height="100%"></CreateEl>;
 };
 export default () => {
   return (

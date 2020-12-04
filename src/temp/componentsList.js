@@ -6,8 +6,8 @@ import { Theme } from "./theme.js";
 
 export const Flex = (props) => {
   const style = css`
+    height: ${props.height ? props.height : "fit-content"};
     display: flex;
-    height: ${props.height ? props.height : "auto"};
     flex-direction: ${props.flexDirection ? props.flexDirection : "row"};
     justify-content: ${props.justifyContent ? props.justifyContent : "center"};
     align-items: ${props.alignItems ? props.alignItems : "center"};
@@ -16,21 +16,6 @@ export const Flex = (props) => {
   `;
 
   return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
-};
-
-export const OverflowYScrollContainer = () => {
-  const style = css`
-    padding: 0.5em;
-    flex-direction: column;
-    height: 100%;
-    overflow-y: scroll;
-    flex-basis: 95%;
-    align-items: flex-start;
-    @media screen and (min-width: 30em) {
-      flex-basis: 70%;
-    }
-  `;
-  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
 };
 
 export const SiteLink = (props) => {

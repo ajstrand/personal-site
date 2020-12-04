@@ -4,22 +4,19 @@ import { jsx, css } from "@emotion/core";
 // import { StyledResume } from "styled-resume";
 import CreateEl from "../CreateEl.js";
 
-import ResumeContent from "../temp/ResumeContent.js";
-
-import projects from "../temp/projectsData.js";
 import { Flex } from "../temp/componentsList.js";
 
 const Wrap = (props) => {
   const style = css`
     padding: 0.5em;
     flex-direction: column;
-    width: 70%;
+    flex-basis: 70%;
     flex: 1;
     @media screen and (max-width: 30em) {
       padding: 15px;
     }
   `;
-  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
+  return <CreateEl tag={Flex} obj={style} {...props} height="100%"></CreateEl>;
 };
 
 const ResumeContainer = (props) => {

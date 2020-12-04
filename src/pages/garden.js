@@ -32,7 +32,7 @@ const List = ({ title, subtitle, secondary, ...props }) => (
   </div>
 );
 
-const ListItem = ({ to, logo, contentType, children }) => {
+const ListItem = ({ to, contentType, children }) => {
   return (
     <li>
       <a
@@ -113,8 +113,7 @@ const Search = ({ filterDispatch }) => {
           borderRadius: "10px",
           color: "#10151e",
           "&:focus": {
-            borderColor: "#3981fe",
-            outline: "none",
+            //TODO: something fun
           },
         }}
       />
@@ -145,13 +144,16 @@ const ListWrapper = ({ posts, filterState }) => {
     >
       {posts ? (
         posts
-          .filter(({ tags = [], ...etc }) => {
+          .filter(({ meta }) => {
+            const currentTags = meta.tags === undefined ? [] : meta.tags;
             if (filterState.tags.length === 0) {
               return true;
             }
-            return filterState.tags.some((tag) =>
-              tags.includes(tag.toLowerCase())
-            );
+            return filterState.tags.some((tag) => {
+              let lower = currentTags.map((tagLocal) => tagLocal.toLowerCase());
+              let doesInclude = lower.includes(tag.toLowerCase());
+              return doesInclude;
+            });
           })
           .filter(({ meta }) => {
             return meta.title !== undefined
@@ -174,9 +176,80 @@ const ListWrapper = ({ posts, filterState }) => {
             );
           })
       ) : (
-        <p>there seems to be nothing here</p>
+        <p>No posts to return.</p>
       )}
     </List>
+  );
+};
+
+const PostTags = ({ posts, filterDispatch, filterState }) => {
+  return (
+    <ul
+      css={{
+        display: "flex",
+        listStyleType: "none",
+        gridColumn: "2/4",
+        "& > li:not(:first-of-type)": {
+          marginLeft: "1rem",
+        },
+        marginTop: "2rem",
+      }}
+    >
+      {posts ? (
+        Array.from(
+          new Set(
+            posts
+              .map((v) => v.meta.tags)
+              .filter((v) => !!v)
+              .flat(Infinity)
+          )
+        ).map((value) => (
+          <li>
+            <button
+              css={{
+                padding: "10px 16px",
+                backgroundColor: filterState.tags.includes(value)
+                  ? "#3981fe"
+                  : "#ffdead",
+                color: filterState.tags.includes(value) ? "#eef1f7" : "#10151e",
+                "&:focus": {
+                  //TODO: add fun effect
+                },
+              }}
+              onClick={() => {
+                if (filterState.tags.includes(value)) {
+                  filterDispatch({ type: "removeTag", payload: value });
+                } else {
+                  filterDispatch({ type: "addTag", payload: value });
+                }
+              }}
+            >
+              {value}
+            </button>
+          </li>
+        ))
+      ) : (
+        <p>No post tags seem to exist</p>
+      )}
+    </ul>
+  );
+};
+
+const PageSubHeader = () => {
+  return (
+    <h1
+      css={{
+        fontWeight: 600,
+        gridColumn: "2/4",
+        marginTop: "3rem",
+        fontSize: "48px",
+      }}
+    >
+      Digital Garden{" "}
+      <a href="https://joelhooks.com/digital-garden" css={{ fontSize: 16 }}>
+        What is this?
+      </a>
+    </h1>
   );
 };
 
@@ -192,70 +265,12 @@ export default ({ children, ...props }) => {
       }}
     >
       <Meta />
-      <h1
-        css={{
-          fontWeight: 600,
-          gridColumn: "2/4",
-          marginTop: "3rem",
-          fontSize: "48px",
-        }}
-      >
-        Digital Garden{" "}
-        <a href="/what-is-a-digital-garden" css={{ fontSize: 16 }}>
-          What is this?
-        </a>
-      </h1>
-      <ul
-        css={{
-          display: "flex",
-          listStyleType: "none",
-          gridColumn: "2/4",
-          "& > li:not(:first-of-type)": {
-            marginLeft: "1rem",
-          },
-          marginTop: "2rem",
-        }}
-      >
-        {props.posts ? (
-          Array.from(
-            new Set(
-              props.posts
-                .map((v) => v.meta.tags)
-                .filter((v) => !!v)
-                .flat(Infinity)
-            )
-          ).map((value) => (
-            <li>
-              <button
-                css={{
-                  padding: "10px 16px",
-                  backgroundColor: filterState.tags.includes(value)
-                    ? "#3981fe"
-                    : "#ffdead",
-                  color: filterState.tags.includes(value)
-                    ? "#eef1f7"
-                    : "#10151e",
-                  "&:focus": {
-                    borderColor: "#3981fe",
-                    outline: "none",
-                  },
-                }}
-                onClick={() => {
-                  if (filterState.tags.includes(value)) {
-                    filterDispatch({ type: "removeTag", payload: value });
-                  } else {
-                    filterDispatch({ type: "addTag", payload: value });
-                  }
-                }}
-              >
-                {value}
-              </button>
-            </li>
-          ))
-        ) : (
-          <p>there seems to be nothing here</p>
-        )}
-      </ul>
+      <PageSubHeader />
+      <PostTags
+        posts={props.posts}
+        filterDispatch={filterDispatch}
+        filterState={filterState}
+      />
       <Search filterDispatch={filterDispatch} />
       <ListWrapper posts={props.posts} filterState={filterState} />
     </Item>

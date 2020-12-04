@@ -63,59 +63,76 @@ export const GlobalStyles = (props) => {
       padding: 0;
     }
     html {
-      min-height: 100vh;
-       body {
-          /* lora-regular - latin-ext_latin */
-  @font-face {
-    font-family: "Lora";
-    font-style: normal;
-    font-weight: 400;
-    src: url("fonts/lora-v16-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(""),
-      url("fonts/lora-v16-latin-ext_latin-regular.eot?#iefix")
-        format("embedded-opentype"),
-      /* IE6-IE8 */ url("./fonts/lora-v16-latin-ext_latin-regular.woff2")
-        format("woff2"),
-      /* Super Modern Browsers */
-        url("./fonts/lora-v16-latin-ext_latin-regular.woff") format("woff"),
-      /* Modern Browsers */ url("./fonts/lora-v16-latin-ext_latin-regular.ttf")
-        format("truetype"),
-      /* Safari, Android, iOS */
-        url("./fonts/lora-v16-latin-ext_latin-regular.svg#Lora") format("svg"); /* Legacy iOS */
-  }
-  /* roboto-regular - latin-ext_latin */
-  @font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    src: url("fonts/roboto-v20-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
-    src: local("Roboto"), local("Roboto-Regular"),
-      url("fonts/roboto-v20-latin-ext_latin-regular.eot?#iefix")
-        format("embedded-opentype"),
-      /* IE6-IE8 */ url("fonts/roboto-v20-latin-ext_latin-regular.woff2")
-        format("woff2"),
-      /* Super Modern Browsers */
-        url("fonts/roboto-v20-latin-ext_latin-regular.woff") format("woff"),
-      /* Modern Browsers */ url("fonts/roboto-v20-latin-ext_latin-regular.ttf")
-        format("truetype"),
-      /* Safari, Android, iOS */
-        url("fonts/roboto-v20-latin-ext_latin-regular.svg#Roboto") format("svg"); /* Legacy iOS */
-  }
-        background-color:${theme.colors.white};
-        h1, h2, h3, h4, h5, h6 {
-          color:${theme.colors.text};
-          font-family:'Lora';
+      height: 100%;
+      width: 100%;
+      body {
+        height: 100%;
+        width: 100%;
+        /* lora-regular - latin-ext_latin */
+        @font-face {
+          font-family: "Lora";
+          font-style: normal;
+          font-weight: 400;
+          src: url("fonts/lora-v16-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
+          src: local(""),
+            url("fonts/lora-v16-latin-ext_latin-regular.eot?#iefix")
+              format("embedded-opentype"),
+            /* IE6-IE8 */ url("./fonts/lora-v16-latin-ext_latin-regular.woff2")
+              format("woff2"),
+            /* Super Modern Browsers */
+              url("./fonts/lora-v16-latin-ext_latin-regular.woff")
+              format("woff"),
+            /* Modern Browsers */
+              url("./fonts/lora-v16-latin-ext_latin-regular.ttf")
+              format("truetype"),
+            /* Safari, Android, iOS */
+              url("./fonts/lora-v16-latin-ext_latin-regular.svg#Lora")
+              format("svg"); /* Legacy iOS */
         }
-        p, li, ul {
-          color:${theme.colors.text};
-          font-family:'Roboto';
-          }
+        /* roboto-regular - latin-ext_latin */
+        @font-face {
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 400;
+          src: url("fonts/roboto-v20-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
+          src: local("Roboto"), local("Roboto-Regular"),
+            url("fonts/roboto-v20-latin-ext_latin-regular.eot?#iefix")
+              format("embedded-opentype"),
+            /* IE6-IE8 */ url("fonts/roboto-v20-latin-ext_latin-regular.woff2")
+              format("woff2"),
+            /* Super Modern Browsers */
+              url("fonts/roboto-v20-latin-ext_latin-regular.woff")
+              format("woff"),
+            /* Modern Browsers */
+              url("fonts/roboto-v20-latin-ext_latin-regular.ttf")
+              format("truetype"),
+            /* Safari, Android, iOS */
+              url("fonts/roboto-v20-latin-ext_latin-regular.svg#Roboto")
+              format("svg"); /* Legacy iOS */
         }
-      min-height: 100vh;
-      #toast-page-section {
-        min-height: 100vh;
+        background-color: ${theme.colors.white};
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: ${theme.colors.text};
+          font-family: "Lora";
+        }
+        p,
+        li,
+        ul {
+          color: ${theme.colors.text};
+          font-family: "Roboto";
+        }
       }
-    }
+      #toast-page-section {
+        min-height: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
     }
   `;
   return <Global {...props} styles={style}></Global>;
