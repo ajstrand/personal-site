@@ -3,4 +3,8 @@ public
 node_modules/
 .tmp
 
+.DS_STORE
+
+src/.DS_STORE
+
 yarn-error.log
