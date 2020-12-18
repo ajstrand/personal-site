@@ -170,7 +170,11 @@ const ListWrapper = ({ posts, filterState }) => {
           .map(({ meta }) => {
             const { id, title, slug, tags, contentType } = meta;
             return (
-              <ListItem to={slug} key={id} contentType={contentType}>
+              <ListItem
+                to={`/posts/${slug}`}
+                key={id}
+                contentType={contentType}
+              >
                 {title}
               </ListItem>
             );

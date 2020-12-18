@@ -6,7 +6,6 @@ import Bio from "../temp/Bio.js";
 import CreateEl from "../CreateEl.js";
 
 import { Flex } from "../temp/componentsList.js";
-
 const Item = (props) => {
   const style = css`
     padding: 0.5em;
