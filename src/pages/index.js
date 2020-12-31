@@ -5,7 +5,7 @@ import Bio from "../temp/Bio.js";
 import CreateEl from "../CreateEl.js";
 
 import { Flex } from "../temp/componentsList.js";
-import { StyledResume } from "styled-resume";
+import StyledResume from "styled-resume";
 const Item = (props) => {
   const style = css`
     flex-direction: column;
