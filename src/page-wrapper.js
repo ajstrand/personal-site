@@ -6,18 +6,17 @@ import Header from "./temp/Header.js";
 import ThemeWrap from "./temp/theme.js";
 
 const mq = facepaint([
-  "@media(min-width: 570px)",
-  "@media(min-width: 920px)",
+  "@media(min-width: 750px)",
+  "@media(min-width: 1050px)",
   "@media(min-width: 1120px)",
 ]);
 
-const styles = css`
-  flex: 1 1 0%;
+const pageColumnContentStyles = css`
   display: flex;
   justify-content: center;
   flex-direction: column;
   ${mq({
-    width: ["95%", "50%", "50%"],
+    width: ["95%", "50%", "60%"],
   })}
   margin: 0 auto;
 `;
@@ -39,6 +38,15 @@ const components = {
   ),
 };
 
+const Main = ({ children, isPost }) => {
+  let isPostStyles = isPost ? pageColumnContentStyles : null;
+  const styles = css`
+    flex: 1 1 0%;
+    ${isPostStyles};
+  `;
+  return <main css={styles}>{children}</main>;
+};
+
 const PageWrapper = ({ children, ...props }) => {
   let title = "Alex Strand's Digital Garden";
   let description = "MDX, Svelte, Kotlin, Rust, Preact";
@@ -49,12 +57,8 @@ const PageWrapper = ({ children, ...props }) => {
         <MetaDetails title={title} description={description} />
         <Details />
         <Header />
-        {props.meta ? (
-          <div css={styles}>{children}</div>
-        ) : (
-          <div style={{ flex: 1 }}>{children}</div>
-        )}
-        <Footer flex="0" />
+        <Main isPost={props.meta}>{children}</Main>
+        <Footer />
       </MDXProvider>
     </ThemeWrap>
   );

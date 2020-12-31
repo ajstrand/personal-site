@@ -13,6 +13,7 @@ import { prismTheme } from "../common-js/rehype-prism-mdx.js";
 const StyledSummary = (props) => {
   const theme = useContext(Theme);
   const style = css`
+    font-family: "Lora";
     color: ${theme.colors.white};
     background-color: ${theme.colors.black};
   `;
@@ -124,7 +125,8 @@ export const SpecialStyles = (props) => {
         }
         p,
         li,
-        ul {
+        ul,
+        label {
           color: ${theme.colors.text};
           font-family: "Roboto";
         }
@@ -207,7 +209,8 @@ export const GlobalStyles = (props) => {
         }
         p,
         li,
-        ul {
+        ul,
+        label {
           color: ${theme.colors.text};
           font-family: "Roboto";
         }
@@ -226,7 +229,7 @@ export const GlobalStyles = (props) => {
 export const Footer = () => {
   return (
     <Flex
-      style={{ maxHeight: "1em" }}
+      style={{ maxHeight: "1em", flex: 0 }}
       display="flex"
       flexDirection="row"
       justifyContent="center"

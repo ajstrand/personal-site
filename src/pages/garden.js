@@ -5,6 +5,8 @@ import { useReducer } from "preact/hooks";
 import CreateEl from "../CreateEl.js";
 import { Flex } from "../temp/componentsList.js";
 
+//Code  credit to @chrisbiscardi for the initial design/structure
+
 const Meta = () => {
   return (
     <Helmet>
@@ -25,7 +27,18 @@ const Meta = () => {
 };
 
 const List = ({ title, subtitle, secondary, ...props }) => (
-  <div css={{ marginTop: "1rem", gridColumn: "2/4" }}>
+  <div
+    css={{
+      gridColumn: "span 2",
+      "@media (min-width: 700px)": {
+        gridColumn: "span 8",
+      },
+      "& ul": {
+        marginLeft: "1rem",
+      },
+      marginTop: "1rem",
+    }}
+  >
     <ul css={{ listStyleType: "none", margin: 0, padding: 0 }}>
       {props.children}
     </ul>
@@ -86,20 +99,20 @@ const reducer = (state, action) => {
 const Item = (props) => {
   const style = css`
     padding: 0.5em;
-    flex-direction: column;
     width: 100%;
-    flex: 1;
     @media screen and (max-width: 30em) {
       padding: 15px;
     }
   `;
-  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
+  return <section obj={style} {...props}></section>;
 };
 
 const Search = ({ filterDispatch }) => {
   return (
-    <div css={{ gridColumn: "2/4" }}>
+    <div css={{ gridColumn: "span 2" }}>
+      <label for="posts-search">Search for a post or note</label>
       <input
+        id="posts-search"
         placeholder="Type here to filter posts..."
         onChange={(e) => {
           filterDispatch({ type: "filterBy", payload: e.target.value });
@@ -191,11 +204,15 @@ const PostTags = ({ posts, filterDispatch, filterState }) => {
     <ul
       css={{
         display: "flex",
-        listStyleType: "none",
-        gridColumn: "2/4",
-        "& > li:not(:first-of-type)": {
-          marginLeft: "1rem",
+        "& li": {
+          margin: "0.5rem",
         },
+        gridColumn: "span 3",
+        "@media (min-width: 700px)": {
+          gridColumn: "span 8",
+        },
+        flexWrap: "wrap",
+        listStyleType: "none",
         marginTop: "2rem",
       }}
     >
@@ -244,7 +261,10 @@ const PageSubHeader = () => {
     <h1
       css={{
         fontWeight: 600,
-        gridColumn: "2/4",
+        gridColumn: "span 2",
+        "@media (min-width: 700px)": {
+          gridColumn: "span 4",
+        },
         marginTop: "3rem",
         fontSize: "48px",
       }}
@@ -264,8 +284,8 @@ export default ({ children, ...props }) => {
       css={{
         display: "grid",
         gridGap: "1rem",
-        gridTemplateColumns:
-          "minmax(1.2rem, 1fr) minmax(auto, 400px) minmax(auto, 400px) minmax(1.2rem, 1fr)",
+        justifyContent: "center",
+        //gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
       }}
     >
       <Meta />

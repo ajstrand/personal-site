@@ -10,6 +10,7 @@ import CreateEl from "../CreateEl.js";
 export const PageLink = (props) => {
   const style = css`
     margin: 0 1em 0 1em;
+    font-family: "Lora";
   `;
   return <CreateEl tag={SiteLink} obj={style} {...props}></CreateEl>;
 };
