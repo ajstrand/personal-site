@@ -7,7 +7,7 @@ import facepaint from "facepaint";
 import CreateEl from "../CreateEl.js";
 
 const mq = facepaint([
-  "@media(min-width: 570px)",
+  "@media(min-width: 700px)",
   "@media(min-width: 920px)",
   "@media(min-width: 1120px)",
 ]);
@@ -22,7 +22,7 @@ const Item = (props) => {
     }
     & ul {
       ${mq({
-        flexBasis: ["fit-content", "80%", "80%"],
+        width: ["95%", "80%", "70%"],
       })}
     }
   `;
@@ -38,6 +38,17 @@ const Scroll = (props) => {
   return <CreateEl tag="ul" obj={style} {...props}></CreateEl>;
 };
 
+const Space = ({ title, link, desc }) => {
+  return (
+    <li style={{ marginTop: "1em" }}>
+      <SiteLink href={link}>
+        <h3>{title}</h3>
+      </SiteLink>
+      <p>{desc}</p>
+    </li>
+  );
+};
+
 export default () => {
   return (
     <Item>
@@ -50,14 +61,7 @@ export default () => {
       </p>
       <Scroll>
         {data.map(({ title, link, desc }) => {
-          return (
-            <li>
-              <SiteLink href={link}>
-                <h3>{title}</h3>
-              </SiteLink>
-              <p>{desc}</p>
-            </li>
-          );
+          return <Space title={title} link={link} desc={desc} />;
         })}
       </Scroll>
     </Item>

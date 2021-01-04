@@ -23,8 +23,8 @@ const StyleLink = (props) => {
     font-size: 16px;
     padding: 2px;
     border-radius: 10px;
-    background-color: ${theme.colors.lightPalePinkText};
-    color: ${theme.colors.text};
+    background-color: ${theme.colors.text};
+    color: ${theme.colors.white};
     &:hover {
       text-decoration: none;
     }
@@ -48,12 +48,14 @@ const Intro = (props) => {
 const BioText = (props) => {
   const theme = useContext(Theme);
   const style = css`
-    background-color: ${theme.colors.text};
-    color: ${theme.colors.lightPalePinkText};
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.text};
     padding: 10px;
+    border-color: ${theme.colors.lightPalePinkText};
     border-radius: 15px;
     line-height: 34px;
     width: fit-content;
+    font-size: 1rem;
   `;
 
   return <CreateEl tag="p" obj={style} {...props}></CreateEl>;
@@ -101,6 +103,17 @@ const contactInfo =
   "Want to contact me, or interested in working with me? Contact me here:";
 const emailString = "hi(at)alexstrand.dev";
 
+const Contact = () => {
+  const style = css`
+    font-size: 1rem;
+  `;
+  return (
+    <p css={style}>
+      {contactInfo} {emailString}
+    </p>
+  );
+};
+
 const Bio = () => {
   return (
     <Main>
@@ -125,9 +138,7 @@ const Bio = () => {
           </BioText>
         </LeftFlex>
       </AdaptFlex>
-      <h4>
-        {contactInfo} {emailString}
-      </h4>
+      <Contact />
     </Main>
   );
 };

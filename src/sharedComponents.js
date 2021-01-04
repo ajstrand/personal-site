@@ -8,10 +8,12 @@ import { Flex } from "./temp/componentsList.js";
 
 import Copyright from "./temp/Copyright.js";
 import CreateEl from "./CreateEl.js";
+import { prismTheme } from "../common-js/rehype-prism-mdx.js";
 
 const StyledSummary = (props) => {
   const theme = useContext(Theme);
   const style = css`
+    font-family: "Lora";
     color: ${theme.colors.white};
     background-color: ${theme.colors.black};
   `;
@@ -54,6 +56,91 @@ export const MetaDetails = ({ title, description }) => (
     ></script>
   </Helmet>
 );
+export const SpecialStyles = (props) => {
+  const theme = useContext(Theme);
+  const style = css`
+    * {
+      box-sizing: "border-box";
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      height: 100%;
+      width: 100%;
+      body {
+        height: 100%;
+        width: 100%;
+        /* lora-regular - latin-ext_latin */
+        @font-face {
+          font-family: "Lora";
+          font-style: normal;
+          font-weight: 400;
+          src: url("../fonts/lora-v16-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
+          src: local(""),
+            url("../fonts/lora-v16-latin-ext_latin-regular.eot?#iefix")
+              format("embedded-opentype"),
+            /* IE6-IE8 */ url("../fonts/lora-v16-latin-ext_latin-regular.woff2")
+              format("woff2"),
+            /* Super Modern Browsers */
+              url("../fonts/lora-v16-latin-ext_latin-regular.woff")
+              format("woff"),
+            /* Modern Browsers */
+              url("../fonts/lora-v16-latin-ext_latin-regular.ttf")
+              format("truetype"),
+            /* Safari, Android, iOS */
+              url("../fonts/lora-v16-latin-ext_latin-regular.svg#Lora")
+              format("svg"); /* Legacy iOS */
+        }
+        /* roboto-regular - latin-ext_latin */
+        @font-face {
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 400;
+          src: url("../fonts/roboto-v20-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
+          src: local("Roboto"), local("Roboto-Regular"),
+            url("../fonts/roboto-v20-latin-ext_latin-regular.eot?#iefix")
+              format("embedded-opentype"),
+            /* IE6-IE8 */
+              url("../fonts/roboto-v20-latin-ext_latin-regular.woff2")
+              format("woff2"),
+            /* Super Modern Browsers */
+              url("../fonts/roboto-v20-latin-ext_latin-regular.woff")
+              format("woff"),
+            /* Modern Browsers */
+              url("../fonts/roboto-v20-latin-ext_latin-regular.ttf")
+              format("truetype"),
+            /* Safari, Android, iOS */
+              url("../fonts/roboto-v20-latin-ext_latin-regular.svg#Roboto")
+              format("svg"); /* Legacy iOS */
+        }
+        background-color: ${theme.colors.white};
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: ${theme.colors.text};
+          font-family: "Lora";
+        }
+        p,
+        li,
+        ul,
+        label {
+          color: ${theme.colors.text};
+          font-family: "Roboto";
+        }
+        #toast-page-section {
+          min-height: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  `;
+  return <Global {...props} styles={style}></Global>;
+};
 export const GlobalStyles = (props) => {
   const theme = useContext(Theme);
   const style = css`
@@ -122,16 +209,17 @@ export const GlobalStyles = (props) => {
         }
         p,
         li,
-        ul {
+        ul,
+        label {
           color: ${theme.colors.text};
           font-family: "Roboto";
         }
-      }
-      #toast-page-section {
-        min-height: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
+        #toast-page-section {
+          min-height: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
   `;
@@ -141,6 +229,7 @@ export const GlobalStyles = (props) => {
 export const Footer = () => {
   return (
     <Flex
+      style={{ maxHeight: "1em", flex: 0 }}
       display="flex"
       flexDirection="row"
       justifyContent="center"

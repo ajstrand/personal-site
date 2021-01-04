@@ -3,6 +3,7 @@
   "version": "20.0.0",
   "main": "index.js",
   "type": "module",
+  "private": "true",
   "author": "alex strand <ajstrand8@gmail.com> forked from chris biscardi until emotion ships esm",
   "license": "MIT"
 }

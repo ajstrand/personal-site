@@ -1,22 +1,4 @@
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-//import "./resumeStyles.scss";
-
-import CreateEl from "../CreateEl.js";
-
-const ResumeGridContainer = (props) => {
-  const style = css`
-    background-color: #ffffff;
-    display: grid;
-    width: 60%;
-    @media print {
-      width: 100%;
-    }
-  `;
-
-  return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
-};
-const resumeDataObj = {
+export const resumeDataObj = {
   header: {
     name: "Alex Strand",
     site: "https://alexstrand.dev",
@@ -26,10 +8,9 @@ const resumeDataObj = {
   },
   education: [
     {
-      schoolName: "Olivet Nazarene University",
+      name: "Olivet Nazarene University",
       dateRange: "September 2011 - May 2015",
-      degreeTitle: "Bachelor of Arts",
-      degreeDescription: "Computer Science",
+      programOrDegree: "Bachelor of Arts, Computer Science",
     },
   ],
   experience: [
@@ -99,138 +80,20 @@ const resumeDataObj = {
       ],
     },
   ],
-  skills: {
-    languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Java", "SQL"],
-    technologies: [
-      "React",
-      "Material UI",
-      "Jest",
-      "Webpack",
-      "SCSS",
-      "NodeJS",
-      "Spock",
-      "Spring",
-    ],
-  },
+  skills: [
+    "JavaScript",
+    "TypeScript",
+    "HTML",
+    "CSS",
+    "Java",
+    "SQL",
+    "React",
+    "Material UI",
+    "Jest",
+    "Webpack",
+    "SCSS",
+    "NodeJS",
+    "Spock",
+    "Spring",
+  ],
 };
-const createSectionAndHeader = (sectionTitle, chilren) => {
-  return (
-    <div className={`${sectionTitle}Section`}>
-      <span className="sectionHeader">{sectionTitle}</span>
-      {chilren}
-    </div>
-  );
-};
-const createExperienceSection = () => {
-  const list = resumeDataObj.experience.map((block) => {
-    return (
-      <div className="experienceItem">
-        <div className="leftColumn">
-          <span className="companyName">{block.companyName}</span>
-          <span className="dateRange">{block.dateRange}</span>
-        </div>
-        <span className="rightColumn">
-          <span className="jobTitle">{block.jobTitle}</span>
-          <ul className="jobDescription">
-            {block.jobDescription.map((item, index) => {
-              const desc = <li key={index.toString()}>{item.text}</li>;
-              return desc;
-            })}
-          </ul>
-        </span>
-      </div>
-    );
-  });
-  return list;
-};
-
-const createProjectSection = (projectsArray) => {
-  const projectList = projectsArray.slice(0, 3).map((projectObj) => {
-    const project = projectObj;
-    return (
-      <div className="projectItem">
-        <div className="leftColumn">
-          <span className="projectName">{project.title}</span>
-          <span className="dateRange">{project.dateRange}</span>
-        </div>
-        <span className="rightColumn">
-          <ul className="projectDescription">
-            <li>{project.desc}</li>
-          </ul>
-        </span>
-      </div>
-    );
-  });
-  return projectList;
-};
-const createEducationSection = () => {
-  const list = resumeDataObj.education.map((section) => {
-    return (
-      <div className="educationItem">
-        <div className="leftColumn">
-          <span className="schoolName item">{section.schoolName}</span>
-          <span className="dateRange item">{section.dateRange}</span>
-        </div>
-        <div className="rightColumn">
-          <span className="degreeTitle item">{section.degreeTitle}</span>
-          <span className="degreeDescription item">
-            {section.degreeDescription}
-          </span>
-        </div>
-      </div>
-    );
-  });
-  return list;
-};
-const createSkillsSection = () => {
-  const { languages, technologies } = resumeDataObj.skills;
-  const array = languages.concat(technologies);
-  const skillsList = array.map((value, index) =>
-    array[index + 1] !== undefined ? value.concat(", ") : value
-  );
-  return <span className="description">{skillsList}</span>;
-};
-const createHeader = () => {
-  return (
-    <div className="header">
-      <span className="contactName">{resumeDataObj.header.name}</span>
-      <ul className="contactDetails">
-        <li className="contactDetail">
-          <a href={resumeDataObj.header.site} target="_blank">
-            {resumeDataObj.header.site}
-          </a>
-        </li>
-        <li className="contactDetail">
-          <a href={resumeDataObj.header.emailValue}>
-            {resumeDataObj.header.emailLabel}
-          </a>
-        </li>
-        <li className="contactDetail">
-          <a href={resumeDataObj.header.phone}>{resumeDataObj.header.phone}</a>
-        </li>
-      </ul>
-    </div>
-  );
-};
-
-const ResumeContent = ({ projects }) => {
-  return (
-    <ResumeGridContainer>
-      {createHeader()}
-      <div className="resumeBody">
-        {createSectionAndHeader("experience", createExperienceSection())}
-        {createSectionAndHeader("projects", createProjectSection(projects))}
-        <div className="twoColumnSection">
-          <div className="leftColumn">
-            {createSectionAndHeader("education", createEducationSection())}
-          </div>
-          <div className="rightColumn">
-            {createSectionAndHeader("skills", createSkillsSection())}
-          </div>
-        </div>
-      </div>
-    </ResumeGridContainer>
-  );
-};
-
-export default ResumeContent;
