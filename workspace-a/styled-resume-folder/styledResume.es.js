@@ -6,76 +6,8 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import PropTypes, { string } from "prop-types";
-
-function _slicedToArray(arr, i) {
-  return (
-    _arrayWithHoles(arr) ||
-    _iterableToArrayLimit(arr, i) ||
-    _unsupportedIterableToArray(arr, i) ||
-    _nonIterableRest()
-  );
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr)))
-    return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (
-      var _i = arr[Symbol.iterator](), _s;
-      !(_n = (_s = _i.next()).done);
-      _n = true
-    ) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-    return _arrayLikeToArray(o, minLen);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-
-  return arr2;
-}
-
-function _nonIterableRest() {
-  throw new TypeError(
-    "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
-  );
-}
+import pkg from "prop-types";
+const { string, PropTypes } = pkg;
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -3342,6 +3274,9 @@ var ProjectDescListItem = Ye.li(
 );
 var ProjectsSection = function (props) {
   var config = props.config;
+  if (config === null || config === undefined) {
+    return null;
+  }
   var projectList = config.map(function (project) {
     var title = project.title,
       dateRange = project.dateRange,
@@ -3521,13 +3456,17 @@ var Block = function (props) {
   };
   var Tag = components[componentType];
   var resumeDataToRender = config[componentType];
-  return Tag
+  var dataExists =
+    resumeDataToRender !== null && resumeDataToRender !== undefined
+      ? true
+      : false;
+  return Tag && dataExists
     ? React.createElement(
         SectionAndHeader,
         { sectionTitle: componentType },
         React.createElement(Tag, { config: resumeDataToRender })
       )
-    : React.createElement("p", null, "component was not rendered");
+    : null;
 };
 var ResumeContent = function (props) {
   var config = props.config;
@@ -3649,28 +3588,23 @@ var defaultResumeDataObj = {
   ],
 };
 
-var StyledResume = function StyledResume(_ref) {
-  var resumeDataObj = _ref.resumeDataObj;
-
-  var _useState = useState(defaultResumeDataObj),
-    _useState2 = _slicedToArray(_useState, 2),
-    data = _useState2[0],
-    setData = _useState2[1];
-
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+var StyledResume = function (props) {
+  var config = props.config;
+  var _a = useState(defaultResumeDataObj),
+    data = _a[0],
+    setData = _a[1];
   useEffect(function () {
-    setData(resumeDataObj ? resumeDataObj : defaultResumeDataObj);
+    setData(config ? config : defaultResumeDataObj);
   }, []);
   return (
-    /*#__PURE__*/
     // <Theme>
-    React.createElement(ResumeContent, {
-      config: data,
-    }) // </Theme>
+    React.createElement(ResumeContent, { config: data })
+    // </Theme>
   );
 };
-
 StyledResume.propTypes = {
-  resumeDataObj: PropTypes.shape({
+  config: PropTypes.shape({
     header: PropTypes.shape({
       name: PropTypes.string.isRequired,
       site: PropTypes.string,

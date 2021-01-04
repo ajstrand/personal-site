@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 
-// import { StyledResume } from "styled-resume";
+import StyledResume from "styled-resume";
 import CreateEl from "../CreateEl.js";
 
 import { Flex } from "../temp/componentsList.js";
+import { resumeDataObj } from "../temp/ResumeContent.js";
 
 const Wrap = (props) => {
   const style = css`
@@ -22,7 +23,7 @@ const Wrap = (props) => {
 const ResumeContainer = (props) => {
   const style = css`
     @media screen {
-      padding: 0.5em;
+      padding: 2em;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,8 +38,6 @@ const ResumeContainer = (props) => {
   return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
 };
 
-// console.log(StyledResume);
-
 const Resume = (props) => {
   const resumeLink = (
     <a aria-label="resume" target="_blank" href={"./alex_strand_resume.pdf"}>
@@ -48,14 +47,23 @@ const Resume = (props) => {
   const DesignAttribution = (
     <a href="https://twitter.com/isabelacmor">@isabelacmor</a>
   );
+  const smallScreenStyles = css`
+    padding: 4em;
+    margin-top: 2em;
+    @media screen and (max-width: 30em) {
+      padding: 0.5em;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 950px;
+    }
+  `;
   return (
     <Wrap>
-      {/* <StyledResume /> */}
       <p> You can download a copy of my resume {resumeLink}</p>
       <p>Resume design forked from {DesignAttribution}</p>
-      {/* <ResumeContainer>
-        <ResumeContent projects={projects} />
-      </ResumeContainer> */}
+      <section css={smallScreenStyles}>
+        <StyledResume config={resumeDataObj} />
+      </section>
     </Wrap>
   );
 };
