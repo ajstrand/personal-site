@@ -5,7 +5,7 @@ import { useContext } from "preact/hooks";
 import { Theme } from "./theme.js";
 import { css } from "@emotion/core";
 
-import { GitHub, Twitter, Linkedin } from "react-feather";
+import { GitHub, Linkedin } from "react-feather";
 
 import CreateEl from "../CreateEl.js";
 
@@ -20,11 +20,6 @@ const StyledAnchorTag = (props) => {
 
 const SocialProfiles = () => {
   const data = [
-    {
-      aria: "Twitter",
-      href: "https://twitter.com/_alex_strand",
-      icon: <Twitter />,
-    },
     { aria: "Github", href: "https://github.com/ajstrand", icon: <GitHub /> },
     {
       aria: "Linkedin",
