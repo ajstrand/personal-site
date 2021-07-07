@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Global } from "@emotion/core";
+import { jsx } from "@emotion/core";
 
 const determineResult = (type) => {
   const { prop } = type;
