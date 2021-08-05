@@ -95,7 +95,12 @@ const LeftFlex = (props) => {
 
   return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
 };
-
+const Airtank = externalLinkText(
+  "https://airtank.com",
+  "@airtank",
+  "",
+  StyleLink
+);
 const Chase = externalLinkText("https://chase.com", "@Chase", "", StyleLink);
 const Oclc = externalLinkText("https://oclc.org", "@OCLC", "", StyleLink);
 const Root = externalLinkText("https://rootinc.com", "@RootInc", "", StyleLink);
@@ -132,9 +137,9 @@ const Bio = () => {
         <LeftFlex flexDirection="column" justifyContent="center">
           <Intro>Hi, I'm Alex!</Intro>
           <BioText>
-            I'm a Frontend Software Engineer {Chase}. Previously {Oclc}, {Root}.
-            I love working with JavaScript/HTML/CSS and building accessible
-            products that serve the needs of users.
+            I'm a Fullstack Software Engineer {Airtank} . Previously {Chase},{" "}
+            {Oclc}, {Root}. I love working with modern web technologies and
+            building accessible products/services that serve the needs of users.
           </BioText>
         </LeftFlex>
       </AdaptFlex>
