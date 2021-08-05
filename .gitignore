@@ -8,3 +8,5 @@ node_modules/
 src/.DS_STORE
 
 yarn-error.log
+
+package-lock.json
