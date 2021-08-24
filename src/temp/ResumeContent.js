@@ -15,6 +15,21 @@ export const resumeDataObj = {
   ],
   experience: [
     {
+      companyName: "Airtank",
+      dateRange: "May 2021 - August 2021",
+      jobTitle: "Fullstack Software Engineer",
+      jobDescription: [
+        {
+          text: `Built marketing websites for various clients of using both the Shopify platform 
+          and Ziftrshop an e-commerce platform developed by Airtank`,
+        },
+        {
+          text: `Interfaced with project managers and other team members to resolve 
+          technical questions & accessability concerns for projects being built.  `,
+        },
+      ],
+    },
+    {
       companyName: "Chase Bank",
       dateRange: "June 2020 - Present",
       jobTitle: "Frontend Software Engineer",
