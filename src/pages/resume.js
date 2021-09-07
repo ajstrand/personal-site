@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 
-import StyledResume from "styled-resume";
+//import StyledResume from "styled-resume";
 import CreateEl from "../CreateEl.js";
 
 import { Flex } from "../temp/componentsList.js";
@@ -40,7 +40,11 @@ const ResumeContainer = (props) => {
 
 const Resume = (props) => {
   const resumeLink = (
-    <a aria-label="resume" target="_blank" href={"./alex_strand_resume.pdf"}>
+    <a
+      aria-label="resume"
+      target="_blank"
+      href={"./resume/alex_strand_resume.pdf"}
+    >
       here
     </a>
   );
@@ -62,7 +66,7 @@ const Resume = (props) => {
       <p> You can download a copy of my resume {resumeLink}</p>
       <p>Resume design forked from {DesignAttribution}</p>
       <section css={smallScreenStyles}>
-        <StyledResume config={resumeDataObj} />
+        {/* <StyledResume config={resumeDataObj} /> */}
       </section>
     </Wrap>
   );

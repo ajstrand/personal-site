@@ -106,8 +106,8 @@ const Oclc = externalLinkText("https://oclc.org", "@OCLC", "", StyleLink);
 const Root = externalLinkText("https://rootinc.com", "@RootInc", "", StyleLink);
 const contactInfo =
   "Want to contact me, or interested in working with me? Contact me here:";
-const emailString = "hi(at)alexstrand.dev";
-
+//const emailString = "hi(at)alexstrand.dev";
+const emailString = "ajstrand8 (at) gmail.com";
 const Contact = () => {
   const style = css`
     font-size: 1rem;
@@ -124,7 +124,7 @@ const Bio = () => {
     <Main>
       <AdaptFlex marginBottom="3em" alignItems="center" justifyContent="center">
         <img
-          src="./me.jpg"
+          src="./assets/me.jpg"
           alt="a person with blond hair and black glasses, smiling towards the camera."
           style={{
             marginRight: "1em",
@@ -137,9 +137,9 @@ const Bio = () => {
         <LeftFlex flexDirection="column" justifyContent="center">
           <Intro>Hi, I'm Alex!</Intro>
           <BioText>
-            I'm a Fullstack Software Engineer {Airtank} . Previously {Chase},{" "}
-            {Oclc}, {Root}. I love working with modern web technologies and
-            building accessible products/services that serve the needs of users.
+            Software Engineer . Previously {Airtank} {Chase}, {Oclc}, {Root}. I
+            love working with modern web technologies and building accessible
+            products/services that serve the needs of users.
           </BioText>
         </LeftFlex>
       </AdaptFlex>

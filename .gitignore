@@ -10,3 +10,5 @@ src/.DS_STORE
 yarn-error.log
 
 package-lock.json
+
+yarn.lock

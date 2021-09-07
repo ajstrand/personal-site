@@ -7,17 +7,6 @@ export const sourceData = async ({ setDataForSlug }) => {
 };
 
 const publicDir = "./public";
-const contentDir = "./content";
 const srcDir = "./src";
-
-await fs.copy(
-  path.resolve(`${contentDir}/resume/alex_strand_resume_latest.pdf`),
-  `${publicDir}/alex_strand_resume.pdf`
-);
-
-await fs.copy(
-  path.resolve(`${contentDir}/assets/me.jpg`),
-  `${publicDir}/me.jpg`
-);
 
 await fs.copy(path.resolve(`${srcDir}/fonts/`), `${publicDir}/fonts/`);
