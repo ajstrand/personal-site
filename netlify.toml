@@ -1,4 +1,4 @@
 [build]
   publish = "public"
   # Default build command.
-  command = "yarn run build"
+  command = "npm run build"
