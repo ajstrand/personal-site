@@ -14,7 +14,6 @@
     "dev": "yarn run build && yarn run serve",
     "serve": "serve public",
     "build": "toast incremental .",
-    "breadbox": "breadbox --dest public/web_modules",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -23,7 +22,6 @@
     "@emotion/core": "file:forkedPackages/emotion",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/preact": "^1.6.22",
-    "@sector/breadbox": "^0.0.4",
     "@sindresorhus/slugify": "^2.1.0",
     "@toastdotdev/mdx": "0.2.4",
     "chalk": "^4.1.2",
