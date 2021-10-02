@@ -2,8 +2,8 @@
 import { jsx, css } from "@emotion/core";
 import { MDXProvider } from "@mdx-js/preact";
 import facepaint from "facepaint";
-import Header from "./temp/Header.js";
-import ThemeWrap from "./temp/theme.js";
+import Header from "./components/Header.js";
+import ThemeWrap from "./components/theme.js";
 
 const mq = facepaint([
   "@media(min-width: 750px)",

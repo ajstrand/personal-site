@@ -4,7 +4,7 @@ import { jsx } from "@emotion/core";
 import SocialProfiles from "./SocialProfiles.js";
 import SiteLinks from "./SiteLinks.js";
 
-import { Flex } from "../temp/componentsList.js";
+import { Flex } from "../components/componentsList.js";
 
 const SiteNav = () => {
   return (

@@ -6,7 +6,7 @@ import { jsx, css } from "@emotion/core";
 
 import externalLinkText from "../utils/helpers.js";
 
-import { Flex } from "../temp/componentsList.js";
+import { Flex } from "../components/componentsList.js";
 
 import facepaint from "facepaint";
 import CreateEl from "../CreateEl.js";

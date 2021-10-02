@@ -2,11 +2,11 @@
 import { jsx, Global, css } from "@emotion/core";
 import { Helmet } from "react-helmet";
 import { useContext } from "preact/hooks";
-import { Theme } from "./temp/theme.js";
+import { Theme } from "./components/theme.js";
 
-import { Flex } from "./temp/componentsList.js";
+import { Flex } from "./components/componentsList.js";
 
-import Copyright from "./temp/Copyright.js";
+import Copyright from "./components/Copyright.js";
 import CreateEl from "./CreateEl.js";
 import { prismTheme } from "../common-js/rehype-prism-mdx.js";
 

@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-import data from "../temp/projectsData.js";
-import { SiteLink } from "../temp/componentsList.js";
-import { Flex } from "../temp/componentsList.js";
+import data from "../components/projectsData.js";
+import { SiteLink } from "../components/componentsList.js";
+import { Flex } from "../components/componentsList.js";
 import facepaint from "facepaint";
 import CreateEl from "../CreateEl.js";
 

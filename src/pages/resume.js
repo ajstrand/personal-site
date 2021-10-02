@@ -4,8 +4,8 @@ import { jsx, css } from "@emotion/core";
 //import StyledResume from "styled-resume";
 import CreateEl from "../CreateEl.js";
 
-import { Flex } from "../temp/componentsList.js";
-import { resumeDataObj } from "../temp/ResumeContent.js";
+import { Flex } from "../components/componentsList.js";
+import { resumeDataObj } from "../components/ResumeContent.js";
 
 const Wrap = (props) => {
   const style = css`

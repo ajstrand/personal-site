@@ -3,6 +3,7 @@ export const specs = [
   "preact/hooks",
   "@emotion/core",
   "@mdx-js/preact",
+  "facepaint",
   "react-helmet",
   "preact/compat",
 ];

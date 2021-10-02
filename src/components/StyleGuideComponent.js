@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
-import Flex from "./temp/componentsList";
+import Flex from "./components/componentsList";
 /*import { TypeScale, TypeStyle, ColorPalette } from "@theme-ui/style-guide";
 export default (props) => (
   <Flex

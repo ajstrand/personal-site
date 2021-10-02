@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 
-import Bio from "../temp/Bio.js";
+import Bio from "../components/Bio.js";
 import CreateEl from "../CreateEl.js";
 
-import { Flex } from "../temp/componentsList.js";
+import { Flex } from "../components/componentsList.js";
 const Item = (props) => {
   const style = css`
     flex-direction: column;

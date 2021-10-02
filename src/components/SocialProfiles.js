@@ -5,7 +5,12 @@ import { useContext } from "preact/hooks";
 import { Theme } from "./theme.js";
 import { css } from "@emotion/core";
 
-import { GitHub, Linkedin } from "react-feather";
+const GithubIcon = () => (
+  <img alt="github company logo" src="./assets/svgs/github.svg" />
+);
+const LinkedinIcon = () => (
+  <img alt="linkedin company logo" src="./assets/svgs/linkedin.svg" />
+);
 
 import CreateEl from "../CreateEl.js";
 
@@ -20,11 +25,15 @@ const StyledAnchorTag = (props) => {
 
 const SocialProfiles = () => {
   const data = [
-    { aria: "Github", href: "https://github.com/ajstrand", icon: <GitHub /> },
+    {
+      aria: "Github",
+      href: "https://github.com/ajstrand",
+      icon: <GithubIcon />,
+    },
     {
       aria: "Linkedin",
       href: "https://www.linkedin.com/in/ajstrand",
-      icon: <Linkedin />,
+      icon: <LinkedinIcon />,
     },
   ];
 

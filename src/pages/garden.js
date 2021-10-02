@@ -3,7 +3,7 @@ import { jsx, css } from "@emotion/core";
 import { Helmet } from "react-helmet";
 import { useReducer } from "preact/hooks";
 import CreateEl from "../CreateEl.js";
-import { Flex } from "../temp/componentsList.js";
+import { Flex } from "../components/componentsList.js";
 
 //Code  credit to @chrisbiscardi for the initial design/structure
 
