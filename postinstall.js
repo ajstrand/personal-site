@@ -3,6 +3,7 @@ import { install, printStats } from "esinstall";
 import prettyBytes from "pretty-bytes";
 import cTable from "console.table";
 import { options, specs } from "./esinstall.js";
+import { terser } from "rollup-plugin-terser";
 
 // esinstall doesn't let us quiet the output while it runs
 // so we kinda do that here.
@@ -20,6 +21,7 @@ async function main() {
     dest: "./public/web_modules",
     logger,
     ...options,
+    plugins: [terser()],
   });
   if (stats) {
     console.table(
