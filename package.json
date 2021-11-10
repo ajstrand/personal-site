@@ -17,12 +17,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@babel/runtime": "^7.16.0",
+    "@babel/runtime": "^7.16.3",
     "@emotion/core": "file:forkedPackages/emotion",
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/preact": "^1.6.22",
+    "@mdx-js/mdx": "2.0.0-next.9",
+    "@mdx-js/preact": "2.0.0-next.8",
     "@sindresorhus/slugify": "^2.1.0",
-    "@toastdotdev/mdx": "0.2.4",
+    "@toastdotdev/mdx": "^0.2.4",
     "chalk": "^4.1.2",
     "esinstall": "1.1.7",
     "facepaint": "^1.2.1",
@@ -34,11 +34,15 @@
     "prismjs": "^1.25.0",
     "react": "^17.0.2",
     "react-gif-player": "^0.4.2",
-    "react-intl": "^5.21.0",
+    "react-intl": "^5.21.1",
     "rehype-autolink-headings": "^6.1.0",
     "rehype-parse": "^8.0.3",
     "rehype-slug": "^5.0.0",
     "toast": "^0.3.47"
+  },
+  "resolutions": {
+    "@mdx-js/mdx": "2.0.0-next.9",
+    "@mdx-js/preact": "2.0.0-next.8"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
@@ -56,8 +60,8 @@
     "pretty-quick": "^3.1.1",
     "react-axe": "^3.5.4",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup": "^2.58.3",
-    "serve": "^12.0.1",
+    "rollup": "^2.59.0",
+    "serve": "^13.0.2",
     "workspace-a": "1.0.0"
   }
 }

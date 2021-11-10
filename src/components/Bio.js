@@ -95,6 +95,12 @@ const LeftFlex = (props) => {
 
   return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
 };
+const HomeDepot = externalLinkText(
+  "https://homedepot.com/",
+  "@homedepot",
+  "",
+  StyleLink
+);
 const Airtank = externalLinkText(
   "https://airtank.com",
   "@airtank",
@@ -129,7 +135,6 @@ const Bio = () => {
           style={{
             marginRight: "1em",
             marginBottom: 0,
-            // width: "200px",
             height: "200px",
             borderRadius: `100%`,
           }}
@@ -137,9 +142,9 @@ const Bio = () => {
         <LeftFlex flexDirection="column" justifyContent="center">
           <Intro>Hi, I'm Alex!</Intro>
           <BioText>
-            Software Engineer . Previously {Airtank} {Chase}, {Oclc}, {Root}. I
-            love working with modern web technologies and building accessible
-            products/services that serve the needs of users.
+            Software Engineer {HomeDepot}. Previously {Airtank} {Chase}, {Oclc},{" "}
+            {Root}. I love working with modern web technologies and building
+            accessible products/services that serve the needs of users.
           </BioText>
         </LeftFlex>
       </AdaptFlex>
