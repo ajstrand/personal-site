@@ -101,15 +101,8 @@ const HomeDepot = externalLinkText(
   "",
   StyleLink
 );
-const Airtank = externalLinkText(
-  "https://airtank.com",
-  "@airtank",
-  "",
-  StyleLink
-);
-const Chase = externalLinkText("https://chase.com", "@Chase", "", StyleLink);
+
 const Oclc = externalLinkText("https://oclc.org", "@OCLC", "", StyleLink);
-const Root = externalLinkText("https://rootinc.com", "@RootInc", "", StyleLink);
 const contactInfo =
   "Want to contact me, or interested in working with me? Contact me here:";
 //const emailString = "hi(at)alexstrand.dev";
@@ -121,6 +114,15 @@ const Contact = () => {
   return (
     <p css={style}>
       {contactInfo} {emailString}
+    </p>
+  );
+};
+
+const First = () => {
+  let comps = [HomeDepot, Oclc];
+  return (
+    <p>
+      Software Engineer {comps[0]}. Previously {comps.slice(1)}{" "}
     </p>
   );
 };
@@ -142,8 +144,7 @@ const Bio = () => {
         <LeftFlex flexDirection="column" justifyContent="center">
           <Intro>Hi, I'm Alex!</Intro>
           <BioText>
-            Software Engineer {HomeDepot}. Previously {Airtank} {Chase}, {Oclc},{" "}
-            {Root}. I love working with modern web technologies and building
+            <First />I love working with modern web technologies and building
             accessible products/services that serve the needs of users.
           </BioText>
         </LeftFlex>
