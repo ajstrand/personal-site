@@ -1,3 +1,4 @@
 {
+  "plugins": ["jsx-a11y", "jest-dom", "testing-library"],
   "extends": ["prettier"]
 }
