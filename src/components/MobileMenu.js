@@ -7,20 +7,19 @@ import { jsx, css } from "@emotion/core";
 
 import SiteNav from "./SiteNav.js";
 
-const Menu = (props) => {
-  const style = css`
-    border: none;
-    border-radius: 5px;
-    padding: 0.5em;
-    background-color: coral;
-    cursor: pointer;
-    appearence: none;
-  `;
+import { styled, setup } from "goober";
 
-  return <CreateEl tag="button" obj={style} {...props}></CreateEl>;
-};
+setup(h);
 
-import CreateEl from "../CreateEl.js";
+const Menu = styled("buuton")`
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em;
+  background-color: coral;
+  cursor: pointer;
+  appearence: none;
+`;
+
 function MobileMenu() {
   const [state, setData] = useState(false);
   if (state) {
