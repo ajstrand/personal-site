@@ -3,7 +3,10 @@ import { jsx, css } from "@emotion/core";
 
 import SiteNav from "./SiteNav.js";
 
+import { useMediaQuery } from "./useMediaQuery.js";
+
 import CreateEl from "../CreateEl.js";
+import MobileMenu from "./MobileMenu.js";
 
 export const Header = (props) => {
   const style = css`
@@ -24,9 +27,11 @@ export const Header = (props) => {
 };
 
 export default () => {
+  let isPageSmall = useMediaQuery("(max-width:  500px)");
   return (
     <Header>
-      <SiteNav />
+      {isPageSmall && <MobileMenu />}
+      {isPageSmall === false && <SiteNav />}
     </Header>
   );
 };
