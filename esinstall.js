@@ -3,10 +3,11 @@ export const specs = [
   "preact/hooks",
   "@emotion/core",
   "goober",
+  "goober/global",
   "@mdx-js/preact",
-  "facepaint",
   "react-helmet",
   "preact/compat",
+  "preact/debug",
 ];
 
 export const options = {

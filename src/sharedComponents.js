@@ -1,64 +1,72 @@
 /** @jsx jsx */
 import { jsx, Global, css } from "@emotion/core";
 import { Helmet } from "react-helmet";
-import { useContext } from "preact/hooks";
-import { Theme } from "./components/theme.js";
+import { h } from "preact";
+import { useTheme } from "./components/theme.js";
 
 import { Flex } from "./components/componentsList.js";
 
 import Copyright from "./components/Copyright.js";
-import CreateEl from "./CreateEl.js";
 import { prismTheme } from "../common-js/rehype-prism-mdx.js";
 
-const StyledSummary = (props) => {
-  const theme = useContext(Theme);
-  const style = css`
-    font-family: "Lora";
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.black};
-  `;
-  return <CreateEl tag="summary" obj={style} {...props}></CreateEl>;
+import { styled, setup } from "goober";
+import { createGlobalStyles } from "goober/global";
+
+setup(h, undefined, useTheme);
+
+const StyledSummary = styled("summary")`
+  font-family: "Lora";
+  color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.black};
+`;
+
+const StyledDetails = styled("details")`
+  width: 100%;
+  & black-lives {
+    padding: 15px;
+    width: fit-content;
+  }
+`;
+
+export const Details = () => {
+  const theme = useTheme();
+  return (
+    <StyledDetails>
+      <StyledSummary theme={theme}>Black Lives Matter</StyledSummary>
+      <black-lives></black-lives>
+    </StyledDetails>
+  );
 };
 
-const StyledDetails = (props) => {
-  const style = css`
-    width: 100%;
-    & black-lives {
-      padding: 15px;
-      width: fit-content;
-    }
-  `;
-  return <CreateEl tag="details" obj={style} {...props}></CreateEl>;
+export const MetaDetails = ({ title, description }) => {
+  const helmet = Helmet.renderStatic();
+  // return (
+  //   <head>
+  //       {helmet.title.toComponent()}
+  //     {helmet.meta.toComponent()}
+  //     {helmet.link.toComponent()}
+  //   </head>
+  // )
+  return (
+    <Helmet>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Alex Strand's personal site and digital garden</title>
+      <meta name="twitter:title" content={title} />
+      <meta name="og:title" content={title} />
+      <meta name="description" content={description} />
+      <meta name="twitter:description" content={description} />
+      <meta name="og:type" content="website" />
+      <meta name="twitter:site" content="@_alex_strand" />
+      <meta name="twitter:creator" content="@_alex_strand" />
+      <script
+        src="https://unpkg.com/i-stand/black-lives.js"
+        type="module"
+      ></script>
+    </Helmet>
+  );
 };
-
-export const Details = () => (
-  <StyledDetails>
-    <StyledSummary>Black Lives Matter</StyledSummary>
-    <black-lives></black-lives>
-  </StyledDetails>
-);
-
-export const MetaDetails = ({ title, description }) => (
-  <Helmet>
-    <meta charSet="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Alex Strand's personal site and digital garden</title>
-    <meta name="twitter:title" content={title} />
-    <meta name="og:title" content={title} />
-    <meta name="description" content={description} />
-    <meta name="twitter:description" content={description} />
-    <meta name="og:type" content="website" />
-    <meta name="twitter:site" content="@_alex_strand" />
-    <meta name="twitter:creator" content="@_alex_strand" />
-    <script
-      src="https://unpkg.com/i-stand/black-lives.js"
-      type="module"
-    ></script>
-  </Helmet>
-);
-export const SpecialStyles = (props) => {
-  const theme = useContext(Theme);
-  const style = css`
+export const SpecialStyles = createGlobalStyles`
     * {
       box-sizing: "border-box";
       margin: 0;
@@ -113,21 +121,21 @@ export const SpecialStyles = (props) => {
               url("../fonts/roboto-v20-latin-ext_latin-regular.svg#Roboto")
               format("svg"); /* Legacy iOS */
         }
-        background-color: ${theme.colors.white};
+        background-color: ${(props) => props.theme.colors.white};
         h1,
         h2,
         h3,
         h4,
         h5,
         h6 {
-          color: ${theme.colors.text};
+          color: ${(props) => props.theme.colors.text};
           font-family: "Lora";
         }
         p,
         li,
         ul,
         label {
-          color: ${theme.colors.text};
+          color: ${(props) => props.theme.colors.text};
           font-family: "Roboto";
         }
         #toast-page-section {
@@ -139,11 +147,7 @@ export const SpecialStyles = (props) => {
       }
     }
   `;
-  return <Global {...props} styles={style}></Global>;
-};
-export const GlobalStyles = (props) => {
-  const theme = useContext(Theme);
-  const style = css`
+export const GlobalStyles = createGlobalStyles`
     * {
       box-sizing: "border-box";
       margin: 0;
@@ -197,21 +201,21 @@ export const GlobalStyles = (props) => {
               url("fonts/roboto-v20-latin-ext_latin-regular.svg#Roboto")
               format("svg"); /* Legacy iOS */
         }
-        background-color: ${theme.colors.white};
+        background-color: ${(props) => props.theme.colors.white};
         h1,
         h2,
         h3,
         h4,
         h5,
         h6 {
-          color: ${theme.colors.text};
+          color: ${(props) => props.theme.colors.text};
           font-family: "Lora";
         }
         p,
         li,
         ul,
         label {
-          color: ${theme.colors.text};
+          color: ${(props) => props.theme.colors.text};
           font-family: "Roboto";
         }
         #toast-page-section {
@@ -223,8 +227,6 @@ export const GlobalStyles = (props) => {
       }
     }
   `;
-  return <Global {...props} styles={style}></Global>;
-};
 
 export const Footer = () => {
   return (

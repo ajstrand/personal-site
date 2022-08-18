@@ -1,79 +1,83 @@
 /** @jsx jsx */
-import { useContext } from "preact/hooks";
 import { h } from "preact";
-import { Theme } from "./theme.js";
-import { jsx, css } from "@emotion/core";
+import { useTheme } from "./theme.js";
+import { jsx } from "@emotion/core";
 
-import externalLinkText from "../utils/helpers.js";
+import ExternalLinkText from "../utils/helpers.js";
 
 import { Flex } from "../components/componentsList.js";
 
-import facepaint from "facepaint";
-import CreateEl from "../CreateEl.js";
-
 import { styled, setup } from "goober";
 
-setup(h);
+setup(h, undefined, useTheme);
 
-const mq = facepaint([
-  "@media(min-width: 570px)",
-  "@media(min-width: 920px)",
-  "@media(min-width: 1120px)",
-]);
-
-const StyleLink = (props) => {
-  const theme = useContext(Theme);
-  const style = css`
-    font-size: 16px;
-    padding: 2px;
-    border-radius: 10px;
-    background-color: ${theme.colors.text};
-    color: ${theme.colors.white};
-    &:hover {
-      text-decoration: none;
-    }
-  `;
-
-  return <CreateEl tag="a" obj={style} {...props}></CreateEl>;
+export const sizes = {
+  sm: "@media(min-width: 570px)",
+  mid: "@media(min-width: 920px)",
+  large: "@media(min-width: 1120px)",
 };
 
-const HomeDepot = externalLinkText(
-  "https://homedepot.com/",
-  "@homedepot",
-  "",
-  StyleLink
+const StyleLink = styled("a")`
+  font-size: 16px;
+  padding: 2px;
+  border-radius: 10px;
+  background-color: ${(props) => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.white};
+  &:hover {
+    text-decoration: none;
+  }
+`;
+
+const HomeDepot = () => (
+  <ExternalLinkText
+    link={"https://homedepot.com/"}
+    text={"@homedepot"}
+    ariaLabel={""}
+    Component={StyleLink}
+  />
 );
 
-const Oclc = externalLinkText("https://oclc.org", "@OCLC", "", StyleLink);
+const Oclc = () => (
+  <ExternalLinkText
+    link={"https://oclc.org"}
+    text={"@OCLC"}
+    ariaLabel={""}
+    Component={StyleLink}
+  />
+);
+
 const contactInfo =
   "Want to contact me, or interested in working with me? Contact me here:";
 //const emailString = "hi(at)alexstrand.dev";
 const emailString = "ajstrand8 (at) gmail.com";
 
-const Intro = styled("h1")`
-  ${mq({
-    fontSize: ["1.5rem", "2rem", "4rem"],
-  })}
+const Intro = styled("h1")(
+  ({ textSize }) => `
   margin:0;
   font-weight: bold;
+  ${sizes.sm} {
+    font-size: ${"1.5rem"};
+  }
+  ${sizes.mid} {
+    font-size: ${"2rem"};
+  }
+  ${sizes.large} {
+    font-size: ${"4rem"};
+  }
+`
+);
+
+const BioText = styled("p")`
+  background-color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.text};
+  padding: 10px;
+  border-color: ${(props) => props.theme.colors.lightPalePinkText};
+  border-radius: 15px;
+  line-height: 34px;
+  width: fit-content;
+  font-size: 1rem;
 `;
-
-const BioText = (props) => {
-  const theme = useContext(Theme);
-  const style = css`
-    background-color: ${theme.colors.white};
-    color: ${theme.colors.text};
-    padding: 10px;
-    border-color: ${theme.colors.lightPalePinkText};
-    border-radius: 15px;
-    line-height: 34px;
-    width: fit-content;
-    font-size: 1rem;
-  `;
-
-  return <CreateEl tag="p" obj={style} {...props}></CreateEl>;
-};
-const Main = styled("main")`
+const Main = styled("div")`
   border-radius: 15px;
   padding: 1rem;
   max-width: 1000px;
@@ -84,26 +88,35 @@ const Main = styled("main")`
   margin-bottom: 1em;
 `;
 
-const AdaptFlex = styled(Flex)`
-  ${mq({
-    flexDirection: ["column", "row", "row"],
-  })}
-  margin-bottom:3em;
-`;
+const AdaptFlex = styled(Flex)(
+  ({ flexDirection }) => `
+    margin-bottom:3em;
+    ${sizes.sm || sizes.mid} {
+      flex-direction: ${flexDirection ? flexDirection : "column"};
+    }
+    ${sizes.large} {
+      flex-direction: ${flexDirection ? flexDirection : "row"};
+    }
+    `
+);
 
-const LeftFlex = styled(Flex)`
-  ${mq({
-    alignItems: ["center", "flex-start", "flex-start"],
-  })}
-`;
+const LeftFlex = styled(Flex)(
+  ({ alignI }) => `
+  ${sizes.sm} {
+    align-items:"center";
+  }
+  ${sizes.mid || sizes.large} {
+    align-items: "flex-start";
+  }
+`
+);
 
 const Contact = styled("p")`
   font-size: 1rem;
 `;
 
 const Bio = () => {
-  let comps = [HomeDepot, Oclc];
-
+  let comps = [<HomeDepot />, <Oclc />];
   return (
     <Main>
       <AdaptFlex marginBottom="3em" alignItems="center" justifyContent="center">

@@ -1,5 +1,7 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+import { jsx } from "@emotion/core";
+import { Fragment, h } from "preact";
+
 import { styled, setup } from "goober";
 
 setup(h);
@@ -15,7 +17,7 @@ export const SmallText = styled("p")`
 
 const Copyright = () => {
   const currentYear = new Date().getFullYear();
-  return <SmallText>© {currentYear} Alex Strand</SmallText>;
+  return <SmallText>© {currentYear} alex strand</SmallText>;
 };
 
 export default Copyright;

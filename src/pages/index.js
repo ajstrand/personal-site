@@ -1,19 +1,24 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+
+import { jsx } from "@emotion/core";
+import { h } from "preact";
+import { useTheme } from "../components/theme.js";
 
 import Bio from "../components/Bio.js";
-import CreateEl from "../CreateEl.js";
-
 import { Flex } from "../components/componentsList.js";
-const Item = (props) => {
-  const style = css`
-    flex-direction: column;
-    width: 100%;
-    flex: 1;
-  `;
-  return <CreateEl tag={Flex} obj={style} {...props} height="100%"></CreateEl>;
-};
+
+import { styled, setup, css } from "goober";
+
+setup(h, undefined, useTheme);
+
+const Item = styled(Flex)`
+  height: 100vh;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+`;
 export default () => {
+  const theme = useTheme();
   const mediaStyles = css`
     @media screen and (max-width: 30em) {
       padding: 15px;
@@ -21,7 +26,7 @@ export default () => {
   `;
   return (
     <Item>
-      <Bio css={mediaStyles} />
+      <Bio theme={theme} className={mediaStyles} />
     </Item>
   );
 };

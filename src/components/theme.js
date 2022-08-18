@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { createContext } from "preact";
-import { jsx } from "@emotion/core";
+import { useContext } from "preact/hooks";
 
 const themeObj = {
   fonts: {
@@ -25,37 +25,6 @@ const themeObj = {
     lightBg: "#abe1e4",
     palePink: "#C5A4AF",
     lightPalePinkText: "#F8D7E2",
-    styles: {
-      root: {
-        fontFamily: "body",
-        lineHeight: "body",
-        fontWeight: "body",
-      },
-      h1: {
-        variant: "text.heading",
-        fontSize: 5,
-      },
-      h2: {
-        variant: "text.heading",
-        fontSize: 4,
-      },
-      h3: {
-        variant: "text.heading",
-        fontSize: 3,
-      },
-      h4: {
-        variant: "text.heading",
-        fontSize: 2,
-      },
-      h5: {
-        variant: "text.heading",
-        fontSize: 1,
-      },
-      h6: {
-        variant: "text.heading",
-        fontSize: 0,
-      },
-    },
     modes: {
       dark: {
         text: "#ffffff",
@@ -66,10 +35,6 @@ const themeObj = {
     },
   },
 };
-export const Theme = createContext(themeObj);
+export const ThemeContext = createContext(themeObj);
 
-const ThemeWrap = ({ children }) => (
-  <Theme.Provider value={themeObj}>{children}</Theme.Provider>
-);
-
-export default ThemeWrap;
+export const useTheme = () => useContext(ThemeContext);

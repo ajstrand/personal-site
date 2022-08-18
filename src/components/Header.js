@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+import { jsx } from "@emotion/core";
 import { h } from "preact";
 
 import SiteNav from "./SiteNav.js";
@@ -10,7 +10,9 @@ import MobileMenu from "./MobileMenu.js";
 
 import { styled, setup } from "goober";
 
-setup(h);
+import { useTheme } from "../components/theme.js";
+
+setup(h, undefined, useTheme);
 
 export const Header = styled("header")`
   @media screen {
@@ -27,7 +29,7 @@ export const Header = styled("header")`
   }
 `;
 
-export default () => {
+export default (props) => {
   let isPageSmall = useMediaQuery("(max-width:  500px)");
   return (
     <Header>

@@ -1,16 +1,17 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+import { jsx } from "@emotion/core";
 
-const OtherPostsList = () => {
-  const style = css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    list-style: none;
-  `;
-  return <CreateEl tag="ul" obj={style} />;
-};
+import { styled, setup } from "goober";
+
+setup(h, undefined, useTheme);
+
+const OtherPostsList = styled("ul")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  list-style: none;
+`;
 
 const OtherPostsNav = (props) => {
   const { previous, next } = props;

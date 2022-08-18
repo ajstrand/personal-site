@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { useState } from "preact/hooks";
-import { Fragment } from "preact";
+import { h, Fragment } from "preact";
 
-import { Theme } from "./theme.js";
-import { jsx, css } from "@emotion/core";
+import { jsx } from "@emotion/core";
 
 import SiteNav from "./SiteNav.js";
 
@@ -11,7 +10,7 @@ import { styled, setup } from "goober";
 
 setup(h);
 
-const Menu = styled("buuton")`
+const Menu = styled("button")`
   border: none;
   border-radius: 5px;
   padding: 0.5em;
@@ -24,10 +23,10 @@ function MobileMenu() {
   const [state, setData] = useState(false);
   if (state) {
     return (
-      <>
+      <Fragment>
         <Menu onClick={() => setData(false)}>Menu</Menu>
         <SiteNav />
-      </>
+      </Fragment>
     );
   }
   return <Menu onClick={() => setData(true)}>Menu</Menu>;

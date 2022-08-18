@@ -1,23 +1,44 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+import { jsx } from "@emotion/core";
+import { h } from "preact";
 import { MDXProvider } from "@mdx-js/preact";
-import facepaint from "facepaint";
 import Header from "./components/Header.js";
-import ThemeWrap from "./components/theme.js";
 
-const mq = facepaint([
-  "@media(min-width: 750px)",
-  "@media(min-width: 1050px)",
-  "@media(min-width: 1120px)",
-]);
+import { useTheme } from "./components/theme.js";
+import { styled, setup, css } from "goober";
+
+setup(h, undefined, useTheme);
+
+export const sizes = {
+  sm: "@media(min-width: 570px)",
+  mid: "@media(min-width: 920px)",
+  large: "@media(min-width: 1120px)",
+};
+
+const LeftFlex = styled(Flex)(
+  ({ alignI }) => `
+  ${sizes.sm} {
+    align-items:"center";
+  }
+  ${sizes.mid || sizes.large} {
+    align-items: "flex-start";
+  }
+`
+);
 
 const pageColumnContentStyles = css`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  ${mq({
-    width: ["95%", "50%", "60%"],
-  })}
+  ${sizes.sm} {
+    width: 95%;
+  }
+  ${sizes.mid} {
+    width: 50%;
+  }
+  ${sizes.large} {
+    width: 60%;
+  }
   margin: 0 auto;
 `;
 
@@ -44,23 +65,26 @@ const Main = ({ children, isPost }) => {
     flex: 1 1 0%;
     ${isPostStyles};
   `;
-  return <main css={styles}>{children}</main>;
+  return <main className={styles}>{children}</main>;
 };
 
 const PageWrapper = ({ children, ...props }) => {
+  const theme = useTheme();
   let title = "Alex Strand's Digital Garden";
   let description = "MDX, Svelte, Kotlin, Rust, Preact";
   return (
-    <ThemeWrap>
-      <MDXProvider components={components}>
-        {props.meta ? <SpecialStyles props={"hello"} /> : <GlobalStyles />}
-        <MetaDetails title={title} description={description} />
-        <Details />
-        <Header />
-        <Main isPost={props.meta}>{children}</Main>
-        <Footer />
-      </MDXProvider>
-    </ThemeWrap>
+    <MDXProvider components={components}>
+      {props.meta ? (
+        <SpecialStyles theme={theme} props={"hello"} />
+      ) : (
+        <GlobalStyles theme={theme} />
+      )}
+      {/* <MetaDetails title={title} description={description} /> */}
+      <section>{/* <Details /> */}</section>
+      <Header theme={theme} />
+      <Main isPost={props.meta}>{children}</Main>
+      <Footer />
+    </MDXProvider>
   );
 };
 
