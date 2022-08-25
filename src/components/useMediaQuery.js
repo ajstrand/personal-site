@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsx h */
 import { useState, useEffect } from "preact/hooks";
 export function useMediaQuery(query) {
   const [matches, setMatches] = useState(false);

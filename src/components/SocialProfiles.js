@@ -7,10 +7,20 @@ import { styled, setup } from "goober";
 setup(h, undefined, useTheme);
 
 const GithubIcon = () => (
-  <img alt="github company logo" src="./assets/svgs/github.svg" />
+  <img
+    width="24px"
+    height="24px"
+    alt="github company logo"
+    src="./assets/svgs/github.svg"
+  />
 );
 const LinkedinIcon = () => (
-  <img alt="linkedin company logo" src="./assets/svgs/linkedin.svg" />
+  <img
+    width="24px"
+    height="24px"
+    alt="linkedin company logo"
+    src="./assets/svgs/linkedin.svg"
+  />
 );
 
 const StyledAnchorTag = styled("a")`

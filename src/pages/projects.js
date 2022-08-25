@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+/** @jsx h */
 import { h } from "preact";
 import data from "../components/projectsData.js";
 // import { SiteLink } from "../components/componentsList.js";

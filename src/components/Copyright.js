@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/core";
+/** @jsx h */
+//import { jsx } from "@emotion/core";
 import { Fragment, h } from "preact";
 
 import { styled, setup } from "goober";

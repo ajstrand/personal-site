@@ -1,9 +1,15 @@
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+/** @jsx h */
+import { h } from "preact";
+
 import { Helmet } from "react-helmet";
 import { useReducer } from "preact/hooks";
+import { setup, css } from "goober";
+import { useTheme } from "../components/theme.js";
+import { Flex } from "../components/componentsList.js";
 
-//Code  credit to @chrisbiscardi for the initial design/structure
+setup(h, undefined, useTheme);
+
+//Code credit to @chrisbiscardi for the initial design/structure
 
 const Meta = () => {
   return (
@@ -24,48 +30,48 @@ const Meta = () => {
   );
 };
 
-const List = ({ title, subtitle, secondary, ...props }) => (
-  <div
-    css={{
-      gridColumn: "span 2",
-      "@media (min-width: 700px)": {
-        gridColumn: "span 8",
-      },
-      "& ul": {
-        marginLeft: "1rem",
-      },
-      marginTop: "1rem",
-    }}
-  >
-    <ul css={{ listStyleType: "none", margin: 0, padding: 0 }}>
-      {props.children}
-    </ul>
-  </div>
-);
+const List = ({ title, subtitle, secondary, ...props }) => {
+  const itemStyle = css`
+    margin-left: 1rem;
+    @media (min-width: 700px) : {
+      margin-left: 0;
+    }
+    width: 100%;
+    list-style-type: none;
+    margin-top: 1rem;
+  `;
+  return (
+    <Flex className={itemStyle} flexDirection="column" alignItems="flex-start">
+      <ul>{props.children}</ul>
+    </Flex>
+  );
+};
 
 const ListItem = ({ to, contentType, children }) => {
+  const itemStyle = css`
+    color: #2d3747;
+    display: flex;
+    border-radius: 16px;
+    text-decoration: none;
+    &:hover,&:focus: {
+      background-color: red;
+    }
+    padding: 1rem;
+    margin: "0 -1rem";
+    border-left: ${contentType === "blog-post" || contentType === "post"
+      ? "3px solid #3981fe"
+      : "none"};
+  `;
   return (
     <li>
-      <a
-        to={to}
-        href={to}
-        css={{
-          color: "#2D3747",
-          display: "flex",
-          borderRadius: "16px",
-          textDecoration: "none",
-          "&:hover,&:focus": {
-            //TODO: some cool focus thing
-          },
-          padding: "1rem",
-          margin: "0 -1rem",
-          borderLeft:
-            contentType === "blog-post" || contentType === "post"
-              ? "3px solid #3981fe"
-              : "none",
-        }}
-      >
-        <span css={{ marginLeft: "10px" }}>{children}</span>
+      <a to={to} href={to} className={itemStyle}>
+        <span
+          className={css`
+            margin-left: "10px";
+          `}
+        >
+          {children}
+        </span>
       </a>
     </li>
   );
@@ -102,12 +108,18 @@ const Item = (props) => {
       padding: 15px;
     }
   `;
-  return <section obj={style} {...props}></section>;
+  return <section className={style} {...props}></section>;
 };
 
 const Search = ({ filterDispatch }) => {
   return (
-    <div css={{ gridColumn: "span 2" }}>
+    <div
+      className={css`
+        grid-column: span 2;
+        padding-left: 10px;
+        padding-right: 10px;
+      `}
+    >
       <label for="posts-search">Search for a post or note</label>
       <input
         id="posts-search"
@@ -115,18 +127,15 @@ const Search = ({ filterDispatch }) => {
         onChange={(e) => {
           filterDispatch({ type: "filterBy", payload: e.target.value });
         }}
-        css={{
-          width: "100%",
-          padding: "16px",
-          flex: 1,
-          fontSize: "16px",
-          border: "1px solid #2f3542",
-          borderRadius: "10px",
-          color: "#10151e",
-          "&:focus": {
-            //TODO: something fun
-          },
-        }}
+        className={css`
+          width: 100%;
+          padding: 16px;
+          flex: 1;
+          font-size: 16px;
+          border: 1px solid #2f3542;
+          border-radius: 10px;
+          color: #10151e;
+        `}
       />
     </div>
   );
@@ -139,15 +148,17 @@ const ListWrapper = ({ posts, filterState }) => {
       secondary={
         <a
           to="/post"
-          css={{
-            textDecoration: "none",
-            // margin is to align baseline with heading
-            marginBottom: "2px",
-            alignSelf: "flex-end",
-            "&:hover": {
-              textDecoration: "underline",
-            },
-          }}
+          className={css`
+            text-decoration: none;
+            margin-bottom: 2px;
+            align-self: flex-end;
+            & :hover: {
+              text-decoration: underline;
+            }
+            & :focus: {
+              background-color: red;
+            }
+          `}
         >
           all posts
         </a>
@@ -198,22 +209,17 @@ const ListWrapper = ({ posts, filterState }) => {
 };
 
 const PostTags = ({ posts, filterDispatch, filterState }) => {
+  const itemStyle = css`
+    display: flex;
+    & li: {
+      margin: 0.5rem;
+    }
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin-top: 2rem;
+  `;
   return (
-    <ul
-      css={{
-        display: "flex",
-        "& li": {
-          margin: "0.5rem",
-        },
-        gridColumn: "span 3",
-        "@media (min-width: 700px)": {
-          gridColumn: "span 8",
-        },
-        flexWrap: "wrap",
-        listStyleType: "none",
-        marginTop: "2rem",
-      }}
-    >
+    <ul className={itemStyle}>
       {posts ? (
         Array.from(
           new Set(
@@ -225,16 +231,17 @@ const PostTags = ({ posts, filterDispatch, filterState }) => {
         ).map((value) => (
           <li>
             <button
-              css={{
-                padding: "10px 16px",
-                backgroundColor: filterState.tags.includes(value)
+              className={css`
+                padding: 10px 16px;
+                background-color: ${filterState.tags.includes(value)
                   ? "#3981fe"
-                  : "#ffdead",
-                color: filterState.tags.includes(value) ? "#eef1f7" : "#10151e",
+                  : "#ffdead"};
+                color: ${filterState.tags.includes(value)
+                  ? "#eef1f7"
+                  : "#10151e"};
                 "&:focus": {
-                  //TODO: add fun effect
-                },
-              }}
+                }
+              `}
               onClick={() => {
                 if (filterState.tags.includes(value)) {
                   filterDispatch({ type: "removeTag", payload: value });
@@ -255,36 +262,40 @@ const PostTags = ({ posts, filterDispatch, filterState }) => {
 };
 
 const PageSubHeader = () => {
+  const itemStyle = css`
+  font-weight: 600;
+  grid-column: "span 2";
+  @media (min-width: 700px): {
+    grid-column: span 4;
+  },
+  margin-top: 3rem;
+  font-size: 48px;
+`;
+  const link = "https://joelhooks.com/digital-garden";
+  const linkStyle = css`
+    font-size: 1rem;
+  `;
   return (
-    <h1
-      css={{
-        fontWeight: 600,
-        gridColumn: "span 2",
-        "@media (min-width: 700px)": {
-          gridColumn: "span 4",
-        },
-        marginTop: "3rem",
-        fontSize: "48px",
-      }}
-    >
-      Digital Garden{" "}
-      <a href="https://joelhooks.com/digital-garden" css={{ fontSize: 16 }}>
+    <span>
+      <h1 className={itemStyle}>Digital Garden </h1>
+      <a href={link} className={linkStyle}>
         What is this?
       </a>
-    </h1>
+    </span>
   );
 };
 
 export default ({ children, ...props }) => {
+  const theme = useTheme();
   const [filterState, filterDispatch] = useReducer(reducer, initialState);
   return (
     <Item
-      css={{
-        display: "grid",
-        gridGap: "1rem",
-        justifyContent: "center",
-        //gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-      }}
+      className={css`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      `}
     >
       <Meta />
       <PageSubHeader />

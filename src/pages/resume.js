@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+/** @jsx h */
 import { h } from "preact";
 
 //import StyledResume from "styled-resume";
@@ -7,7 +6,7 @@ import { h } from "preact";
 import { Flex } from "../components/componentsList.js";
 import { resumeDataObj } from "../components/ResumeContent.js";
 
-import { styled, setup } from "goober";
+import { styled, setup, css } from "goober";
 
 setup(h);
 

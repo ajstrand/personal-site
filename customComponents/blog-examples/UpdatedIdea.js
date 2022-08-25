@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/core";
+/** @jsx h */
+//import { jsx } from "@emotion/core";
 
 const UpdatedIdea = () => {
   const linkVar = (link, text) => <a href={link}>{text}</a>;

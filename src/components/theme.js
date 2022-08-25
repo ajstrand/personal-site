@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsx h */
 import { createContext } from "preact";
 import { useContext } from "preact/hooks";
 

@@ -1,7 +1,7 @@
-/** @jsx jsx */
+/** @jsx h */
 import { h } from "preact";
 import { useTheme } from "./theme.js";
-import { jsx } from "@emotion/core";
+//import { jsx } from "@emotion/core";
 
 import ExternalLinkText from "../utils/helpers.js";
 
@@ -121,12 +121,13 @@ const Bio = () => {
     <Main>
       <AdaptFlex marginBottom="3em" alignItems="center" justifyContent="center">
         <img
-          src="./assets/me.jpg"
+          src="./assets/me-small.jpg"
           alt="a person with blond hair and black glasses, smiling towards the camera."
           style={{
             marginRight: "1em",
             marginBottom: 0,
-            height: "200px",
+            height: "100px",
+            width: "100px",
             borderRadius: `100%`,
           }}
         />

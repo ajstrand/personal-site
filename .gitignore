@@ -7,3 +7,6 @@ src/.DS_Store
 yarn-error.log
 package-lock.json
 yarn.lock
+/test-results/
+/playwright-report/
+/playwright/.cache/

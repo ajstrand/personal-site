@@ -1,8 +1,8 @@
-/** @jsx jsx */
+/** @jsx h */
 import { useState } from "preact/hooks";
 import { h, Fragment } from "preact";
 
-import { jsx } from "@emotion/core";
+//import { jsx } from "@emotion/core";
 
 import SiteNav from "./SiteNav.js";
 
@@ -14,7 +14,7 @@ const Menu = styled("button")`
   border: none;
   border-radius: 5px;
   padding: 0.5em;
-  background-color: coral;
+  background-color: #de6b51;
   cursor: pointer;
   appearence: none;
 `;

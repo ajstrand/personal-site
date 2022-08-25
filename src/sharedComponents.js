@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsx h */
 import { jsx, Global, css } from "@emotion/core";
 import { Helmet } from "react-helmet";
 import { h } from "preact";
@@ -39,14 +39,6 @@ export const Details = () => {
 };
 
 export const MetaDetails = ({ title, description }) => {
-  const helmet = Helmet.renderStatic();
-  // return (
-  //   <head>
-  //       {helmet.title.toComponent()}
-  //     {helmet.meta.toComponent()}
-  //     {helmet.link.toComponent()}
-  //   </head>
-  // )
   return (
     <Helmet>
       <meta charSet="utf-8" />
@@ -59,6 +51,7 @@ export const MetaDetails = ({ title, description }) => {
       <meta name="og:type" content="website" />
       <meta name="twitter:site" content="@_alex_strand" />
       <meta name="twitter:creator" content="@_alex_strand" />
+      {/* <link rel="stylesheet" href="/main.css" /> */}
       <script
         src="https://unpkg.com/i-stand/black-lives.js"
         type="module"
@@ -83,6 +76,7 @@ export const SpecialStyles = createGlobalStyles`
           font-family: "Lora";
           font-style: normal;
           font-weight: 400;
+          font-display:fallback;
           src: url("../fonts/lora-v16-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
           src: local(""),
             url("../fonts/lora-v16-latin-ext_latin-regular.eot?#iefix")
@@ -104,6 +98,7 @@ export const SpecialStyles = createGlobalStyles`
           font-family: "Roboto";
           font-style: normal;
           font-weight: 400;
+          font-display:fallback;
           src: url("../fonts/roboto-v20-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
           src: local("Roboto"), local("Roboto-Regular"),
             url("../fonts/roboto-v20-latin-ext_latin-regular.eot?#iefix")
@@ -164,6 +159,7 @@ export const GlobalStyles = createGlobalStyles`
           font-family: "Lora";
           font-style: normal;
           font-weight: 400;
+          font-display:fallback;
           src: url("fonts/lora-v16-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
           src: local(""),
             url("fonts/lora-v16-latin-ext_latin-regular.eot?#iefix")
@@ -185,6 +181,7 @@ export const GlobalStyles = createGlobalStyles`
           font-family: "Roboto";
           font-style: normal;
           font-weight: 400;
+          font-display:fallback;
           src: url("fonts/roboto-v20-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
           src: local("Roboto"), local("Roboto-Regular"),
             url("fonts/roboto-v20-latin-ext_latin-regular.eot?#iefix")
