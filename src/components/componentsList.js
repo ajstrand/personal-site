@@ -1,36 +1,27 @@
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import { useContext } from "preact/hooks";
-import CreateEl from "../CreateEl.js";
-import { Theme } from "./theme.js";
+/** @jsx h */
+//import { jsx } from "@emotion/core";
+import { h } from "preact";
 
-export const Flex = (props) => {
-  const style = css`
-    height: ${props.height ? props.height : "fit-content"};
-    display: flex;
-    flex-direction: ${props.flexDirection ? props.flexDirection : "row"};
-    justify-content: ${props.justifyContent ? props.justifyContent : "center"};
-    align-items: ${props.alignItems ? props.alignItems : "center"};
-    flex-wrap: ${props.flexWrap ? props.flexWrap : "unset"};
-    flex: ${props.flex ? props.flex : "unset"};
-  `;
+import { styled, setup } from "goober";
+import { useTheme } from "../components/theme.js";
+setup(h, undefined, useTheme);
 
-  return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
-};
+export const Flex = styled("div")`
+  display: flex;
+  flex-direction: ${(props) =>
+    props.flexDirection ? props.flexDirection : "row"};
+  justify-content: ${(props) => (props.justify ? props.justify : "center")};
+  align-items: ${(props) => (props.alignItems ? props.alignItems : "center")};
+  flex-wrap: ${(props) => (props.flexWrap ? props.flexWrap : "unset")};
+  flex: ${(props) => (props.flex ? props.flex : "unset")};
+`;
 
-export const SiteLink = (props) => {
-  const theme = useContext(Theme);
-  const style = css`
-    color: ${theme.colors.text};
-  `;
-  return <CreateEl tag="a" obj={style} {...props}></CreateEl>;
-};
+export const SiteLink = styled("a")`
+  color: ${(props) => props.theme.colors.text};
+`;
 
-export const ListItem = (props) => {
-  const style = css`
-    padding: 0.5em;
-    flex-direction: column;
-    width: 100%;
-  `;
-  return <CreateEl tag={Flex} obj={style} {...props}></CreateEl>;
-};
+export const ListItem = styled(Flex)`
+  padding: 0.5em;
+  flex-direction: column;
+  width: 100%;
+`;

@@ -1,29 +1,35 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { h, Fragment } from "preact";
-import { useContext } from "preact/hooks";
-import { Theme } from "./theme.js";
-import { css } from "@emotion/core";
+import { useTheme } from "./theme.js";
+import { styled, setup } from "goober";
+
+setup(h, undefined, useTheme);
 
 const GithubIcon = () => (
-  <img alt="github company logo" src="./assets/svgs/github.svg" />
+  <img
+    width="24px"
+    height="24px"
+    alt="github company logo"
+    src="./assets/svgs/github.svg"
+  />
 );
 const LinkedinIcon = () => (
-  <img alt="linkedin company logo" src="./assets/svgs/linkedin.svg" />
+  <img
+    width="24px"
+    height="24px"
+    alt="linkedin company logo"
+    src="./assets/svgs/linkedin.svg"
+  />
 );
 
-import CreateEl from "../CreateEl.js";
+const StyledAnchorTag = styled("a")`
+  margin: 0.5em;
+  color: ${(props) => props.theme.colors.text};
+`;
 
-const StyledAnchorTag = (props) => {
-  const theme = useContext(Theme);
-  const style = css`
-    margin: 0.5em;
-    color: ${theme.colors.text};
-  `;
-  return <CreateEl tag="a" obj={style} {...props}></CreateEl>;
-};
-
-const SocialProfiles = () => {
+const SocialProfiles = (props) => {
+  const theme = useTheme();
   const data = [
     {
       aria: "Github",
@@ -40,7 +46,7 @@ const SocialProfiles = () => {
   return (
     <Fragment>
       {data.map((item) => (
-        <StyledAnchorTag aria-label={item.aria} href={item.href}>
+        <StyledAnchorTag theme={theme} aria-label={item.aria} href={item.href}>
           {item.icon}
         </StyledAnchorTag>
       ))}

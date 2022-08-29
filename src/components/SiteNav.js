@@ -1,12 +1,20 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/core";
+/** @jsx h */
+//import { jsx } from "@emotion/core";
+import { h } from "preact";
 
 import SocialProfiles from "./SocialProfiles.js";
 import SiteLinks from "./SiteLinks.js";
 
 import { Flex } from "../components/componentsList.js";
 
-const SiteNav = () => {
+import { setup } from "goober";
+
+import { useTheme } from "../components/theme.js";
+
+setup(h, undefined, useTheme);
+
+const SiteNav = (props) => {
+  const theme = useTheme();
   return (
     <nav>
       <Flex

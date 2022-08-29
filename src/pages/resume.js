@@ -1,42 +1,40 @@
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+/** @jsx h */
+import { h } from "preact";
 
 //import StyledResume from "styled-resume";
-import CreateEl from "../CreateEl.js";
 
 import { Flex } from "../components/componentsList.js";
 import { resumeDataObj } from "../components/ResumeContent.js";
 
-const Wrap = (props) => {
-  const style = css`
-    padding: 0.5em;
-    flex-direction: column;
-    flex-basis: 70%;
-    flex: 1;
-    @media screen and (max-width: 30em) {
-      padding: 15px;
-    }
-  `;
-  return <CreateEl tag={Flex} obj={style} {...props} height="100%"></CreateEl>;
-};
+import { styled, setup, css } from "goober";
 
-const ResumeContainer = (props) => {
-  const style = css`
-    @media screen {
-      padding: 2em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+setup(h);
+
+const Wrap = styled(Flex)`
+  height: 100vh;
+  padding: 0.5em;
+  flex-direction: column;
+  flex-basis: 70%;
+  flex: 1;
+  @media screen and (max-width: 30em) {
+    padding: 15px;
+  }
+`;
+
+const ResumeContainer = styled("div")`
+  @media screen {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  @media print {
+    & p {
+      display: none;
     }
-    @media print {
-      & p {
-        display: none;
-      }
-    }
-  `;
-  return <CreateEl tag="div" obj={style} {...props}></CreateEl>;
-};
+  }
+`;
 
 const Resume = (props) => {
   const resumeLink = (

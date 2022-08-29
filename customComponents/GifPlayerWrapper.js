@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/core";
+/** @jsx h */
+//import { jsx } from "@emotion/core";
 import { MDXProvider } from "@mdx-js/preact";
 import { useState } from "preact/hooks";
 

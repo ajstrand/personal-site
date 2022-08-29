@@ -1,19 +1,16 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Fragment, h } from "preact";
-import { css } from "@emotion/core";
-
+import { Theme, useTheme } from "./theme.js";
 import { SiteLink } from "./componentsList.js";
+import { styled, setup } from "goober";
 
-import CreateEl from "../CreateEl.js";
+setup(h, undefined, useTheme);
 
-export const PageLink = (props) => {
-  const style = css`
-    margin: 0 1em 0 1em;
-    font-family: "Lora";
-  `;
-  return <CreateEl tag={SiteLink} obj={style} {...props}></CreateEl>;
-};
+export const PageLink = styled(SiteLink)`
+  margin: 0 1em 0 1em;
+  font-family: "Lora";
+`;
 
 const nav = [
   { displayName: "Home", url: "/" },
@@ -21,12 +18,17 @@ const nav = [
   { displayName: "Resume", url: "/resume" },
   { displayName: "Projects", url: "/projects" },
 ];
-const SiteLinks = () => {
+const SiteLinks = (props) => {
+  const theme = useTheme();
   return (
     <Fragment>
       {nav.map((item) => {
         const { url, displayName } = item;
-        return <PageLink href={url}>{displayName}</PageLink>;
+        return (
+          <PageLink theme={theme} href={url}>
+            {displayName}
+          </PageLink>
+        );
       })}
     </Fragment>
   );
