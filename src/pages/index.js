@@ -23,7 +23,7 @@ const Item = gCSS(Flex)`
 
 //   ${()=> tw`px-8 py-2 rounded focus:outline-none transform duration-75`},
 // `;
-export default () => {
+const IndexPage = () => {
   const theme = useTheme();
   const mediaStyles = css`
     @media screen and (max-width: 30em) {
@@ -40,3 +40,5 @@ export default () => {
     </Item>
   );
 };
+
+export default IndexPage;

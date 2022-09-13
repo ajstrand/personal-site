@@ -7,7 +7,7 @@
     [
       "@babel/preset-react",
       {
-        "pragma": "h", // default pragma is React.createElement (only in classic runtime)
+        "pragma": "h",
         "pragmaFrag": "Fragment"
       }
     ]

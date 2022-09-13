@@ -2,7 +2,7 @@
 import { createContext } from "preact";
 import { useContext } from "preact/hooks";
 
-const themeObj = {
+export const themeObj = {
   fonts: {
     body: "Roboto,sans-serif",
     heading: "Lora, serif",

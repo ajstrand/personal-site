@@ -26,10 +26,7 @@ let arr = [
 for (const sitePage of arr) {
   test(`extract styles for ${sitePage.page}`, async ({ page }) => {
     await page.goto(sitePage.url);
-    let styles = extractCss();
-    const styleTag = `<style id="_goober">${styles}</style>`;
-
-    console.log(styles.toString());
+    const styleTag = `<style id="_goober">${extractCss()}</style>`;
 
     await page.addStyleTag({ content: styleTag });
 
