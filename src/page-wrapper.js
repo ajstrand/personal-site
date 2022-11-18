@@ -50,6 +50,7 @@ import {
   Footer,
   SpecialStyles,
 } from "./sharedComponents.js";
+import { Fragment } from "react";
 
 const components = {
   codeblock: (props) => (
@@ -82,11 +83,11 @@ const PageWrapper = ({ children, ...props }) => {
   justify-content: flex-start;
   align-items: center;
   `;
+  const [isReady, setIsReady] = useState(false);
   useEffect(() => {
-    // if(document){
-    //  i =  document.title === "Alex's Posts" ? blogIndex : ""
-    //  setStyle(i)
-    // }
+    setTimeout(() => {
+      setIsReady(true);
+    }, 300);
   });
   return (
     <MDXProvider components={components}>
@@ -98,10 +99,14 @@ const PageWrapper = ({ children, ...props }) => {
       <MetaDetails title={title} description={description} />
       <section>{/* <Details /> */}</section>
       <Header theme={theme} />
-      <Main style={style} isPost={props.meta}>
-        {children}
-      </Main>
-      <Footer />
+      {isReady && (
+        <Fragment>
+          <Main style={style} isPost={props.meta}>
+            {children}
+          </Main>
+          <Footer />
+        </Fragment>
+      )}
     </MDXProvider>
   );
 };

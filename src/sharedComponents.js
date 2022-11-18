@@ -51,7 +51,7 @@ export const MetaDetails = ({ title, description }) => {
       <meta name="og:type" content="website" />
       <meta name="twitter:site" content="@_alex_strand" />
       <meta name="twitter:creator" content="@_alex_strand" />
-      {/* <link rel="stylesheet" href="/main.css" /> */}
+      <link rel="stylesheet" href="/main.css" />
       <script
         src="https://unpkg.com/i-stand/black-lives.js"
         type="module"
@@ -227,13 +227,7 @@ export const GlobalStyles = createGlobalStyles`
 
 export const Footer = () => {
   return (
-    <Flex
-      style={{ maxHeight: "1em", flex: 0 }}
-      display="flex"
-      flexDirection="row"
-      justifyContent="center"
-      alignItems="center"
-    >
+    <Flex className="footer-position">
       <footer>
         <Copyright />
       </footer>

@@ -7,10 +7,17 @@ import Bio from "../components/Bio.js";
 import { Flex } from "../components/componentsList.js";
 
 import { setup, css, styled as gCSS } from "goober";
-// import pkg from 'twin.macro';
-// const { styled } = pkg;
 
 setup(h, undefined, useTheme);
+
+const PlaceholderPage = gCSS(Flex)`
+height: 100vh;
+flex-direction: column;
+align-items:center;
+justify-content:center;
+width: 100%;
+flex: 1;
+`;
 
 const Item = gCSS(Flex)`
   height: 100vh;
@@ -19,10 +26,6 @@ const Item = gCSS(Flex)`
   flex: 1;
   `;
 
-//   const Button = styled.button`
-
-//   ${()=> tw`px-8 py-2 rounded focus:outline-none transform duration-75`},
-// `;
 const IndexPage = () => {
   const theme = useTheme();
   const mediaStyles = css`
@@ -30,14 +33,14 @@ const IndexPage = () => {
       padding: 15px;
     }
   `;
+
   return (
-    <Item>
-      {/* <Button>hello test</Button> */}
-      {/* <div class="bg-coral-300 p-5">
-        <h1 class="text-mainTextColor text-3xl">Hello, Toast this is tailwind</h1>
-      </div> */}
-      <Bio theme={theme} className={mediaStyles} />
-    </Item>
+    <PlaceholderPage>
+      <span class="inline-block bg-gradient-to-r from-teal-400 via-slate-700 to-red-500 bg-clip-text text-transparent text-4xl">
+        This site is undergoing a redesign
+      </span>
+      {/* <Bio theme={theme} className={mediaStyles} /> */}
+    </PlaceholderPage>
   );
 };
 

@@ -4,6 +4,15 @@ module.exports = {
   theme: {
     colors: {
       mainTextColor: "#591918",
+      teal: {
+        400: "#4fd1c5",
+      },
+      red: {
+        500: "#f56565",
+      },
+      slate: {
+        700: "rgb(51 65 85)",
+      },
       green: {
         50: "#fdfdfb",
         100: "#fcfcf8",
