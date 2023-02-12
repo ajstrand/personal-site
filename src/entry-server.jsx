@@ -1,5 +1,12 @@
+import { dirname, resolve } from 'path'
+import { fileURLToPath } from 'url'
+
+const dir = dirname(fileURLToPath(import.meta.url))
+
+import fse from 'fs-extra'
 import { render } from "preact-render-to-string";
 import { MDXProvider } from "@mdx-js/preact";
+
 import { DefaultLayout } from "./layouts/DefaultLayout";
 
 export class Renderer {
@@ -7,17 +14,18 @@ export class Renderer {
   feeds = null;
   transformedTemplate = null;
 
-  constructor(transformedTemplate) {
+  constructor(transformedTemplate, vite) {
     this.pages = gatherPages();
     this.feeds = gatherFeeds();
     this.transformedTemplate = transformedTemplate;
+    this.viteServer = vite;
   }
 
-  render(pathname) {
+  render(pathname, vite) {
     if (this.feeds[pathname]) {
       return this.renderFeed(pathname);
     } else {
-      return this.renderPage(pathname);
+      return this.renderPage(pathname, vite);
     }
   }
 
@@ -29,7 +37,8 @@ export class Renderer {
     };
   }
 
-  renderPage(pathname) {
+  async renderPage(pathname, vite) {
+
     if (!pathname.endsWith("/")) pathname = `${pathname}/`;
 
     const headTags = [];
@@ -46,7 +55,6 @@ export class Renderer {
     }
 
     const Layout = DefaultLayout;
-
 
     const html = render(
       <MDXProvider
@@ -65,6 +73,11 @@ export class Renderer {
       </MDXProvider>
     );
 
+    if(meta.static){
+      let template = fse.readFileSync(resolve("nojs", 'index.html'), 'utf-8')
+      this.transformedTemplate = await transformFileForStaticPage(pathname, template, vite)
+      .then(data => data).catch((e) => console.error(e));
+    }
     return {
       status: this.pages[pathname] ? 200 : 404,
       type: "text/html",
@@ -73,6 +86,10 @@ export class Renderer {
         .replace("<!--body-outlet-->", html),
     };
   }
+}
+
+const transformFileForStaticPage = async (pathname, template, vite) => {
+  return await vite.transformIndexHtml(pathname, template)
 }
 
 function gatherPages() {

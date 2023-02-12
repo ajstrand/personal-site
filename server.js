@@ -18,11 +18,11 @@ async function createServer() {
     const { pathname } = new URL(`${req.protocol}://${req.get('host')}${req.originalUrl}`)
 
     try {
-      const template = fse.readFileSync(resolve(dir, 'index.html'), 'utf-8')
+      let template = fse.readFileSync(resolve(dir, 'index.html'), 'utf-8')
       const transformedTemplate = await vite.transformIndexHtml(pathname, template)
       const { Renderer } = await vite.ssrLoadModule('/src/entry-server.jsx')
       const renderer = new Renderer(transformedTemplate)
-      const { status, type, body } = renderer.render(pathname)
+      const { status, type, body } = await renderer.render(pathname, vite)
       res.status(status).set({ 'Content-Type': type }).end(body)
     } catch (e) {
       vite.ssrFixStacktrace(e)

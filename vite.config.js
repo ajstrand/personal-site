@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import  path, { resolve } from 'path'
 import preact from "@preact/preset-vite";
 import esbuild from "rollup-plugin-esbuild";
 import mdx from "@mdx-js/rollup";
@@ -22,6 +23,10 @@ export const plugins = [
 export const build = {
   assetsInlineLimit: 0,
   rollupOptions: {
+    input: {
+      main: resolve(__dirname, 'index.html'),
+      plain: resolve(__dirname, 'nojs/index.html'),
+    },
     plugins: [
       esbuild({
         target: "esnext",
@@ -55,4 +60,9 @@ export default defineConfig({
   plugins,
   alias,
   build,
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 });
