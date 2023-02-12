@@ -5,6 +5,9 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "preact": "^10.11.3",
+    "rehype-katex": "^6.0.2",
+    "remark-code-title": "^0.2.2",
+    "remark-math": "^5.1.1",
     "vite-plugin-babel-macros": "^1.0.6"
   },
   "devDependencies": {
@@ -13,6 +16,7 @@
     "@mdx-js/preact": "2.3.0",
     "@mdx-js/rollup": "^2.3.0",
     "@preact/preset-vite": "^2.5.0",
+    "@stefanprobst/rehype-extract-toc": "2.2.0",
     "@testing-library/preact": "3.2.3",
     "dayjs": "1.11.7",
     "esbuild": "^0.17.7",
@@ -20,14 +24,13 @@
     "fs-extra": "^11.1.0",
     "preact-render-to-string": "^5.2.6",
     "react-head": "^3.4.2",
+    "rehype-slug": "5.1.0",
+    "remark-footnotes": "4.0.1",
+    "remark-gfm": "3.0.1",
     "rollup-plugin-esbuild": "^5.0.0",
     "tailwindcss": "^3.2.6",
     "vite": "^4.1.1",
-    "vitest": "^0.28.4",
-    "rehype-slug": "5.1.0",
-    "@stefanprobst/rehype-extract-toc": "2.2.0",
-    "remark-gfm": "3.0.1",
-    "remark-footnotes": "4.0.1"
+    "vitest": "^0.28.4"
   },
   "engines": {
     "node": ">=16"
@@ -36,7 +39,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "trash":"trash node_modules dist",
+    "trash": "trash node_modules dist",
     "test": "jest",
     "dev": "node server",
     "build": "yarn run build:clientAssets && yarn run build:server && node --experimental-specifier-resolution=node prerender",
