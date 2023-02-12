@@ -1,0 +1,23 @@
+.example {
+  border: none;
+  border-radius: 4px;
+  color: chartreuse;
+  cursor: pointer;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 2rem;
+  margin-right: 5px;
+  padding: 30px 70px;
+  text-shadow: 2px 2px 4px #000;
+  background-attachment: cover;
+  background-position: center center;
+  background-image: url("./tropical/gunayala.jpg");
+
+}
+.example[disabled] {
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}
+
+.example:hover :not([disabled]) {
+  color: hotpink;
+}

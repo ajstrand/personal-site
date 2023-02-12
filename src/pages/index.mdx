@@ -1,23 +1,11 @@
 export const meta = {
   title: `Welcome to Tropical`,
-  description: `The world's newest Tropical website!`
-}
+  description: `The world's newest Tropical website!`,
+};
 
 # Welcome to your new Tropical website 🏝😎🍹
 
-## Quick start
 
-- **`yarn dev`** starts a dev server at [localhost:3000](http://localhost:3000/)
-- **`yarn build`** builds the static site into `dist/static`
-- **`yarn stories`** starts [Ladle](https://ladle.dev/)
-- **`yarn page my-new-page`** scaffolds a file for a new page
-- **`yarn component MyNewComponent`** scaffolds files for a new component
-
-You can also use `npm` or `pnpm` instead of `yarn`.
-
-## Pages
-
-This is your homepage. Pages live in `src/pages` and are either `.mdx` files (like this one) or plain old React components in `.jsx` files (like the [404](/404/) example).
 
 ## Metadata
 
@@ -37,17 +25,15 @@ import dayjs from 'dayjs'
 
 ## Islands & client-side JS
 
-Tropical pages are **only server rendered by default.** To progressively enhance you'll need to sprinkle on some client-side JS, or opt components into hydration with Tropical Islands.
+Tropical pages are **only server rendered by default.**
+To progressively enhance you'll need to sprinkle on some client-side JS,
+or opt components into hydration with Tropical Islands.
 
-import { Island } from 'tropical-islands'
-import { ExampleComponent } from '../components/ExampleComponent'
+import Island from "../island.jsx";
+import ExampleComponent from "../components/ExampleComponent.jsx";
 
-<Island componentName='ExampleComponent' islandTag='span'>
-  <ExampleComponent alertMessage='😎'>Hydrated</ExampleComponent>
+<Island componentName="ExampleComponent" islandTag="span">
+  <ExampleComponent alertMessage="😎">Hydrated</ExampleComponent>
 </Island>
 
-<ExampleComponent alertMessage='😢'>Not hydrated</ExampleComponent>
-
-## And much more!
-
-Check out [the docs](https://tropical.js.org) or dive in and explore the `src` directory.
+<ExampleComponent alertMessage="😢">Not hydrated</ExampleComponent>

@@ -17,12 +17,12 @@ async function prerender() {
       fse.outputFileSync(resolve(dir, filePath), body)
       console.log('🖨   Prerendered', filePath)
     })
-    Object.entries(renderer.feeds).forEach(([pathname, feed]) => {
-      const body = feed(renderer.pages)
-      const filePath = `dist/static${pathname}`
-      fse.outputFileSync(resolve(dir, filePath), body)
-      console.log('🖨   Prerendered', filePath)
-    })
+    // Object.entries(renderer.feeds).forEach(([pathname, feed]) => {
+    //   const body = feed(renderer.pages)
+    //   const filePath = `dist/static${pathname}`
+    //   fse.outputFileSync(resolve(dir, filePath), body)
+    //   console.log('🖨   Prerendered', filePath)
+    // })
     console.log('🦖  Your static site is ready to deploy from dist/static')
 
     const pkg = JSON.parse(await fse.readFile('./package.json'))

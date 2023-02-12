@@ -1,10 +1,9 @@
-import { createRenderer } from 'fela'
-import { RendererProvider } from 'react-fela'
-import { hydrateIslands } from 'tropical-islands'
-import { ExampleComponent } from './components/ExampleComponent'
+// import "preact/debug"
+import { hydrateIslands } from './clientHydrate.jsx'
+import ExampleComponent from './components/ExampleComponent.jsx'
 
 function Providers({ children }) {
-  return <RendererProvider renderer={createRenderer()}>{children}</RendererProvider>
+  return <div>{children}</div>
 }
 
 console.log('hydrating...')

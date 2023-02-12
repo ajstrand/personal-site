@@ -1,25 +1,56 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import mdx from '@mdx-js/rollup'
-import rehypeSlug from 'rehype-slug'
-import rehypeExtractToc from '@stefanprobst/rehype-extract-toc'
-import rehypeExtractTocMdx from '@stefanprobst/rehype-extract-toc/mdx'
-import remarkGfm from 'remark-gfm'
-import imagePresetsPlugin from 'vite-plugin-image-presets'
-import imagePresetsConfig from './src/imagePresets'
+import { defineConfig } from "vite";
+import preact from "@preact/preset-vite";
+import esbuild from "rollup-plugin-esbuild";
+import mdx from "@mdx-js/rollup";
+
+import rehypeSlug from "rehype-slug";
+import rehypeExtractToc from "@stefanprobst/rehype-extract-toc";
+import rehypeExtractTocMdx from "@stefanprobst/rehype-extract-toc/mdx";
+import remarkGfm from "remark-gfm";
 
 export const plugins = [
-  react(),
+  preact(),
   mdx({
     rehypePlugins: [rehypeSlug, rehypeExtractToc, rehypeExtractTocMdx],
     remarkPlugins: [remarkGfm],
-    providerImportSource: '@mdx-js/react'
+    providerImportSource: "@mdx-js/preact",
   }),
-  imagePresetsPlugin(imagePresetsConfig)
-]
+];
 
 export const build = {
-  assetsInlineLimit: 0
+  assetsInlineLimit: 0,
+  rollupOptions: {
+    plugins: [
+      esbuild({
+        target: "esnext",
+        jsxFactory: "h",
+        jsxFragment: "Fragment",
+      }),
+    ],
+  },
+};
+
+const test = {
+  globals: true,
+  environment: "jsdom",
+  setupFiles: "./setup.js",
+  css: false,
 }
 
-export default defineConfig({ plugins, build })
+const alias = {
+  react: "preact/compat",
+  "react-dom": "preact/compat",
+}
+
+export default defineConfig({
+  esbuild: {
+    target: "esnext",
+    jsxFactory: "h",
+    jsxFragment: "Fragment",
+    jsxInject: `import { h, Fragment } from 'preact'`,
+  },
+  test,
+  plugins,
+  alias,
+  build,
+});

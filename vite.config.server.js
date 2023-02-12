@@ -5,6 +5,6 @@ export default defineConfig({
   plugins,
   build,
   ssr: {
-    noExternal: ['react-syntax-highlighter'] // TODO: Open an issue to explain this
+    noExternal: []
   }
 })
