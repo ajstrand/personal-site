@@ -18,6 +18,6 @@
   filter: grayscale(100%);
 }
 
-.example:hover :not([disabled]) {
+.example:hover:not([disabled]) {
   color: hotpink;
 }
