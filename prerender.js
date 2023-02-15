@@ -11,8 +11,8 @@ async function prerender() {
     const { Renderer } = await import('./dist/server/entry-server.js')
     const renderer = new Renderer(transformedTemplate)
 
-    Object.entries(renderer.pages).forEach(([pathname, page]) => {
-      const { body } = renderer.render(pathname)
+    Object.entries(renderer.pages).forEach(async ([pathname, page]) => {
+      const { body } = await renderer.render(pathname)
       const filePath = `dist/static${page.filePath}.html`
       fse.outputFileSync(resolve(dir, filePath), body)
       console.log('🖨   Prerendered', filePath)

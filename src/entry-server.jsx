@@ -1,9 +1,6 @@
-import { dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
-
-const dir = dirname(fileURLToPath(import.meta.url))
-
 import fse from 'fs-extra'
+import { resolve } from "path";
+
 import { render } from "preact-render-to-string";
 import { MDXProvider } from "@mdx-js/preact";
 

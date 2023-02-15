@@ -6,6 +6,4 @@ function Providers({ children }) {
   return <div>{children}</div>
 }
 
-console.log('hydrating...')
 hydrateIslands({ ExampleComponent }, Providers)
-console.log('hydrated!')

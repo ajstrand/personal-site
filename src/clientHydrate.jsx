@@ -24,10 +24,10 @@ export function hydrateIslands(
     const data = island.dataset.tropicalHydrationProps;
     const hydrationProps = JSON.parse(data);
     hydrate(
-      island,
       <Providers>
         <Component {...hydrationProps} />
-      </Providers>
+      </Providers>,
+      island
     );
   });
 }
