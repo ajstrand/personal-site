@@ -7,13 +7,13 @@ export function hydrateIslands(
   const isles = document.querySelectorAll(
     "[data-tropical-hydration-component]"
   );
-  // if (isles.length === 0) {
-  //   throw new Error("there were no islands found");
-  // }
+  if (isles.length === 0) {
+    const errMessage = `there were no islands found in the DOM. 
+    Check the server file to see what errors were logged`
+    throw new Error(errMessage);
+  }
   isles.forEach((island) => {
     const Component = islands[island.dataset.tropicalHydrationComponent];
-
-    console.log("here");
 
     if (!Component) {
       const message = `Found a server-rendered Tropical Island for 
