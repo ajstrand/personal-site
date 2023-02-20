@@ -12,6 +12,7 @@ import rehypeExtractTocMdx from "@stefanprobst/rehype-extract-toc/mdx";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import rehypeInferReadingTimeMeta from 'rehype-infer-reading-time-meta'
 
 export const plugins = [
   nodePolyfills({
@@ -25,6 +26,7 @@ export const plugins = [
       rehypeKatex,
       rehypeExtractToc,
       rehypeExtractTocMdx,
+      rehypeInferReadingTimeMeta
     ],
     remarkPlugins: [remarkGfm, remarkMath],
     providerImportSource: "@mdx-js/preact",
@@ -33,6 +35,7 @@ export const plugins = [
 
 export const build = {
   assetsInlineLimit: 0,
+  minify:'esbuild',
   rollupOptions: {
     input: {
       main: resolve(__dirname, "index.html"),

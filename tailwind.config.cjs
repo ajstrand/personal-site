@@ -8,12 +8,15 @@ module.exports = {
   theme: {
     extend: {
       colors:{
+        something: '#ce4257',
+        neutral:'#f6fff8',
+        pink: {
+          links:'#fda4af'
+        },
         yellow:{
           '500':'#EAA221' 
         },
-        green:{
-          '500':'#3a5a40'
-        }
+        blue: '#2b2d42'
       }
     },
   },

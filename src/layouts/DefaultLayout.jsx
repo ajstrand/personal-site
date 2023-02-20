@@ -3,7 +3,7 @@ import Island from "../Island.jsx";
 
 export function DefaultLayout({ meta, children }) {
   return (
-    <main class="bg-neutral-100 dark:bg-slate-800 text-green-500 dark:text-yellow-500 w-screen h-screen p-3 flex flex-col justify-start items-start">
+    <main class="bg-neutral dark:bg-blue text-blue dark:text-yellow-500 w-screen h-screen p-3 flex flex-col justify-start items-start">
       <nav>
         <a href="/">Home</a>
         <ThemeSwitch />

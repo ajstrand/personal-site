@@ -9,37 +9,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
+@layer base {
+  a,
+  nav a {
+    @apply text-something;
+  }
+  .dark a,
+  .dark nav a {
+    @apply text-pink-links;
+  }
 }
 
 h1,
 h2,
-h3,
-p,
-ul,
-li {
-  /* color: #3a5a40; */
-  /* color: #eaa221; */
-}
-
-h1, h2, h3 {
+h3 {
   font-size: 1.5rem;
 }
 
-p, ul li {
+p,
+ul li {
   font-size: 1rem;
-
-}
-
-a, nav a {
-  color: #fda4af;
 }
 
 ul {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 ul a {
-    text-decoration: underline;
-    
+  text-decoration: underline;
 }
