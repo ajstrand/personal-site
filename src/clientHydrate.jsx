@@ -1,9 +1,7 @@
 import { hydrate } from "preact";
 
 export function hydrateIslands(
-  islands,
-  Providers = ({ children }) => children
-) {
+  islands) {
   const isles = document.querySelectorAll(
     "[data-tropical-hydration-component]"
   );
