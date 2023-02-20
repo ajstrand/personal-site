@@ -13,7 +13,7 @@ export function hydrateIslands(
   isles.forEach((island) => {
     const Component = islands[island.dataset.tropicalHydrationComponent];
 
-    console.log("here")
+    console.log("here");
 
     if (!Component) {
       const message = `Found a server-rendered Tropical Island for 
@@ -25,11 +25,11 @@ export function hydrateIslands(
 
     const data = island.dataset.tropicalHydrationProps;
     const hydrationProps = JSON.parse(data);
-    hydrate(
-      <Providers>
-        <Component {...hydrationProps} />
-      </Providers>,
-      island
-    );
+    /*
+      using providers to wrap a component seems to produce
+      an extra Preact node.
+      So I'm leaving that out for now.
+      */
+    hydrate(<Component {...hydrationProps} />, island);
   });
 }
