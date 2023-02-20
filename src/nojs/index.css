@@ -9,7 +9,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 h1,
@@ -18,28 +17,18 @@ h3,
 p,
 ul,
 li {
-  /* color: #3a5a40; */
-  /* color: #eaa221; */
+  color: #eaa221;
 }
 
-h1, h2, h3 {
-  font-size: 1.5rem;
-}
-
-p, ul li {
-  font-size: 1rem;
-
-}
-
-a, nav a {
+a,
+nav a {
   color: #fda4af;
 }
 
 ul {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 ul a {
-    text-decoration: underline;
-    
+  text-decoration: underline;
 }

@@ -13,6 +13,8 @@ export function hydrateIslands(
   isles.forEach((island) => {
     const Component = islands[island.dataset.tropicalHydrationComponent];
 
+    console.log("here")
+
     if (!Component) {
       const message = `Found a server-rendered Tropical Island for 
       ${island.dataset.tropicalHydrationComponent} but that component was not passed to hydrateIslands`;

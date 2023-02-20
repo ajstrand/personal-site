@@ -5,6 +5,7 @@ import express from 'express'
 import { createServer as createViteServer } from 'vite'
 
 const dir = dirname(fileURLToPath(import.meta.url))
+const list = ["math-in-mdx.mdx"];
 
 async function createServer() {
   const app = express()
@@ -19,10 +20,26 @@ async function createServer() {
 
     try {
       let template = fse.readFileSync(resolve(dir, 'index.html'), 'utf-8')
+
+        let bareValue = pathname.replace(/\//g, "");
+        // console.log(bareValue)
+        let shouldBeStatic = list.some((item, index) => {
+          let x = item.includes(bareValue);
+          return x ? bareValue : null
+        } )
+        if (shouldBeStatic) {
+          let staticHtmlPath = "src/nojs/index.html";
+          template = fse.readFileSync(
+            resolve(dir, staticHtmlPath),
+            "utf-8"
+          );
+        }  
+
       const transformedTemplate = await vite.transformIndexHtml(pathname, template)
       const { Renderer } = await vite.ssrLoadModule('/src/entry-server.jsx')
-      const renderer = new Renderer(transformedTemplate)
-      const { status, type, body } = await renderer.render(pathname, vite)
+      const renderer = new Renderer(transformedTemplate);
+
+      const { status, type, body } = renderer.render(pathname)
       res.status(status).set({ 'Content-Type': type }).end(body)
     } catch (e) {
       vite.ssrFixStacktrace(e)

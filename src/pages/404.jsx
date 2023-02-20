@@ -4,8 +4,8 @@ export const meta = {
 
 export default function NotFoundPage({ meta, pages }) {
   return (
-    <div class="w-100 h-100 flex">
-      <p class="font-bold bg-green-300 text-black w-20">Not Found</p>
-    </div>
+    <main class="w-screen h-screen flex justify-center items-center">
+      <p class="font-bold text-yellow-500 w-20">Not Found</p>
+    </main>
   );
 }

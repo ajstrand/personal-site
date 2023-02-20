@@ -1,6 +1,3 @@
-import fse from 'fs-extra'
-import { resolve } from "path";
-
 import { render } from "preact-render-to-string";
 import { MDXProvider } from "@mdx-js/preact";
 
@@ -11,18 +8,17 @@ export class Renderer {
   feeds = null;
   transformedTemplate = null;
 
-  constructor(transformedTemplate, vite) {
+  constructor(transformedTemplate) {
     this.pages = gatherPages();
     this.feeds = gatherFeeds();
     this.transformedTemplate = transformedTemplate;
-    this.viteServer = vite;
   }
 
-  render(pathname, vite) {
+  render(pathname) {
     if (this.feeds[pathname]) {
       return this.renderFeed(pathname);
     } else {
-      return this.renderPage(pathname, vite);
+      return this.renderPage(pathname);
     }
   }
 
@@ -34,8 +30,7 @@ export class Renderer {
     };
   }
 
-  async renderPage(pathname, vite) {
-
+  renderPage(pathname) {
     if (!pathname.endsWith("/")) pathname = `${pathname}/`;
 
     const headTags = [];
@@ -43,19 +38,22 @@ export class Renderer {
     let meta;
     let Component;
     let tableOfContents;
-    if (this.pages[pathname]) {
+    let pageToBuild = this.pages[pathname];
+    if (pageToBuild) {
       Component = this.pages[pathname].Component;
       meta = this.pages[pathname].meta;
     } else {
-      Component = this.pages['/404/'].Component;
-      meta = this.pages['/404/'].meta;
+      const warnMessage = `${pageToBuild} was not found with the pathname ${pathname}. 
+      check that ${pathname} is correctly spelled/has leading or ending slashes. 
+      ${pageToBuild} will be rendered as a 404 page.`;
+      console.warn(warnMessage);
+      Component = this.pages["/404/"].Component;
+      meta = this.pages["/404/"].meta;
     }
-
     const Layout = DefaultLayout;
 
     const html = render(
-      <MDXProvider
-      >
+      <MDXProvider>
         <Layout
           meta={meta}
           tableOfContents={tableOfContents}
@@ -70,11 +68,6 @@ export class Renderer {
       </MDXProvider>
     );
 
-    if(meta.static){
-      let template = fse.readFileSync(resolve("nojs", 'index.html'), 'utf-8')
-      this.transformedTemplate = await transformFileForStaticPage(pathname, template, vite)
-      .then(data => data).catch((e) => console.error(e));
-    }
     return {
       status: this.pages[pathname] ? 200 : 404,
       type: "text/html",
@@ -83,10 +76,6 @@ export class Renderer {
         .replace("<!--body-outlet-->", html),
     };
   }
-}
-
-const transformFileForStaticPage = async (pathname, template, vite) => {
-  return await vite.transformIndexHtml(pathname, template)
 }
 
 function gatherPages() {

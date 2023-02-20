@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 import { plugins, build } from './vite.config.js'
-import path from "path-browserify"
 
 
 const dir = dirname(fileURLToPath(import.meta.url))
@@ -11,11 +10,6 @@ export default defineConfig({
   plugins:[
     ...plugins,
   ],
-  resolve: {
-    alias: {
-      path: path
-    },
-  },
   build: {
     ...build,
     rollupOptions: {

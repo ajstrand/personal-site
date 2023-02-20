@@ -11,8 +11,13 @@ import rehypeExtractToc from "@stefanprobst/rehype-extract-toc";
 import rehypeExtractTocMdx from "@stefanprobst/rehype-extract-toc/mdx";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export const plugins = [
+  nodePolyfills({
+    // Whether to polyfill `node:` protocol imports.
+    protocolImports: true,
+  }),
   preact(),
   mdx({
     rehypePlugins: [
@@ -31,7 +36,7 @@ export const build = {
   rollupOptions: {
     input: {
       main: resolve(__dirname, "index.html"),
-      plain: resolve(__dirname, "nojs/index.html"),
+      plain: resolve(__dirname, "src/nojs/index.html"),
     },
     plugins: [
       esbuild({
