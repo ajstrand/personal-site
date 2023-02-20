@@ -33,7 +33,6 @@ async function prerender() {
       url.replace(/^\.\/pages/, "")
       .replace(/(\.jsx|\.mdx)$/, "");
 
-      console.log(localFilePath)
       const urlPath = localFilePath.includes("index")
       ? localFilePath.replace(/index$/, "")
       : `/${localFilePath}/`;
