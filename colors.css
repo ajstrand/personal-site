@@ -5,7 +5,7 @@
   --light-switch-text: "dark mode";
 
   /* Dark mode */
-  --dark-text: theme(colors.yellow);
+  --dark-text: theme("colors.lightY");
   --dark-bg: theme("colors.test");
   --dark-switch-text: "light mode";
 

@@ -32,7 +32,6 @@
     "rehype-slug": "5.1.0",
     "remark-footnotes": "4.0.1",
     "remark-gfm": "3.0.1",
-    "rollup-plugin-critical": "^1.0.12",
     "rollup-plugin-esbuild": "^5.0.0",
     "serve": "^14.2.0",
     "stylelint": "^15.2.0",

@@ -13,7 +13,6 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import rehypeInferReadingTimeMeta from 'rehype-infer-reading-time-meta'
-
 export const plugins = [
   nodePolyfills({
     // Whether to polyfill `node:` protocol imports.

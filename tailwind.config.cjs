@@ -13,7 +13,8 @@ module.exports = {
         pink: {
           links:'#fda4af'
         },
-        yellow:'#EAA221',
+        // marigold color variant
+        lightY:'#f3c063',
         blue: '#2b2d42',
         test:'#222430'
       }
