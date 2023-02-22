@@ -19,7 +19,7 @@ import dayjs from 'dayjs'
     let env = process.env.NODE_ENV === 'development' ? urlPath : urlPathFull
     return(
     <li key={urlPath}>
-      <a href={env}>{meta.title}</a>{' '}
+      <a class="m-0" href={env}>{meta.title}</a>{' '}
       <small>written on a {dayjs(meta.date).format('dddd in MMMM ’YY')}</small>
     </li>
   )

@@ -1,0 +1,16 @@
+:root {
+  /* Light mode */
+  --light-text: theme("colors.blue");
+  --light-bg: theme("colors.neutral");
+  --light-switch-text: "dark mode";
+
+  /* Dark mode */
+  --dark-text: theme(colors.yellow);
+  --dark-bg: theme("colors.test");
+  --dark-switch-text: "light mode";
+
+  /* Default mode */
+  --text-color: var(--light-text);
+  --bg-color: var(--light-bg);
+  --switch-text: var(--light-switch-text);
+}

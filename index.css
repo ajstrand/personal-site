@@ -1,6 +1,24 @@
+@import "./theme-switch.css";
+@import "./colors.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main:has(#dark:checked) {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+main:has(#light:checked) {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+main:has(#light:checked) {
+  .c-toggle__wrapper {
+    border: 3px solid #000000;
+  }
+}
 
 html,
 body {
@@ -16,9 +34,11 @@ body {
   nav a {
     @apply text-something;
   }
-  .dark a,
-  .dark nav a {
-    @apply text-pink-links;
+  main:has(#dark:checked) {
+    a,
+    nav a {
+      @apply text-pink-links;
+    }
   }
 }
 

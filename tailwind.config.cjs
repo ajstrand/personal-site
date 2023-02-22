@@ -13,10 +13,9 @@ module.exports = {
         pink: {
           links:'#fda4af'
         },
-        yellow:{
-          '500':'#EAA221' 
-        },
-        blue: '#2b2d42'
+        yellow:'#EAA221',
+        blue: '#2b2d42',
+        test:'#222430'
       }
     },
   },
