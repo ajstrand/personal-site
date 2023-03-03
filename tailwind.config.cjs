@@ -8,13 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        something: '#ce4257',
+        lightLinks: '#ce4257',
         neutral:'#f6fff8',
         pink: {
           links:'#fda4af'
         },
-        // marigold color variant
-        lightY:'#f3c063',
+        lightBlue:'#bfdaec',
+        purple:'#534375',
+        darkText:'#dddddd',
         blue: '#2b2d42',
         test:'#222430'
       }

@@ -3,28 +3,7 @@ export const meta = {
   description: `The world's newest Tropical website!`,
 };
 
-# Welcome to your new Tropical website 🏝😎🍹
 
-## Metadata
-
-Pages can have tags, dates, and all kinds of other metadata. That lets you do stuff like render a date-ordered list of all pages with the 'post' tag:
-
-import { pagesWithTag } from '../utils'
-import dayjs from 'dayjs'
-
-<ul>
-  {pagesWithTag(props.pages, 'post').map(({ meta, urlPath }) => {
-    let withoutTrailingSlash = urlPath.slice(0, urlPath.length - 1)
-    let urlPathFull = `${withoutTrailingSlash}.html`
-    let env = process.env.NODE_ENV === 'development' ? urlPath : urlPathFull
-    return(
-    <li key={urlPath}>
-      <a class="m-0" href={env}>{meta.title}</a>{' '}
-      <small>written on a {dayjs(meta.date).format('dddd in MMMM ’YY')}</small>
-    </li>
-  )
-  })}
-</ul>
 
 ## Islands & client-side JS
 

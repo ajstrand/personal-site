@@ -32,12 +32,25 @@ body {
 @layer base {
   a,
   nav a {
-    @apply text-something;
+    @apply text-lightLinks;
   }
   main:has(#dark:checked) {
     a,
     nav a {
       @apply text-pink-links;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: theme("colors.purple");
+  }
+  main:has(#dark:checked) {
+    h1,
+    h2,
+    h3 {
+      @apply text-lightBlue;
     }
   }
 }

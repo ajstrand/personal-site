@@ -1,6 +1,5 @@
 .c-toggle {
   label {
-    font-size: 0.4rem;
     margin: 0 0.5em 0;
     cursor: pointer;
   }
@@ -41,7 +40,7 @@
   width: 50%;
   height: 100%;
   border-radius: 50%;
-  background-color: hsla(333, 60%, 60%, 1);
+  background-color: #ce4257;
   transition: all 0.1s ease-out;
   z-index: 2;
 }
@@ -66,6 +65,10 @@
 
 #dark:checked ~ .c-toggle__background {
   background-color: #333;
+}
+
+#dark:checked  ~ .c-toggle__switcher {
+  background-color: #fda4af;
 }
 
 a {
