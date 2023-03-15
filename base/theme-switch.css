@@ -1,0 +1,48 @@
+/* Switched mode */
+.theme-switch:checked ~ .page {
+  --switch-icon: var(--dark-switch-icon);
+  --switch-text: var(--dark-switch-text);
+  --text-color: var(--dark-text);
+  --bg-color: var(--dark-bg);
+}
+
+.sun {
+  display: flex;
+}
+.moon {
+  display: none;
+}
+
+/* Theme switcher */
+.theme-switch {
+  /* Hides the checkbox */
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.switch-label {
+  cursor: pointer;
+  display: flex;
+}
+
+.switch-label::after {
+  align-self: center;
+  content: var(--switch-text);
+  color: var(--text-color);
+  font-size: 1rem;
+  padding-left: 15px;
+}
+body:has(.theme-switch:checked) {
+  .sun {
+    display: none;
+  }
+  .moon {
+    display: flex;
+  }
+  .switch-label {
+    color: var(--dark-text);
+  }
+}

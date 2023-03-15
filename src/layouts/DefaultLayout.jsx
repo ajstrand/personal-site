@@ -1,29 +1,31 @@
+import Sun from "./Sun";
+import Moon from "./Moon";
 const ThemeToggle = () => (
-  <div class="c-toggle">
-    <label for="light">Light mode</label>
-    <span class="c-toggle__wrapper">
-      <input type="radio" name="theme" id="light" checked />
-      <input type="radio" name="theme" id="dark" />
-      <span aria-hidden="true" class="c-toggle__background"></span>
-      <span aria-hidden="true" class="c-toggle__switcher"></span>
-    </span>
-    <label for="dark">Dark mode</label>
+  <div class="flex justify-center items-center">
+    <div class="sun-and-moon" aria-hidden="true">
+      <Sun />
+      <Moon />
+    </div>
+    <label for="theme-switch" class="switch-label"></label>
   </div>
 );
 
 export function DefaultLayout({ meta, children }) {
   return (
-    <main class="page bg-neutral dark:bg-blue text-blue dark:text-yellow-500 w-screen h-screen p-3 flex flex-col justify-start items-start">
-      <nav class="flex justify-center items-center">
-        <a class="m-1" href="/">
-          home
-        </a>
-        <a class="m-1" href="/garden">
-          garden
-        </a>
-        <ThemeToggle />
-      </nav>
-      {children}
-    </main>
+    <>
+      <input type="checkbox" class="theme-switch" id="theme-switch" />
+      <main class="page bg-neutral dark:bg-blue w-screen h-screen p-3 flex flex-col justify-start items-start">
+        <nav class="flex justify-center items-center">
+          <a class="m-1" href="/">
+            home
+          </a>
+          <a class="m-1" href="/garden">
+            garden
+          </a>
+          <ThemeToggle />
+        </nav>
+        {children}
+      </main>
+    </>
   );
 }

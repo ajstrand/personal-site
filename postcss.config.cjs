@@ -7,5 +7,6 @@ module.exports = {
       features: { 'nesting-rules': false },
     },
     autoprefixer: {},
+    'cssnano':{}
   },
 }

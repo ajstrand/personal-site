@@ -4,29 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-main:has(#dark:checked) {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
-
-main:has(#light:checked) {
+main {
   background-color: var(--light-bg);
   color: var(--light-text);
-}
-
-main:has(#light:checked) {
-  .c-toggle__wrapper {
-    border: 3px solid #000000;
-  }
-}
-
-html,
-body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @layer base {
@@ -34,10 +14,17 @@ body {
   nav a {
     @apply text-lightLinks;
   }
-  main:has(#dark:checked) {
+  body:has(.theme-switch:checked) {
     a,
     nav a {
       @apply text-pink-links;
+    }
+  }
+
+  body:has(.theme-switch:checked) {
+    main {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
     }
   }
 
@@ -45,8 +32,9 @@ body {
   h2,
   h3 {
     color: theme("colors.purple");
+    font-weight: 500;
   }
-  main:has(#dark:checked) {
+  body:has(.theme-switch:checked) {
     h1,
     h2,
     h3 {

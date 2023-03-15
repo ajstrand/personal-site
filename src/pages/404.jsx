@@ -4,8 +4,9 @@ export const meta = {
 
 export default function NotFoundPage({ meta, pages }) {
   return (
-    <main class="w-screen h-screen flex justify-center items-center">
-      <p class="font-bold text-yellow-500 w-20">Not Found</p>
+    <main class="w-screen h-screen flex flex-col justify-center items-center">
+      <h3 class="font-bold text-blue dark:text-lightBlue">Not Found</h3>
+      <p>You've found a page that no longer exists</p>
     </main>
   );
 }
