@@ -1,5 +1,5 @@
-//based off of https://www.sarasoueidan.com/blog/toggle-switch-design/
-//with changes for colors and icons
+/*based off of https://www.sarasoueidan.com/blog/toggle-switch-design/
+ with changes for colors and icons */
 .c-toggle {
 	
 	label {
@@ -73,7 +73,6 @@
 	top: 0;
 	left: 2%;
 	z-index: 3;
-	display: block;
 	color:theme(colors.lightLinks);
 	position: absolute;
 }
@@ -81,9 +80,33 @@
 	top: 0;
 	left: 50%;
 	z-index: 3;
-	display: none;
 	position: absolute;
+	color:theme(colors.lightBlue);
 }
+
+@media (prefers-color-scheme: light) {
+	.sun {
+		display:block;
+	}
+	.moon {
+		display:none;
+	}
+  }
+
+  @media (prefers-color-scheme: dark) {
+	.sun {
+		display:none;
+	}
+	.moon {
+		display:block;
+	}
+	.c-toggle__background {
+		background-color: var(--dark-bg);
+	}
+	.c-toggle__wrapper {
+		border: 3px solid theme(colors.lightBlue);
+	}
+  }
 
 main:has(#light:checked) {
 	.c-toggle__wrapper {
@@ -110,9 +133,7 @@ main:has(#dark:checked){
 		display:none;
 	}
 	.moon {
-		left: 50%;
 		display: block;
-		color:theme(colors.lightBlue);
 
 	}
 }
@@ -127,9 +148,7 @@ main:has(#light:checked){
 		background-color:transparent;
 	}
 	.sun {
-		left: 2%;
 		display: block;
-		color:theme(colors.lightLinks);
 	}
 	.moon {
 		display:none;

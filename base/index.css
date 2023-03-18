@@ -9,6 +9,8 @@ main:has(#light:checked) {
   color:var(--text-color);
 }
 
+
+
 @layer base {
   a,
   nav a {
@@ -59,3 +61,26 @@ ul {
 ul a {
   text-decoration: underline;
 }
+
+@media (prefers-color-scheme: light) {
+  main {
+    background-color: var(--bg-color)!important;
+    color:var(--text-color)!important;
+  }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    main {
+      background-color: var(--dark-bg)!important;
+      color:var(--dark-text)!important;
+    }
+    a,
+    nav a {
+      @apply text-pink-links;
+    }, 
+    h1,
+    h2,
+    h3 {
+      @apply text-lightBlue;
+    }
+  }
