@@ -76,11 +76,11 @@ ul a {
     }
     a,
     nav a {
-      @apply text-pink-links;
+      color:theme("colors.pink.links")!important;
     }, 
     h1,
     h2,
     h3 {
-      @apply text-lightBlue;
+      color:theme("colors.lightBlue")!important;
     }
   }
