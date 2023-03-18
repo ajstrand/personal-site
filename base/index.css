@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-  background-color: var(--light-bg);
-  color: var(--light-text);
+main:has(#light:checked) {
+  background-color: var(--bg-color);
+  color:var(--text-color);
 }
 
 @layer base {
@@ -14,17 +14,10 @@ main {
   nav a {
     @apply text-lightLinks;
   }
-  body:has(.theme-switch:checked) {
+  main:has(#dark:checked) {
     a,
     nav a {
       @apply text-pink-links;
-    }
-  }
-
-  body:has(.theme-switch:checked) {
-    main {
-      background-color: var(--dark-bg);
-      color: var(--dark-text);
     }
   }
 
@@ -34,13 +27,18 @@ main {
     color: theme("colors.purple");
     font-weight: 500;
   }
-  body:has(.theme-switch:checked) {
+  main:has(#dark:checked) {
     h1,
     h2,
     h3 {
       @apply text-lightBlue;
     }
   }
+  main:has(#dark:checked) {
+    background-color: var(--dark-bg);
+    color:var(--dark-text);
+  }
+
 }
 
 h1,

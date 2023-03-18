@@ -1,48 +1,147 @@
-/* Switched mode */
-.theme-switch:checked ~ .page {
-  --switch-icon: var(--dark-switch-icon);
-  --switch-text: var(--dark-switch-text);
-  --text-color: var(--dark-text);
-  --bg-color: var(--dark-bg);
+.c-toggle {
+	
+	label {
+		font-size: 1rem;
+		margin: 0 .5em 0;
+		cursor: pointer;
+	}
+	
+	input[type="radio"] {
+		display: inline-block;
+		margin-right: -2px;
+		width: 50%;
+		height: 100%;
+		opacity: 0;
+		position: relative;
+		z-index: 1;
+		cursor: pointer;
+
+		&:focus {
+			main:has(#light:checked) {
+				.c-toggle__switcher {
+					border: 3px solid theme(colors.lightLinks)
+				}
+			}
+			main:has(#dark:checked) {
+				.c-toggle__switcher {
+					border: 3px solid theme(colors.lightBlue)
+				}
+			}
+		}
+	}
+}
+
+.c-toggle__wrapper {
+	font-size: 1.5rem;
+	display: inline-block;
+	vertical-align: middle;
+	width: 2em;
+	height: 1em;
+	border-radius: 3.5em; /* = height */
+	border: 3px solid theme(colors.purple);
+	position: relative;
+}
+.c-toggle__switcher {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 100%;
+	width: 50%;
+	height: 100%;
+	border-radius: 50%;
+	transition: all 0.1s ease-out;
+	z-index: 2;
+}
+
+.c-toggle__background {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	border-radius: 3.5em;
+	background-color: var(--bg-color);
+	transition: all 0.1s ease-out;
 }
 
 .sun {
-  display: flex;
+	top: 0;
+	left: 2%;
+	z-index: 3;
+	display: block;
+	color:theme(colors.lightLinks);
+	position: absolute;
 }
 .moon {
-  display: none;
+	top: 0;
+	left: 50%;
+	z-index: 3;
+	display: none;
+	position: absolute;
 }
 
-/* Theme switcher */
-.theme-switch {
-  /* Hides the checkbox */
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
+main:has(#light:checked) {
+	.c-toggle__wrapper {
+		border: 3px solid theme(colors.purple);
+	}
+}
+main:has(#dark:checked) {
+	.c-toggle__wrapper {
+		border: 3px solid theme(colors.lightBlue);
+	}
 }
 
-.switch-label {
-  cursor: pointer;
-  display: flex;
+main:has(#dark:checked){
+	.c-toggle {
+		label {
+			color:(--dark-text);
+		}
+	}
+	.c-toggle__switcher {
+		right: 0;
+		left: 50%;
+	}
+	.sun {
+		display:none;
+	}
+	.moon {
+		left: 50%;
+		display: block;
+		color:theme(colors.lightBlue);
+
+	}
 }
 
-.switch-label::after {
-  align-self: center;
-  content: var(--switch-text);
-  color: var(--text-color);
-  font-size: 1rem;
-  padding-left: 15px;
+main:has(#light:checked){
+	.c-toggle {
+		label span {
+			color:(--light-text);
+		}
+	}
+	.c-toggle__switcher {
+		background-color:transparent;
+	}
+	.sun {
+		left: 2%;
+		display: block;
+		color:theme(colors.lightLinks);
+	}
+	.moon {
+		display:none;
+	}
 }
-body:has(.theme-switch:checked) {
-  .sun {
-    display: none;
-  }
-  .moon {
-    display: flex;
-  }
-  .switch-label {
-    color: var(--dark-text);
-  }
+
+#dark:checked ~ .c-toggle__background {
+	background-color: #333;
+}
+
+/* support Windows High Contrast Mode. 
+Credit: Adrian Roselli https://twitter.com/aardrian/status/1021372139990134785 */
+@media screen and (-ms-high-contrast: active) {
+	.c-toggle__switcher {
+		background-color: windowText;
+	}
 }
