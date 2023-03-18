@@ -26,6 +26,7 @@ checkTheme();
 
 
 let els = document.querySelectorAll("input[type=radio]");
+//TODO: fix this function, it's not working right
 els.forEach((el) => {
   el.addEventListener("change", (e) => {
     let checked = e.currentTarget.checked;
