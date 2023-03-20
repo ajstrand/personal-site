@@ -1,26 +1,22 @@
 @import "./theme-switch.css";
 @import "./colors.css";
+@import "./code-block-styles.css"
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-main:has(#light:checked) {
-  background-color: var(--bg-color);
-  color:var(--text-color);
+body {
+  margin:0;
 }
 
 
 
-@layer base {
+
+
+/* @layer base {
   a,
   nav a {
     @apply text-lightLinks;
-  }
-  main:has(#dark:checked) {
-    a,
-    nav a {
-      @apply text-pink-links;
-    }
   }
 
   h1,
@@ -29,19 +25,7 @@ main:has(#light:checked) {
     color: theme("colors.purple");
     font-weight: 500;
   }
-  main:has(#dark:checked) {
-    h1,
-    h2,
-    h3 {
-      @apply text-lightBlue;
-    }
-  }
-  main:has(#dark:checked) {
-    background-color: var(--dark-bg);
-    color:var(--dark-text);
-  }
-
-}
+} */
 
 h1,
 h2,
@@ -66,6 +50,17 @@ ul a {
   main {
     background-color: var(--bg-color)!important;
     color:var(--text-color)!important;
+
+
+    a,
+    nav a {
+      color:theme("colors.lightLinks")!important;
+    }, 
+    h1,
+    h2,
+    h3 {
+      color:theme("colors.purple")!important;
+    }
   }
   }
 
@@ -73,7 +68,40 @@ ul a {
     main {
       background-color: var(--dark-bg)!important;
       color:var(--dark-text)!important;
+  
+      a,
+      nav a {
+        color:theme("colors.pink.links")!important;
+      }, 
+      h1,
+      h2,
+      h3 {
+        color:theme("colors.lightBlue")!important;
+      }
     }
+  
+  }
+
+  main:has(#light:checked) {
+    background-color: var(--bg-color)!important;
+    color:var(--text-color)!important;
+
+
+    a,
+    nav a {
+      color:theme("colors.lightLinks")!important;
+    }, 
+    h1,
+    h2,
+    h3 {
+      color:theme("colors.purple")!important;
+    }
+  }
+
+  main:has(#dark:checked) {
+    background-color: var(--dark-bg)!important;
+    color:var(--dark-text)!important;
+
     a,
     nav a {
       color:theme("colors.pink.links")!important;

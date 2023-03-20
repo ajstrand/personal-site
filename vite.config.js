@@ -13,6 +13,13 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import rehypeInferReadingTimeMeta from 'rehype-infer-reading-time-meta'
+import rehypeShiki from "@stefanprobst/rehype-shiki"
+import rehypeCodeTitles from "rehype-code-titles";
+
+import * as shiki from 'shiki'
+
+const highlighter = await shiki.getHighlighter({ theme: 'rose-pine-moon' })
+
 export const plugins = [
   nodePolyfills({
     // Whether to polyfill `node:` protocol imports.
@@ -25,9 +32,13 @@ export const plugins = [
       rehypeKatex,
       rehypeExtractToc,
       rehypeExtractTocMdx,
-      rehypeInferReadingTimeMeta
+      rehypeInferReadingTimeMeta,
+      rehypeCodeTitles,
+      [rehypeShiki, { highlighter }],
     ],
-    remarkPlugins: [remarkGfm, remarkMath],
+    remarkPlugins: [
+      remarkGfm, 
+      remarkMath],
     providerImportSource: "@mdx-js/preact",
   }),
 ];

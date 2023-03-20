@@ -5,11 +5,14 @@
   "dependencies": {
     "postcss-import": "^15.1.0",
     "preact": "^10.13.1",
+    "react-a11y-footnotes":"file:./footnotes/",
+    "rehype-code-titles": "^1.2.0",
     "rehype-infer-reading-time-meta": "^1.1.0",
     "rehype-katex": "^6.0.2",
-    "remark-code-title": "^0.2.5",
     "remark-math": "^5.1.1",
-    "remark-validate-links": "12.1.0"
+    "remark-validate-links": "12.1.0",
+    "shiki": "^0.14.1",
+    "prop-types": "15.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
@@ -21,6 +24,7 @@
     "@mdx-js/rollup": "^2.3.0",
     "@preact/preset-vite": "^2.5.0",
     "@stefanprobst/rehype-extract-toc": "2.2.0",
+    "@stefanprobst/rehype-shiki": "2.2.0",
     "@testing-library/preact": "3.2.3",
     "autoprefixer": "^10.4.14",
     "cssnano": "^5.1.15",
@@ -32,7 +36,6 @@
     "postcss-preset-env": "^8.0.1",
     "preact-render-to-string": "^5.2.6",
     "rehype-slug": "5.1.0",
-    "remark-footnotes": "4.0.1",
     "remark-gfm": "3.0.1",
     "rollup-plugin-esbuild": "^5.0.0",
     "serve": "^14.2.0",

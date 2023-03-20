@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>alex's website</title>
     <link href="./base/index.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="./mathCSS/katex.min.css"
-    />
+    <!-- <link rel="stylesheet" href="./mathCSS/katex.min.css" /> -->
+    <script>
+      const checkTheme = () => {
+        /*On page load or when changing themes,
+    best to add inline in `head` to avoid FOUC*/
+        let currentTheme = localStorage.theme;
+        let noThemeSet = !("theme" in localStorage);
+        let prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (currentTheme === "dark" || (noThemeSet && prefersDark)) {
+          document.documentElement.classList.add("dark");
+          let el = document.querySelector("#dark");
+          if(el){
+            el.checked = true;
+          localStorage.setItem("theme", "dark");
+          }
+        } else {
+          document.documentElement.classList.remove("dark");
+          let el = document.querySelector("#light");
+          if(el){
+            el.checked = false;
+          localStorage.setItem("theme", "light");
+          }
+        }
+      };
+
+      checkTheme();
+    </script>
 
     <!--react-head-outlet-->
   </head>

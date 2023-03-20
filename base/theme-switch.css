@@ -38,7 +38,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	width: 2em;
-	height: 1em;
+	height: 0.8em;
 	border-radius: 3.5em; /* = height */
 	border: 3px solid theme(colors.purple);
 	position: relative;
@@ -85,6 +85,7 @@
 }
 
 @media (prefers-color-scheme: light) {
+	
 	.sun {
 		display:block;
 	}
@@ -106,57 +107,55 @@
 	.c-toggle__wrapper {
 		border: 3px solid theme(colors.lightBlue);
 	}
-  }
-
-main:has(#light:checked) {
-	.c-toggle__wrapper {
-		border: 3px solid theme(colors.purple);
-	}
 }
-main:has(#dark:checked) {
+
+main:has(#light:checked){
+	.c-toggle {
+		label span {
+			color:(--light-text)!important;
+		}
+	}
+	.c-toggle__background {
+		background-color: var(--bg-color)!important;
+	}
 	.c-toggle__wrapper {
-		border: 3px solid theme(colors.lightBlue);
+		border: 3px solid theme(colors.purple)!important;
+	}
+	.c-toggle__switcher {
+		background-color:transparent!important;
+	}
+	.sun {
+		display: block!important;
+	}
+	.moon {
+		display:none!important;
 	}
 }
 
 main:has(#dark:checked){
 	.c-toggle {
 		label {
-			color:(--dark-text);
+			color:(--dark-text)!important;
 		}
 	}
 	.c-toggle__switcher {
 		right: 0;
 		left: 50%;
 	}
-	.sun {
-		display:none;
-	}
-	.moon {
-		display: block;
+	.c-toggle__background {
+		background-color: #333!important;
 
 	}
-}
-
-main:has(#light:checked){
-	.c-toggle {
-		label span {
-			color:(--light-text);
-		}
-	}
-	.c-toggle__switcher {
-		background-color:transparent;
+	.c-toggle__wrapper {
+		border: 3px solid theme(colors.lightBlue)!important;
 	}
 	.sun {
-		display: block;
+		display:none!important;
 	}
 	.moon {
-		display:none;
-	}
-}
+		display: block!important;
 
-#dark:checked ~ .c-toggle__background {
-	background-color: #333;
+	}
 }
 
 /* support Windows High Contrast Mode. 

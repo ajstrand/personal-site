@@ -8,7 +8,7 @@ export function hydrateIslands(
   if (isles.length === 0) {
     const errMessage = `there were no islands found in the DOM. 
     Check the server file to see what errors were logged`
-    throw new Error(errMessage);
+    console.warn(errMessage);
   }
   isles.forEach((island) => {
     const Component = islands[island.dataset.tropicalHydrationComponent];
