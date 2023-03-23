@@ -5,9 +5,9 @@
             "@babel/plugin-transform-react-jsx",
             {
                 "pragma": "h",
-                "pragmaFrag": "Fragment",
-            },
+                "pragmaFrag": "Fragment"
+            }
         ], ["babel-plugin-transform-goober"]
-    ],
+    ]
 
   }

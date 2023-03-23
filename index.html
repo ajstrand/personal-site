@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" class="w-screen h-screen flex">
+<html lang="en" class="w-screen h-screen flex light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
     <title>alex's website</title>
     <link href="./base/index.css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="./mathCSS/katex.min.css" /> -->
-    <script>
-      const checkTheme = () => {
-        /*On page load or when changing themes,
+    <script type="module">
+      /*On page load or when changing themes,
     best to add inline in `head` to avoid FOUC*/
-        let currentTheme = localStorage.theme;
-        let noThemeSet = !("theme" in localStorage);
-        let prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        if (currentTheme === "dark" || (noThemeSet && prefersDark)) {
-          document.documentElement.classList.add("dark");
-          let el = document.querySelector("#dark");
-          if(el){
-            el.checked = true;
-          localStorage.setItem("theme", "dark");
-          }
-        } else {
-          document.documentElement.classList.remove("dark");
-          let el = document.querySelector("#light");
-          if(el){
-            el.checked = false;
-          localStorage.setItem("theme", "light");
-          }
+      let currentTheme = localStorage.theme;
+      let noThemeSet = !("theme" in localStorage);
+      let prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const shouldUseDark = noThemeSet && prefersDark ? true : false;
+      if (currentTheme === "dark" || shouldUseDark) {
+        document.documentElement.classList.add("dark");
+        document.documentElement.classList.remove("light");
+        localStorage.setItem("theme", "dark");
+        let el = document.querySelector("#dark");
+        if (el) {
+          el.checked = true;
         }
-      };
+      } else {
+        let hasLight = document.documentElement.classList.contains("light");
+        if (!hasLight) {
+          document.documentElement.classList.add("light");
+          document.documentElement.classList.remove("dark");
+        }
 
-      checkTheme();
+        localStorage.setItem("theme", "light");
+        let el = document.querySelector("#light");
+        if (el) {
+          el.checked = true;
+        }
+      }
     </script>
 
     <!--react-head-outlet-->

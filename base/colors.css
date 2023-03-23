@@ -1,16 +1,27 @@
 :root {
+  color-scheme: light dark;
+
   /* Light mode */
   --light-text: theme("colors.blue");
   --light-bg: theme("colors.neutral");
+  --light-link:theme(colors.lightLinks);
+  --light-heading:theme(colors.purple);
+  --light-border:theme(colors.purple);
   --light-switch-text: "dark mode";
 
   /* Dark mode */
   --dark-text: theme("colors.darkText");
+  --dark-link:theme("colors.pink.links");
+  --dark-heading:theme(colors.lightBlue);
+  --dark-border:theme(colors.lightBlue);
   --dark-bg: theme("colors.test");
   --dark-switch-text: "light mode";
 
   /* Default mode */
   --text-color: var(--light-text);
   --bg-color: var(--light-bg);
+  --link-color:var(--light-link);
+  --border-color:var(--light-border);
+  --heading-color:var(--light-heading);
   --switch-text: var(--light-switch-text);
 }

@@ -7,8 +7,8 @@ const ThemeToggle = () => (
         <span>Light</span>
       </label>
       <span class="c-toggle__wrapper">
-        <input type="radio" value="dark" name="theme" id="light" />
-        <input type="radio" value="light" name="theme" id="dark" />
+        <input type="radio" value="light" name="theme" id="light" />
+        <input type="radio" value="dark" name="theme" id="dark" />
         <span aria-hidden="true" class="c-toggle__background">
         </span>
         <span aria-hidden="true" class="c-toggle__switcher">

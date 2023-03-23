@@ -4,7 +4,7 @@ import Island from "../island.jsx";
 export function DefaultLayout({ meta, children }) {
   return (
     <>
-      <main class="page bg-neutral text-blue dark:bg-blue dark:text-darkText w-screen h-screen p-3 flex flex-col justify-start items-start">
+      <main class="page  w-screen h-screen p-3 flex flex-col justify-start items-start">
         <nav class="flex justify-center items-center">
           <a class="m-1" href="/">
             home

@@ -9,12 +9,14 @@ els.forEach((el) => {
     let checked = e.currentTarget.checked;
     let value = e.currentTarget.value;
     if (checked && value === "dark") {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-   
-    } if(checked && value === "light") {
       document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
       localStorage.setItem("theme", "dark");
+    }
+    if (checked && value === "light") {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+      localStorage.setItem("theme", "light");
     }
   });
 });

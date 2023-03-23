@@ -6,6 +6,10 @@
 		font-size: 1rem;
 		margin: 0 .5em 0;
 		cursor: pointer;
+
+		span {
+			color:var(--text-color);
+		}
 	}
 	
 	input[type="radio"] {
@@ -40,7 +44,7 @@
 	width: 2em;
 	height: 0.8em;
 	border-radius: 3.5em; /* = height */
-	border: 3px solid theme(colors.purple);
+	border: 3px solid var(--border-color);
 	position: relative;
 }
 .c-toggle__switcher {
@@ -81,10 +85,15 @@
 	left: 50%;
 	z-index: 3;
 	position: absolute;
-	color:theme(colors.lightBlue);
+	color:var(--dark-border);
 }
 
 @media (prefers-color-scheme: light) {
+	:root {
+		--text-color: var(--light-text);
+		--bg-color: var(--light-bg);
+		--border-color:var(--light-border);
+	  }
 	
 	.sun {
 		display:block;
@@ -92,71 +101,82 @@
 	.moon {
 		display:none;
 	}
+	
   }
 
   @media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: var(--dark-text);
+		--bg-color: var(--dark-bg);
+		--border-color:var(--dark-border);
+	  }
 	.sun {
 		display:none;
 	}
 	.moon {
 		display:block;
 	}
-	.c-toggle__background {
-		background-color: var(--dark-bg);
-	}
-	.c-toggle__wrapper {
-		border: 3px solid theme(colors.lightBlue);
-	}
+	
 }
-
-main:has(#light:checked){
-	.c-toggle {
-		label span {
-			color:(--light-text)!important;
-		}
-	}
-	.c-toggle__background {
-		background-color: var(--bg-color)!important;
-	}
-	.c-toggle__wrapper {
-		border: 3px solid theme(colors.purple)!important;
-	}
-	.c-toggle__switcher {
-		background-color:transparent!important;
-	}
+html:has(#light:checked){
+	body {
+		--text-color: var(--light-text);
+		--bg-color: var(--light-bg);
+		--border-color:var(--light-border);
+	  }
 	.sun {
-		display: block!important;
+		display: block;
 	}
 	.moon {
-		display:none!important;
+		display:none;
 	}
 }
 
-main:has(#dark:checked){
-	.c-toggle {
-		label {
-			color:(--dark-text)!important;
-		}
-	}
-	.c-toggle__switcher {
-		right: 0;
-		left: 50%;
-	}
-	.c-toggle__background {
-		background-color: #333!important;
-
-	}
-	.c-toggle__wrapper {
-		border: 3px solid theme(colors.lightBlue)!important;
-	}
+html:has(.light){
+	body {
+		--text-color: var(--light-text);
+		--bg-color: var(--light-bg);
+		--border-color:var(--light-border);
+	  }
 	.sun {
-		display:none!important;
+		display: block;
 	}
 	.moon {
-		display: block!important;
-
+		display:none;
 	}
 }
+
+html:has(#dark:checked), html:has(.dark){
+	body {
+		--text-color: var(--dark-text);
+		--bg-color: var(--dark-bg);
+		--border-color:var(--dark-border);
+	  }
+	.sun {
+		display: none;
+	}
+	.moon {
+		display:block;
+	}
+}
+
+html:not(:has(.light))html:not(:has(.dark)) {
+	body, main {
+		--text-color: var(--light-text);
+		--bg-color: var(--light-bg);
+		--border-color:var(--light-border);
+	  }
+	.sun {
+		display: block;
+	}
+	.moon {
+		display:none;
+	}
+}
+
+
+
+
 
 /* support Windows High Contrast Mode. 
 Credit: Adrian Roselli https://twitter.com/aardrian/status/1021372139990134785 */

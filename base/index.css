@@ -1,36 +1,13 @@
-@import "./theme-switch.css";
 @import "./colors.css";
+@import "./theme-switch.css";
 @import "./code-block-styles.css"
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin:0;
-}
-
-
-
-
-
-/* @layer base {
-  a,
-  nav a {
-    @apply text-lightLinks;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: theme("colors.purple");
-    font-weight: 500;
-  }
-} */
-
-h1,
-h2,
-h3 {
-  font-size: 1.5rem;
+main, body {
+  background-color:var(--bg-color);
+  color:var(--text-color);
 }
 
 p,
@@ -46,69 +23,117 @@ ul a {
   text-decoration: underline;
 }
 
+h1,
+h2,
+h3, h4, h5, h6 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color:var(--heading-color);
+}
+
+a {
+  color:var(--link-color);
+}
+
 @media (prefers-color-scheme: light) {
+  :root {
+    --text-color: var(--light-text);
+    --bg-color: var(--light-bg);
+    --link-color:var(--light-link);
+    --heading-color:var(--light-heading);
+  }
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: var(--dark-text);
+    --bg-color: var(--dark-bg);
+    --link-color:var(--dark-link);
+    --heading-color:var(--dark-heading);
+  }
+
+  html:not(:has(.light))html:not(:has(.dark)) {
+    body {
+      --text-color: var(--dark-text);
+      --bg-color: var(--dark-bg);
+      --link-color:var(--dark-link);
+      --heading-color:var(--dark-heading);
+    }
+  }
+  /* html:not(:has(.light))html:not(:has(.dark)) {
+    body {
+      --text-color: var(--light-text);
+      --bg-color: var(--light-bg);
+      --link-color:var(--light-link);
+      --heading-color:var(--light-heading);
+    }
+  } */
+  
+}
+
+body:has(#light:checked) {
   main {
-    background-color: var(--bg-color)!important;
-    color:var(--text-color)!important;
+    --text-color: var(--light-text);
+    --bg-color: var(--light-bg);
+    --link-color:var(--light-link);
+    --heading-color:var(--light-heading);
 
-
-    a,
-    nav a {
-      color:theme("colors.lightLinks")!important;
-    }, 
-    h1,
-    h2,
-    h3 {
-      color:theme("colors.purple")!important;
-    }
+    background-color:var(--bg-color);
+    color:var(--text-color);
   }
+}
+
+html:has(.light) {
+  main {
+    --text-color: var(--light-text);
+    --bg-color: var(--light-bg);
+    --link-color:var(--light-link);
+    --heading-color:var(--light-heading);
+
+    background-color:var(--bg-color);
+    color:var(--text-color);
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    main {
-      background-color: var(--dark-bg)!important;
-      color:var(--dark-text)!important;
-  
-      a,
-      nav a {
-        color:theme("colors.pink.links")!important;
-      }, 
-      h1,
-      h2,
-      h3 {
-        color:theme("colors.lightBlue")!important;
-      }
-    }
-  
+body:has(#dark:checked) {
+  main {
+    --text-color: var(--dark-text);
+    --bg-color: var(--dark-bg);
+    --link-color:var(--dark-link);
+    --heading-color:var(--dark-heading);
+
+    background-color:var(--bg-color);
+    color:var(--text-color);
   }
+}
 
-  main:has(#light:checked) {
-    background-color: var(--bg-color)!important;
-    color:var(--text-color)!important;
+html:has(.dark) {
+  main {
+    --text-color: var(--dark-text);
+    --bg-color: var(--dark-bg);
+    --link-color:var(--dark-link);
+    --heading-color:var(--dark-heading);
 
-
-    a,
-    nav a {
-      color:theme("colors.lightLinks")!important;
-    }, 
-    h1,
-    h2,
-    h3 {
-      color:theme("colors.purple")!important;
-    }
+    background-color:var(--bg-color);
+    color:var(--text-color);
   }
+}
 
-  main:has(#dark:checked) {
-    background-color: var(--dark-bg)!important;
-    color:var(--dark-text)!important;
-
-    a,
-    nav a {
-      color:theme("colors.pink.links")!important;
-    }, 
-    h1,
-    h2,
-    h3 {
-      color:theme("colors.lightBlue")!important;
-    }
+html:not(:has(.light))html:not(:has(.dark)) {
+  body {
+    --text-color: var(--light-text);
+    --bg-color: var(--light-bg);
+    --link-color:var(--light-link);
+    --heading-color:var(--light-heading);
   }
+}
+
+
+
+
+
+
+
+
+
