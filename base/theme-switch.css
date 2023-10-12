@@ -8,6 +8,8 @@
 		cursor: pointer;
 
 		span {
+			display:flex;
+			margin-top: 4px;
 			color:var(--text-color);
 		}
 	}

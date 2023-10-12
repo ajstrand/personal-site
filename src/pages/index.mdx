@@ -3,26 +3,22 @@ export const meta = {
   description: `The world's newest Tropical website!`,
 };
 
+<h1>Hi I'm Alex!</h1>
+
+Software Engineer @homedepot. Previously @OCLC.
+
+I love working with modern web technologies and building 
+accessible products/services that serve the needs of users.
+All code on this site is server rendered by default. 
+
+Want to contact me, or interested in working with me? 
+Contact me here: ajstrand8 (at) gmail.com
 
 
-## Islands & client-side JS
-
-Tropical pages are **only server rendered by default.**
-To progressively enhance you'll need to sprinkle on some client-side JS,
-or opt components into hydration with Tropical Islands.
-
-```js:hi_function
-function hi() {
-  console.log('Hi!')
-  return true
-}
-```
 
 import Island from "../island.jsx";
-import ExampleComponent from "../components/ExampleComponent.jsx";
+import CurrentTime from "../components/CurrentTime.jsx"
 
-<Island componentName="ExampleComponent" islandTag="span">
-  <ExampleComponent alertMessage="😎">Hydrated</ExampleComponent>
+<Island componentName="CurrentTime" islandTag="span">
+  <CurrentTime/>
 </Island>
-
-<ExampleComponent alertMessage="😢">Not hydrated</ExampleComponent>

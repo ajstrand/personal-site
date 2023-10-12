@@ -2,7 +2,7 @@ import Sun from "./Sun";
 import Moon from "./Moon";
 const ThemeToggle = () => (
   <div class="flex justify-center items-center">
-    <div class="c-toggle">
+    <div class="c-toggle flex justify-center items-center">
       <label for="light">
         <span>Light</span>
       </label>
