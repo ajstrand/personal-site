@@ -1,0 +1,48 @@
+{
+  "name": "personal-site",
+  "description": "my personal site",
+  "version": "0.1.0",
+  "dependencies": {
+    "preact": "^10.19.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.23.6",
+    "@babel/plugin-transform-react-jsx": "^7.23.4",
+    "@babel/preset-env": "7.23.6",
+    "@babel/preset-react": "7.23.3",
+    "@preact/preset-vite": "^2.7.0",
+    "autoprefixer": "^10.4.16",
+    "cheerio": "^1.0.0-rc.12",
+    "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "esbuild": "0.19.10",
+    "express": "4.18.2",
+    "fs-extra": "11.2.0",
+    "glob": "^10.3.10",
+    "postcss": "^8.4.32",
+    "preact-render-to-string": "6.3.1",
+    "rollup-plugin-critical": "^1.0.13",
+    "rollup-plugin-esbuild": "^6.1.0",
+    "tailwindcss": "^3.4.0",
+    "vite": "^5.0.10",
+    "vite-plugin-node-polyfills": "^0.18.0",
+    "vitest": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "trash": "trash public build dist",
+    "test": "jest",
+    "dev": "yarn trash && yarn prep && node viteServer",
+    "pre":"gleam build && gleam run",
+    "prep": "mkdir public && yarn pre  && yarn rename",
+    "rename": "node renameFiles.js",
+    "build": "yarn rename && yarn run build:client && yarn run build:server && node --experimental-specifier-resolution=node prerender",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr build/dev/javascript/ssr/entry-server.jsx --outDir dist/server"
+  }
+}
