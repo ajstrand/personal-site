@@ -13,7 +13,7 @@ let transformedTemplate = fse.readFileSync(
 
 async function prerender() {
   try {
-    const {renderComponent} =  await import("./dist/server/entry-server.js");
+    const {renderComponent} =  await import("./dist/server/server-test.js");
     const render = renderComponent
 
       const renderer = await render(transformedTemplate);

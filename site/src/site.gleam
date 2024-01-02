@@ -1,6 +1,6 @@
 import nakai
 import nakai/html.{type Node, Body, Element, Html, LeafElement}
-import nakai/html/attrs.{type Attr, data}
+import nakai/html/attrs.{type Attr, class}
 import simplifile.{write}
 
 const header_style = "
@@ -35,7 +35,29 @@ pub fn header(attrs: List(Attr(a)), text: String) -> Node(a) {
   html.h1_text(attrs, text)
 }
 
+pub type Props {
+  Props(count: String, name: String)
+}
+
+/// returns a node that will get turned into a Preact island
+pub fn island(name, props: Props) {
+  html.div(
+    [attrs.data("component", name), attrs.data(props.name, props.count)],
+    [],
+  )
+}
+
+/// entry file for the browser
+pub fn entry(file) {
+  html.Element(
+    "script",
+    [attrs.type_("module"), attrs.async(), attrs.src(file)],
+    [],
+  )
+}
+
 pub fn document() {
+  let count_props = Props(name: "count", count: "4")
   html.Fragment([
     html.Head([
       html.title("alex's site"),
@@ -43,15 +65,8 @@ pub fn document() {
     ]),
     main_content([], [
       header([], "Hello, from Nakai!"),
-      html.div([attrs.data("component", "true"), attrs.data("count", "4")], []),
-      html.Element(
-        "script",
-        [
-          attrs.type_("module"),
-          attrs.src("./build/dev/javascript/site/entry-client.jsx"),
-        ],
-        [],
-      ),
+      island("counter", count_props),
+      entry("./build/dev/javascript/site/entry-client.jsx"),
     ]),
   ])
 }

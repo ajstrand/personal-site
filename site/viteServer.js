@@ -53,7 +53,7 @@ app.use('*', async (req, res) => {
       render = await renderComponent
     } else {
       template = templateHtml
-      const {renderComponent} = await import('./dist/server/entry-server.js')
+      const {renderComponent} = await import('./dist/server/server-test.js')
       render = renderComponent
     }
 

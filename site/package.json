@@ -37,12 +37,12 @@
   "scripts": {
     "trash": "trash public build dist",
     "test": "jest",
-    "dev": "yarn trash && yarn prep && node viteServer",
+    "dev": "pnpm trash && pnpm prep && node viteServer",
     "pre":"gleam build && gleam run",
-    "prep": "mkdir public && yarn pre  && yarn rename",
+    "prep": "mkdir public && pnpm pre  && pnpm rename",
     "rename": "node renameFiles.js",
-    "build": "yarn rename && yarn run build:client && yarn run build:server && node --experimental-specifier-resolution=node prerender",
+    "build": "pnpm rename && pnpm run build:client && pnpm run build:server && node --experimental-specifier-resolution=node prerender",
     "build:client": "vite build --ssrManifest --outDir dist/client",
-    "build:server": "vite build --ssr build/dev/javascript/ssr/entry-server.jsx --outDir dist/server"
+    "build:server": "vite build --ssr build/dev/javascript/site/server-test.jsx --outDir dist/server"
   }
 }

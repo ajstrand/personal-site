@@ -16,7 +16,7 @@ export default defineConfig({
       input: {
         client: resolve(dir, 'index.html'),
         // We'll never actually use this JS bundle, but need it to build assets that are only referenced by SSR pages
-        ssrAssetCollector: resolve(dir, '/build/dev/javascript/ssr/entry-server.jsx')
+        ssrAssetCollector: resolve(dir, '/build/dev/javascript/site/server-test.jsx')
       }
     }
   }

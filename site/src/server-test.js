@@ -32,7 +32,6 @@ export const renderComponent = (pathname, props) => {
     }
     else {
       const {Component} = comps[pathname]
-      console.log(Component)
       html =  render(
          <Island componentName="Counter" islandTag="span">
             <Component {...props}  />
