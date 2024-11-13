@@ -10,3 +10,6 @@ yarn.lock
 /test-results/
 /playwright-report/
 /playwright/.cache/
+dist/
+/lib/
+.bsb.lock

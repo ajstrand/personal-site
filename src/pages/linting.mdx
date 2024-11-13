@@ -1,0 +1,38 @@
+export const meta = {
+  title: `lints using rust`,
+  description: `advancements in javascript linters, using rust to improve perfiormance`,
+};
+
+It's easy to get distracted by new web development tooling, especially in regards to javascript and it's wide ecosystem. 
+
+However, there's been new tools showing up that use `Rust`. 
+
+Rust allows these tools to run much faster than something written in just javascript. 
+
+### oxlint
+
+Example of a lint from a file in a project using `oxlint`
+
+```bash 
+
+  ⚠ eslint-plugin-react(jsx-key): Missing "key" prop for element in iterator.
+    ╭─[src/List.jsx:18:38]
+ 17 │ const CreateList = ({ pages }) => {
+ 18 │   return pagesWithTag(pages, "post").map(({ meta, urlPath }) => {
+    ·                                      ─┬─
+    ·                                       ╰── Iterator starts here
+ 19 │     const { date, title } = meta;
+ 20 │     let withoutTrailingSlash = urlPath.slice(0, urlPath.length - 1);
+ 21 │     let urlPathFull = `${withoutTrailingSlash}.html`;
+ 22 │     let env = process.env.NODE_ENV === "development" ? urlPath : urlPathFull;
+ 23 │     return (
+ 24 │       <ListElement urlPath={urlPath} title={title} date={date} env={env} />
+    ·        ─────┬─────
+    ·             ╰── Element generated here
+ 25 │     );
+    ╰────
+  help: Add a "key" prop to the element in the iterator (https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key).
+```
+
+oxlint ran much faster than eslint, and even includes many of the popular rule sets 
+that people use in their projects. 

@@ -1,0 +1,35 @@
+export const meta = {
+  title: `Math in MDX files with Katex`,
+  description: `details on how to render math with Katex`,
+  tags: ["post"],
+  date: "2023-02-11",
+  //static: true
+};
+
+# Rendering math in MDX files
+
+Rendering mathematical equations/formula in `.mdx` files isnt as stright forward as pure markdowmn.
+
+According to the MDX Docs site, you need to add these two plugins to your build step.
+
+`rehype-katex` and `remark-math`
+
+Im using Vite, so adding the plugins looks like this
+
+```js
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
+
+export default defineConfig({
+  plugins: mdx({
+    rehypePlugins: [rehypeKatex],
+    remarkPlugins: [remarkMath],
+  }),
+});
+```
+
+Adding those plugins to mny `vite.config.js` file lets me use math notation like this:
+
+$\sqrt{a^2 + b^2}$
+
+$y = mx + b$

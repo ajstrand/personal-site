@@ -1,0 +1,23 @@
+export const meta = {
+  title: `footnotes that are accessible`,
+  description: `footnotes`,
+  tags: ["post"],
+  date: "2023-03-19",
+};
+
+# Footnotes in React/Preact
+
+### Footnotes are a nice way to explain info in long pieces of text
+
+I'm using a fork of
+[this](https://kittygiraudel.com/2020/11/24/accessible-footnotes-and-a-bit-of-react/)
+library by @kittygiraudel to render footnotes that are accessible.
+
+Testing was proving difficult with Jest and Preact, so I moved the library to Vite.
+
+import FootnoteTest from "../islands/FootnoteTest.client.jsx";
+import Island from "../Island.jsx";
+
+<Island componentName="FootnoteTest" islandTag="span">
+  <FootnoteTest />
+</Island>

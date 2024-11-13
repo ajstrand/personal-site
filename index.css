@@ -1,0 +1,188 @@
+/* stylex.css */
+@stylex stylesheet;
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+:root {
+  --eggshell: #f3efe0;
+  --light-bg: #f9f9f8;
+  --dark-bg: #1e1a1d;
+  --btn-primary: #00b6ff;
+
+  --accent-color: coral;
+
+  --btn--secondary: #00a96e;
+
+  --light-accent: #3f2e56;
+
+  --secondary-accent: #ffeed6;
+
+  --yellow: #efa00b;
+  --red: #f25757;
+
+  --btn-color: var(--btn-primary);
+
+  --highlight-color: var(--btn--secondary);
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Helvetica,
+    sans-serif;
+}
+
+body main {
+  height: 95vh;
+  background-color: var(--light-bg);
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+    Arial, sans-serif;
+  font-weight: 500;
+} */
+
+body footer {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  background-color: var(--light-bg);
+}
+
+html p {
+  font-size: 1.2rem;
+}
+
+.btn {
+  display: inline-flex;
+  height: 3rem;
+  min-height: 3rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  border-color: oklch(var(--btn-color, var(--b2)) / var(--tw-border-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1em;
+  gap: 0.5rem;
+  font-weight: 600;
+  text-decoration-line: none;
+  transition-duration: 0.2s;
+  max-width: 18rem;
+}
+
+.btn-secondary {
+  background-color: var(--btn--secondary);
+}
+
+.btn-primary {
+  background-color: var(--btn-primary);
+}
+
+[data-theme="light"] {
+  --color-bg: var(--eggshell);
+  --color-fg: var(--dark-bg);
+}
+
+[data-theme="dark"] {
+  --color-bg: var(--dark-bg);
+  --color-fg: var(--light-bg);
+}
+
+body,
+body main,
+body footer {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+}
+
+.theme-button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 0.5rem;
+  transition: all var(--global-transition-time) ease-in-out;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+  border: 0.25rem solid var(--color-fg);
+}
+
+.resume {
+  margin: 0;
+  padding: 0;
+}
+
+.resume_link {
+  margin-left: 0.3rem;
+  padding: 0;
+  color: var(--dark-bg);
+  text-decoration: none;
+}
+
+[data-theme="dark"] nav a {
+  color: var(--light-bg);
+}
+
+.resume_link:focus-visible {
+  outline: 3px solid var(--btn-primary);
+  outline-offset: 3px;
+
+  border-radius: 0.125rem;
+}
+
+@supports not selector(:focus-visible) {
+  .resume_link:focus {
+    /* Fallback for browsers without :focus-visible support */
+    outline: 3px solid var(--btn-primary);
+    outline-offset: 3px;
+    border-radius: 0.125rem;
+  }
+}
+
+nav a {
+  margin-left: 2rem;
+  background-repeat: no-repeat;
+  background-position-y: 26px;
+  background-size: 0% 100%;
+  background-image: linear-gradient(
+    var(--highlight-color),
+    var(--highlight-color)
+  );
+  transition: all 0.5s linear;
+  color: var(--dark-bg);
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+  box-shadow: 0 4px var(--highlight-color);
+  background-size: 100% 100%;
+  background-image: linear-gradient(
+    to right,
+    var(--highlight-color),
+    var(--highlight-color)
+  );
+  transition: all 0.7s cubic-bezier(0, 0, 0.23, 1);
+}
