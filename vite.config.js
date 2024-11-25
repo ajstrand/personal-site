@@ -69,5 +69,11 @@ export default defineConfig({
     jsxInject: `import { h, Fragment } from 'preact'`,
   },
   build,
+  test: {
+    globals: false,
+    environment: "jsdom",
+    root: __dirname,
+    setupFiles: ["./vitest-setup.js"],
+  },
   plugins,
 });

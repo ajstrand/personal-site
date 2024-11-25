@@ -1,6 +1,7 @@
 //import { ThemeDropdown } from "./ThemeDropdown";
 
 import * as stylex from "@stylexjs/stylex";
+//import * as stylex from "@stylexjs/stylex";
 
 const styles = stylex.create({
   nav: {
@@ -26,7 +27,6 @@ const styles = stylex.create({
     justifyContent: "center",
     color: "#000000",
     backgroundColor: "#FFB997",
-    // backgroundColor: "#1e1a1d",
   },
   base: {
     display: "flex",
@@ -48,10 +48,6 @@ export function DefaultLayout({ meta, children }) {
       </div>
       <nav {...stylex.props(styles.nav)}>
         <a href="/">home</a>
-        {/* <a class="m-1" href="/garden">
-          garden
-        </a> */}
-        {/* <ThemeDropdown /> */}
       </nav>
       <main {...stylex.props(styles.base)}>{children}</main>
       <footer>

@@ -8,7 +8,7 @@ export default function NotFoundPage({ meta }) {
       <h3 class="not-found font-bold text-blue dark:text-lightBlue">
         {meta.title}
       </h3>
-      <p>You've found a page that does not exists</p>
+      <p>You've found a page that does not exist</p>
     </main>
   );
 }

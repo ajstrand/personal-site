@@ -36,32 +36,27 @@ export class Renderer {
       meta = this.pages["/404/"].meta;
     }
     const Layout = DefaultLayout;
-
-    // const html = render(
-    //   <MDXProvider>
-    //     <Component
-    //       meta={meta}
-    //       tableOfContents={tableOfContents}
-    //       pages={this.pages}
-    //     />
-    //   </MDXProvider>
-    // );
-
-    const html = render(
-      <MDXProvider>
-        <Layout
-          meta={meta}
-          tableOfContents={tableOfContents}
-          pages={this.pages}
-        >
-          <Component
+    let html;
+    try {
+      html = render(
+        <MDXProvider>
+          <Layout
             meta={meta}
             tableOfContents={tableOfContents}
             pages={this.pages}
-          />
-        </Layout>
-      </MDXProvider>
-    );
+          >
+            <Component
+              meta={meta}
+              tableOfContents={tableOfContents}
+              pages={this.pages}
+            />
+          </Layout>
+        </MDXProvider>
+      );
+    } catch (error) {
+      console.log(error);
+      html = render(<p>test</p>);
+    }
 
     return {
       status: this.pages[pathname] ? 200 : 404,

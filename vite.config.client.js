@@ -6,6 +6,7 @@ import { plugins, build } from "./vite.config.js";
 const dir = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  base: "./",
   plugins: [...plugins],
   build: {
     ...build,

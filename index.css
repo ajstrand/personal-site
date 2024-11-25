@@ -1,10 +1,6 @@
 /* stylex.css */
 @stylex stylesheet;
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 :root {
   --eggshell: #f3efe0;
   --light-bg: #f9f9f8;
@@ -25,6 +21,9 @@
   --btn-color: var(--btn-primary);
 
   --highlight-color: var(--btn--secondary);
+
+  --color-bg: var(--eggshell);
+  --color-fg: var(--dark-bg);
 }
 
 body {

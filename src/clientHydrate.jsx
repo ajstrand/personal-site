@@ -8,11 +8,17 @@ const hydrateIslands = (islands) => {
     console.warn(errMessage);
   }
   for (const island of isles) {
-    const Component = islands[island.dataset.hydrationComponent];
+    // we dont need to search for the name of component
+    // since we already did that upfront
+    // we can just find the component function in the object
+    // since we are hydrating islands one at a time
+    const Component = islands["Component"];
+
+    const nameToFind = island.dataset.hydrationComponent;
 
     if (!Component) {
-      const message = `Found a server-rendered Island for 
-      ${island.dataset.hydrationComponent} but that component was not passed to hydrateIslands`;
+      const message = `Found a server-rendered Island for
+      ${nameToFind} but that component was not passed to hydrateIslands`;
 
       console.warn(message);
       return;

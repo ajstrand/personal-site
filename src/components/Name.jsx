@@ -14,8 +14,7 @@ const styles = stylex.create({
     "-webkit-text-fill-color": "transparent",
   },
 });
-const Name = ({ children }) => {
+//
+export function Name({ children }) {
   return <h1 {...stylex.props(styles.name)}>{children}</h1>;
-};
-
-export default Name;
+}
