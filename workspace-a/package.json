@@ -1,7 +1,0 @@
-{
-  "name": "workspace-a",
-  "version": "1.0.0",
-  "dependencies": {
-    "styled-resume": "file:./styled-resume-folder"
-  }
-}

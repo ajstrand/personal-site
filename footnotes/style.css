@@ -1,0 +1,44 @@
+body {
+  counter-reset: footnotes;
+}
+article {
+  display: flex;
+  flex-direction: column;
+}
+[data-a11y-footnotes-list-item]:target {
+  background-color: #ffa;
+  background-color: hotpink;
+}
+[data-a11y-footnotes-back-link] {
+  font-size: 80%;
+}
+[data-a11y-footnotes-ref] {
+  counter-increment: footnotes;
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+  outline: none;
+  margin-bottom: 2rem;
+}
+[data-a11y-footnotes-ref]:after {
+  content: "[" counter(footnotes) "]";
+  vertical-align: super;
+  font-size: 50%;
+  margin-left: 2px;
+  color: var(--accent-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+[data-a11y-footnotes-ref]:focus:after {
+  outline: thin dotted;
+  outline-offset: 2px;
+}
+
+[data-a11y-footnotes-footer] {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-a11y-footnotes-footer] h2 {
+  margin: 0;
+}
