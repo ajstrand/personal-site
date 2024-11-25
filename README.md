@@ -1,3 +1,3 @@
 # my personal site/digital garden
 
-built with [toast](https://github.com/toastdotdev/toast).
+built with [tropical](https://tropical.js.org/).
