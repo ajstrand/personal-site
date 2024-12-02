@@ -1,6 +1,7 @@
 //import { ThemeDropdown } from "./ThemeDropdown";
 
 import * as stylex from "@stylexjs/stylex";
+import { Info } from "lucide-preact";
 
 const styles = stylex.create({
   nav: {
@@ -19,13 +20,17 @@ const styles = stylex.create({
     fontSize: "2rem",
   },
   message: {
-    width: "100%",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     color: "#000000",
-    backgroundColor: "#FFB997",
+    backgroundColor: "var(--blue)",
+  },
+  messageIcon: {
+    color: "#ffffff",
+    fontWeight: "bold",
+    marginRight: "1rem",
   },
   base: {
     display: "flex",
@@ -49,6 +54,9 @@ export function DefaultLayout({ meta, children }) {
   return (
     <div {...stylex.props(styles.outer)}>
       <div {...stylex.props(styles.message)}>
+        <div {...stylex.props(styles.messageIcon)}>
+          <Info />
+        </div>
         <p>This site is being redesigned, so not all content is present</p>
       </div>
       <nav {...stylex.props(styles.nav)}>

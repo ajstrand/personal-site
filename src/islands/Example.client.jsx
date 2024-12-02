@@ -9,13 +9,21 @@ const styles = stylex.create({
     // cursor: {
     //   ":hover": "not-allowed",
     // },
-    ":focusVisible": {
-      outline: "3px solid #00b6ff",
-      outlineOffset: "3px",
-
-      borderRadius: "0.125rem",
+    outline: {
+      ":focusVisible": "3px solid var(--blue)",
+      ":active": "3px solid var(--blue)",
     },
-    color: "#ffffff",
+    outlineOffset: {
+      ":focusVisible": "3px",
+      ":active": "3px",
+    },
+    borderRadius: {
+      ":focusVisible": "0.125rem",
+      ":active": "0.125rem",
+    },
+
+    color: "#000000",
+    fontWeight: "bold",
     padding: "10px",
     cursor: "pointer",
     borderColor: "#000000",

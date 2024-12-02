@@ -5,7 +5,8 @@
   --eggshell: #f3efe0;
   --light-bg: #f9f9f8;
   --dark-bg: #1e1a1d;
-  --btn-primary: #00b6ff;
+  --blue: #00b6ff;
+  --btn-primary: var(--blue);
 
   --accent-color: coral;
 
@@ -110,7 +111,7 @@ body footer {
 }
 
 .resume_link:focus-visible {
-  outline: 3px solid var(--btn-primary);
+  outline: 3px solid var(--blue);
   outline-offset: 3px;
 
   border-radius: 0.125rem;
