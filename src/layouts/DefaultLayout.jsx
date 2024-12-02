@@ -1,7 +1,6 @@
 //import { ThemeDropdown } from "./ThemeDropdown";
 
 import * as stylex from "@stylexjs/stylex";
-//import * as stylex from "@stylexjs/stylex";
 
 const styles = stylex.create({
   nav: {
@@ -13,7 +12,7 @@ const styles = stylex.create({
   outer: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    flexGrow: "1",
   },
   link: {
     color: "coral",
@@ -30,6 +29,7 @@ const styles = stylex.create({
   },
   base: {
     display: "flex",
+    margin: "0 auto",
     flex: "1 1 0%",
     flexDirection: "column",
     maxWidth: "70vw",

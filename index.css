@@ -26,8 +26,14 @@
   --color-fg: var(--dark-bg);
 }
 
+html,
 body {
-  height: 100vh;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
   margin: 0;
 }
 
@@ -48,7 +54,6 @@ body {
 }
 
 body main {
-  height: 95vh;
   background-color: var(--light-bg);
 }
 
@@ -71,14 +76,6 @@ html p {
   font-size: 1.2rem;
 }
 
-.btn-secondary {
-  background-color: var(--btn--secondary);
-}
-
-.btn-primary {
-  background-color: var(--btn-primary);
-}
-
 [data-theme="light"] {
   --color-bg: var(--eggshell);
   --color-fg: var(--dark-bg);
@@ -94,18 +91,6 @@ body main,
 body footer {
   background-color: var(--color-bg);
   color: var(--color-fg);
-}
-
-.theme-button {
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.5rem 0.5rem;
-  transition: all var(--global-transition-time) ease-in-out;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  color: var(--color-fg);
-  background-color: var(--color-bg);
-  border: 0.25rem solid var(--color-fg);
 }
 
 .resume {
