@@ -37,6 +37,7 @@
     "vite-plugin-stylex": "^0.13.0"
   },
   "devDependencies": {
+    "shiki": "1.24.0",
     "@stefanprobst/rehype-shiki": "2.2.1",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-parse": "^8.0.4",
