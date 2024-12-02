@@ -12,7 +12,7 @@ const hydrateIslands = (islands) => {
     // since we already did that upfront
     // we can just find the component function in the object
     // since we are hydrating islands one at a time
-    const Component = islands["Component"];
+    const Component = islands.Component;
 
     const nameToFind = island.dataset.hydrationComponent;
 

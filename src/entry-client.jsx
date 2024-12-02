@@ -12,7 +12,7 @@ const getComponents = async () => {
   list.forEach(async (el, i) => {
     const compName = el.getAttribute("data-hydration-component");
     const Comp = await import(`./islands/${compName}.client.jsx`);
-    const Component = Comp["default"];
+    const Component = Comp.default;
     const Obj = { Component };
 
     hydrateIslands(Obj);
