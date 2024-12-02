@@ -40,7 +40,7 @@ describe("createCell", () => {
     getComponent(Success, myData);
     const res = await screen.findByText(/What's the meaning of life/);
     expect(res).toBeInTheDocument();
-    let num = screen.getByText(/42/);
+    const num = screen.getByText(/42/);
     expect(num).toBeInTheDocument();
   });
 });

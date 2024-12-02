@@ -21,6 +21,12 @@ const getComponents = async () => {
 
 getComponents();
 
+// import { A11yChecker } from "a11y-inspector";
+// import { render } from "preact";
+// import "../node_modules/a11y-inspector/dist/style.css";
+// const root = document.querySelector("#root");
+// render(<A11yChecker />, root);
+
 // import Example from "./islands/Example.client.jsx";
 // hydrateIslands({ Example });
 //const modules = import.meta.glob("./islands/**/*.client.jsx");

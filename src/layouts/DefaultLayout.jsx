@@ -30,13 +30,18 @@ const styles = stylex.create({
   },
   base: {
     display: "flex",
+    flex: "1 1 0%",
     flexDirection: "column",
     maxWidth: "70vw",
   },
   footer: {
+    flex: "0",
+    marginTop: "1rem",
+    height: "1rem",
     display: "flex",
-    alignItems: "center",
+    flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
   },
 });
 export function DefaultLayout({ meta, children }) {
@@ -50,7 +55,7 @@ export function DefaultLayout({ meta, children }) {
         <a href="/">home</a>
       </nav>
       <main {...stylex.props(styles.base)}>{children}</main>
-      <footer>
+      <footer {...stylex.props(styles.footer)}>
         <p> © {date.getFullYear()} alex strand</p>
       </footer>
     </div>

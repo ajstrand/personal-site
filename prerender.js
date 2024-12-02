@@ -6,7 +6,7 @@ const dir = dirname(fileURLToPath(import.meta.url));
 
 const toAbsolute = (p) => resolve(dir, p);
 
-let transformedTemplate = fse.readFileSync(
+const transformedTemplate = fse.readFileSync(
   resolve(dir, "dist/static/index.html"),
   "utf-8"
 );
@@ -51,7 +51,7 @@ const doWork = async (url) => {
 async function prerender() {
   try {
     //let allFiles = fse.readdirSync(toAbsolute("src/pages")).map((file) => file);
-    let page = "src/pages/index.mdx";
+    const page = "src/pages/index.mdx";
 
     await doWork(page);
     console.log("🦖  Your static site is ready to deploy from dist/static");
