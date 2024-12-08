@@ -26,8 +26,6 @@ async function createServer() {
       const { Renderer } = await vite.ssrLoadModule("/src/entry-server.jsx");
       const renderer = new Renderer(transformedTemplate);
       const { status, type, body } = renderer.render(pathname);
-      console.log(status);
-      console.log(body);
 
       res.status(status).set({ "Content-Type": type }).end(body);
     } catch (e) {

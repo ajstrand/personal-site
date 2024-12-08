@@ -7,11 +7,7 @@ import { nodePolyfills } from "vite-plugin-node-polyfills";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 
-import rehypeShiki from "@stefanprobst/rehype-shiki";
-
-import * as shiki from "shiki";
-
-const highlighter = await shiki.getHighlighter({ theme: "rose-pine-moon" });
+import rehypeShiki from "@shikijs/rehype";
 
 import esbuild from "rollup-plugin-esbuild";
 
@@ -53,7 +49,14 @@ export const plugins = [
       rehypeKatex,
       //   rehypeInferReadingTimeMeta,
       //   rehypeCodeTitles,
-      [rehypeShiki, { highlighter }],
+      [
+        rehypeShiki,
+        {
+          // or `theme` for a single theme
+          // themes for light and dark themes
+          theme: "rose-pine",
+        },
+      ],
     ],
     remarkPlugins: [remarkMath],
     providerImportSource: "@mdx-js/preact",

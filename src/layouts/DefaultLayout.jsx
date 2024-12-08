@@ -6,7 +6,8 @@ import { Info } from "lucide-preact";
 const styles = stylex.create({
   nav: {
     display: "flex",
-    alignItems: "flex-start",
+    alignItems: "center",
+    justifyContent: "space-around",
     width: "80vw",
     margin: "0.5rem",
   },
@@ -26,6 +27,7 @@ const styles = stylex.create({
     justifyContent: "center",
     color: "#000000",
     backgroundColor: "var(--blue)",
+    marginBottom: "10px",
   },
   messageIcon: {
     color: "#ffffff",
@@ -61,6 +63,14 @@ export function DefaultLayout({ meta, children }) {
       </div>
       <nav {...stylex.props(styles.nav)}>
         <a href="/">home</a>
+        <button
+          className="theme-switch"
+          type="button"
+          data-theme-toggle
+          aria-label="Change to light theme"
+        >
+          Change to light theme (or icon here)
+        </button>
       </nav>
       <main {...stylex.props(styles.base)}>{children}</main>
       <footer {...stylex.props(styles.footer)}>

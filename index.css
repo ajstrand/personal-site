@@ -58,6 +58,17 @@ body main {
   background-color: var(--light-bg);
 }
 
+@media (min-width: 30em) and (max-width: 940px) {
+  body main {
+    width: 70vw;
+  }
+}
+@media (min-width: 940px) {
+  body main {
+    width: 60vw;
+  }
+}
+
 /* h1,
 h2,
 h3,
@@ -152,3 +163,32 @@ nav a:focus {
   );
   transition: all 0.7s cubic-bezier(0, 0, 0.23, 1);
 }
+
+pre {
+  background-color: #1b1b1f;
+  padding: 10px;
+  border-radius: 0.125em;
+  font-size: 1rem;
+  border: 2px solid skyblue;
+}
+
+.theme-switch {
+  cursor: pointer;
+  padding: 0.4rem;
+  appearance: none;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  border-radius: 1rem;
+  border: 4px solid var(--btn--secondary);
+}
+
+.theme-switch:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+
+  border-radius: 0.125rem;
+}
+
+/* [data-theme="light"] .theme-switch {
+  border: 4px solid var(--red);
+} */
