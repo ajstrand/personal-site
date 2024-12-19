@@ -69,7 +69,7 @@ export function DefaultLayout({ meta, children }) {
           data-theme-toggle
           aria-label="Change to light theme"
         >
-          Change to light theme (or icon here)
+          light theme
         </button>
       </nav>
       <main {...stylex.props(styles.base)}>{children}</main>

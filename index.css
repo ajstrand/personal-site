@@ -25,6 +25,32 @@
 
   --color-bg: var(--eggshell);
   --color-fg: var(--dark-bg);
+
+  --sm-content: 90vw;
+  --base-header: 3rem;
+  --large-header: 4rem;
+  --super-large-header: 5rem;
+}
+
+/* prevent a flash of the light theme before 
+the dark theme is applied if users prefer 
+a dark color scheme */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: var(--dark-bg);
+    --color-fg: var(--light-bg);
+  }
+}
+
+[data-theme="light"] {
+  --color-bg: var(--eggshell);
+  --color-fg: var(--dark-bg);
+}
+
+[data-theme="dark"] {
+  --color-bg: var(--dark-bg);
+  --color-fg: var(--light-bg);
 }
 
 html,
@@ -58,14 +84,61 @@ body main {
   background-color: var(--light-bg);
 }
 
-@media (min-width: 30em) and (max-width: 940px) {
+body main {
+  max-width: var(--sm-content);
+}
+
+body main h1 {
+  font-size: var(--base-header);
+}
+
+
+
+
+@media (width <= 20rem) {
+  body main h1 {
+    font-size: 2.3rem;
+  }
+}
+
+@media (min-width:26rem) {
+  body main h1 {
+    font-size: var(--large-header);
+  }
+}
+
+@media (30rem <= width <= 59rem) {
   body main {
     width: 70vw;
   }
+  body main h1 {
+    font-size: var(--large-header);
+  }
 }
-@media (min-width: 940px) {
+@media (59rem <= width <= 69rem) {
   body main {
     width: 60vw;
+  }
+  body main h1 {
+    font-size: var(--super-large-header);
+  }
+}
+
+@media (min-width: 69rem) {
+  body main {
+    width: 45vw;
+  }
+  body main h1 {
+    font-size: var(--super-large-header);
+  }
+}
+
+@media (min-width: 89rem) {
+  body main {
+    width: 45vw;
+  }
+  body main h1 {
+    font-size: var(--super-large-header);
   }
 }
 
@@ -86,16 +159,6 @@ body footer {
 
 html p {
   font-size: 1.2rem;
-}
-
-[data-theme="light"] {
-  --color-bg: var(--eggshell);
-  --color-fg: var(--dark-bg);
-}
-
-[data-theme="dark"] {
-  --color-bg: var(--dark-bg);
-  --color-fg: var(--light-bg);
 }
 
 body,
@@ -188,7 +251,3 @@ pre {
 
   border-radius: 0.125rem;
 }
-
-/* [data-theme="light"] .theme-switch {
-  border: 4px solid var(--red);
-} */
