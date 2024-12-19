@@ -43,7 +43,7 @@ const styles = stylex.create({
   },
   footer: {
     flex: "0",
-    marginBottom: "1rem",
+    marginTop: "1rem",
     height: "1rem",
     display: "flex",
     flexDirection: "row",
