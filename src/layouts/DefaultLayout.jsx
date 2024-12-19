@@ -9,7 +9,7 @@ const styles = stylex.create({
     alignItems: "center",
     justifyContent: "space-around",
     width: "80vw",
-    margin: "0.5rem",
+    margin: "0.5rem auto",
   },
   outer: {
     display: "flex",
