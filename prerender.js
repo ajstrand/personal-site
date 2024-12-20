@@ -51,9 +51,10 @@ const doWork = async (url) => {
 async function prerender() {
   try {
     //let allFiles = fse.readdirSync(toAbsolute("src/pages")).map((file) => file);
-    const page = "src/pages/index.mdx";
-
-    await doWork(page);
+    const pages = ["src/pages/index.mdx", "src/pages/404.jsx"];
+    pages.forEach(async (page) => {
+      await doWork(page);
+    });
     console.log("🦖  Your static site is ready to deploy from dist/static");
   } catch (e) {
     console.error(e);
