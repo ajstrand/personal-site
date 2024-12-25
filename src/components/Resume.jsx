@@ -7,7 +7,8 @@ const Resume = () => {
         className="resume_link"
         aria-label="resume"
         target="_blank"
-        href="./resume/alex_strand_resume.pdf" rel="noreferrer"
+        href="./assets/alex_strand_resume.pdf"
+        rel="noreferrer"
       >
         here
       </a>

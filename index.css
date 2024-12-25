@@ -158,6 +158,10 @@ body footer {
   text-decoration: none;
 }
 
+[data-theme="dark"] .resume_link {
+  color: var(--light-bg);
+}
+
 [data-theme="dark"] nav a {
   color: var(--light-bg);
 }
