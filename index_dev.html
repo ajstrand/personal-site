@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>alex strand: digital garden</title>
 
+    <style>
+      body {
+        display: none;
+      }
+    </style>
     <script type="module" src="src/theme.js"></script>
-    <script type="module">
+    <!-- <script type="module">
       const COLORS = {
         dark: {
           darkBg: "#1e1a1d",
@@ -25,8 +30,12 @@
         );
 
         const localStorageIsDark = localStorageTheme === "dark";
-        const themeValue =
-          userPrefersDarkTheme.matches || localStorageIsDark ? "dark" : "light";
+        let themeValue;
+        if (userPrefersDarkTheme.matches || localStorageIsDark) {
+          themeValue = "dark";
+        } else {
+          themeValue = "light";
+        }
         const root = document.documentElement;
         root.style.setProperty(
           "--color-bg",
@@ -38,11 +47,14 @@
         );
         root.style.setProperty("--site-theme", themeValue);
       }
-    </script>
+    </script> -->
+    <!--css-outlet-->
+    <script type="module" src="waitForCSS.js"></script>
   </head>
 
   <body>
     <div id="root"></div>
+
     <!--body-outlet-->
 
     <script type="module" src="src/entry-client.jsx"></script>

@@ -18,7 +18,9 @@ async function createServer() {
       `${req.protocol}://${req.get("host")}${req.originalUrl}`
     );
     try {
-      let template = fse.readFileSync(resolve(dir, "index.html"), "utf-8");
+      const isProd = process.env.NODE_ENV === "production";
+      const filePath = isProd ? "index.html" : "index_dev.html";
+      let template = fse.readFileSync(resolve(dir, filePath), "utf-8");
       const transformedTemplate = await vite.transformIndexHtml(
         pathname,
         template

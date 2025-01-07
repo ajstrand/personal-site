@@ -1,17 +1,5 @@
 import "preact/debug";
 import "../index.css";
-//import { render } from "preact";
-//import Index from "./pages/index.mdx";
-
-//render(<Index />, document.querySelector("#root"));
-
-import makeStyleX from "@stylexjs/dev-runtime";
-
-export const stylex = makeStyleX({
-  classNamePrefix: "x",
-  dev: true,
-  test: false,
-});
 
 import hydrateIslands from "./clientHydrate.jsx";
 
@@ -28,12 +16,6 @@ const getComponents = async () => {
 };
 
 getComponents();
-
-// import { A11yChecker } from "a11y-inspector";
-// import { render } from "preact";
-// import "../node_modules/a11y-inspector/dist/style.css";
-// const root = document.querySelector("#root");
-// render(<A11yChecker />, root);
 
 // import Example from "./islands/Example.client.jsx";
 // hydrateIslands({ Example });
