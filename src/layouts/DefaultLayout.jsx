@@ -6,9 +6,9 @@ import { Info } from "lucide-preact";
 const styles = stylex.create({
   nav: {
     display: "flex",
+    flexDirection:"row",
     alignItems: "center",
-    justifyContent: "space-around",
-    width: "80vw",
+    justifyContent:"flex-start",
     margin: "0.5rem auto",
   },
   outer: {
@@ -16,9 +16,8 @@ const styles = stylex.create({
     flexDirection: "column",
     flexGrow: "1",
   },
-  link: {
-    color: "coral",
-    fontSize: "2rem",
+  linkStyle: {
+    marginRight:"1rem"
   },
   message: {
     display: "flex",
@@ -62,14 +61,15 @@ export function DefaultLayout({ meta, children }) {
         <p>This site is being redesigned, so not all content is present</p>
       </div>
       <nav {...stylex.props(styles.nav)}>
-        <a href="/">home</a>
+        <a {...stylex.props(styles.linkStyle)} href="/">home</a>
         <button
           className="theme-switch"
           type="button"
           data-theme-toggle
           aria-label="Change to light theme"
         >
-          light theme
+          <p>theme: light</p>
+        
         </button>
       </nav>
       <main {...stylex.props(styles.base)}>{children}</main>

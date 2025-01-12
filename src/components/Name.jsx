@@ -3,7 +3,7 @@ import * as stylex from "@stylexjs/stylex";
 const styles = stylex.create({
   name: {
     fontFamily: "serif",
-    margin: "1rem",
+    margin: "0",
     fontSize: "4rem",
     background:
       "linear-gradient(51deg, #f25757 9%, #00b6ff 24%, #FFC15E 36%, #00a96e 59%, #563dd4 100%)",

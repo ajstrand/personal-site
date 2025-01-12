@@ -1,0 +1,43 @@
+:root {
+    --eggshell: #f3efe0;
+    --light-bg: #f9f9f8;
+    --dark-bg: #1e1a1d;
+    --blue: #00b6ff;
+    --btn-primary: var(--blue);
+  
+    --accent-color: coral;
+  
+    --btn--secondary: #00a96e;
+  
+    --light-accent: #3f2e56;
+  
+    --secondary-accent: #ffeed6;
+  
+    --yellow: #efa00b;
+    --red: #f25757;
+  
+    --btn-color: var(--btn-primary);
+  
+    --highlight-color: var(--btn--secondary);
+  
+    --color-bg: var(--eggshell);
+    --color-fg: var(--dark-bg);
+  
+    --site-theme: "light";
+  
+    --sm-content: 90vw;
+    --base-header: 3rem;
+    --large-header: 4rem;
+    --super-large-header: 5rem;
+  }
+
+  
+[data-theme="light"] {
+    --color-bg: var(--eggshell);
+    --color-fg: var(--dark-bg);
+  }
+  
+  [data-theme="dark"] {
+    --color-bg: var(--dark-bg);
+    --color-fg: var(--light-bg);
+  }

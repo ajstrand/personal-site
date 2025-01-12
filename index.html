@@ -25,8 +25,12 @@
         );
 
         const localStorageIsDark = localStorageTheme === "dark";
-        const themeValue =
-          userPrefersDarkTheme.matches || localStorageIsDark ? "dark" : "light";
+        let themeValue;
+        if (userPrefersDarkTheme.matches || localStorageIsDark) {
+          themeValue = "dark";
+        } else {
+          themeValue = "light";
+        }
         const root = document.documentElement;
         root.style.setProperty(
           "--color-bg",

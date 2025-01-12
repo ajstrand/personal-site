@@ -38,7 +38,7 @@
     "lucide-preact": "^0.468.0",
     "preact": "^10.25.4",
     "prop-types": "15.8.1",
-    "vite": "^6.0.7",
+    "vite": "^6.0.6",
     "vite-plugin-stylex": "^0.13.0"
   },
   "devDependencies": {
