@@ -6,15 +6,15 @@ const dir = dirname(fileURLToPath(import.meta.url));
 
 const toAbsolute = (p) => resolve(dir, p);
 
-const transformedTemplate = fse.readFileSync(
+const template = fse.readFileSync(
   resolve(dir, "dist/static/index.html"),
-  "utf-8"
+  "utf-8",
 );
 
 const list = ["math-in-mdx.mdx"];
 
 const doWork = async (url) => {
-  const { Renderer } = await import("./dist/server/entry-server.js");
+  const render = (await import("./dist/server/entry-server.js")).render;
 
   // for (const url of test) {
   //   let shouldBeStatic = list.includes(url);
@@ -25,7 +25,6 @@ const doWork = async (url) => {
   //       "utf-8"
   //     );
   // }
-  const renderer = new Renderer(transformedTemplate);
 
   // const localFilePath = url
   //   .replace(/^\.\/pages/, "/")
@@ -42,9 +41,14 @@ const doWork = async (url) => {
 
   const urlPath = localFilePath.includes("index") ? "/" : `/${localFilePath}/`;
 
-  const { body } = renderer.render(urlPath);
+  const pageData = render(urlPath);
+  // const result = template
+  //   .replace(`<!--css-outlet-->`, pageData.head ?? "")
+  //   .replace(`<!--body-outlet-->`, pageData.html ?? "");
+
+  const result = template.replace(`<!--body-outlet-->`, pageData.html ?? "");
   const fullFilePath = `dist/static${localFilePath}.html`;
-  fse.outputFileSync(resolve(dir, fullFilePath), body);
+  fse.outputFileSync(resolve(dir, fullFilePath), result);
   console.log("🖨   Prerendered", fullFilePath);
 };
 
@@ -52,9 +56,9 @@ async function prerender() {
   try {
     //let allFiles = fse.readdirSync(toAbsolute("src/pages")).map((file) => file);
     const pages = ["src/pages/index.mdx", "src/pages/404.jsx"];
-    pages.forEach(async (page) => {
+    for (const page of pages) {
       await doWork(page);
-    });
+    }
     console.log("🦖  Your static site is ready to deploy from dist/static");
   } catch (e) {
     console.error(e);

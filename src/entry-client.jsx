@@ -1,6 +1,4 @@
-import "preact/debug";
-import "../index.css";
-
+import "solid-devtools";
 import hydrateIslands from "./clientHydrate.jsx";
 
 const getComponents = async () => {
@@ -8,6 +6,7 @@ const getComponents = async () => {
   list.forEach(async (el, i) => {
     const compName = el.getAttribute("data-hydration-component");
     const Comp = await import(`./islands/${compName}.client.jsx`);
+    console.log(Comp, " hello alex");
     const Component = Comp.default;
     const Obj = { Component };
 
@@ -16,14 +15,3 @@ const getComponents = async () => {
 };
 
 getComponents();
-
-// import Example from "./islands/Example.client.jsx";
-// hydrateIslands({ Example });
-//const modules = import.meta.glob("./islands/**/*.client.jsx");
-// for (const path in modules) {
-//   modules[path]().then(({ default: Comp }) => {
-//     if (Comp !== undefined) {
-//       hydrateIslands({ [Comp.name]: Comp });
-//     }
-//   });
-// }

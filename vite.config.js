@@ -1,18 +1,17 @@
 import { defineConfig } from "vite";
-import { readFileSync } from "node:fs";
-import preact from "@preact/preset-vite";
+import solid from "vite-plugin-solid";
+
+//import preact from "@preact/preset-vite";
 import { resolve } from "node:path";
 import mdx from "@mdx-js/rollup";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
-
+import devtools from "solid-devtools/vite";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 
 import rehypeShiki from "@shikijs/rehype";
 
 import esbuild from "rollup-plugin-esbuild";
-
-import styleX from "vite-plugin-stylex";
 
 export const build = {
   assetsInlineLimit: 0,
@@ -22,29 +21,20 @@ export const build = {
       main: resolve(__dirname, "index.html"),
     },
     plugins: [
-      esbuild({
-        target: "esnext",
-        jsxFactory: "h",
-        jsxFragment: "Fragment",
-      }),
+      // esbuild({
+      //   target: "esnext",
+      //   jsxFactory: "h",
+      // }),
     ],
   },
 };
 
 export const plugins = [
-  preact({
-    include: ["**/*.res.mjs"],
-  }),
-  styleX(),
-
-  nodePolyfills({
-    // Whether to polyfill `node:` protocol imports.
-    protocolImports: true,
-  }),
+  //preact(),
   mdx({
     rehypePlugins: [
       //   rehypeSlug,
-      rehypeKatex,
+      //rehypeKatex,
       //   rehypeInferReadingTimeMeta,
       //   rehypeCodeTitles,
       [
@@ -56,19 +46,34 @@ export const plugins = [
         },
       ],
     ],
-    remarkPlugins: [remarkMath],
-    providerImportSource: "@mdx-js/preact",
+    //remarkPlugins: [remarkMath],
+    //providerImportSource: "solid-js/h",
+    jsxImportSource: "solid-jsx",
   }),
+  devtools({
+    /* features options - all disabled by default */
+    autoname: true, // e.g. enable autoname
+  }),
+  solid({
+    ssr: true,
+    extensions: [".mdx"],
+  }),
+
+  nodePolyfills({
+    // Whether to polyfill `node:` protocol imports.
+    protocolImports: true,
+  }),
+
   // use a different html file for dev/prod
-  {
-    name: "index-html-env",
-    async transformIndexHtml() {
-      const isProd = process.env.NODE_ENV === "production";
-      if (!isProd) {
-        return readFileSync("index_dev.html", "utf8");
-      }
-    },
-  },
+  // {
+  //   name: "index-html-env",
+  //   async transformIndexHtml() {
+  //     const isProd = process.env.NODE_ENV === "production";
+  //     if (!isProd) {
+  //       return readFileSync("index_dev.html", "utf8");
+  //     }
+  //   },
+  // },
   // critical css inlining doesnt work right
   //TODO: figure this out later??
   // {
@@ -83,9 +88,6 @@ export default defineConfig({
   base: "./",
   esbuild: {
     target: "esnext",
-    jsxFactory: "h",
-    jsxFragment: "Fragment",
-    jsxInject: `import { h, Fragment } from 'preact'`,
   },
   build,
   test: {

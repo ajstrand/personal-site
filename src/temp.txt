@@ -1,0 +1,61 @@
+import FootnoteTest from "../islands/FootnoteTest.client.jsx";
+import Island from "../Island.jsx";
+
+<Island componentName="FootnoteTest" islandTag="span">
+  <FootnoteTest />
+</Island>
+
+import { Name } from "../components/Name.jsx";
+
+<Name>Hi, I'm Alex</Name>
+
+
+export const meta = {
+  title: `my site`,
+  description: `blog/digital garden`,
+};
+
+<div className="redBox">
+
+</div>
+
+<div className="tanBox">
+<p>my website currently being redesigned,
+but feel free to contact me with questions</p>
+
+</div>
+
+<div className="redBox">
+Software Engineer <span className="highlight">@homedepot.</span>
+Previously <span className="highlight">@OCLC.</span>
+
+I work with modern web technologies(like GraphQL, React and Tailwind) and build
+accessible products/services that serve the needs of users.
+
+Want to contact me, or interested in working with me?
+Contact me here: ajstrand8 (at) gmail.com.
+
+All code on this site is server rendered by default.
+
+Any javascript has to be enabled explicitly.
+
+Here's an example:
+
+```js
+import Island from "../Island.jsx";
+
+import Example from "../islands/Example.client.jsx";
+
+<Island componentName="Example" islandTag="span">
+  <Example
+    buttonText="this button can be clicked"
+    text="the button has been clicked"
+  />
+</Island>;
+```
+
+</div>
+
+    {/* <Show when={typeof window !== undefined} fallback={<div>Loading</div>}> */}
+
+      {/* </Show> */}

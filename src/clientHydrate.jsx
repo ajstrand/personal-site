@@ -1,5 +1,6 @@
-import { hydrate, render } from "preact";
+//import { hydrate, render } from "preact";
 
+import { hydrate, render } from "solid-js/web";
 const hydrateIslands = (islands) => {
   const isles = document.querySelectorAll("[data-hydration-component]");
   if (isles.length === 0) {
@@ -23,16 +24,23 @@ const hydrateIslands = (islands) => {
       console.warn(message);
       return;
     }
-
+    let hydrationProps;
     const data = island.dataset.hydrationProps;
-    const hydrationProps = JSON.parse(data);
-
-    if (Component.name === "FootnoteTest") {
-      render(<Component />, island);
-      return;
+    if (data !== undefined) {
+      hydrationProps = JSON.parse(data);
+      return hydrate(<Component {...hydrationProps} />, island);
+    } else if (data === undefined) {
     }
+    hydrate(() => <Component />, island);
+    // const Foo = () => <p>hello alex</p>;
+    // hydrate(() => <Foo />, island);
 
-    hydrate(<Component {...hydrationProps} />, island);
+    //render(<Component />, island);
+
+    // if (Component.name === "FootnoteTest") {
+    //   render(<Component />, island);
+    //   return;
+    // }
   }
 };
 

@@ -5,9 +5,9 @@
     <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>alex strand: digital garden</title>
-
-    <script type="module" src="src/theme.js"></script>
-    <script type="module">
+    <link href="./index.css" rel="stylesheet" />
+    <!-- <script type="module" src="src/theme.js"></script> -->
+    <!-- <script type="module">
       const COLORS = {
         dark: {
           darkBg: "#1e1a1d",
@@ -42,13 +42,15 @@
         );
         root.style.setProperty("--site-theme", themeValue);
       }
-    </script>
+    </script> -->
+    <!--css-outlet-->
   </head>
 
-  <body>
-    <div id="root"></div>
-    <!--body-outlet-->
+  <body class="redBox">
+    <div id="root">
+      <!--body-outlet-->
+    </div>
 
-    <script type="module" src="src/entry-client.jsx"></script>
+    <script type="module" src="./src/entry-client.jsx"></script>
   </body>
 </html>
