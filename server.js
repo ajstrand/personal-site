@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import express from "express";
 import { createServer as createViteServer } from "vite";
-
+import {generateHydrationScript} from "solid-js/web"
 const dir = dirname(fileURLToPath(import.meta.url));
 
 async function createServer() {
@@ -19,17 +19,23 @@ async function createServer() {
     );
     try {
       const isProd = process.env.NODE_ENV === "production";
-      const filePath = isProd ? "index.html" : "index_dev.html";
+      const filePath = "index.html";
       let template = fse.readFileSync(resolve(dir, filePath), "utf-8");
       const transformedTemplate = await vite.transformIndexHtml(
         pathname,
         template
       );
-      const { Renderer } = await vite.ssrLoadModule("/src/entry-server.jsx");
-      const renderer = new Renderer(transformedTemplate);
-      const { status, type, body } = renderer.render(pathname);
+      const render = (await vite.ssrLoadModule("/src/entry-server-solid.jsx")).render;
+     // const renderer = new Renderer(transformedTemplate);
+      const { status, type, app } = render(pathname);
 
-      res.status(status).set({ "Content-Type": type }).end(body);
+          const head = `${generateHydrationScript()}`
+      
+          const html = template
+            .replace("<!--app-head-->", head)
+            .replace("<!--app-html-->", app ?? '')
+
+      res.status(status).set({ "Content-Type": type }).end(html);
     } catch (e) {
       vite.ssrFixStacktrace(e);
       console.error(e);
