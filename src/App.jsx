@@ -9,8 +9,9 @@ function App() {
 
       <h1>Vite + Solid</h1>
       <div class="card">
+        <p>the count is {count}</p>
         <button type="button" onClick={() => setCount((count) => count + 1)}>
-          count is {count()}
+          increment
         </button>
 
       </div>

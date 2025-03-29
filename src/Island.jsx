@@ -11,13 +11,13 @@ const Island = ({
     hydrationProps = JSON.stringify(props);
   }
   return (
-    <IslandComponent
+    <div
       data-hydration-component={componentName}
       data-hydration-props={hydrationProps}
       {...islandProps}
     >
       {children}
-    </IslandComponent>
+    </div>
   );
 };
 

@@ -1,16 +1,20 @@
 import { defineConfig } from "vite";
-import { readFileSync } from "node:fs";
-import preact from "@preact/preset-vite";
+import solid from "vite-plugin-solid";
+
+//import preact from "@preact/preset-vite";
 import { resolve } from "node:path";
 import mdx from "@mdx-js/rollup";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
-
+import devtools from "solid-devtools/vite";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 
 import rehypeShiki from "@shikijs/rehype";
 
 import esbuild from "rollup-plugin-esbuild";
+
+//import pkg from "@vinxi/plugin-mdx";
+//const { default: mdx } = pkg;
 
 
 export const build = {
@@ -21,42 +25,54 @@ export const build = {
       main: resolve(__dirname, "index.html"),
     },
     plugins: [
-      esbuild({
-        target: "esnext",
-        jsxFactory: "h",
-        jsxFragment: "Fragment",
-      }),
+      // esbuild({
+      //   target: "esnext",
+      //   jsxFactory: "h",
+      // }),
     ],
   },
 };
-
 export const plugins = [
-  preact({
-    include: ["**/*.res.mjs"],
+  //preact(),
+  // mdx.withImports({})({
+
+  //   jsx: true,
+  //   jsxImportSource: "solid-js",
+  //   providerImportSource: "solid-mdx",
+  // }),
+  mdx({
+    jsxImportSource: 'solid-js/h'
   }),
+  // mdx({
+  //   rehypePlugins: [
+  //       rehypeSlug,
+  //     rehypeKatex,
+  //       rehypeInferReadingTimeMeta,
+  //       rehypeCodeTitles,
+  //     [
+  //       rehypeShiki,
+  //       {
+  //         // or `theme` for a single theme
+  //         // themes for light and dark themes
+  //         theme: "rose-pine",
+  //       },
+  //     ],
+  //   ],
+  //   jsxImportSource: "preact",
+  // }),
+  devtools({
+    /* features options - all disabled by default */
+    autoname: true, // e.g. enable autoname
+  }),
+  solid({
+    ssr: true,
+    extensions: [".mdx"],  }),
 
   nodePolyfills({
     // Whether to polyfill `node:` protocol imports.
     protocolImports: true,
   }),
-  mdx({
-    rehypePlugins: [
-      //   rehypeSlug,
-      rehypeKatex,
-      //   rehypeInferReadingTimeMeta,
-      //   rehypeCodeTitles,
-      [
-        rehypeShiki,
-        {
-          // or `theme` for a single theme
-          // themes for light and dark themes
-          theme: "rose-pine",
-        },
-      ],
-    ],
-    remarkPlugins: [remarkMath],
-    providerImportSource: "@mdx-js/preact",
-  }),
+
   // use a different html file for dev/prod
   // {
   //   name: "index-html-env",
@@ -81,9 +97,6 @@ export default defineConfig({
   base: "./",
   esbuild: {
     target: "esnext",
-    jsxFactory: "h",
-    jsxFragment: "Fragment",
-    jsxInject: `import { h, Fragment } from 'preact'`,
   },
   build,
   test: {

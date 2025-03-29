@@ -1,12 +1,3 @@
 {
-  "presets": [
-    "@babel/preset-env",
-    [
-      "@babel/preset-react",
-      {
-        "pragma": "h", // default pragma is React.createElement (only in classic runtime)
-        "pragmaFrag": "Fragment"
-      }
-    ]
-  ]
+  "presets": ["solid"]
 }

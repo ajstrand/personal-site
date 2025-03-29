@@ -1,11 +1,19 @@
-import { renderToString } from 'solid-js/web'
-import App from './App'
+import { renderToString } from "solid-js/web";
+import { MDXProvider } from "./solid-mdx";
 
 /**
  * @param {string} _url
  */
 export function render(_url) {
-  const app = renderToString(() => <App />)
+  const Data = getIndexPage();
+  console.log(Data);
+  const App = () => {
+    <MDXProvider>
+      <Data />
+    </MDXProvider>;
+  };
+  const app = renderToString(() => <App />);
+  //const app = renderToString(() => <App />)
 
   // const Shell = () => (
 
@@ -28,6 +36,53 @@ export function render(_url) {
   // )
   // let page = renderToString(() => <Shell/>)
   // page = `<!DOCTYPE html>${page}`
-  console.log(app)
-  return { app, type:"text/html", status:200 }
+  return { app, type: "text/html", status: 200 };
+}
+
+function gatherPages() {
+  const modules = import.meta.glob("./pages/**/*.{jsx,mdx}", { eager: true });
+  if (modules.length === 0) {
+    return new Error("no modules");
+  }
+  return Object.entries(modules).reduce((pages, [modulePath, page]) => {
+    const filePath = modulePath
+      .replace(/^\.\/pages/, "")
+      .replace(/(\.jsx|\.mdx)$/, "");
+    const urlPath = filePath.endsWith("/index")
+      ? filePath.replace(/index$/, "")
+      : `${filePath}/`;
+    pages[urlPath] = {
+      Component: page.default,
+      meta: page.meta,
+      tableOfContents: page.tableOfContents,
+      filePath,
+      modulePath,
+      urlPath,
+    };
+    return pages;
+  }, {});
+}
+
+function getIndexPage() {
+  const modules = import.meta.glob("./pages/**/index.mdx", { eager: true });
+  if (modules.length === 0) {
+    return new Error("no modules");
+  }
+  return Object.entries(modules).reduce((pages, [modulePath, page]) => {
+    const filePath = modulePath
+      .replace(/^\.\/pages/, "")
+      .replace(/(\.jsx|\.mdx)$/, "");
+    const urlPath = filePath.endsWith("/index")
+      ? filePath.replace(/index$/, "")
+      : `${filePath}/`;
+    pages[urlPath] = {
+      Component: page.default,
+      meta: page.meta,
+      tableOfContents: page.tableOfContents,
+      filePath,
+      modulePath,
+      urlPath,
+    };
+    return pages;
+  }, {});
 }
