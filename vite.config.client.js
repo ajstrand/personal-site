@@ -5,6 +5,8 @@ import { plugins, build } from "./vite.config.js";
 
 const dir = dirname(fileURLToPath(import.meta.url));
 
+const fileName = "./src/entry-server.jsx";
+
 export default defineConfig({
   base: "./",
   plugins: [...plugins],
@@ -14,7 +16,7 @@ export default defineConfig({
       input: {
         client: resolve(dir, "index.html"),
         // We'll never actually use this JS bundle, but need it to build assets that are only referenced by SSR pages
-        ssrAssetCollector: resolve(dir, "./src/entry-server.jsx"),
+        ssrAssetCollector: resolve(dir, fileName),
       },
     },
   },

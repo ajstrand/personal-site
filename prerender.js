@@ -1,12 +1,14 @@
 import fse from "fs-extra";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { consola } from "consola";
+
 
 const dir = dirname(fileURLToPath(import.meta.url));
 
 const toAbsolute = (p) => resolve(dir, p);
 
-const transformedTemplate = fse.readFileSync(
+const template = fse.readFileSync(
   resolve(dir, "dist/static/index.html"),
   "utf-8"
 );
@@ -14,7 +16,7 @@ const transformedTemplate = fse.readFileSync(
 const list = ["math-in-mdx.mdx"];
 
 const doWork = async (url) => {
-  const { Renderer } = await import("./dist/server/entry-server.js");
+  const render = (await import("./dist/server/entry-server.js")).render;
 
   // for (const url of test) {
   //   let shouldBeStatic = list.includes(url);
@@ -25,7 +27,6 @@ const doWork = async (url) => {
   //       "utf-8"
   //     );
   // }
-  const renderer = new Renderer(transformedTemplate);
 
   // const localFilePath = url
   //   .replace(/^\.\/pages/, "/")
@@ -42,10 +43,16 @@ const doWork = async (url) => {
 
   const urlPath = localFilePath.includes("index") ? "/" : `/${localFilePath}/`;
 
-  const { body } = renderer.render(urlPath);
+  const page = render(urlPath);
+  const { html } = page;
+  let head = ""
+  const fullPage = template
+    .replace("<!--css-outlet-->", head)
+    .replace("<!--body-outlet-->", html ?? "");
+
   const fullFilePath = `dist/static${localFilePath}.html`;
-  fse.outputFileSync(resolve(dir, fullFilePath), body);
-  console.log("🖨   Prerendered", fullFilePath);
+  fse.outputFileSync(resolve(dir, fullFilePath), fullPage);
+  consola.info("🖨   Prerendered", fullFilePath);
 };
 
 async function prerender() {
@@ -55,9 +62,9 @@ async function prerender() {
     pages.forEach(async (page) => {
       await doWork(page);
     });
-    console.log("🦖  Your static site is ready to deploy from dist/static");
+    consola.success("Your static site is ready to deploy from dist/static");
   } catch (e) {
-    console.error(e);
+    consola.error(e)
   }
 }
 

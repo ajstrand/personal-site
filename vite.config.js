@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import { readFileSync } from "node:fs";
 import preact from "@preact/preset-vite";
 import { resolve } from "node:path";
 import mdx from "@mdx-js/rollup";
@@ -12,7 +11,8 @@ import rehypeShiki from "@shikijs/rehype";
 
 import esbuild from "rollup-plugin-esbuild";
 
-import styleX from "vite-plugin-stylex";
+import tailwindcss from '@tailwindcss/vite'
+
 
 export const build = {
   assetsInlineLimit: 0,
@@ -32,10 +32,8 @@ export const build = {
 };
 
 export const plugins = [
-  preact({
-    include: ["**/*.res.mjs"],
-  }),
-  styleX(),
+    tailwindcss(),
+  preact(),
 
   nodePolyfills({
     // Whether to polyfill `node:` protocol imports.
@@ -60,21 +58,13 @@ export const plugins = [
     providerImportSource: "@mdx-js/preact",
   }),
   // use a different html file for dev/prod
-  {
-    name: "index-html-env",
-    async transformIndexHtml() {
-      const isProd = process.env.NODE_ENV === "production";
-      if (!isProd) {
-        return readFileSync("index_dev.html", "utf8");
-      }
-    },
-  },
-  // critical css inlining doesnt work right
-  //TODO: figure this out later??
   // {
-  //   name: "inline-critical",
-  //   async transformIndexHtml(html) {
-  //     return await InlineCSS(html, "test/");
+  //   name: "index-html-env",
+  //   async transformIndexHtml() {
+  //     const isProd = process.env.NODE_ENV === "production";
+  //     if (!isProd) {
+  //       return readFileSync("index_dev.html", "utf8");
+  //     }
   //   },
   // },
 ];
