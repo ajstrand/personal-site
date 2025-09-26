@@ -1,13 +1,12 @@
 //import { ThemeDropdown } from "./ThemeDropdown";
 
-import Viewport from "../islands/Viewport.client";
-import Island from "../Island"
+// import Page from "../islands/Page.client";
+// import Island from "../Island";
 
 export function DefaultLayout({ meta, children }) {
   const date = new Date();
   return (
     <div>
-
       <nav>
         <a href="/">home</a>
         {/* <button
@@ -17,17 +16,14 @@ export function DefaultLayout({ meta, children }) {
           aria-label="Change to light theme"
         >
           <p>theme: light</p>
-        
+
         </button> */}
       </nav>
-      <div className="viewportTest"></div>
-      <Island componentName="Viewport">
-        <Viewport>
-        </Viewport>
-      </Island>
-
       <main>{children}</main>
 
+      {/* <Island componentName="Page">
+        <Page children={children}></Page>
+      </Island>*/}
       <footer>
         <p> © {date.getFullYear()} alex strand</p>
       </footer>

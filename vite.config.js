@@ -16,6 +16,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export const build = {
   assetsInlineLimit: 0,
+      cssMinify: 'lightningcss',
   minify: "esbuild",
   rollupOptions: {
     input: {
@@ -76,6 +77,12 @@ export default defineConfig({
     jsxFactory: "h",
     jsxFragment: "Fragment",
     jsxInject: `import { h, Fragment } from 'preact'`,
+  },
+  css:{
+  transformer: 'lightningcss',
+    // lightningcss: {
+    //   targets: browserslistToTargets(browserslist('>= 0.25%'))
+    // }
   },
   build,
   test: {
