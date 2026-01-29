@@ -1,167 +1,74 @@
-@import "tailwindcss";
-
 :root {
     --sm-content: 90vw;
     --base-header: 3rem;
     --large-header: 4rem;
     --super-large-header: 5rem;
 
-    --red: #ff695a;
-    --tan: #ebe8d1;
-    --black: #000000;
-    --white: #ffffff;
+    --dark-blue: #524fa8;
+    --cream: #e1e6d3;
 
-    --dark-blue: #001b2e;
+    --dark-text: var(--cream);
+    --dark-bg: var(--dark-blue);
 
-    --blue: #00b6ff;
+    --pink: #bf4f74;
 
-    --green: #00a96e;
+    --red: #ff6b6b;
 
-    --bg: #ffefd3;
-}
+    --blue-black: #2e444e;
 
-.whiteText {
-    color: var(--white);
-    font-weight: 500;
-}
+    --dark-link: var(--pink);
 
-.info p {
-    font-size: 1rem;
-}
+    --light-bg: #ffffff;
+    --light-text: var(--blue-black);
+    --light-link: var(--pink);
 
-.info {
-    background-color: var(--green);
-    color: #ffffff;
-    font-weight: bold;
-    padding: 0.2rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.underline {
-    text-decoration: underline;
-    text-decoration-color: var(--blue);
-}
-
-.underline.dark {
-    text-decoration: underline;
-    text-decoration-color: var(--dark-blue);
-}
-
-h1 {
-    margin: 0.2rem;
-}
-
-.resume_link {
-    margin-left: 0.5rem;
-    text-decoration: none;
-}
-
-.resume_link:hover {
-    text-decoration: underline;
-}
-
-.highlight {
-    color: var(--white);
+    --coral: #ff5415;
 }
 
 html,
-body {
-    height: 100%;
+body,
+#root,
+.full {
+    height: 100vh;
+    width: 100vw;
 }
 
-body {
+#root {
+    margin: 0.5rem;
+}
+
+.full {
     display: flex;
-    justify-content: center;
-    margin: 0;
-    background-color: var(--bg);
-}
-/*
-body {
-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Helvetica,
-  sans-serif;
-} */
-
-body main,
-body nav {
-    max-width: var(--sm-content);
+    flex-direction: column;
 }
 
-body main {
+main {
+    width: 90vw;
     height: 95vh;
 }
 
-body main h1 {
-    font-size: var(--base-header);
+body {
+    /* background-color: var(--dark-bg);
+    color: var(--dark-text); */
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-@media (width <= 20rem) {
-    body main h1 {
-        font-size: 2.3rem;
-    }
-}
-
-@media (min-width: 26rem) {
-    body main h1 {
-        font-size: var(--large-header);
-    }
-}
-
-@media (30rem <= width <= 59rem) {
-    body main,
-    body nav {
-        width: 85vw;
-    }
-    body main h1 {
-        font-size: var(--large-header);
-    }
-}
-@media (59rem <= width <= 69rem) {
-    body main,
-    body nav {
-        width: 60vw;
-    }
-    body main h1 {
-        font-size: var(--super-large-header);
-    }
-}
-
-@media (min-width: 69rem) {
-    body main,
-    body nav {
-        width: 45vw;
-    }
-    body main h1 {
-        font-size: var(--super-large-header);
-    }
-}
-
-html p {
-    font-size: 1.4rem;
-}
-
-@supports not selector(:focus-visible) {
-    .resume_link:focus {
-        /* Fallback for browsers without :focus-visible support */
-        outline: 2px solid var(--btn-primary);
-        outline-offset: 2px;
-        border-radius: 0.125rem;
-    }
-}
-
-nav a {
-    color: var(--color-fg);
-    font-size: 1.5rem;
+a {
+    /* color: var(--dark-link); */
+    color: var(--coral);
     text-decoration: none;
 }
 
-nav a:hover,
-nav a:focus,
-nav a:focus-visible {
+a:hover {
     text-decoration: underline;
-    text-decoration-color: var(--btn--secondary);
+}
+
+.resume_link {
+    margin: 0.2rem;
 }
 
 pre {

@@ -6,7 +6,7 @@
 export function DefaultLayout({ meta, children }) {
   const date = new Date();
   return (
-    <div>
+    <div class="full">
       <nav>
         <a href="/">home</a>
         {/* <button
