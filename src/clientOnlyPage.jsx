@@ -18,6 +18,6 @@ const Client = () => {
   );
 };
 
-const root = document.querySelector("#root");
+const clientRoot = document.querySelector("#root");
 
 render(<Client />, clientRoot);

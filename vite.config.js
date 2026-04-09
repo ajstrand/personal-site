@@ -11,12 +11,9 @@ import rehypeShiki from "@shikijs/rehype";
 
 import esbuild from "rollup-plugin-esbuild";
 
-import tailwindcss from '@tailwindcss/vite'
-
-
 export const build = {
   assetsInlineLimit: 0,
-      cssMinify: 'lightningcss',
+  cssMinify: "lightningcss",
   minify: "esbuild",
   rollupOptions: {
     input: {
@@ -33,7 +30,6 @@ export const build = {
 };
 
 export const plugins = [
-    tailwindcss(),
   preact(),
 
   nodePolyfills({
@@ -43,7 +39,7 @@ export const plugins = [
   mdx({
     rehypePlugins: [
       //   rehypeSlug,
-      rehypeKatex,
+     rehypeKatex,
       //   rehypeInferReadingTimeMeta,
       //   rehypeCodeTitles,
       [
@@ -78,8 +74,8 @@ export default defineConfig({
     jsxFragment: "Fragment",
     jsxInject: `import { h, Fragment } from 'preact'`,
   },
-  css:{
-  transformer: 'lightningcss',
+  css: {
+    transformer: "lightningcss",
     // lightningcss: {
     //   targets: browserslistToTargets(browserslist('>= 0.25%'))
     // }

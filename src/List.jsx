@@ -2,7 +2,7 @@ import { pagesWithTag } from "./utils";
 import dayjs from "dayjs";
 
 const ListElement = ({ urlPath, env, title, date }) => {
-  const dateFormatted = dayjs(date).format("dddd in MMMM ’YY");
+  const dateFormatted = dayjs(date).format("dddd in MMMM YY");
   const dateMessage = `written on a ${dateFormatted}`;
   return (
     <li key={urlPath}>
