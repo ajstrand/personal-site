@@ -4,7 +4,6 @@ export const meta = {
 };
 
 import InfoTab from "../components/InfoTab.jsx";
-import Container from "../components/Container.jsx";
 import Underline from "../components/Underline.jsx";
 
 import { Name } from "../components/Name.jsx";
@@ -15,26 +14,32 @@ import Example from "../islands/Example.client.jsx";
 
 <InfoTab/>
 
-<Container classCSS="">
 <Name>Hi, I'm Alex</Name>
-<p>Senior Software Engineer <Underline color={darkblue}>@express.</Underline> </p>
+<p>Senior Software Engineer <Underline color="green">@express.</Underline> </p>
 <p> Previously SWE @homedepot and @oclc. </p>
 
-</Container>
 
-
-<Container classCSS="">
 I work with modern web technologies(like GraphQL, React and Tailwind) and build
 accessible products/services that serve the needs of users.
-
 Want to contact me, or interested in working with me?
 Contact me here: ajstrand8 (at) gmail.com.
 
 <Resume />
 
 All code on this site is server rendered by default.
-
 Here's an example:
+
+<details>
+  <summary>See example code snippet</summary>
+```jsx
+<Island componentName="Example" islandTag="span">
+  <Example
+    buttonText="this button can be clicked"
+    text="the button has been clicked"
+  />
+</Island>
+```
+</details>
 
 
 <Island componentName="Example" islandTag="span">
@@ -43,5 +48,3 @@ Here's an example:
     text="the button has been clicked"
   />
 </Island>
-
-</Container>

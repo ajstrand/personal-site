@@ -1,0 +1,27 @@
+allowBuilds:
+  '@tailwindcss/oxide': set this to true or false
+  esbuild: set this to true or false
+  msw: set this to true or false
+minimumReleaseAgeExclude:
+  - '@oxlint/binding-android-arm-eabi@1.68.0'
+  - '@oxlint/binding-android-arm64@1.68.0'
+  - '@oxlint/binding-darwin-arm64@1.68.0'
+  - '@oxlint/binding-darwin-x64@1.68.0'
+  - '@oxlint/binding-freebsd-x64@1.68.0'
+  - '@oxlint/binding-linux-arm-gnueabihf@1.68.0'
+  - '@oxlint/binding-linux-arm-musleabihf@1.68.0'
+  - '@oxlint/binding-linux-arm64-gnu@1.68.0'
+  - '@oxlint/binding-linux-arm64-musl@1.68.0'
+  - '@oxlint/binding-linux-ppc64-gnu@1.68.0'
+  - '@oxlint/binding-linux-riscv64-gnu@1.68.0'
+  - '@oxlint/binding-linux-riscv64-musl@1.68.0'
+  - '@oxlint/binding-linux-s390x-gnu@1.68.0'
+  - '@oxlint/binding-linux-x64-gnu@1.68.0'
+  - '@oxlint/binding-linux-x64-musl@1.68.0'
+  - '@oxlint/binding-openharmony-arm64@1.68.0'
+  - '@oxlint/binding-win32-arm64-msvc@1.68.0'
+  - '@oxlint/binding-win32-ia32-msvc@1.68.0'
+  - '@oxlint/binding-win32-x64-msvc@1.68.0'
+  - graphql@16.14.1
+  - oxlint@1.68.0
+  - vite@8.0.16
