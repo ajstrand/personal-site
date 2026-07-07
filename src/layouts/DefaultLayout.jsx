@@ -6,10 +6,11 @@
 export function DefaultLayout({ meta, children }) {
   const date = new Date();
   return (
-    <div>
-      <nav>
-        <a href="/">home</a>
-        {/* <button
+    <div class="full">
+      <header>
+        <nav>
+          <a href="/">home</a>
+          {/* <button
           className="theme-switch"
           type="button"
           data-theme-toggle
@@ -18,7 +19,9 @@ export function DefaultLayout({ meta, children }) {
           <p>theme: light</p>
 
         </button> */}
-      </nav>
+        </nav>
+      </header>
+
       <main>{children}</main>
 
       {/* <Island componentName="Page">

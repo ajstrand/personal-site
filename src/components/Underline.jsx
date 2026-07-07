@@ -1,6 +1,6 @@
-const Underline = ({children, css}) => {
+const Underline = ({children, color}) => {
     return (
-        <span className={`underline ${css}`}>{children}</span>
+        <span className={`underline ${color}`}>{children}</span>
     )
 }
 

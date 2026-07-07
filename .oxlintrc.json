@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [],
+  "categories": {
+    "correctness": "off"
+  },
+  "env": {
+    "builtin": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.{md,mdx}"
+      ],
+      "rules": {
+        "no-unused-vars": "error"
+      },
+      "globals": {
+        "React": "readonly"
+      }
+    }
+  ]
+}

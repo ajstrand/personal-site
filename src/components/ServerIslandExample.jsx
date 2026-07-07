@@ -5,10 +5,9 @@ const ServerIslandExample = () => {
     return (
         <section>
 		<h1>Astro Server Islands</h1>
-		<Quote server:defer>
-			<Fallback slot="fallback"/>
+		<Quote 
+		  server={defer} fallback={<Fallback/>}>
 		</Quote>
-		<Panel/>
 	</section>
     )
 }

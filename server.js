@@ -16,7 +16,7 @@ async function createServer() {
   app.use(vite.middlewares);
   app.use("/server-render", async (req, res) => {
     console.log(req)
-     
+
   })
   app.use("*", async (req, res) => {
 
@@ -34,9 +34,9 @@ async function createServer() {
 
       const render = (await vite.ssrLoadModule("/src/entry-server.jsx")).render;
       const pageString = render(pathname);
-  
+
       const { html } = pageString;
-  
+
       const head = ""
 
       const status = 200;
@@ -44,9 +44,9 @@ async function createServer() {
       const type = "text/html"
 
       const typeObj = {
-        "Content-Type":type
+        "Content-Type": type
       }
-    
+
       const fullPage = template
         .replace("<!--css-outlet-->", head)
         .replace("<!--body-outlet-->", html ?? "");
