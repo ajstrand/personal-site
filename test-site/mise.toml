@@ -1,0 +1,8 @@
+[tools]
+node = "24.3.0"
+rust = "latest"
+
+[tasks.build]
+description = "build the project"
+# run = "npm run build && cargo run --bin test-site"
+run = "npm run maud && cargo run --bin test-site"

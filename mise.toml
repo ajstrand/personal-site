@@ -1,3 +1,4 @@
 [tools]
 pnpm = "latest"
 node = "24.3.0"
+rust = "latest"

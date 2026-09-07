@@ -1,0 +1,70 @@
+Yes, you can share configuration between Rust and Vite by using a single source of truth—either a TOML file parsed by both environments, or a JSON/JavaScript file that Rust reads via a parsing crate.
+Here are the best ways to implement this architecture.
+## Approach 1: Use a Shared TOML File (Recommended)
+TOML is native to Rust (Cargo.toml) and easily parsed in JavaScript using npm packages.
+## 1. Create your config (shared-config.toml)
+
+[app]
+name = "My Hybrid App"
+api_url = "https://example.com"
+theme = "dark"
+
+## 2. Read in Vite (vite.config.js)
+Install a TOML parser like @iarna/toml or smol-toml.
+
+import { defineConfig } from 'vite';import fs from 'fs';import { parse } from 'smol-toml';
+// Read and parse the TOML fileconst tomlRaw = fs.readFileSync('./shared-config.toml', 'utf-8');const config = parse(tomlRaw);
+export default defineConfig({
+  define: {
+    // Expose variables to your Vite frontend
+    'process.env.APP_NAME': JSON.stringify(config.app.name),
+    'process.env.API_URL': JSON.stringify(config.app.api_url),
+  }
+});
+
+## 3. Read in Rust
+Use the toml and serde crates in your Cargo.toml.
+
+use serde::Deserialize;use std::fs;
+
+#[derive(Deserialize)]struct AppConfig {
+    app: AppDetails,
+}
+
+#[derive(Deserialize)]struct AppDetails {
+    name: String,
+    api_url: String,
+    theme: String,
+}
+fn main() {
+    let config_str = fs::read_to_string("shared-config.toml").unwrap();
+    let config: AppConfig = toml::from_str(&config_str).unwrap();
+    println!("App Name: {}", config.app.name);
+}
+
+------------------------------
+## Approach 2: Use a Shared JSON File
+If you prefer not to add a TOML parser to JavaScript, JSON is natively supported by both.
+
+* Vite Side: Import it directly: import config from './config.json'.
+* Rust Side: Parse it using the popular serde_json crate.
+
+------------------------------
+## Approach 3: Build-Time Environment Injection (.env)
+If your configuration mostly consists of environment variables (like API keys or ports), a standard .env file is highly efficient.
+
+* Vite Side: Vite loads .env files automatically. Prefix variables with VITE_ (e.g., VITE_API_URL) to expose them to your client-side code.
+* Rust Side: Use the dotenvy crate at runtime or std::env! macro at compile-time to read the exact same file. [1, 2, 3, 4, 5] 
+
+To help narrow down the best setup, tell me:
+
+* Do you need to share complex nested data structures or just simple key-value pairs?
+* Should configuration changes apply at runtime without rebuilding, or is compile-time injection acceptable?
+* Which Rust web framework (e.g., Axum, Actix-web, Tauri) are you using to serve the pages?
+
+
+[1] [https://vite.dev](https://vite.dev/guide/env-and-mode)
+[2] [https://www.geeksforgeeks.org](https://www.geeksforgeeks.org/reactjs/next-js-upgrading-migrating-from-vite/)
+[3] [https://vueschool.io](https://vueschool.io/articles/vuejs-tutorials/how-to-use-environment-variables-in-vite-js/)
+[4] [https://www.jessym.com](https://www.jessym.com/articles/bundling-react-vite-with-spring-boot)
+[5] [https://dev.to](https://dev.to/maanu07/vite-environment-variables-master-env-importmetaenv-1j1m)

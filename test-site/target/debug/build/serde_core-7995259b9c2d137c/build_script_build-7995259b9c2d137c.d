@@ -1,0 +1,5 @@
+/home/alex/Documents/personal-site/test-site/target/debug/build/serde_core-7995259b9c2d137c/build_script_build-7995259b9c2d137c.d: /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.229/build.rs
+
+/home/alex/Documents/personal-site/test-site/target/debug/build/serde_core-7995259b9c2d137c/build_script_build-7995259b9c2d137c: /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.229/build.rs
+
+/home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.229/build.rs:
