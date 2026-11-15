@@ -1,0 +1,18 @@
+@import url('./themeTokens.css');
+
+.underline {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+
+    .darkblue {
+        text-decoration-color: var(--dark-blue);
+    }
+
+    .green {
+        text-decoration-color: var(--green);
+    }
+
+    .lightblue {
+        text-decoration-color: var(--light-blue);
+    }
+}

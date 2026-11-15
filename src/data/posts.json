@@ -1,0 +1,12 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Lorem ipsum dolor sit amet"
+        },
+        {
+            "id": 2,
+            "title": "Consectetur adipiscing elit"
+        }
+    ]
+}

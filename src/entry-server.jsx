@@ -4,20 +4,13 @@ import { DefaultLayout } from "./layouts/DefaultLayout";
 import ServerErrorFallback from "./components/ServerErrorFallback.jsx";
 
 const getComponentAndMeta = (pageObject) => {
-	let Component;
-	let meta;
-	if (pageObject === undefined) {
-		console.warn("No data found for the requested URL, falling back to 404 page.");
+	if (pageObject === undefined || pageObject === null) {
+		logServerError(new Error("No data found for the requested URL"), { route: 'getComponentAndMeta', status: 404 });
 		const errorPage = get404Page();
-		Component = errorPage["/404/"]?.Component;
-		meta = errorPage["/404/"]?.meta;
-	}
-	else {
-		Component = pageObject?.Component;
-		meta = pageObject?.meta;
+		return { Component: errorPage["/404/"]?.Component, meta: errorPage["/404/"]?.meta };
 	}
 
-	return { Component, meta };
+	return { Component: pageObject?.Component, meta: pageObject?.meta };
 }
 
 export function render(url) {
@@ -27,7 +20,21 @@ export function render(url) {
 		console.error("Error getting pages: no pages exist", pages);
 		return { html: renderToString(<ServerErrorFallback />) };
 	}
+	if (url === "/favicon.ico") {
+		console.log("Ignoring favicon request");
+		return { html: "" };
+	}
+	if (url === "/installHook.js.map") {
+		console.log("Ignoring source map request");
+		return { html: "" };
+	}
 	const pageObject = pages[url];
+	if (!pageObject) {
+		console.warn("Page not found for URL:", url);
+		const errorPage = get404Page();
+		const { Component: ErrorComponent, meta: errorMeta } = getComponentAndMeta(errorPage["/404/"]);
+		return { html: renderToString(<DefaultLayout><ErrorComponent meta={errorMeta} /></DefaultLayout>) };
+	}
 	const { Component, meta } = getComponentAndMeta(pageObject);
 
 	try {
@@ -41,10 +48,10 @@ export function render(url) {
 
 		return { html };
 	} catch (error) {
-		console.error("Error rendering URL:", url, error);
+		logServerError(error, { route: `rendering URL: ${url}`, status: 500 });
 		const errorObj = {
-			error:error.toString(),
-			url:url
+			error: error.toString(),
+			url: url
 		}
 		const errorResponse = renderToString(<ServerErrorFallback error={errorObj} />);
 		return { html: errorResponse };

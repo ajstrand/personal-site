@@ -1,3 +1,4 @@
 [tools]
-pnpm = "latest"
+aube = "latest"
 node = "24.3.0"
+rust = "latest"

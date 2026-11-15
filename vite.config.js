@@ -10,6 +10,18 @@ import remarkMath from "remark-math";
 import rehypeShiki from "@shikijs/rehype";
 
 import esbuild from "rollup-plugin-esbuild";
+import { dataLoaderPlugin } from "./vite-plugin-loader.js";
+
+import { yoga } from './gql-server.js';
+
+function localGraphqlPlugin() {
+  return {
+    name: 'vite-plugin-local-graphql',
+    configureServer(server) {
+      server.middlewares.use('/graphql', yoga);
+    },
+  };
+}
 
 export const build = {
   assetsInlineLimit: 0,
@@ -17,7 +29,7 @@ export const build = {
   minify: "esbuild",
   rollupOptions: {
     input: {
-      main: resolve(__dirname, "index.html"),
+      main: resolve(import.meta.dirname, "index.html"),
     },
     plugins: [
       esbuild({
@@ -29,7 +41,10 @@ export const build = {
   },
 };
 
+
 export const plugins = [
+  localGraphqlPlugin(),
+  dataLoaderPlugin(),
   preact(),
 
   nodePolyfills({
@@ -39,7 +54,7 @@ export const plugins = [
   mdx({
     rehypePlugins: [
       //   rehypeSlug,
-     rehypeKatex,
+      rehypeKatex,
       //   rehypeInferReadingTimeMeta,
       //   rehypeCodeTitles,
       [
@@ -76,9 +91,6 @@ export default defineConfig({
   },
   css: {
     transformer: "lightningcss",
-    // lightningcss: {
-    //   targets: browserslistToTargets(browserslist('>= 0.25%'))
-    // }
   },
   build,
   test: {

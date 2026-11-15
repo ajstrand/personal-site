@@ -1,0 +1,35 @@
+:root {
+    --sm-content: 90vw;
+    --base-header: 3rem;
+    --large-header: 4rem;
+    --super-large-header: 5rem;
+
+    --dark-blue: #524fa8;
+    --white: #ebebeb;
+
+    --test-dark-bg: #121212;
+
+    --dark-text: var(--cream);
+    --dark-bg: var(--test-dark-bg);
+
+    --lighttomato: #ec8e7b;
+
+    --demo-bg: #f4ede4;
+
+    --blue-black: #2e444e;
+
+    --dark-link-test: #74c0fc;
+
+    --dark-link: var(--dark-link-test);
+
+    --light-bg: #ffffff;
+    --light-text: var(--blue-black);
+    --light-link: var(--pink);
+
+    --coral: #ff5415;
+
+    --green: #00a96e;
+    --yellow: #efa00b;
+    --orange-red: #f25757;
+    --light-blue: #00b6ff;
+}
