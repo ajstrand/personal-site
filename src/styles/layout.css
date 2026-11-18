@@ -39,7 +39,7 @@ nav {
   container-type: inline-size;
 }
 
-@container (width > 400px) {
+@container (width > 25rem) {
   .full {
     width: 70%;
   }
@@ -58,7 +58,7 @@ footer {
 }
 
 .info {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: var(--blue-black);
   color: #ffffff;
   padding: var(--space-1);
@@ -67,12 +67,12 @@ footer {
   width: 9rem;
 
   p {
-    font-size: 10px;
+    font-size: 0.625rem;
     margin: 0;
   }
 }
 
-@container (width > 400px) {
+@container (width > 25rem) {
   .content.info {
     width: 90%;
 
