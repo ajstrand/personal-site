@@ -1,6 +1,6 @@
 a {
   /* color: var(--dark-link); */
-  color: var(--coral);
+  color: var(--color-link-page);
   text-decoration: none;
 }
 
@@ -13,33 +13,33 @@ details {
 }
 
 pre {
-  background-color: #1b1b1f;
-  padding: var(--space-2);
+  background-color: var(--color-background-code);
+  padding: var(--spacing-sm);
   border-radius: 0.125em;
   font-size: 1rem;
-  border: 0.125rem solid skyblue;
+  border: 0.125rem solid var(--color-border-code);
 }
 
 .exampleButton {
-  color: #000000;
+  color: var(--color-text-strong);
   font-weight: bold;
-  padding: var(--space-2);
+  padding: var(--spacing-sm);
   cursor: pointer;
-  border-color: #000000;
+  border-color: var(--color-text-strong);
   border-width: 0.125rem;
   box-shadow: 0;
-  background-color: #00a96e;
+  background-color: var(--color-background-button);
 }
 
 .exampleButton:hover {
-  box-shadow: 0.125rem 0.125rem 0 rgba(0, 0, 0, 1);
-  background-color: #e0819b;
+  box-shadow: 0.125rem 0.125rem 0 var(--color-shadow-button);
+  background-color: var(--color-background-button-hover);
 }
 
 .exampleButton:focus-visible,
 .exampleButton:focus-within,
 .exampleButton:active {
-  outline: 0.1875rem solid var(--blue);
+  outline: 0.1875rem solid var(--color-focus-outline);
   outline-offset: 0.1875rem;
-  background-color: #e0819b;
+  background-color: var(--color-background-button-hover);
 }

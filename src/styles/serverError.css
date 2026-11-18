@@ -4,14 +4,14 @@
     justify-content: center;
     flex-direction: column;
     height: 40vh;
-    border: 0.1875rem solid #000000;
+    border: 0.1875rem solid var(--color-text-strong);
     border-radius: 0.625rem;
 
     p.message {
-        color: #000000;
+        color: var(--color-text-strong);
         font-weight: bold;
         text-decoration: underline;
-        text-decoration-color: var(--lighttomato);
+        text-decoration-color: var(--color-decoration-error);
         text-decoration-thickness: 0.3125rem;
     }
 }

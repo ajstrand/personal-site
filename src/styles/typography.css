@@ -3,15 +3,15 @@
   text-decoration-thickness: 0.1em;
 
   .darkblue {
-    text-decoration-color: var(--dark-blue);
+    text-decoration-color: var(--color-decoration-dark-blue);
   }
 
   .green {
-    text-decoration-color: var(--green);
+    text-decoration-color: var(--color-decoration-green);
   }
 
   .lightblue {
-    text-decoration-color: var(--light-blue);
+    text-decoration-color: var(--color-decoration-light-blue);
   }
 }
 
@@ -20,9 +20,9 @@
   margin: 0;
   font-size: 4rem;
   background: linear-gradient(30deg,
-      var(--green) 30%,
-      var(--orange-red) 30%,
-      var(--light-blue) 40%);
+      var(--color-gradient-start) 30%,
+      var(--color-gradient-middle) 30%,
+      var(--color-gradient-end) 40%);
   /* linear-gradient(51deg, var(--orange-red) 9%, var(--light-blue) 24%, #FFC15E 36%, var(--green) 59%, #563dd4 100%); */
   /* background: -webkit-linear-gradient(45deg, var(--yellow), var(--orange-red) 60%); */
   background-clip: text;

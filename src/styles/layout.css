@@ -7,18 +7,16 @@ body,
 }
 
 body {
-  /* background-color: var(--dark-bg);
-    color: var(--dark-text); */
-  background-color: var(--light-bg);
-  color: var(--light-text);
+  background-color: var(--color-background-page);
+  color: var(--color-text-page);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
   margin: 0;
-  padding: var(--space-2);
+  padding: var(--spacing-sm);
 }
 
 header {
-  padding-bottom: var(--space-2);
+  padding-bottom: var(--spacing-sm);
 }
 
 nav {
@@ -59,9 +57,9 @@ footer {
 
 .info {
   border-radius: 0.625rem;
-  background-color: var(--blue-black);
-  color: #ffffff;
-  padding: var(--space-1);
+  background-color: var(--color-background-panel);
+  color: var(--color-text-panel);
+  padding: var(--spacing-xs);
   display: flex;
   align-items: center;
   width: 9rem;
