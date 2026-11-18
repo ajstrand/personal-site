@@ -1,4 +1,4 @@
-import { render as renderToString } from "preact-render-to-string";
+import renderToString from "preact-render-to-string";
 import { MDXProvider } from "@mdx-js/preact";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import ServerErrorFallback from "./components/ServerErrorFallback.jsx";
@@ -28,7 +28,19 @@ export function render(url) {
 		return { html: renderToString(<ServerErrorFallback />) };
 	}
 	const pageObject = pages[url];
+	console.log("Rendering URL:", url);
+	console.log("Page object for URL:", pageObject);
+	if (url === "/favicon.ico") {
+		console.log("Favicon requested, ignoring request");
+		return { html: "" };
+	}
+	if (!pageObject) {
+		console.warn("No page object found for URL:", url);
+		return { html: renderToString(<ServerErrorFallback error={{ error: "Page not found", url }} />) };
+	}
 	const { Component, meta } = getComponentAndMeta(pageObject);
+
+	const noHTML = `Rendered HTML is empty for URL: ${url} you'll need to check the component rendering.`;
 
 	try {
 		const html = renderToString(
@@ -39,12 +51,19 @@ export function render(url) {
 			</MDXProvider>,
 		);
 
+
+		if (!html) {
+			console.error(noHTML);
+			throw new Error(noHTML);
+		}
+
+
 		return { html };
 	} catch (error) {
 		console.error("Error rendering URL:", url, error);
 		const errorObj = {
-			error:error.toString(),
-			url:url
+			error: error.toString(),
+			url: url
 		}
 		const errorResponse = renderToString(<ServerErrorFallback error={errorObj} />);
 		return { html: errorResponse };
