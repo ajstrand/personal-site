@@ -22,7 +22,7 @@ export function DefaultLayout({ meta, children }) {
         </nav>
       </header>
 
-      <main>{children}</main>
+      <main class="stack gap-4">{children}</main>
 
       {/* <Island componentName="Page">
         <Page children={children}></Page>

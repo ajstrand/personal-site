@@ -1,0 +1,28 @@
+.code-demo {
+    height: 6.25rem;
+    width: 18.75rem;
+    background-color: var(--color-background-demo);
+    border: 0.1875rem solid var(--color-text-strong);
+    border-radius: 0.625rem;
+    padding: var(--spacing-sm);
+    align-items: flex-start;
+}
+
+.code-demo-error {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    background-color: var(--color-background-demo);
+    border: 0.1875rem solid var(--color-text-strong);
+    border-radius: 0.625rem;
+    padding: var(--spacing-sm);
+
+    p {
+        margin: 0;
+        color: var(--color-text-strong);
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-color: var(--color-decoration-error);
+        text-decoration-thickness: 0.3125rem;
+    }
+}

@@ -29,13 +29,14 @@ export const build = {
   },
 };
 
+const browserPolyfills = nodePolyfills({
+  // Whether to polyfill `node:` protocol imports.
+  protocolImports: true,
+});
+
 export const plugins = [
   preact(),
-
-  nodePolyfills({
-    // Whether to polyfill `node:` protocol imports.
-    protocolImports: true,
-  }),
+  browserPolyfills,
   mdx({
     rehypePlugins: [
       //   rehypeSlug,
@@ -66,7 +67,9 @@ export const plugins = [
   // },
 ];
 
-export default defineConfig({
+export const ssrPlugins = plugins.filter((plugin) => plugin !== browserPolyfills);
+
+export default defineConfig(({ isSsrBuild }) => ({
   base: "./",
   esbuild: {
     target: "esnext",
@@ -87,5 +90,5 @@ export default defineConfig({
     root: __dirname,
     setupFiles: ["./vitest-setup.js"],
   },
-  plugins,
-});
+  plugins: isSsrBuild ? ssrPlugins : plugins,
+}));

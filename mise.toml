@@ -1,3 +1,4 @@
 [tools]
-pnpm = "latest"
-node = "24.3.0"
+aube = "latest"
+node = "24.22.3"
+"pypi:commitizen" = "latest"

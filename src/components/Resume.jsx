@@ -28,8 +28,8 @@
 
 const Resume = () => {
   return (
-    <p>
-      <span>You can view my resume</span>
+    <p className="row gap-1">
+      <span>You can view my resume</span>{" "}
       <a
         className="resume_link"
         aria-label="resume"

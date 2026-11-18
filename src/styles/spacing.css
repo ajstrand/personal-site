@@ -1,0 +1,38 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack > * {
+  margin-block: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.gap-1 {
+  gap: var(--spacing-xs);
+}
+
+.gap-2 {
+  gap: var(--spacing-sm);
+}
+
+.gap-3 {
+  gap: var(--spacing-md);
+}
+
+.gap-4 {
+  gap: var(--spacing-lg);
+}
+
+.gap-5 {
+  gap: var(--spacing-xl);
+}
+
+.gap-6 {
+  gap: var(--spacing-2xl);
+}

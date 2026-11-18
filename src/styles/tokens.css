@@ -1,0 +1,84 @@
+:root {
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+
+  --sm-content: 90vw;
+  --base-header: 3rem;
+  --large-header: 4rem;
+  --super-large-header: 5rem;
+
+  --dark-blue: #524fa8;
+  --white: #ebebeb;
+  --black: #000000;
+
+  --test-dark-bg: #121212;
+  --code-background: #1b1b1f;
+  --code-border: skyblue;
+  --button-hover: #e0819b;
+  --button-shadow: rgba(0, 0, 0, 1);
+
+  --dark-text: var(--white);
+  --dark-bg: var(--test-dark-bg);
+
+  --lighttomato: #ec8e7b;
+
+  --demo-bg: #f4ede4;
+
+  --blue-black: #2e444e;
+
+  --dark-link-test: #74c0fc;
+
+  --dark-link: var(--dark-link-test);
+
+  --light-bg: #ffffff;
+  --light-text: var(--blue-black);
+  --light-link: var(--coral);
+
+  --coral: #ff5415;
+
+  --green: #00a96e;
+  --yellow: #efa00b;
+  --orange-red: #f25757;
+  --light-blue: #00b6ff;
+
+  --color-background-page: var(--light-bg);
+  --color-text-page: var(--light-text);
+  --color-link-page: var(--light-link);
+  --color-background-dark: var(--dark-bg);
+  --color-text-dark: var(--dark-text);
+  --color-link-dark: var(--dark-link);
+  --color-background-panel: var(--blue-black);
+  --color-text-panel: var(--light-bg);
+  --color-background-demo: var(--demo-bg);
+  --color-decoration-error: var(--lighttomato);
+  --color-focus-outline: var(--light-blue);
+  --color-text-strong: var(--black);
+  --color-background-code: var(--code-background);
+  --color-border-code: var(--code-border);
+  --color-background-button: var(--green);
+  --color-background-button-hover: var(--button-hover);
+  --color-shadow-button: var(--button-shadow);
+  --color-decoration-dark-blue: var(--dark-blue);
+  --color-decoration-green: var(--green);
+  --color-decoration-light-blue: var(--light-blue);
+  --color-accent-yellow: var(--yellow);
+  --color-gradient-start: var(--green);
+  --color-gradient-middle: var(--orange-red);
+  --color-gradient-end: var(--light-blue);
+
+  --spacing-xs: var(--space-1);
+  --spacing-sm: var(--space-2);
+  --spacing-md: var(--space-3);
+  --spacing-lg: var(--space-4);
+  --spacing-xl: var(--space-5);
+  --spacing-2xl: var(--space-6);
+
+  --content-width-small: var(--sm-content);
+  --font-size-heading-base: var(--base-header);
+  --font-size-heading-large: var(--large-header);
+  --font-size-heading-xl: var(--super-large-header);
+}
