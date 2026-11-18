@@ -1,0 +1,57 @@
+a {
+  /* color: var(--dark-link); */
+  color: var(--coral);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+details {
+  cursor: pointer;
+}
+
+pre {
+  background-color: #1b1b1f;
+  padding: var(--space-2);
+  border-radius: 0.125em;
+  font-size: 1rem;
+  border: 2px solid skyblue;
+}
+
+.exampleButton {
+  color: #000000;
+  font-weight: bold;
+  padding: var(--space-2);
+  cursor: pointer;
+  border-color: #000000;
+  border-width: 2px;
+  box-shadow: 0;
+  background-color: #00a96e;
+}
+
+.exampleButton:hover {
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+  background-color: #e0819b;
+}
+
+.exampleButton:focus-visible,
+.exampleButton:focus-within,
+.exampleButton:active {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+  background-color: #e0819b;
+}
+
+/* //     outline: :focusVisible": "3px solid var(--blue)",
+//       ":active": "3px solid var(--blue)",
+//     },
+//     outlineOffset: {
+//       ":focusVisible": "3px",
+//       ":active": "3px",
+//     },
+//     borderRadius: {
+//       ":focusVisible": "0.125rem",
+//       ":active": "0.125rem",
+//     }, */

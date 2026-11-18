@@ -1,10 +1,10 @@
 import { defineConfig } from "vite";
-import { plugins, build } from "./vite.config.js";
+import { plugins, ssrPlugins, build } from "./vite.config.js";
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   base: "./",
-  plugins,
+  plugins: isSsrBuild ? ssrPlugins : plugins,
   build,
   ssr: {
   },
-});
+}));

@@ -1,0 +1,28 @@
+.code-demo {
+    height: 100px;
+    width: 300px;
+    background-color: var(--demo-bg);
+    border: 3px solid #000000;
+    border-radius: 10px;
+    padding: var(--space-2);
+    align-items: flex-start;
+}
+
+.code-demo-error {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    background-color: var(--demo-bg);
+    border: 3px solid #000000;
+    border-radius: 10px;
+    padding: var(--space-2);
+
+    p {
+        margin: 0;
+        color: #000000;
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-color: var(--lighttomato);
+        text-decoration-thickness: 5px;
+    }
+}

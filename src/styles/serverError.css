@@ -1,0 +1,17 @@
+.error-fallback-server {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 40vh;
+    border: 3px solid #000000;
+    border-radius: 10px;
+
+    p.message {
+        color: #000000;
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-color: var(--lighttomato);
+        text-decoration-thickness: 5px;
+    }
+}
